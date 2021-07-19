@@ -1,0 +1,22 @@
+@import "../../../assets/styleSotrage/mixinss";
+section{
+    padding: 5rem 10rem;
+    .head{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10rem;
+        text-align: center;
+    }
+    .packages{
+        background: #f8f8fa;
+        border: none;
+        border-radius: 10px;
+        padding: 3rem 5rem;
+        gap: 1rem;
+    }
+    .row{
+        margin-top: 2rem;
+    }
+}
