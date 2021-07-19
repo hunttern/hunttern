@@ -1,0 +1,98 @@
+@import "../../../assets/styleSotrage/mixinss";
+@import "../../../assets/styleSotrage/vars";
+@mixin col($main) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    @if($main == 1){
+        li:first-child{
+            color: #fff;
+            font-size: 23px;
+            line-height: 30px;
+        }
+    }
+}
+footer{
+    color: #9C99BE;
+    display: grid;
+    grid-template-columns: 3fr 1fr 2fr 2fr 2fr;
+    grid-template-rows: 4fr 1fr;
+    grid-template-areas: "description menu services information contact"
+                         "rights rights rights rights rights"
+    ;
+    padding: 3rem 4rem 1rem ;
+    background-color: #13102C;
+    .rights{
+        @include _center;
+        grid-area: rights;
+        border-top: #9C99BE thin solid;
+        margin-top: 1rem;
+        padding: 1rem
+    }
+}
+.description{
+    @include col(0);
+    padding-right: 0.75rem;
+    grid-area: description;
+    #logo{
+        color: $maincolor;
+        span{
+            margin-left: 0.5rem;
+            color: #E9E8F7;
+        }
+    }
+    p{
+        font-size: 18px;
+        line-height: 30px;
+    }
+    ul{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        left: -1rem;
+        gap: 0.5rem;
+        list-style: none;
+        i{
+            @include _center;
+            color: #2D2768;
+            background-color: #fff;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+}
+.menu{
+    grid-area: menu;
+    ul{
+        @include col(1);
+    }
+    
+}
+
+.services{
+    grid-area: services;
+    ul{
+        @include col(1);
+    }
+}
+.information{
+    grid-area: information;
+    ul{
+        @include col(1);
+    }
+}
+.contact{
+    ul{
+        @include col(1);
+    }
+    grid-area: contact;
+    i{
+        color: #fff;
+        width: 20px;
+        height: 20px;
+    }
+    label{
+        margin-left: 0.5rem;
+    }
+}
