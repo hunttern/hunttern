@@ -1,0 +1,63 @@
+@import "../../../assets/styleSotrage/vars";
+@mixin circle ($left, $bottom) {
+    position: absolute;
+    left: $left;
+    bottom: $bottom;
+    z-index: 1;
+    opacity: 0.85;
+    height: 30rem;
+    width: 30rem;
+    background-color: transparent;
+    border-radius: 50%;
+    border: solid 5rem #231d5b;
+}
+header{
+    z-index: 0;
+    background-color: $backcolor;
+}
+head{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: "information image";
+}
+#information{
+    grid-area: information;
+    padding: 5rem 4rem 5rem 7rem;
+    h1{
+        color: #fff;
+        line-height: 75px;
+        font-weight: bold;
+        font-size: 60px;
+    }
+    p{
+        color: #D8D7ED;
+        font-size: 19px;
+        line-height: 30px;
+    }
+    button{
+        padding: 0.5rem 2rem;
+        border: none;
+        border-radius: 7px;
+        color: #fff;
+        font-size: 19px;
+        line-height: 30px;
+        background-color: $maincolor;
+    }
+}
+#image{
+    grid-area: image;
+    img{
+        object-fit: cover;
+        height: 30rem;
+        width: 30rem;
+    }
+}
+#circle1{
+    @include circle(30%, 75%)
+}
+#circle2{
+    @include circle(-10%, 5%)
+}
+#circle3{
+    @include circle(75%, 1%)
+}

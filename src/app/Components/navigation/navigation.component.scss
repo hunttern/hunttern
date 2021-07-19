@@ -3,7 +3,8 @@
 
 * {
     font-size: 19px;
-    line-height: 30px;  
+    line-height: 30px;
+    z-index: 2;
 }
 nav{
     display: grid;
@@ -41,9 +42,9 @@ nav{
     a{
         position: relative;
         float: right;
-        padding: 0.25rem 1rem;
+        padding: 0.25rem 1.5rem;
         border: none;
-        border-radius: 5px;
+        border-radius: 7px;
         background-color: $maincolor;
     }
 }

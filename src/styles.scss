@@ -1,12 +1,14 @@
 *{
     @font-face {
         font-family: "Jakarta";
-        src: local("Jakarta"), url(./assets/Fonts/PlusJakartaDisplay-Regular.ttf) format("truetype");
+        src: local("Jakarta"), url(./assets/Fonts/PlusJakartaSans-Regular.ttf) format("truetype");
     }
     margin: 0;
     padding: 0;
     font-family: Jakarta;
     font-style: normal;
+    z-index: 2;
+    overflow: hidden;
 }
 * a:hover{
     cursor: pointer;
