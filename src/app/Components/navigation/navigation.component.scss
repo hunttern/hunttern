@@ -17,6 +17,7 @@ nav{
     position: relative;
     left: 2rem;
     color: $maincolor;
+    display: flex;
     grid-area: logo;
     span{
         margin-left: 0.5rem;

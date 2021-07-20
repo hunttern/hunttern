@@ -11,6 +11,7 @@ import { PackagesComponent } from './Components/packages/packages.component';
 import { CardComponent } from './Components/packages/card/card.component';
 import { ServicesComponent } from './Components/services/services.component';
 import { FeaturesComponent } from './Components/features/features.component';
+import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FeaturesComponent } from './Components/features/features.component';
     PackagesComponent,
     CardComponent,
     ServicesComponent,
-    FeaturesComponent
+    FeaturesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

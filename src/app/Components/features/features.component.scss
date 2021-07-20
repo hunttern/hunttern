@@ -1,5 +1,6 @@
 @import "../../../assets/styleSotrage/mixinss";
 section{
+    z-index: 4;
     padding: 10rem 7rem;
     .head{
         margin-bottom: 4rem;
@@ -44,26 +45,31 @@ section{
             }
         }
     }
-    .description{
-        h2{
-            font-weight: bold;
-            font-size: 44px;
-            color: #191633;
+    .part2{
+        margin-top: 2rem;
+        .description{
+            h2{
+                font-weight: bold;
+                font-size: 44px;
+                color: #191633;
+            }
+            p{
+                font-size: 20px;
+                color: #403C52;
+            }
+            button{
+                background-color: #393884;
+                border-radius: 10px;
+                border: none;
+                color: #fff;
+                padding: 0.5rem 1.5rem;
+                margin-top: 1rem;
+            }
         }
-        p{
-            font-size: 20px;
-            color: #403C52;
-        }
-        button{
-            background-color: #393884;
-            border-radius: 12px;
-            color: #fff;
-            padding: 0.5rem 1.5rem;
-        }
-    }
-    .image{
-        img{
-            object-fit: cover;
+        .image{
+            img{
+                object-fit: cover;
+            }
         }
     }
 }
