@@ -10,6 +10,7 @@ import { SubscribeComponent } from './Components/subscribe/subscribe.component';
 import { PackagesComponent } from './Components/packages/packages.component';
 import { CardComponent } from './Components/packages/card/card.component';
 import { ServicesComponent } from './Components/services/services.component';
+import { FeaturesComponent } from './Components/features/features.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ServicesComponent } from './Components/services/services.component';
     SubscribeComponent,
     PackagesComponent,
     CardComponent,
-    ServicesComponent
+    ServicesComponent,
+    FeaturesComponent
   ],
   imports: [
     BrowserModule,

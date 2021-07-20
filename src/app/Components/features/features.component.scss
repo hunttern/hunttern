@@ -1,0 +1,69 @@
+@import "../../../assets/styleSotrage/mixinss";
+section{
+    padding: 10rem 7rem;
+    .head{
+        margin-bottom: 4rem;
+        h1{
+            font-weight: bold;
+            font-size: 49px;
+            color: #161620;
+            span{
+                background: -webkit-linear-gradient(#EA5C28,#E8A82C);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            p{
+                font-size: 20px;
+                line-height: 33px;
+                color: #403C52;
+            }
+        }
+    }
+    .feature{
+        h3{
+            display: flex;
+            gap: 0.75rem;
+            font-size: 29px;
+            color: #161620;
+        }
+        p{
+            font-size: 18px;
+            color: #514F67;
+        }
+        span{
+            @include _center();
+            border-radius: 50%;
+            background: linear-gradient(146.31deg, #E8A62C 15.26%, #EA5C28 83.68%);
+            box-shadow: 0px 8px 20px rgba(233, 100, 40, 0.09);
+            color: #fff;
+            width: 35px;
+            height: 35px;
+            img{
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+    .description{
+        h2{
+            font-weight: bold;
+            font-size: 44px;
+            color: #191633;
+        }
+        p{
+            font-size: 20px;
+            color: #403C52;
+        }
+        button{
+            background-color: #393884;
+            border-radius: 12px;
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+        }
+    }
+    .image{
+        img{
+            object-fit: cover;
+        }
+    }
+}
