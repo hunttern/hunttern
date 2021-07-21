@@ -1,0 +1,28 @@
+<div>
+    <div class="test">
+        <app-navigation ></app-navigation>
+    </div>
+    <body>
+        <div class="header">
+            <h1>Terms of Use</h1>
+            <span><i class="fas fa-search"></i><input type="text" placeholder="Search title , keyword or etc..."></span>
+        </div>
+        <div class="row">
+            <nav class="col-md-4 navigation">
+                <ul>
+                    <li><a [routerLink]="['TermsOfUse']" routerLinkActive="active">Terms of use</a></li>
+                    <li><a [routerLink]="['PrivacyPolicy']" routerLinkActive="active">Privacy policy</a></li>
+                    <li><a [routerLink]="['InstructorTerms']" routerLinkActive="active">Instructor Terms</a></li>
+                    <li><a [routerLink]="['CreditsProgram']" routerLinkActive="active">Credits Program</a></li>
+                    <li><a [routerLink]="['PropertyPolicy']" routerLinkActive="active">Intellectual Property Policy</a></li>
+                    <li><a [routerLink]="['Udemy']" routerLinkActive="active">Udemy API Agreement</a></li>
+                    <li><a [routerLink]="['ServicesAgreement']" routerLinkActive="active">Master Services Agreement</a></li>
+                </ul>
+            </nav>
+            <div class="col-md-8 main">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </body>
+    <app-footer></app-footer>
+</div>

@@ -16,6 +16,14 @@ import { LoginComponent } from './Components/login-register/login/login.componen
 import { RegisterComponent } from './Components/login-register/register/register.component';
 import { ForgetComponent } from './Components/login-register/forget/forget.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { TermsComponent } from './Components/terms/terms.component';
+import { InstructorTermsComponent } from './Components/terms/instructor-terms/instructor-terms.component';
+import { TermsOfUseComponent } from './Components/terms/terms-of-use/terms-of-use.component';
+import { PrivacyPolicyComponent } from './Components/terms/privacy-policy/privacy-policy.component';
+import { CreditsProgramComponent } from './Components/terms/credits-program/credits-program.component';
+import { IntellectualPropertyPolicyComponent } from './Components/terms/intellectual-property-policy/intellectual-property-policy.component';
+import { UdemyComponent } from './Components/terms/udemy/udemy.component';
+import { MasterServicesAgreementComponent } from './Components/terms/master-services-agreement/master-services-agreement.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +38,15 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ForgetComponent
+    ForgetComponent,
+    TermsComponent,
+    InstructorTermsComponent,
+    TermsOfUseComponent,
+    PrivacyPolicyComponent,
+    CreditsProgramComponent,
+    IntellectualPropertyPolicyComponent,
+    UdemyComponent,
+    MasterServicesAgreementComponent
   ],
   imports: [
     BrowserModule,

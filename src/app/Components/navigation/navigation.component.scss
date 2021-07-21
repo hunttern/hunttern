@@ -21,7 +21,12 @@ nav{
     grid-area: logo;
     span{
         margin-left: 0.5rem;
-        color: #E9E8F7;
+        @if($nav == 1){
+            color: #E9E8F7;
+            height: 100vh;
+        }@else if($nav == 0){
+            color: #191633;
+        }
     }
 }
 #navigation{
@@ -33,6 +38,12 @@ nav{
         gap: 2rem;
         a{
             text-align: center;
+            text-decoration: none;
+            @if($nav == 1){
+                color: #E9E8F7;
+            }@else if($nav == 0){
+                color: #191633;
+            }
         }
     }
 }
@@ -47,9 +58,7 @@ nav{
         border: none;
         border-radius: 7px;
         background-color: $maincolor;
+        color: #E9E8F7;
+        text-decoration: none;
     }
-}
-a{
-    text-decoration: none;
-    color: #E9E8F7;
 }
