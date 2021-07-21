@@ -3,9 +3,9 @@
 
 .login{
     @include _center;
-    height: 100vh;
     flex-direction: column;
     background-color: #E5E5E5;
+    padding: 3rem;
     .form{
         width: 50rem;
         background-color: #fff;
@@ -74,6 +74,16 @@
     .forget{
         display: flex;
         justify-content: space-between;
+    }
+    .new{
+        display: flex;
+        justify-content: center;
+        font-size: 17px;
+        line-height: 30px;
+        a{
+            color: $maincolor;
+        }
+
     }
     .rights{
         margin-top: 2rem;
