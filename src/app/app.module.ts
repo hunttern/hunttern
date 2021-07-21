@@ -12,7 +12,10 @@ import { CardComponent } from './Components/packages/card/card.component';
 import { ServicesComponent } from './Components/services/services.component';
 import { FeaturesComponent } from './Components/features/features.component';
 import { HomeComponent } from './Components/home/home.component';
-
+import { LoginComponent } from './Components/login-register/login/login.component';
+import { RegisterComponent } from './Components/login-register/register/register.component';
+import { ForgetComponent } from './Components/login-register/forget/forget.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,11 +27,15 @@ import { HomeComponent } from './Components/home/home.component';
     CardComponent,
     ServicesComponent,
     FeaturesComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForgetComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
