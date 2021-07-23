@@ -7,13 +7,14 @@ section{
         h1{
             font-weight: bold;
             font-size: 49px;
+            line-height: 60px;
             color: #161620;
             span{
                 @include gradiant;
             }
             p{
                 font-size: 20px;
-                line-height: 33px;
+                line-height: 40px;
                 color: #403C52;
             }
         }
@@ -23,10 +24,12 @@ section{
             display: flex;
             gap: 0.75rem;
             font-size: 29px;
+            line-height: 50px;
             color: #161620;
         }
         p{
             font-size: 18px;
+            line-height: 30px;
             color: #514F67;
         }
         span{
@@ -49,11 +52,14 @@ section{
             h2{
                 font-weight: bold;
                 font-size: 44px;
+                line-height: 55px;
                 color: #191633;
             }
             p{
                 font-size: 20px;
+                line-height: 33px;
                 color: #403C52;
+                line-height: 30px;
             }
             button{
                 background-color: #393884;

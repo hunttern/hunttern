@@ -33,6 +33,7 @@ import { ProfileComponent } from './Components/dashboard/profile/profile.compone
 import { StatisticsComponent } from './Components/dashboard/statistics/statistics.component';
 import { PlansComponent } from './Components/dashboard/plans/plans.component';
 import { ChangepasswordComponent } from './Components/dashboard/profile/changepassword/changepassword.component';
+import { PlatformComponent } from './Components/platform/platform.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +65,8 @@ import { ChangepasswordComponent } from './Components/dashboard/profile/changepa
     ProfileComponent,
     StatisticsComponent,
     PlansComponent,
-    ChangepasswordComponent
+    ChangepasswordComponent,
+    PlatformComponent
   ],
   imports: [
     BrowserModule,

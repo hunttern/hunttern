@@ -1,6 +1,6 @@
 @import "../../../assets/styleSotrage/vars";
 @mixin circle ($left, $bottom) {
-    position: absolute;
+    position: relative;
     left: $left;
     bottom: $bottom;
     z-index: 1;

@@ -38,7 +38,6 @@ const routes: Routes = [
   {path: 'blog', component: BlogComponent},
   {path: 'dashboard', component: DashboardComponent, children: [
     {path: 'Profile',component: ProfileComponent},
-    // {path: 'Dashboard',component: ProfileComponent},
     {path: 'Statistics',component: StatisticsComponent},
     {path: 'Payments',component: PlansComponent},
     {path: 'changepassword',component: ChangepasswordComponent},
