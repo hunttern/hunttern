@@ -24,6 +24,9 @@ import { CreditsProgramComponent } from './Components/terms/credits-program/cred
 import { IntellectualPropertyPolicyComponent } from './Components/terms/intellectual-property-policy/intellectual-property-policy.component';
 import { UdemyComponent } from './Components/terms/udemy/udemy.component';
 import { MasterServicesAgreementComponent } from './Components/terms/master-services-agreement/master-services-agreement.component';
+import { BlogComponent } from './Components/blog/blog.component';
+import { NewsComponent } from './Components/blog/news/news.component';
+import { NewscardComponent } from './Components/blog/newscard/newscard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +49,10 @@ import { MasterServicesAgreementComponent } from './Components/terms/master-serv
     CreditsProgramComponent,
     IntellectualPropertyPolicyComponent,
     UdemyComponent,
-    MasterServicesAgreementComponent
+    MasterServicesAgreementComponent,
+    BlogComponent,
+    NewsComponent,
+    NewscardComponent
   ],
   imports: [
     BrowserModule,

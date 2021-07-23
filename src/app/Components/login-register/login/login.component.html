@@ -26,11 +26,11 @@
                     <input type="checkbox">
                     <label>Keep my signed in</label>
                 </div>
-                <a>Forget Password?</a>
+                <a [routerLink]="['/forget']" >Forget Password?</a>
             </div>
             <button>Login</button>
             <div class="new">
-                <h5>Not registered yet? <a>Create an Account</a></h5>
+                <h5>Not registered yet? <a [routerLink]="['/register']">Create an Account</a></h5>
             </div>
         </form>
     </div>
