@@ -7,16 +7,15 @@
         </div>
         <div class="navigation">
             <ul>
-                <li><a [routerLink]="['/dashboard']">Dashboard</a></li>
-                <li><a [routerLink]="['/profile']">Profile</a></li>
-                <li><a [routerLink]="['/statistics']">Statistics</a></li>
-                <li><a [routerLink]="['/dashboard']">Payments & Plans</a></li>
-                <li class="logout"><a [routerLink]="['/home']">Sign out</a></li>
+                <li><a [routerLink]="['/dashboard']"><span><i class="material-icons">speed</i></span>Dashboard</a></li>
+                <li><a [routerLink]="['/profile']"><span><i class="material-icons">person</i></span>Profile</a></li>
+                <li><a [routerLink]="['/statistics']"><span><i class="material-icons">bar_chart</i></span>Statistics</a></li>
+                <li><a [routerLink]="['/dashboard']"><span><i class="material-icons">account_balance_wallet</i></span>Payments & Plans</a></li>
+                <li class="logout"><a [routerLink]="['/home']"><span><i class="material-icons">logout</i></span>Sign out</a></li>
             </ul>
         </div>
     </div>
     <div class="col-md-10">
-        <!-- <router-outlet></router-outlet> -->
-        <app-plans></app-plans>
+        <router-outlet></router-outlet>
     </div>
 </div>

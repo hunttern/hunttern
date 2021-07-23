@@ -32,6 +32,7 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { ProfileComponent } from './Components/dashboard/profile/profile.component';
 import { StatisticsComponent } from './Components/dashboard/statistics/statistics.component';
 import { PlansComponent } from './Components/dashboard/plans/plans.component';
+import { ChangepasswordComponent } from './Components/dashboard/profile/changepassword/changepassword.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,8 @@ import { PlansComponent } from './Components/dashboard/plans/plans.component';
     DashboardComponent,
     ProfileComponent,
     StatisticsComponent,
-    PlansComponent
+    PlansComponent,
+    ChangepasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,9 @@
 }
 .body{
     background-color: #E5E5E5;
-    padding: 2rem
+    padding: 2rem;
+    height: 100vh;
+    overflow-y: scroll;
 }
 .plan{
     @include section;
