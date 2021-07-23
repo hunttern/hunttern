@@ -1,0 +1,54 @@
+@import "../../../assets/styleSotrage/mixinss";
+
+article{
+    padding: 3rem 5rem;
+    .title{
+        text-align: center;
+        h1{
+            font-weight: bold;
+            color: #191633;
+        }
+        h4{
+            @include _center;
+            color: #615F79;
+            display: flex;
+            gap:1rem;
+        }
+    }
+    .image{
+        border-radius: 18px;
+    }
+    .contact{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 90%;
+        gap: 1rem;
+    }
+    p{
+        color: #615E7B;
+    }
+    h2{
+        font-weight: bold;
+        color: #393884;
+    }
+    .container{
+        border-top: thin solid #EAEAF3;
+        ul{
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            label{
+                background: rgba($color: #393884, $alpha: 0.1);
+                padding: 0.5rem;
+                border-radius: 8px;
+                color: #393884;
+            }
+        }
+    }
+    .body{
+        margin-top: 3rem;
+    }
+}

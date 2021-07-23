@@ -27,6 +27,7 @@ import { MasterServicesAgreementComponent } from './Components/terms/master-serv
 import { BlogComponent } from './Components/blog/blog.component';
 import { NewsComponent } from './Components/blog/news/news.component';
 import { NewscardComponent } from './Components/blog/newscard/newscard.component';
+import { ArticleComponent } from './Components/article/article.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,8 @@ import { NewscardComponent } from './Components/blog/newscard/newscard.component
     MasterServicesAgreementComponent,
     BlogComponent,
     NewsComponent,
-    NewscardComponent
+    NewscardComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
