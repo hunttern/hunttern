@@ -1,0 +1,101 @@
+.main{
+    padding: 3rem;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .image{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "image buttons"
+        "image text";
+        gap: 1rem;
+        padding: 1rem;
+        img{
+            grid-area: image;
+            width: 100px;
+            height: 100px;
+            border-radius: 25px;
+            box-shadow: 0 0 0 5px #fff,
+                        0 0 0 6px #7146EB;
+        }
+        .buttons{
+            grid-area: buttons;
+            display: flex;
+            flex-direction: row;
+            gap: 0.75rem;
+            .upload{
+                background: rgba($color: #7146EB, $alpha: 0.1);
+                color: #7146EB;
+                border: none;
+            }
+            .remove{
+                border: thin solid #E5E5EF;
+                background-color: #fff;
+                color: #4D4D63;
+            }
+            button{
+                padding: 0.5rem;
+                border-radius: 13px;
+            }
+            
+        }
+        label{
+            grid-area: text;
+            color: #7D7DB1;
+            
+        }
+    }
+    a{
+        color: #F19F48;
+        text-decoration: none;
+    }
+}
+form{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "name lastname"
+                        "username country"
+                        "email email";
+    gap: 3rem 1rem;
+    .input{
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 7px;
+        border: 1.2px solid #E5E5EF;
+        padding: 0.5rem;
+    }
+    label{
+        font-size: 18px;
+        color: #4D4D63;
+    }
+    .name{
+        grid-area: name;
+    }
+    .lastname{
+        grid-area: lastname;
+    }
+    .username{
+        grid-area: username;
+    }
+    .country{
+        grid-area: country;
+    }
+    .email{
+        grid-area: email;
+    }
+    button{
+        width: 75%;
+        padding: 0.75rem;
+        background: #7146EB;
+        border-radius: 7px;
+        font-size: 19px;
+        border: none;
+        color: #fff;
+    }
+}
