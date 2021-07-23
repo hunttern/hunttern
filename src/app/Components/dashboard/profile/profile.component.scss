@@ -118,9 +118,7 @@ form{
             color: #4D4D63;
         }
         h2{
-            background: -webkit-linear-gradient(#EA5C28,#E8A82C);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            @include gradiant;
             font-weight: normal;
             font-size: 26px;
         }
