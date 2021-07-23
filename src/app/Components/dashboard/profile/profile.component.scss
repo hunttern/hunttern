@@ -1,3 +1,4 @@
+@import "../../../../assets/styleSotrage/mixinss";
 .main{
     padding: 3rem;
 }
@@ -97,5 +98,49 @@ form{
         font-size: 19px;
         border: none;
         color: #fff;
+    }
+}
+.plan{
+    padding: 1rem;
+    border: thin #4D4D63 dashed;
+    border-radius: 10px;
+    .row{
+        border-bottom: #4D4D63 thin dashed;
+        .leftdays{
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 30px;
+            color: #7146EB;
+        }
+        h3{
+            font-weight: 300;
+            font-size: 18px;
+            color: #4D4D63;
+        }
+        h2{
+            background: -webkit-linear-gradient(#EA5C28,#E8A82C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: normal;
+            font-size: 26px;
+        }
+        .recharge{
+            @include _center;
+
+            button{
+                background: #F19F48;
+                border-radius: 7px;
+                color: #fff;
+                padding: 0.5rem 1.25rem;
+                border: none;
+            }
+        }
+    }
+    .par{
+        margin-top: 2rem;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 26px;
+        color: #585886;
     }
 }

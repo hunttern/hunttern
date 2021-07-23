@@ -11,7 +11,7 @@
         <a [routerLink]="['/changepassword']">Change Password</a>
     </header>
     <body class="row">
-        <form class="col-md-9">
+        <form class="col-md-8">
             <div class="name">
                 <label>First name :</label>
                 <br>
@@ -41,8 +41,20 @@
             </div>
             <button>Save changes</button>
         </form>
-        <div class="col-md-3">
-            
+        <div class="col-md-4 plan">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3>My Plan</h3>
+                    <h2>Diamond</h2>
+                    <h3 class="leftdays">{{leftdays}} days remaining</h3>
+                </div>
+                <div class="col-sm-6 recharge">
+                    <button>Recharge</button>
+                </div>
+            </div>
+            <div class="par">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+            </div>
         </div>
     </body>
 </div>
