@@ -31,6 +31,7 @@ import { ArticleComponent } from './Components/article/article.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { ProfileComponent } from './Components/dashboard/profile/profile.component';
 import { StatisticsComponent } from './Components/dashboard/statistics/statistics.component';
+import { PlansComponent } from './Components/dashboard/plans/plans.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,8 @@ import { StatisticsComponent } from './Components/dashboard/statistics/statistic
     ArticleComponent,
     DashboardComponent,
     ProfileComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    PlansComponent
   ],
   imports: [
     BrowserModule,
