@@ -7,11 +7,11 @@
         </div>
         <div class="navigation">
             <ul>
-                <li><a [routerLink]="['/dashboard']"><span><i class="material-icons">speed</i></span>Dashboard</a></li>
-                <li><a [routerLink]="['/profile']"><span><i class="material-icons">person</i></span>Profile</a></li>
-                <li><a [routerLink]="['/statistics']"><span><i class="material-icons">bar_chart</i></span>Statistics</a></li>
-                <li><a [routerLink]="['/dashboard']"><span><i class="material-icons">account_balance_wallet</i></span>Payments & Plans</a></li>
-                <li class="logout"><a [routerLink]="['/home']"><span><i class="material-icons">logout</i></span>Sign out</a></li>
+                <li><a [routerLink]="['dashboard']"routerLinkActive="active"><span><i class="material-icons">speed</i></span>Dashboard</a></li>
+                <li><a [routerLink]="['Profile']" routerLinkActive="active"><span><i class="material-icons">person</i></span>Profile</a></li>
+                <li><a [routerLink]="['Statistics']" routerLinkActive="active"><span><i class="material-icons">bar_chart</i></span>Statistics</a></li>
+                <li><a [routerLink]="['Payments']" routerLinkActive="active"><span><i class="material-icons">account_balance_wallet</i></span>Payments & Plans</a></li>
+                <li class="logout"><a [routerLink]="['/home']" routerLinkActive="active"><span><i class="material-icons">logout</i></span>Sign out</a></li>
             </ul>
         </div>
     </div>
