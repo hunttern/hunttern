@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-3 sidebar">
+        <div class="userinformation">
+            <img src="../../../assets/Images/profile.png">
+            <h2>{{username}}</h2>
+            <h4>{{email}}</h4>
+        </div>
+        <div class="navigation">
+            <ul>
+                <li><a [routerLink]="['dashboard']">Dashboard</a></li>
+                <li><a [routerLink]="['dashboard']">Profile</a></li>
+                <li><a [routerLink]="['dashboard']">Statistics</a></li>
+                <li><a [routerLink]="['dashboard']">Payments & Plans</a></li>
+                <li class="logout"><a [routerLink]="['dashboard']">Sign out</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <router-outlet></router-outlet>
+    </div>
+</div>

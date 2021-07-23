@@ -1,0 +1,55 @@
+@mixin col {
+    display: flex;
+    flex-direction: column;
+}
+.sidebar{
+    @include col;
+    height: 100vh;
+    background-color: #13102C;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    .userinformation{
+        @include col;
+        align-items: center;
+        margin-top: 5rem;
+        img{
+            width: 85px;
+            height: 85px;
+        }
+        h2{
+            color: #D6D6EE;
+        }
+        h4{
+            color: #595983;
+        }
+    }
+    .navigation{
+        ul{
+            a{
+                display: flex;
+                gap:0.5rem;
+            }
+            @include col;
+            gap: 1.5rem;
+            padding:3rem;
+            list-style: none;
+            li{
+                a{
+                    color: #7D7DB1;
+                    text-decoration: none;
+                    &:active{
+                        color: #7146EB;
+                    }
+                }
+            }
+            .logout{
+                margin-top: 4rem;
+                a{
+                    color: #F3455A;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

@@ -28,6 +28,8 @@ import { BlogComponent } from './Components/blog/blog.component';
 import { NewsComponent } from './Components/blog/news/news.component';
 import { NewscardComponent } from './Components/blog/newscard/newscard.component';
 import { ArticleComponent } from './Components/article/article.component';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { ProfileComponent } from './Components/dashboard/profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +56,9 @@ import { ArticleComponent } from './Components/article/article.component';
     BlogComponent,
     NewsComponent,
     NewscardComponent,
-    ArticleComponent
+    ArticleComponent,
+    DashboardComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
