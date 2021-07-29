@@ -43,6 +43,8 @@ import { WhatchlistComponent } from './Components/platform/tools/whatchlist/what
 import { AlertComponent } from './Components/platform/tools/alert/alert.component';
 import { HotlistComponent } from './Components/platform/tools/hotlist/hotlist.component';
 import { EventsComponent } from './Components/platform/tools/events/events.component';
+import { ListComponent } from './Components/platform/tools/whatchlist/list/list.component';
+import { InformationComponent } from './Components/platform/tools/whatchlist/information/information.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,7 +86,9 @@ import { EventsComponent } from './Components/platform/tools/events/events.compo
     WhatchlistComponent,
     AlertComponent,
     HotlistComponent,
-    EventsComponent
+    EventsComponent,
+    ListComponent,
+    InformationComponent
   ],
   imports: [
     BrowserModule,

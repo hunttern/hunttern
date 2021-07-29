@@ -137,6 +137,7 @@
     }
     .data{
         grid-area: data;
+        height: 100%;
         background-color: $platformBackground;
     }
     .tool{

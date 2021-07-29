@@ -1,0 +1,61 @@
+@import "../../../../../..//assets/styleSotrage/vars";
+section{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    height: 100%;
+    header{
+        overflow-y: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        .edit{
+            display: flex;
+            gap: 0.5rem;
+            button{
+                border: none;
+                background-color: transparent;
+                i{
+                    font-size: 25px;
+                    color: #8282B2;
+                }
+            }
+        }
+        select{
+            color: #D6D6EE;
+            background-color: transparent;
+            border: none;
+            font-size: 18px;
+        }
+    }
+    body{
+        background-color: transparent;
+        table{
+            width: 100%;
+            padding: 0.5rem;
+            tr:not(:last-child){
+                border-bottom: 0.025rem solid $platformBorder;
+            }
+            th{
+                font-size: 12px;
+                padding: 00.5rem;
+                color: #585886;
+            }
+            td{
+                padding: 00.5rem;
+                font-size: 14px;
+            }
+            .symbol{
+                color: #D6D6EE;
+            }
+            .last, .vol{
+                color: #7D7DB1;
+            }
+            .change{
+                color: #28CD7E;
+            }
+        }
+    }
+}
