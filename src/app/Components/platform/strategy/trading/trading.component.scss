@@ -1,0 +1,39 @@
+@import "../../../../../assets/styleSotrage/mixinss";
+@import "../../../../../assets/styleSotrage/vars";
+body{
+    border-top: 0.05rem solid $border;
+    background-color: $platformBackground;
+    padding-top: 1rem;
+    header{
+        ul{
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            h6{
+                font-size: 14px;
+                color: #7A7AB1;
+            }
+            label{
+                font-size: 17px;
+                color: #D6D6EE;
+            }
+        }
+    }
+    section{
+        overflow-x: auto;
+        table{
+            width: 100%;
+            td,th{
+                padding: 1rem;
+                font-size: 14px;
+            }
+            th{
+                border-bottom: 0.05rem solid $border;
+                color: #7A7AB1;
+            }
+            td{
+                color: #D6D6EE;
+            }
+        }
+    }
+}

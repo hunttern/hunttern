@@ -1,0 +1,146 @@
+@import "../../../assets/styleSotrage/vars";
+@import "../../../assets/styleSotrage/mixinss";
+@mixin checkboxes {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+@mixin col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.body{
+    display: grid;
+    grid-template-columns: 3fr 6fr 3fr 0.75fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "sidebar chart data tool";
+    background-color: $platformBorder;
+    gap: 0.06rem;
+    .sidebar{
+        grid-area: sidebar;
+        height: 100%;
+        background-color: $platformBackground;
+        @include col();
+        .inputs{
+            height: 88%;
+        }
+        header{
+            height: 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 2rem;
+            padding-top: 1rem;
+            h2{
+                font-size: 18px;
+                color: #D6D6EE;
+            }
+            i{
+                cursor: pointer;
+                margin-right: 1rem;
+                color: #8282B2;
+                width: 25px;
+                height: 25px;
+            }
+        }
+        nav{
+            height: 5%;
+            ul{
+                @include checkboxes();
+            }
+            a{
+                color: #545486;
+                font-size: 16px;
+                text-decoration: none;
+            }
+            a.active{
+                color: #D6D6EE;
+            }
+        }
+        .inputs{
+            margin: 0;
+        }
+    }
+    .middle{
+        background-color: $platformBorder;
+        grid-area: chart;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.6fr 4fr 3fr;
+        grid-template-areas: "profile"
+                             "chart"
+                             "tester";
+        gap: 0.1rem;
+        .profile{
+            background-color: $platformBackground;
+            grid-area: profile;
+        }
+        .chart{
+            background-color: $platformNotActive;
+            grid-area: chart;
+        }
+        .tester{
+            background-color: $platformBackground;
+            grid-area: tester;
+            header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: $platformNotActive;
+                .links{
+                    ul{
+                        margin: 0;
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        li{
+                            @include center();
+                        }
+                        a{
+                            padding: 1rem;
+                            color: #CCCCE4;
+                            text-decoration: none;
+                        }
+                        a.active{
+                            background-color: $platformBackground;
+                        }
+                        .strategytest{
+                            padding-left: 0;
+                        }
+                    }
+                }
+                .page{
+                    margin-right: 1rem;
+                    @include center();
+                    gap: 1rem;
+                    button{
+                        width: 20px;
+                        height: 20px;
+                        background-color: transparent;
+                        border: thin $border solid;
+                        border-radius: 5px;
+                        @include center();
+                        i{
+                            color: #7A7AB1;
+                            font-size: 18px;
+                        }
+                    }
+                    .minimize{
+                        width: fit-content;
+                    }
+                }
+            }
+        }
+    }
+    .data{
+        grid-area: data;
+        background-color: $platformBackground;
+    }
+    .tool{
+        grid-area: tool;
+        background-color: $platformBackground;
+    }
+}

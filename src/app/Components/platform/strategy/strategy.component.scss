@@ -1,0 +1,42 @@
+@import "../../../../assets/styleSotrage/vars";
+@mixin center {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+main{
+    header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 00.1rem solid $border;
+        padding: 1rem;
+        padding-left: 0;
+        nav{
+            ul{
+                @include center();
+                a{
+                    font-size: 15px;
+                    color: #7A7AB1;
+                }
+            }
+        }
+        span{
+            @include center();
+            select{
+                font-size: 15px;
+                color: #7A7AB1;
+                padding: 0.5rem;
+                background-color: transparent;
+                border: none;
+            }
+            button{
+                background-color: transparent;
+                color: #7A7AB1;
+                font-size: 25px;
+                border: none;
+            }
+        }
+    }
+}

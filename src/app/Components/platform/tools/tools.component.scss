@@ -1,0 +1,24 @@
+@import "../../../../assets/styleSotrage/mixinss";
+nav{
+    height: 100%;
+    @include center();
+    ul{
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+        flex-direction: column;
+    }
+    li{
+        position: relative;
+        left: -1rem;
+        i{
+            cursor: pointer;
+            font-size: 30px;
+            color: #40406D;
+
+        }
+        .active{
+            color: #F1F1F8;
+        }
+    }
+}

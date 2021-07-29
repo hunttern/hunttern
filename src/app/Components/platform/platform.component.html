@@ -1,1 +1,48 @@
-<p>platform works!</p>
+<div class="body">
+    <div class="sidebar">
+        <header>
+            <h2>Harmonic Pattern - Live</h2>
+            <i class="material-icons">close</i>
+        </header>
+        <nav>
+            <ul>
+                <li><a class="active">Inputs</a></li>
+                <li><a>Settings</a></li>
+            </ul>
+        </nav>
+        <div class="inputs">
+            <app-inputs></app-inputs>
+        </div>
+    </div>
+    <div class="middle">
+        <div class="profile">
+            <app-tab></app-tab>
+        </div>
+        <div class="chart">
+
+        </div>
+        <div class="tester">
+            <header>
+                <nav class="links">
+                    <ul>
+                        <li>
+                            <a class="strategytest">Strategy Tester</a>
+                        </li>
+                        <li>
+                            <a class="active">Trading Paper</a>
+                        </li>
+                    </ul>
+                </nav>
+                <span class="page">
+                    <button class="minimize"><i class="material-icons">minimize</i></button>
+                    <button class="expand"></button>
+                </span>
+            </header>
+            <app-strategy></app-strategy>
+        </div>
+    </div>
+    <div class="data"></div>
+    <div class="tool">
+        <app-tools></app-tools>
+    </div>
+</div>

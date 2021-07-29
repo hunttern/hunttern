@@ -1,0 +1,59 @@
+@import "../../../../assets/styleSotrage/vars";
+@import "../../../../assets/styleSotrage/mixinss";
+
+main{
+    height: 100%;
+    width: 60%;
+    background-color: $platformBorder;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "info alert";
+    gap: 0.1rem;
+    .info{
+        padding-left: 0.25rem;
+        height: 100%;
+        grid-area: info;
+        background-color: $platformBackground;
+        display: grid;
+        grid-template-columns: 1fr 2fr 0.5fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "photo data select";
+        gap: 0;
+        .photo{
+            grid-area: photo;
+            @include center();
+        }
+        .data{
+            grid-area: data;
+            display: grid;
+            h4{
+                font-size: 16px;
+                line-height: 20px;
+                color: #D6D6EE;
+            }
+            h6{
+                font-size: 14px;
+                color: #595983;
+            }
+        }
+        .select{
+            grid-area: select;
+            @include center();
+        }
+    }
+    .alert{
+        grid-area: alert;
+        background-color: $platformBackground;
+        height: 100%;
+        border-right: 0.1rem solid $border;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    i{
+        font-size: 25px;
+        color:#8282B2;
+        cursor: pointer;
+    }
+}

@@ -34,6 +34,15 @@ import { StatisticsComponent } from './Components/dashboard/statistics/statistic
 import { PlansComponent } from './Components/dashboard/plans/plans.component';
 import { ChangepasswordComponent } from './Components/dashboard/profile/changepassword/changepassword.component';
 import { PlatformComponent } from './Components/platform/platform.component';
+import { InputsComponent } from './Components/platform/inputs/inputs.component';
+import { TabComponent } from './Components/platform/tab/tab.component';
+import { StrategyComponent } from './Components/platform/strategy/strategy.component';
+import { TradingComponent } from './Components/platform/strategy/trading/trading.component';
+import { ToolsComponent } from './Components/platform/tools/tools.component';
+import { WhatchlistComponent } from './Components/platform/tools/whatchlist/whatchlist.component';
+import { AlertComponent } from './Components/platform/tools/alert/alert.component';
+import { HotlistComponent } from './Components/platform/tools/hotlist/hotlist.component';
+import { EventsComponent } from './Components/platform/tools/events/events.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +75,16 @@ import { PlatformComponent } from './Components/platform/platform.component';
     StatisticsComponent,
     PlansComponent,
     ChangepasswordComponent,
-    PlatformComponent
+    PlatformComponent,
+    InputsComponent,
+    TabComponent,
+    StrategyComponent,
+    TradingComponent,
+    ToolsComponent,
+    WhatchlistComponent,
+    AlertComponent,
+    HotlistComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
