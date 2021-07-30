@@ -19,6 +19,8 @@
     grid-template-areas: "sidebar chart data tool";
     background-color: $platformBorder;
     gap: 0.06rem;
+    height: 140vh;
+    overflow-y: auto;
     .sidebar{
         grid-area: sidebar;
         height: 100%;
@@ -137,8 +139,8 @@
     }
     .data{
         grid-area: data;
-        height: 100%;
         background-color: $platformBackground;
+        overflow-y: auto;
     }
     .tool{
         grid-area: tool;

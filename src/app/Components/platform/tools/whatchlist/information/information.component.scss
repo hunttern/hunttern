@@ -1,0 +1,132 @@
+@import "../../../../../../assets/styleSotrage/mixinss";
+@import "../../../../../../assets/styleSotrage/vars";
+section{
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border-top: 0.05rem solid $platformBorder;
+    header{
+        .coin{
+            display: flex;
+            gap: 1rem;
+            .coinname{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                #name{
+                    color: #D6D6EE;
+                    font-size: 18px;
+                    line-height: 24px;
+                }
+                #pair{
+                    color: #626297;
+                    font-size: 14px
+                }
+    
+            }
+            i{
+                @include center;
+                color: #fff;
+                background: #F7931A;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+            }
+        }
+        .info{
+            margin-top: 1rem;
+            h4{
+                color: #7A7AB1;
+                font-size: 14px;
+                i{
+                    cursor: pointer;
+                    font-size: 14px;
+                    margin: 0 0.5rem;
+                }
+            }
+            h6{
+                color: #5A5A83;
+                font-size: 12px;
+            }
+        }
+    }
+    .information{
+        h3{
+            color: #E9E9F6;
+            font-size: 22px;
+            label{
+                color: #8D8DC0;
+                font-size: 18px;
+            }
+        }
+        h4{
+            display: flex;
+            color: #28CD7E;
+            font-size: 18px;
+            h5{
+                color: #28CD7E;
+                font-size: 15px;
+            }
+        }
+        h6{
+            color: #28CD7E;
+            font-size: 14px;
+            ul {
+                list-style: none;
+              }
+            ul li::before {
+                content: "\2022";
+                color: #28CD7E;
+                font-weight: bold;
+                display: inline-block; 
+                width: 1em;
+              }
+        }
+        .code{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            .blue{
+                padding: 0.5rem 1rem;
+                display: flex;
+                color: #4561F3;
+                background-color: rgba($color: #4561F3, $alpha: 0.19);
+                border-radius: 5px;
+                border: none;
+            }
+            .red{
+                padding: 0.5rem 1rem;
+                display: flex;
+                color: #F3455A;
+                background-color: rgba($color: #F3455A, $alpha: 0.19);
+                border-radius: 5px;
+                border: none;
+            }
+        }
+    }
+    .status{
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+        color: #8D8DC0;
+        > div{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    .performance{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 0.25rem;
+    }
+    h2{
+        font-size: 18px;
+        color: #E9E9F7;
+    }
+}

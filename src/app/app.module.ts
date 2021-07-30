@@ -45,6 +45,7 @@ import { HotlistComponent } from './Components/platform/tools/hotlist/hotlist.co
 import { EventsComponent } from './Components/platform/tools/events/events.component';
 import { ListComponent } from './Components/platform/tools/whatchlist/list/list.component';
 import { InformationComponent } from './Components/platform/tools/whatchlist/information/information.component';
+import { PerformanceComponent } from './Components/platform/tools/whatchlist/information/performance/performance.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,7 +89,8 @@ import { InformationComponent } from './Components/platform/tools/whatchlist/inf
     HotlistComponent,
     EventsComponent,
     ListComponent,
-    InformationComponent
+    InformationComponent,
+    PerformanceComponent
   ],
   imports: [
     BrowserModule,

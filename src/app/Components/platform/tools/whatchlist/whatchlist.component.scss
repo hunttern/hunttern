@@ -4,10 +4,20 @@ main{
     grid-template-rows: 2fr 3fr;
     grid-template-areas: "list"
                          "info";
+    height: 100%;
     .list{
         grid-area: list;
     }
     .info{
         grid-area: info;
+        height: 100%;
+        overflow: auto;
     }
+}
+.hidescroll::-webkit-scrollbar{
+    display: none;
+}
+.hidescroll {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }

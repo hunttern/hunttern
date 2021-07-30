@@ -1,0 +1,27 @@
+div{
+    padding: 1rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h3{
+        font-size: 16px;
+    }
+    label{
+        font-size: 14px;
+        color: #D7D7EF;
+    }
+}
+.positivevalue{
+    color: #28CD7E;
+}
+.positivebody{
+    background-color: rgba($color: #28CD7E, $alpha: 0.22);
+}
+.negetivevalue{
+    color: #F3455A;
+}
+.negetivebody{
+    background-color: rgba($color: #F3455A, $alpha: 0.22);
+}
