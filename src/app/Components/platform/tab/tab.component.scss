@@ -43,6 +43,7 @@ main{
     }
     .alert{
         grid-area: alert;
+        overflow-y: hidden;
         background-color: $platformBackground;
         height: 100%;
         border-right: 0.1rem solid $border;

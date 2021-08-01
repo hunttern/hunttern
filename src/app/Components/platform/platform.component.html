@@ -1,9 +1,17 @@
-<div class="body">
+<body class="body">
     <div class="sidebar">
         <header>
             <h2>Harmonic Pattern - Live</h2>
             <i class="material-icons">close</i>
         </header>
+        <nav class="type">
+            <ul>
+                <li><a>Reversal</a></li>
+                <li><a>Chanel</a></li>
+                <li><a class="active">Harmonic</a></li>
+                <li><a>continuous</a></li>
+            </ul>
+        </nav>
         <nav>
             <ul>
                 <li><a class="active">Inputs</a></li>
@@ -38,7 +46,9 @@
                     <button class="expand"></button>
                 </span>
             </header>
-            <app-strategy></app-strategy>
+            <div class="hidescroll">
+                <app-strategy></app-strategy>
+            </div>
         </div>
     </div>
     <div class="data">
@@ -47,4 +57,4 @@
     <div class="tool">
         <app-tools></app-tools>
     </div>
-</div>
+</body>

@@ -1,12 +1,14 @@
 main{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 2fr 3fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-areas: "list"
                          "info";
     height: 100%;
     .list{
         grid-area: list;
+        height: 100%;
+        overflow: auto;
     }
     .info{
         grid-area: info;

@@ -14,28 +14,26 @@
 
 .body{
     display: grid;
-    grid-template-columns: 3fr 6fr 3fr 0.75fr;
+    grid-template-columns: 3fr 6fr 3fr 0.5fr;
     grid-template-rows: 1fr;
     grid-template-areas: "sidebar chart data tool";
     background-color: $platformBorder;
     gap: 0.06rem;
-    height: 140vh;
+    height: 100vh;
     overflow-y: auto;
     .sidebar{
+        display: grid;
+        grid-template-rows: 2fr 2fr 2fr 7fr;
         grid-area: sidebar;
-        height: 100%;
         background-color: $platformBackground;
         @include col();
-        .inputs{
-            height: 88%;
-        }
         header{
-            height: 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding-left: 2rem;
             padding-top: 1rem;
+            height: 12%;
             h2{
                 font-size: 18px;
                 color: #D6D6EE;
@@ -48,8 +46,16 @@
                 height: 25px;
             }
         }
+        .type{
+            @include center;
+            margin: 0;
+            padding: 0;
+            margin-left: -2rem;
+            border-top: 0.05rem solid $platformBorder;
+            border-bottom: 0.05rem solid $platformBorder;
+        }
         nav{
-            height: 5%;
+            height: 10%;
             ul{
                 @include checkboxes();
             }
@@ -87,6 +93,7 @@
         .tester{
             background-color: $platformBackground;
             grid-area: tester;
+            display: grid;
             header{
                 display: flex;
                 justify-content: space-between;
@@ -146,4 +153,11 @@
         grid-area: tool;
         background-color: $platformBackground;
     }
+}
+.hidescroll::-webkit-scrollbar{
+    display: none;
+}
+.hidescroll {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }

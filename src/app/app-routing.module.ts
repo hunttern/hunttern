@@ -11,6 +11,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { ForgetComponent } from './Components/login-register/forget/forget.component';
 import { LoginComponent } from './Components/login-register/login/login.component';
 import { RegisterComponent } from './Components/login-register/register/register.component';
+import { PlatformComponent } from './Components/platform/platform.component';
 import { CreditsProgramComponent } from './Components/terms/credits-program/credits-program.component';
 import { InstructorTermsComponent } from './Components/terms/instructor-terms/instructor-terms.component';
 import { IntellectualPropertyPolicyComponent } from './Components/terms/intellectual-property-policy/intellectual-property-policy.component';
@@ -42,7 +43,9 @@ const routes: Routes = [
     {path: 'Payments',component: PlansComponent},
     {path: 'changepassword',component: ChangepasswordComponent},
   ],},
-  {path: 'article', component: ArticleComponent}
+  {path: 'article', component: ArticleComponent},
+  {path: 'platform', component: PlatformComponent},
+  {path: '**' , redirectTo: 'home'},
 ];
 
 @NgModule({
