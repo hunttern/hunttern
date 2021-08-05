@@ -7,9 +7,15 @@
             <label id="username">saeed</label>
             <label id="email">saeed4568k@gmail.com</label>
         </span>
-        <span class="select">
-            <i class="material-icons">expand_more</i>
-        </span>
+        <div class="select">
+            <i class="material-icons">expand_more 
+                <ul class="dropdown">
+                    <li><a [routerLink]='["/dashboard"]'><i class="material-icons">dashboard</i> Dashboard</a></li>
+                    <li><a><i class="material-icons">dark_mode</i> Dark Mode</a></li>
+                    <li><a><i class="material-icons">logout</i> Sign out</a></li>
+                </ul>
+            </i>
+        </div>
     </div>
     <div class="alert"><i class="material-icons">notifications</i></div>
 </main>

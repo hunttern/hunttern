@@ -5,11 +5,5 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.scss']
 })
-export class TabComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class TabComponent{
 }
