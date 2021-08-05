@@ -15,37 +15,45 @@
 .body{
     display: grid;
     grid-template-columns: 3fr 6fr 3fr 0.5fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "sidebar chart data tool";
+    grid-template-rows: 1fr 12fr;
+    grid-template-areas:"header profile profile profile" 
+                        "sidebar chart data tool";
     background-color: $platformBorder;
     gap: 0.06rem;
     height: 100vh;
     overflow-y: auto;
+    header{
+        background-color: $platformBackground;
+        div{
+            display: flex;
+            justify-content: space-between;
+            padding: 0 0.5rem;
+        }
+        h2{
+            font-size: 18px;
+            color: #D6D6EE;
+        }
+        i{
+            cursor: pointer;
+            color: #8282B2;
+            width: 25px;
+            height: 25px;
+        }
+    }
+    .profile{
+        background-color: $platformBackground;
+        grid-area: profile;
+        .tab{
+            float: right;
+            height: 100%;
+        }
+    }
     .sidebar{
         display: grid;
         grid-template-rows: 2fr 2fr 2fr 7fr;
         grid-area: sidebar;
         background-color: $platformBackground;
         @include col();
-        header{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-left: 2rem;
-            padding-top: 1rem;
-            height: 12%;
-            h2{
-                font-size: 18px;
-                color: #D6D6EE;
-            }
-            i{
-                cursor: pointer;
-                margin-right: 1rem;
-                color: #8282B2;
-                width: 25px;
-                height: 25px;
-            }
-        }
         .type{
             @include center;
             margin: 0;
@@ -77,15 +85,10 @@
         grid-area: chart;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 0.6fr 4fr 3fr;
-        grid-template-areas: "profile"
-                             "chart"
+        grid-template-rows: 4fr 3fr;
+        grid-template-areas: "chart"
                              "tester";
         gap: 0.1rem;
-        .profile{
-            background-color: $platformBackground;
-            grid-area: profile;
-        }
         .chart{
             background-color: $platformNotActive;
             grid-area: chart;
@@ -139,6 +142,7 @@
                     }
                     .minimize{
                         width: fit-content;
+                        height: fit-content;
                     }
                 }
             }

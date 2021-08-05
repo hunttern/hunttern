@@ -3,14 +3,14 @@
 
 main{
     height: 100%;
-    width: 60%;
+    float: right;
     background-color: $platformBorder;
     display: grid;
-    grid-template-columns: 4fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 2.5fr 0.5fr;
     grid-template-areas: "info alert";
     gap: 0.1rem;
     .info{
+        padding: 0 1rem;
         height: 100%;
         grid-area: info;
         background-color: $platformBackground;
@@ -19,8 +19,8 @@ main{
         @include center();
         .photo{
             @include center();
-            width: 50px;
-            height: 50px;
+            width: 35px;
+            height: 35px;
         }
         .data{
             display: flex;

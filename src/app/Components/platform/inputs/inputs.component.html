@@ -3,11 +3,11 @@
         <div class="inputs">
             <div>
                 <label>Zigzag period :</label>
-                <input type="number" max="100">
+                <input type="number" max="100" min="0">
             </div>
             <div>
                 <label>Error rate % :</label>
-                <input type="number" max="100">
+                <input type="number" max="100" min="0">
             </div>
         </div>
     </section>
@@ -20,14 +20,14 @@
         </ul>
     </section>
     <div class="buttons">
-        <span>
+        <span class="section1">
             <select name="test" id="test">
                 <option value="0">Defaults</option>
                 <option value="1">Set to</option>
                 <option value="2">Save as</option>
             </select>
         </span>
-        <span>
+        <span class="section2">
             <button id="cancel">Cancel</button>
             <button id="ok">Ok</button>
         </span>

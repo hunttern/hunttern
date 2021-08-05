@@ -10,17 +10,13 @@
     gap: 1rem;
 }
 main{
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr 4fr 1.7fr;
-
     .patterns{
         margin-top: 2rem;
     }
     .buttons{
-        position: relative;
+        position: absolute;
         bottom: 0;
+        width: 25%;
         margin-top: 1rem;
         border-top: 1px solid #2C2C57;
         display:flex;
