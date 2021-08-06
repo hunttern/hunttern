@@ -57,10 +57,15 @@ body{
         padding: 2rem;
         .cards{
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1frnpm install @swimlane/ngx-charts --save;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
             gap: 1rem;
         }
         .card{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
             padding: 1rem;
             border: solid #333 thin;
             border-radius: 7px;
@@ -70,6 +75,8 @@ body{
             i{
                 display: flex;
                 line-height: 30px;
+            }
+            .chart{
             }
         }
     }

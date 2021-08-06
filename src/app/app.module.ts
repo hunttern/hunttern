@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './Components/navigation/navigation.component';
@@ -47,6 +48,7 @@ import { ListComponent } from './Components/platform/tools/whatchlist/list/list.
 import { InformationComponent } from './Components/platform/tools/whatchlist/information/information.component';
 import { PerformanceComponent } from './Components/platform/tools/whatchlist/information/performance/performance.component';
 import { SubdashboardComponent } from './Components/dashboard/subdashboard/subdashboard.component';
+import { BarChartComponent } from './Components/Charts/bar-chart/bar-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,12 +94,15 @@ import { SubdashboardComponent } from './Components/dashboard/subdashboard/subda
     ListComponent,
     InformationComponent,
     PerformanceComponent,
-    SubdashboardComponent
+    SubdashboardComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    BrowserAnimationsModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
