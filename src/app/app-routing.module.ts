@@ -7,6 +7,7 @@ import { PlansComponent } from './Components/dashboard/plans/plans.component';
 import { ChangepasswordComponent } from './Components/dashboard/profile/changepassword/changepassword.component';
 import { ProfileComponent } from './Components/dashboard/profile/profile.component';
 import { StatisticsComponent } from './Components/dashboard/statistics/statistics.component';
+import { SubdashboardComponent } from './Components/dashboard/subdashboard/subdashboard.component';
 import { HomeComponent } from './Components/home/home.component';
 import { ForgetComponent } from './Components/login-register/forget/forget.component';
 import { LoginComponent } from './Components/login-register/login/login.component';
@@ -38,6 +39,7 @@ const routes: Routes = [
   ],},
   {path: 'blog', component: BlogComponent},
   {path: 'dashboard', component: DashboardComponent, children: [
+    {path: 'dashboard',component: SubdashboardComponent},
     {path: 'Profile',component: ProfileComponent},
     {path: 'Statistics',component: StatisticsComponent},
     {path: 'Payments',component: PlansComponent},

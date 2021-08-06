@@ -1,0 +1,76 @@
+@import "../../../../assets/styleSotrage/vars";
+@import "../../../../assets/styleSotrage/mixinss";
+body{
+    padding: 0;
+    margin: 0;
+    > header{
+        width: 100%;
+        border-bottom: solid 0.01rem $platformBorder;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .search{
+            display: flex;
+            align-items: center;
+            border: thin solid #333;
+            border-radius: 3px;
+            padding: 0.05rem;
+            input{
+                border: none;
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+        .tools{
+            @include center;
+            gap: 2rem;
+            padding: 1rem;
+            .profile, .icons{
+                @include center;
+                gap: 1rem;
+                img{
+                    width: 35px;
+                    height: 35px;
+                }
+                .data{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    #username{
+                        font-size: 16px;
+                        line-height: 20px;
+                        color: #D6D6EE;
+                    }
+                    #email{
+                        font-size: 14px;
+                        color: #595983;
+                    }
+                }
+                i{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    section{
+        padding: 2rem;
+        .cards{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1frnpm install @swimlane/ngx-charts --save;
+            gap: 1rem;
+        }
+        .card{
+            padding: 1rem;
+            border: solid #333 thin;
+            border-radius: 7px;
+            h4{
+                text-align: center;
+            }
+            i{
+                display: flex;
+                line-height: 30px;
+            }
+        }
+    }
+}

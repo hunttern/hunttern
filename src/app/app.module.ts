@@ -46,6 +46,7 @@ import { EventsComponent } from './Components/platform/tools/events/events.compo
 import { ListComponent } from './Components/platform/tools/whatchlist/list/list.component';
 import { InformationComponent } from './Components/platform/tools/whatchlist/information/information.component';
 import { PerformanceComponent } from './Components/platform/tools/whatchlist/information/performance/performance.component';
+import { SubdashboardComponent } from './Components/dashboard/subdashboard/subdashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +91,8 @@ import { PerformanceComponent } from './Components/platform/tools/whatchlist/inf
     EventsComponent,
     ListComponent,
     InformationComponent,
-    PerformanceComponent
+    PerformanceComponent,
+    SubdashboardComponent
   ],
   imports: [
     BrowserModule,
