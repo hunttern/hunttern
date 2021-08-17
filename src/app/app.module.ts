@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule} from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './Components/navigation/navigation.component';
 import { HeaderComponent } from './Components/header/header.component';
@@ -49,6 +52,8 @@ import { InformationComponent } from './Components/platform/tools/whatchlist/inf
 import { PerformanceComponent } from './Components/platform/tools/whatchlist/information/performance/performance.component';
 import { SubdashboardComponent } from './Components/dashboard/subdashboard/subdashboard.component';
 import { BarChartComponent } from './Components/Charts/bar-chart/bar-chart.component';
+import { ScreenerComponent } from './Components/platform/screener/screener.component';
+import { SettingsComponent } from './Components/platform/screener/settings/settings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,14 +100,18 @@ import { BarChartComponent } from './Components/Charts/bar-chart/bar-chart.compo
     InformationComponent,
     PerformanceComponent,
     SubdashboardComponent,
-    BarChartComponent
+    BarChartComponent,
+    ScreenerComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
     BrowserAnimationsModule,
-    NgxChartsModule
+    NgxChartsModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

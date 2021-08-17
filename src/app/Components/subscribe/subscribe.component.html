@@ -2,7 +2,9 @@
     <h2>Subscribe our newsletter</h2>
     <h5>Subscribe to our newsletter to get informed about the latest news</h5>
     <div class="input">
-        <input type="email" class="email" placeholder="youremail@example.com...">
-        <button>Submit</button>
+        <form #subscribe="ngForm" novalidate (ngSubmit)="onSubmit(subscribe.value)">
+            <input required type="email" name="email" class="email" placeholder="youremail@example.com...">
+            <button [disabled]="!subscribe.valid" >Submit</button>
+        </form>
     </div>
 </section>

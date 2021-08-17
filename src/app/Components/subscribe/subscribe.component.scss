@@ -29,6 +29,10 @@
             border: none;
             width: 75%;
             padding: 0.25rem;
+            &:focus{
+                outline: none;
+                background-color: transparent;
+            }
         }
         button{
             z-index: 2;

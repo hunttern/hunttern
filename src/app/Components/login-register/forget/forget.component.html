@@ -5,11 +5,11 @@
         </div>
         <h1>Forget Password</h1>
         <h3>Enter your email address that you entered during your registeration.</h3>
-        <form>
+        <form #forget="ngForm" (ngSubmit)="onSubmit(forget.value)">
             <div>
                 <label>Email Address :</label>
                 <div class="input">
-                    <i class="material-icons">email</i><input type="text" #email>
+                    <i class="material-icons">email</i><input type="text" name="email">
                 </div>
             </div>
             <button>Forget Password</button>

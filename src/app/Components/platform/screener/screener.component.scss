@@ -1,0 +1,30 @@
+@import '../../../../assets/styleSotrage/vars';
+@import '../../../../assets/styleSotrage/mixinss';
+nav{
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+    gap: 5rem;
+    padding: 1rem;
+    background-color: $platformBackground;
+    a{
+        text-align: center;
+        border-radius: 7px;
+        border: none;
+        background-color: $platformBorder;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        width: fit-content;
+    }
+}
+body{
+    background-color: $platformBackground;
+    position: relative;
+}
+.hidescroll::-webkit-scrollbar{
+    display: none;
+}
+.hidescroll {
+    -ms-overflow-style: none;  /* Edge */
+    scrollbar-width: none;  /* Firefox */
+}

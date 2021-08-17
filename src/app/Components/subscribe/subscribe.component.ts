@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { EnrollmentService } from 'src/app/Services/enrollment.service';
 
 @Component({
   selector: 'app-subscribe',
   templateUrl: './subscribe.component.html',
   styleUrls: ['./subscribe.component.scss']
 })
-export class SubscribeComponent implements OnInit {
+export class SubscribeComponent{
 
-  constructor() { }
+  constructor(private enroll: EnrollmentService){}
 
-  ngOnInit(): void {
+  email: string;
+  onSubmit(data: any){
+    console.log(data)
+    // this.enroll.subscribe(data);
   }
-
 }
