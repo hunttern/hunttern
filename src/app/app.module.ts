@@ -55,6 +55,7 @@ import { SubdashboardComponent } from './Components/dashboard/subdashboard/subda
 import { BarChartComponent } from './Components/Charts/bar-chart/bar-chart.component';
 import { ScreenerComponent } from './Components/platform/screener/screener.component';
 import { SettingsComponent } from './Components/platform/screener/settings/settings.component';
+import { ChartComponent } from './Components/platform/chart/chart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,7 +104,8 @@ import { SettingsComponent } from './Components/platform/screener/settings/setti
     SubdashboardComponent,
     BarChartComponent,
     ScreenerComponent,
-    SettingsComponent
+    SettingsComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
