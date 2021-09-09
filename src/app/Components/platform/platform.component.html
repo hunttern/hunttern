@@ -1,41 +1,35 @@
 <body class="body">
     <as-split direction="horizontal" class="test">
-		<as-split-area id="leftSide" [size]="20" [maxSize]="30" [minSize]="20">
+		<as-split-area id="leftSide" [size]="22" [maxSize]="30" [minSize]="20">
 			<as-split direction="vertical" >
-				<as-split-area [size]="7" [lockSize]="true">
-					<header>
-                        <div>
-                            <h2>Harmonic Pattern - Live</h2>
-                            <i class="material-icons">close</i>
-                        </div>
-                    </header>
-				</as-split-area>
-				<as-split-area [size]="20" [maxSize]="25" [minSize]="20">
+				<header>
+					<div>
+						<h2>Harmonic Pattern - Live</h2>
+						<i class="material-icons">close</i>
+					</div>
+				</header>
+				<div class="sidebar">
 					<nav class="type">
-                        <ul>
-                            <li><a>Reversal</a></li>
-                            <li><a>Chanel</a></li>
-                            <li><a class="active">Harmonic</a></li>
-                            <li><a>continuous</a></li>
-                        </ul>
-                    </nav>
-				</as-split-area>
-				<as-split-area [size]="20" [maxSize]="20" [minSize]="15">
+						<ul>
+							<li><a>Reversal</a></li>
+							<li><a>Chanel</a></li>
+							<li><a class="active">Harmonic</a></li>
+							<li><a>continuous</a></li>
+						</ul>
+					</nav>
 					<nav>
-                        <ul>
-                            <li><a class="active">Inputs</a></li>
-                            <li><a>Settings</a></li>
-                        </ul>
-                    </nav>
-				</as-split-area>
-				<as-split-area [size]="53" [maxSize]="75" [minSize]="25">
+						<ul>
+							<li><a class="active">Inputs</a></li>
+							<li><a>Settings</a></li>
+						</ul>
+					</nav>
 					<div class="inputs">
-                        <app-inputs></app-inputs>
-                    </div>
-				</as-split-area>
+						<app-inputs></app-inputs>
+					</div>
+				</div>
 			</as-split>
 		</as-split-area>
-		<as-split-area id="midleside" [size]="80">
+		<as-split-area id="midleside" [size]="78">
 			<as-split direction="vertical">
 				<as-split-area>
 					<div>
@@ -44,10 +38,10 @@
 					<as-split direction="horizontal">
 						<as-split-area id="charttSide" [size]="60">
 							<as-split direction="vertical">
-								<as-split-area [size]="40" [minSize]="20">
+								<as-split-area [size]="40" [minSize]="20" class="hidescroll">
 									<app-chart></app-chart>
 								</as-split-area>
-								<as-split-area [size]="60" [minSize]="40">
+								<as-split-area [size]="60" [minSize]="40" class="hidescroll">
 									<div class="tester">
                                         <header>
                                             <nav class="links">
@@ -78,13 +72,13 @@
 						</as-split-area>
 						<as-split-area id="listside" [size]="33" [minSize]="25" [maxSize]="35">
 							<as-split direction="vertical">
-								<as-split-area [size]="40" [minSize]="25" [maxSize]="60">
-                       		 		<div class="list hidescroll">
-                            		<app-list></app-list>
+								<as-split-area [size]="40" [minSize]="25" [maxSize]="60" class="hidescroll">
+                       		 		<div class="list ">
+                            			<app-list></app-list>
                         			</div>
 				    			</as-split-area>
-				    			<as-split-area [size]="60" [minSize]="40" [maxSize]="75">
-					    			<div class="info hidescroll">
+				    			<as-split-area [size]="60" [minSize]="40" [maxSize]="75" class="hidescroll">
+					    			<div class="info ">
                             			<app-information></app-information>
                         			</div>
 				    			</as-split-area>
