@@ -2,23 +2,23 @@
     <div class="form" >
         <h1>Login</h1>
         <h3>Login with your data that you entered during your registeration.</h3>
-        <form #login="ngForm" (ngSubmit)="onSubmit(login.value)">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div>
                 <label>Full Name :</label>
                 <div class="input">
-                    <i class="material-icons">person</i><input type="text" name="fullname">
+                    <i class="material-icons">person</i><input type="text" formControlName="fullname" name="fullname">
                 </div>
             </div>
             <div >
                 <label>Email Address :</label>
                 <div class="input">
-                    <i class="material-icons">email</i><input type="text" name="email">
+                    <i class="material-icons">email</i><input type="text" formControlName="email" name="email">
                 </div>
             </div>
             <div>
                 <label>Password :</label>
                 <div class="input">
-                    <i class="material-icons">lock</i><input type="password" name="password"><i class="material-icons">visibility</i>
+                    <i class="material-icons">lock</i><input type="password" formControlName="password" name="password"><i class="material-icons">visibility</i>
                 </div>
             </div>
             <div class="forget">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EnrollmentService } from 'src/app/Services/enrollment.service';
 
 @Component({
   selector: 'app-subdashboard',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubdashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private enroll: EnrollmentService) { }
 
   ngOnInit(): void {
+    this.enroll.getData();
   }
 
 }

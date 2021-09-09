@@ -3,8 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule} from '@angular/common/http'
-import { FormsModule } from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularSplitModule } from 'angular-split';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './Components/navigation/navigation.component';
@@ -111,7 +112,9 @@ import { SettingsComponent } from './Components/platform/screener/settings/setti
     BrowserAnimationsModule,
     NgxChartsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    AngularSplitModule
   ],
   providers: [],
   bootstrap: [AppComponent]
