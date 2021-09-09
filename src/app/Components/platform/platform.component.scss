@@ -16,14 +16,8 @@
     height: 100vh;
 }
 .body{
-    display: grid;
-    grid-template-columns: 3fr 6fr 3fr 0.5fr;
-    grid-template-rows: 1fr 12fr;
-    grid-template-areas:"header profile profile profile" 
-                        "sidebar chart data tool";
     background-color: $platformBorder;
     gap: 0.06rem;
-    height: 100vh;
     overflow-y: auto;
     header{
         background-color: $platformBackground;
@@ -39,22 +33,15 @@
         i{
             cursor: pointer;
             color: #8282B2;
-            width: 25px;
-            height: 25px;
         }
     }
     .profile{
         background-color: $platformBackground;
-        grid-area: profile;
         .tab{
             float: right;
-            height: 100%;
         }
     }
     .sidebar{
-        display: grid;
-        grid-template-rows: 2fr 2fr 2fr 7fr;
-        grid-area: sidebar;
         background-color: $platformBackground;
         @include col();
         .type{
@@ -66,7 +53,6 @@
             border-bottom: 0.05rem solid $platformBorder;
         }
         nav{
-            height: 10%;
             ul{
                 @include checkboxes();
             }
@@ -85,13 +71,7 @@
     }
     .middle{
         background-color: $platformBorder;
-        grid-area: chart;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 4fr 3fr;
-        grid-template-areas: "chart"
-                             "tester";
-        gap: 0.1rem;
+        
         .chart{
             background-color: $platformNotActive;
             grid-area: chart;
@@ -132,8 +112,8 @@
                     @include center();
                     gap: 1rem;
                     button{
-                        width: 20px;
-                        height: 20px;
+                        // width: 20px;
+                        // height: 20px;
                         background-color: transparent;
                         border: thin $border solid;
                         border-radius: 5px;
