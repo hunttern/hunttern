@@ -142,3 +142,35 @@ form{
         color: #585886;
     }
 }
+@media (max-width: 426px){
+    .main{
+        padding: 1rem;
+    }
+    header{
+        padding: 0;
+        .image{
+            img{
+                width: 75px;
+                height: 75px;
+            }
+            .buttons{
+                button{
+                    font-size: 14px;
+                }
+            }
+            label{
+                font-size: 12px;
+            }
+        }
+        a{
+            font-size: 12px;
+        }
+    }
+    form{
+        button{
+            padding: 0.5rem;
+            font-size: 14px;
+            margin-bottom: 1rem;
+        }
+    }
+}
