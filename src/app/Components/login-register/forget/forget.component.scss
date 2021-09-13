@@ -80,3 +80,12 @@
         margin-top: 2rem;
     }
 }
+@media (max-width: 426px){
+    .forget{
+        padding: 1rem;
+        .form{
+            width: 90%;
+            padding: 2rem;
+        }
+    }
+}

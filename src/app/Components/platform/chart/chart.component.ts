@@ -16,7 +16,6 @@ export class ChartComponent implements OnInit {
 
   ngOnInit(){
     this.bfAPI.ws._createSocket();
-    this.bfAPI.ws.subscribeOnStream('','','','','','');
     this.widgetOptions = {
       container_id: "container",
       datafeed: this.bfAPI,

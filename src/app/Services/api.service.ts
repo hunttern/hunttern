@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { IBasicDataFeed } from '../../scripts/charting_library/charting_library';
 import { SignalRService } from './signal-r.service';
 import { HttpClient } from '@angular/common/http';
+import { ResolutionString } from 'src/scripts/charting_library/charting_library';
 import * as data from '../../Data/a.json';
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService implements IBasicDataFeed {
   symbols: any;
-  url: string = 'http://87.107.146.161:5000/api/Index';
+  url: string = 'http://87.107.146.161:80/api/Index?ShowZigZag=true&ShowPosition=true&ShowPrediction=true&ShowStatistic=false&ShowCandlePattern=false&PivotSensitivity=10&HarmonicError=30&RisktoReward=25&Patterns=ABCD&Patterns=Bat&Patterns=AltBat&Patterns=Butterfly&Patterns=Gartley&Patterns=Cypher&Patterns=Crab&Patterns=DeepCrab&Patterns=Shark&Patterns=ThreeDrives&Patterns=5-0';
   constructor(public ws: SignalRService, private http: HttpClient ) {
     this.symbols = data.symbols;
   }
@@ -45,7 +46,7 @@ export class ApiService implements IBasicDataFeed {
     )
   }
   getBars(symbolInfo: any, resolution: any, from: any, to: any, onHistoryCallback: any, onErrorCallback: any, firstDataRequest: any) {
-    this.binanceKlines('','','','','').subscribe({
+    this.binanceKlines(symbolInfo, resolution, from, to, 500).subscribe({
       next: (totalKlines: any) => {
         let historyCBArray = totalKlines.map((kline: any) => ({
           time: new Date(kline.openTime).valueOf(),

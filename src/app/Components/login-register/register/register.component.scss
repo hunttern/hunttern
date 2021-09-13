@@ -14,16 +14,6 @@
 
     }
     form{
-        h1{
-            font-weight: bold;
-            font-size: 36px;
-            line-height: 70px;
-            color: #191633;
-        }
-        h3{
-            font-size: 17px;
-            color: #383749;
-        }
         > div{
             margin-top: 2rem;
         }
@@ -93,5 +83,27 @@
     }
     .rights{
         margin-top: 2rem;
+    }
+}
+@media (max-width: 426px){
+    .register{
+        padding: 1rem;
+        .form{
+            width: 90%;
+            padding: 2rem;
+        }
+        form{
+            .password{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                > div{
+                    width: 100%;
+                }
+                input{
+                    width: 80%;
+                }
+            }
+        }
     }
 }
