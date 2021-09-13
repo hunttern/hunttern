@@ -11,13 +11,12 @@
     border-radius: 50%;
     border: solid 5rem #231d5b;
 }
-$nav:1;
 header{
     height: 100vh;
     z-index: 0;
     background-color: $backcolor;
 }
-head{
+#head{
     display: grid;
     grid-template-columns: 3fr 2fr;
     grid-template-areas: "information image";
@@ -62,4 +61,37 @@ head{
 }
 #circle3{
     @include circle(75%, 1%)
+}
+@media (max-width: 426px){
+    header{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    #head{
+        height: 100vh;
+        display: flex;
+        #information{
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 1rem;
+            h1{
+                font-size: 25px;
+                line-height: 45px;
+            }
+            p{
+                font-size: 15px;
+                line-height: 25px;
+            }
+            a{
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+        #image{
+            display: none;
+        }
+    }
 }

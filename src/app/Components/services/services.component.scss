@@ -56,3 +56,38 @@ section{
         }
     }
 }
+@media (max-width: 426px){
+    section{
+        padding: 1rem;
+        .image{
+            display: none;
+        }
+        .content{
+            padding: 1rem;
+            .header{
+                h2{
+                    font-size: 30px;
+                    line-height: 40px;
+                }
+                p{
+                    font-size: 16px;
+                    line-height: 20px;
+                }
+            }
+            .description{
+                h3{
+                    font-size: 20px;
+                    line-height: 30px;
+                }
+                img{
+                    width: 20px;
+                    height: 20px;
+                }
+                p{
+                    font-size: 16px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+}

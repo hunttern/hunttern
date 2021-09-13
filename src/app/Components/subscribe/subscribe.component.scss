@@ -45,3 +45,24 @@
         }
     }
 }
+@media (max-width: 426px){
+    .subscribe{
+        padding: 1rem;
+        h2{
+            font-size: 30px;
+            line-height: 40px;
+        }
+        h5{
+            display: none;
+        }
+        .input{
+            padding: 1rem;
+            width: 100%;
+            font-size: 14px;
+            button{
+                font-size: 10px;
+                text-align: center;
+            }
+        }
+    }
+}

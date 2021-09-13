@@ -2,16 +2,15 @@
     <!-- <span id="circle1"></span>
     <span id="circle2"></span>
     <span id="circle3"></span> -->
-    <span class="dot"></span>
-    <app-navigation></app-navigation>
-    <head>
+    <app-navigation class="hide"></app-navigation>
+    <div id="head">
         <div id="information">
             <h1>The World's Most Popular Way to Buy and Use Crypto</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <button>Start now</button>
+            <button><a [routerLink]="['/platform']">Start now</a></button>
         </div>
         <div id="image" class="container">
             <img src="../../../assets/Images/DimondHeader.png">
         </div>
-    </head>
+    </div>
 </header>

@@ -62,3 +62,35 @@ nav{
         text-decoration: none;
     }
 }
+@media (max-width: 426px){
+    nav{
+        grid-gap: 0.15rem;
+    }
+    #logo{
+        left: 0.5rem;
+        i{
+            font-size: 15px;
+        }
+        span{
+            font-size: 14px;
+        }
+    }
+    #navigation{
+        ul{
+            gap: 0.25rem;
+            li{
+                a{
+                    font-size: 12px;
+                    line-height: 18px;
+                }
+            }
+        }
+    }
+    #login{
+        right: 0.5rem;
+        a{
+            padding: 0.15rem 0.35rem;
+            font-size: 15px;
+        }
+    }
+}

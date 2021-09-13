@@ -98,3 +98,14 @@ footer{
         margin-left: 0.5rem;
     }
 }
+@media (max-width: 426px){
+    footer{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    .description{
+        padding: 1rem;
+    }
+}
