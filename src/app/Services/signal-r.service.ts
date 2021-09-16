@@ -7,7 +7,9 @@ export class SignalRService {
   hubConnection: signalR.HubConnection;
   url: string = 'http://87.107.146.161:5000/TestHub';
   streams: any[] = [];
-  constructor() { }
+  constructor() {
+     this._createSocket();
+  }
   _createSocket() {
     this.hubConnection = new signalR.HubConnectionBuilder()
     .withUrl(this.url)
@@ -23,8 +25,11 @@ export class SignalRService {
       return console.error(err.toString());
     })
   }
-  subscribeOnStream(symbolInfo: any, resolution: any, onRealtimeCallback: any, subscribeUID: any, onResetCacheNeededCallback: any, lastDailyBar: any) {
-    this.hubConnection.on("LiveCandle", (msg: any) => {
+  subscribeOnStream(symbolInfo: any, resolution: any, onRealtimeCallback: any, subscribeUID: any, onResetCacheNeededCallback: any) {
+    this.hubConnection.on('LiveCandle', (msg) => {
+      console.log(msg)
+    })
+    this.hubConnection.on("RealTime", (msg: any) => { 
     let sData = msg      
     if (sData && sData.open) {
         
