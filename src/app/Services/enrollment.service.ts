@@ -23,6 +23,6 @@ export class EnrollmentService {
     return this.http.post(this.url+'/forget',data);
   }
   getData(){
-    this.http.get(this.url);
+    return this.http.get(this.url);
   }
 }

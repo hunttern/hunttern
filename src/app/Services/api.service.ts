@@ -80,7 +80,6 @@ export class ApiService implements IBasicDataFeed {
       }
       return 1
     }
-    // console.log(this.symbols)
     for (let symbol of this.symbols) {
       if (symbol.symbol == symbolName) {
         setTimeout(() => {

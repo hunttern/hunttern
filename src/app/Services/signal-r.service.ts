@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as signalR from '@aspnet/signalr';
+import { ABCDPatterns } from '../Patterns/ABCD.class';
 @Injectable({
   providedIn: 'root'
 })
@@ -27,7 +28,6 @@ export class SignalRService {
   }
   subscribeOnStream(symbolInfo: any, resolution: any, onRealtimeCallback: any, subscribeUID: any, onResetCacheNeededCallback: any) {
     this.hubConnection.on('LiveCandle', (msg) => {
-      console.log(msg)
     })
     this.hubConnection.on("RealTime", (msg: any) => { 
     let sData = msg      
@@ -46,6 +46,10 @@ export class SignalRService {
       onRealtimeCallback({...lastSocketData})
       
       }
+    });
+    this.hubConnection.on("ProccessCandles", (msg: any) => { 
+      let patterns = msg.Found_Patterns.Harmonic_Patterns;
+      ABCDPatterns.patterns = patterns.ABCD;
     });
   }
   unsubscribeFromStream(subscriberUID: any) {
