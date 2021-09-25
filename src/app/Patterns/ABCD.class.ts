@@ -1,3 +1,4 @@
+import { IChartingLibraryWidget, ThemeName } from '../../assets/charting_library'
 export class ABCDPatterns {
     public static patterns: any[] = [
         {
@@ -990,5 +991,5 @@ export class ABCDPatterns {
         }
     ];
     public static chart: any;
-
+    public static widget: IChartingLibraryWidget;
 }
