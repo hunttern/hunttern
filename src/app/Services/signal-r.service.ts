@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as signalR from '@aspnet/signalr';
-import { ABCDPatterns } from '../Patterns/ABCD.class';
+import { FormGroup } from '@angular/forms';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,7 +30,7 @@ export class SignalRService {
   subscribeOnStream(symbolInfo: any, resolution: any, onRealtimeCallback: any, subscribeUID: any, onResetCacheNeededCallback: any) {
     this.hubConnection.on('LiveCandle', (msg) => {
     })
-    this.hubConnection.on("RealTime", (msg: any) => { 
+    this.hubConnection.on("RealTime", (msg: any) => {
     let sData = msg      
     if (sData && sData.open) {
         
@@ -47,9 +48,24 @@ export class SignalRService {
       
       }
     });
-    this.hubConnection.on("ProccessCandles", (msg: any) => { 
+    // this.hubConnection.on("ProccessCandles", (msg: any) => { 
+    //   console.log('patterns');
+    //   let patterns = msg.Found_Patterns.Harmonic_Patterns;
+    //   console.log('patterns : ', patterns);
+    // });
+  }
+  OnClick(data: FormGroup){
+    const form = data.value;
+    const zigzag = form.zigzag;
+    const error = form.error;
+    const patterns: string[] = [];
+    form.patterns.forEach((item: any) => {
+      patterns.push(item.value);
+    });
+    this.hubConnection.invoke('SetPatterns', {ShowZigZag: false, ShowPosition: false, ShowPrediction: false, ShowStatistic: false, ShowCandlePattern: false, PivotSensitivity: zigzag, HarmonicError: error, RisktoReward: 25, Patterns: patterns});
+    this.hubConnection.on("ProccessCandles", (msg: any) => {
       let patterns = msg.Found_Patterns.Harmonic_Patterns;
-      ABCDPatterns.patterns = patterns.ABCD;
+      return patterns;
     });
   }
   unsubscribeFromStream(subscriberUID: any) {

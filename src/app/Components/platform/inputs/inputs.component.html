@@ -1,35 +1,34 @@
 <main>
-    <section class="textinput">
-        <div class="inputs">
-            <div>
-                <label>Zigzag period :</label>
-                <input type="number" max="100" min="0">
+    <form [formGroup]="signalSettingForm" (ngsubmit)="onSubmit()">
+        <section class="textinput">
+            <div class="inputs">
+                <div>
+                    <label>Zigzag period :</label>
+                    <input type="number" max="100" min="0" formControlName="zigzag">
+                </div>
+                <div>
+                    <label>Error rate % :</label>
+                    <input type="number" max="100" min="0" formControlName="error">
+                </div>
             </div>
-            <div>
-                <label>Error rate % :</label>
-                <input type="number" max="100" min="0">
-            </div>
+        </section>
+        <section class="patterns">
+            <ul formArrayName="patterns">
+                <li *ngFor="let pattern of patterns"><input type="checkbox" name="pattern" [value]="pattern.value" (change)="onCheckboxChange($event)"><label>{{pattern.name}}</label></li>
+            </ul>
+        </section>
+        <div class="buttons">
+            <span class="section1">
+                <select name="test" id="test">
+                    <option value="0">Defaults</option>
+                    <option value="1">Set to</option>
+                    <option value="2">Save as</option>
+                </select>
+            </span>
+            <span class="section2">
+                <button id="cancel">Cancel</button>
+                <button id="ok" type="submit" (click)="onSubmit()">Ok</button>
+            </span>
         </div>
-    </section>
-    <section class="patterns">
-        <ul>
-            <li><input type="checkbox"><label>Shark</label></li>
-            <li><input type="checkbox"><label>Butterfly</label></li>
-            <li><input type="checkbox"><label>Bat</label></li>
-            <li><input type="checkbox"><label>Alt Bat</label></li>
-        </ul>
-    </section>
-    <div class="buttons">
-        <span class="section1">
-            <select name="test" id="test">
-                <option value="0">Defaults</option>
-                <option value="1">Set to</option>
-                <option value="2">Save as</option>
-            </select>
-        </span>
-        <span class="section2">
-            <button id="cancel">Cancel</button>
-            <button id="ok">Ok</button>
-        </span>
-    </div>
+    </form>
 </main>

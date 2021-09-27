@@ -8,7 +8,7 @@ import * as data from '../../Data/a.json';
 })
 export class ApiService implements IBasicDataFeed {
   symbols: any;
-  url: string = 'http://87.107.146.161:5000/api/Index?ShowZigZag=true&ShowPosition=true&ShowPrediction=true&ShowStatistic=false&ShowCandlePattern=false&PivotSensitivity=10&HarmonicError=30&RisktoReward=25&Patterns=ABCD&Patterns=Bat&Patterns=AltBat&Patterns=Butterfly&Patterns=Gartley&Patterns=Cypher&Patterns=Crab&Patterns=DeepCrab&Patterns=Shark&Patterns=ThreeDrives&Patterns=5-0';
+  url: string = 'http://87.107.146.161:5000/api/Index';
   constructor(public ws: SignalRService, private http: HttpClient ) {
     this.symbols = data.symbols;
   }
