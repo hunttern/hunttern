@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { IBasicDataFeed } from '../../assets/charting_library/charting_library';
 import { SignalRService } from './signal-r.service';
 import { HttpClient } from '@angular/common/http';
+import {retry} from 'rxjs/operators';
+
 import * as data from '../../Data/a.json';
 @Injectable({
   providedIn: 'root'
@@ -17,7 +19,6 @@ export class ApiService implements IBasicDataFeed {
   }
   onReady(callback: any) {
     this.symbols = data.symbols;
-  
     callback({
       supports_marks: false,
       supports_timescale_marks: false,

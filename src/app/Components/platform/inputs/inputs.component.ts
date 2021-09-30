@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { map } from 'rxjs/operators';
-import { EnrollmentService } from 'src/app/Services/enrollment.service';
 import { SignalRService } from 'src/app/Services/signal-r.service';
 
 @Component({
@@ -11,7 +9,7 @@ import { SignalRService } from 'src/app/Services/signal-r.service';
 })
 export class InputsComponent{
 
-  constructor(private fb: FormBuilder, private enroll: EnrollmentService, private test: SignalRService ) { }
+  constructor(private fb: FormBuilder, private signalr: SignalRService ) { }
   subgroup: AbstractControl[] = [];
   patterns: Array<any> = [
     {name: "ABCD", value: "ABCD"},
@@ -36,15 +34,12 @@ export class InputsComponent{
   arrayItems: {name: string, value: string}[];
   url: string = '';
   signalSettingForm: FormGroup = this.fb.group({
-    zigzag: [0,Validators.required],
-    error: [0,Validators.required],
+    zigzag: [10,Validators.required],
+    error: [10,Validators.required],
     patterns: [this.fb.array(this.subgroup)]
   });
   onSubmit(){
-    // this.enroll.getPatterns(this.signalSettingForm).pipe(
-    //   // map()
-    // ).subscribe(console.log);
-    const patterns = this.test.OnClick(this.signalSettingForm);
+    this.signalr.OnClick(this.signalSettingForm);
   }
   onCheckboxChange(e: any) {
     if (e.target.checked) {
