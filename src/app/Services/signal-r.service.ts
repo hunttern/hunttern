@@ -11,7 +11,9 @@ export class SignalRService {
   url: string = 'http://87.107.146.161:5000/TestHub';
   streams: any[] = [];
   chart: any;
-  HarmonicPatterns: any; 
+  HarmonicPatterns: any;
+  zigzag: any;
+  draw: boolean = true;
   constructor() {
      this._createSocket();
   }
@@ -35,14 +37,12 @@ export class SignalRService {
     if (sData && sData.open) {
         
       let { open, close, low, high, openTime } = sData
-      // Update data
       let lastSocketData = {
         time: new Date(openTime).valueOf(),
         close: parseFloat(close),
         open: parseFloat(open),
         high: parseFloat(high),
         low: parseFloat(low),
-        // volume: parseFloat(Math.random() * 1000),
     }
       onRealtimeCallback({...lastSocketData})
       
@@ -52,19 +52,25 @@ export class SignalRService {
   OnClick(data: FormGroup){
     const form = data.value;
     const zigzag = form.zigzag;
+    const showZigZag = form.zigzagdraw;
     const error = form.error;
     const patterns: string[] = [];
     form.patterns.forEach((item: any) => {
       patterns.push(item.value);
     });
     this.chart = patternClass.chart;
-    this.hubConnection.invoke('SetPatterns', {ShowZigZag: true, ShowPosition: false, ShowPrediction: false, ShowStatistic: false, ShowCandlePattern: false, PivotSensitivity: zigzag, HarmonicError: error, RisktoReward: 25, Patterns: patterns});
+    this.hubConnection.invoke('SetPatterns', {ShowZigZag: showZigZag, ShowPosition: false, ShowPrediction: false, ShowStatistic: false, ShowCandlePattern: false, PivotSensitivity: zigzag, HarmonicError: error, RisktoReward: 25, Patterns: patterns});
     this.hubConnection.on("ProccessCandles", (msg: any) => {
       this.HarmonicPatterns = msg.Found_Patterns.Harmonic_Patterns;
-      if(this.chart){
+      this.zigzag = msg.ZigZag;
+      // this.chart.removeAllShapes();
+      this.drawZigzag();
+      
+      
+      if(this.chart && this.draw){
         this.chart.removeAllShapes();
         this.drawShape();
-        this.chart = undefined;
+        this.draw = false;
       }
     });
   }
@@ -87,7 +93,30 @@ export class SignalRService {
       console.error(e)
     }
   }
-
+  drawZigzag(){
+    this.chart.removeAllShapes();
+    let prevtime: any;
+    let prevprice: any;
+    this.zigzag.forEach((point:any, index: number) => {
+      let time = (Date.parse(point[0]) / 1000);;
+      let price = point[1];
+      if(prevtime && index < this.zigzag.length-1){
+        this.chart.createMultipointShape([{ time: prevtime, price: prevprice }, { time: time, price: price }],
+          {
+            shape: "trend_line",
+            lock: true,
+            disableSelection: false,
+            disableSave: true,
+            disableUndo: true
+          });
+          prevprice = price;
+          prevtime = time;
+      }else{
+        prevprice = price;
+        prevtime = time;
+      }
+    });
+  }
   public drawShape(){
     const patterns = this.HarmonicPatterns;
     if(patterns.ABCD.length != 0){
@@ -167,7 +196,7 @@ export class SignalRService {
       const Ctime = (Date.parse(point.Time[2]) / 1000);
       const Dtime = (Date.parse(point.Time[1]) / 1000);
       const Etime = (Date.parse(point.Time[0]) / 1000);
-      this.chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }, { time: Etime, price: Eprice }],
+      let id = this.chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }, { time: Etime, price: Eprice }],
         {
           shape: "xabcd_pattern",
           lock: true,
@@ -175,6 +204,7 @@ export class SignalRService {
           disableSave: true,
           disableUndo: true
         });
+        console.log("ID: ", id);
         this.chart.createMultipointShape([{ time: Atime, price: Aprice }],
           {
             shape: "text",

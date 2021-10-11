@@ -34,6 +34,7 @@ export class InputsComponent{
   arrayItems: {name: string, value: string}[];
   url: string = '';
   signalSettingForm: FormGroup = this.fb.group({
+    zigzagdraw: [false],
     zigzag: [10,Validators.required],
     error: [10,Validators.required],
     patterns: [this.fb.array(this.subgroup)]

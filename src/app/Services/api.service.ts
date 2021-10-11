@@ -14,8 +14,22 @@ export class ApiService implements IBasicDataFeed {
   constructor(public ws: SignalRService, private http: HttpClient ) {
     this.symbols = data.symbols;
   }
+  convertDate(date: Date): string{
+    const dateYear = date.getFullYear();
+    const dateMonth = date.getMonth() + 1;
+    const dateDay = date.getDate();
+    const dateHour = date.getHours();
+    const dateMin = date.getSeconds();
+    const dateSec = date.getMinutes();
+    return dateYear + "-" + ((dateMonth<10)?0: '') + dateMonth + "-" + ((dateDay<10)?0: '') + dateDay + "T" + ((dateHour<10)?0: '') + dateHour + ":" + ((dateMin<10)?0: '') + dateMin + ":" + ((dateSec<10)?0: '') + dateSec + ".000";
+  }
   binanceKlines(symbol: any, interval: any, startTime: any, endTime: any, limit: any){
-    return this.http.get(this.url);
+    const end = new Date(endTime * 1000);
+    const endDate: string = this.convertDate(end);
+    
+    const start = (new Date(startTime * 1000));
+    const startDate: string = this.convertDate(start);
+    return this.http.get(this.url+`?from=${startDate}&to=${endDate}`);
   }
   onReady(callback: any) {
     this.symbols = data.symbols;
@@ -59,7 +73,7 @@ export class ApiService implements IBasicDataFeed {
       onHistoryCallback(historyCBArray, { noData: false })
       },
       error: (err: any) => {
-        console.log(err);
+        console.error(err);
       }
     });
   }

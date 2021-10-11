@@ -38,7 +38,6 @@ export class ChartComponent implements OnInit, AfterViewInit {
     if(theme === "light"){
       this.tvWidget.changeTheme('Dark');
     }else{
-      console.log("light")
       this.tvWidget.changeTheme('Light');
     }
   }
