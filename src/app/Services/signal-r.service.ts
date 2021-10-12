@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import * as signalR from '@aspnet/signalr';
 import { FormGroup } from '@angular/forms';
 import { patternClass } from '../Patterns/Patterns.class';
+import { EntityId } from 'src/scripts/charting_library/charting_library';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class SignalRService {
   streams: any[] = [];
   chart: any;
   HarmonicPatterns: any;
+  harmonicShape: [{shape: EntityId | string, label: EntityId | string}] = [{label: '',shape: ''}];
   zigzag: any;
+  zigzagShape: EntityId[] = [];
   draw: boolean = true;
   constructor() {
      this._createSocket();
@@ -63,7 +66,6 @@ export class SignalRService {
     this.hubConnection.on("ProccessCandles", (msg: any) => {
       this.HarmonicPatterns = msg.Found_Patterns.Harmonic_Patterns;
       this.zigzag = msg.ZigZag;
-      // this.chart.removeAllShapes();
       this.drawZigzag();
       
       
@@ -94,28 +96,54 @@ export class SignalRService {
     }
   }
   drawZigzag(){
-    this.chart.removeAllShapes();
+    // this.chart.removeAllShapes();
+    this.removeZigzag();
+    let zigzagID: EntityId;
     let prevtime: any;
     let prevprice: any;
+
     this.zigzag.forEach((point:any, index: number) => {
       let time = (Date.parse(point[0]) / 1000);;
       let price = point[1];
+      let color;
       if(prevtime && index < this.zigzag.length-1){
-        this.chart.createMultipointShape([{ time: prevtime, price: prevprice }, { time: time, price: price }],
+
+        if(price > prevprice){
+          color = "#00ff00";
+        }
+        else{
+          color = "#ff0000";
+        }
+        zigzagID = this.chart.createMultipointShape([{ time: prevtime, price: prevprice }, { time: time, price: price }],
           {
             shape: "trend_line",
             lock: true,
             disableSelection: false,
             disableSave: true,
-            disableUndo: true
+            disableUndo: true,
+            overrides: {
+              bold: true,
+              linewidth: 3,
+              linestyle: 0,
+              linecolor: color
+            }
           });
-          prevprice = price;
-          prevtime = time;
+        this.zigzagShape.push(zigzagID);
+        prevprice = price;
+        prevtime = time;
       }else{
         prevprice = price;
         prevtime = time;
       }
     });
+  }
+  removeZigzag(){
+    if(this.zigzagShape.length > 0){
+      this.zigzagShape.forEach(zigzag => {
+        this.chart.removeEntity(zigzag);
+      });
+      this.zigzagShape = [];
+    }
   }
   public drawShape(){
     const patterns = this.HarmonicPatterns;
@@ -186,6 +214,8 @@ export class SignalRService {
   }
   drawXABCD(pattern: any[], name: string){
     pattern.forEach(point => {
+      let labelID: EntityId;
+      let shapeID: EntityId;
       const Aprice = point.Price[4];
       const Bprice = point.Price[3];
       const Cprice = point.Price[2];
@@ -196,7 +226,7 @@ export class SignalRService {
       const Ctime = (Date.parse(point.Time[2]) / 1000);
       const Dtime = (Date.parse(point.Time[1]) / 1000);
       const Etime = (Date.parse(point.Time[0]) / 1000);
-      let id = this.chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }, { time: Etime, price: Eprice }],
+       shapeID = this.chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }, { time: Etime, price: Eprice }],
         {
           shape: "xabcd_pattern",
           lock: true,
@@ -204,8 +234,7 @@ export class SignalRService {
           disableSave: true,
           disableUndo: true
         });
-        console.log("ID: ", id);
-        this.chart.createMultipointShape([{ time: Atime, price: Aprice }],
+        labelID = this.chart.createMultipointShape([{ time: Atime, price: Aprice }],
           {
             shape: "text",
             lock: true,
@@ -214,10 +243,13 @@ export class SignalRService {
             disableUndo: true,
             text: name
           })
+          this.harmonicShape.push({label: labelID, shape: shapeID});
     });
   }
   drawABCD(pattern: any[]){
     pattern.forEach(point => {
+      let labelID: EntityId;
+      let shapeID: EntityId;
       const Aprice = point.Price[3];
       const Bprice = point.Price[2];
       const Cprice = point.Price[1];
@@ -226,7 +258,7 @@ export class SignalRService {
       const Btime = (Date.parse(point.Time[2]) / 1000);
       const Ctime = (Date.parse(point.Time[1]) / 1000);
       const Dtime = (Date.parse(point.Time[0]) / 1000);
-      this.chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }],
+      shapeID = this.chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }],
         {
           shape: "abcd_pattern",
           lock: false,
@@ -234,15 +266,16 @@ export class SignalRService {
           disableSave: true,
           disableUndo: true
         });
-        this.chart.createMultipointShape([{ time: Atime, price: Aprice }],
-          {
-            shape: "text",
-            lock: true,
-            disableSelection: true,
-            disableSave: true,
-            disableUndo: true,
-            text: "ABCD"
-          })
+      labelID = this.chart.createMultipointShape([{ time: Atime, price: Aprice }],
+        {
+          shape: "text",
+          lock: true,
+          disableSelection: true,
+          disableSave: true,
+          disableUndo: true,
+          text: "ABCD"
+        })
+        this.harmonicShape.push({label: labelID, shape: shapeID});
     });
   }
 }

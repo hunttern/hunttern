@@ -21,9 +21,9 @@ export class InputsComponent{
     {name: "DeepCrab", value: "DeepCrab"},
     {name: "Shark", value: "Shark"},
     {name: "ThreeDrives", value: "ThreeDrives"},
-    {name: "Cup", value: "cup"},
+    {name: "Gartley", value: "Gartley"},
     {name: "5-0", value: "5-0"},
-    // {name: "Gartley", value: "Gartley"},
+    // {name: "Cup", value: "cup"},
     // {name: "HeadandShoulders", value: "headandShoulders"},
     // {name: "Double", value: "double"},
     // {name: "Triple", value: "triple"},
@@ -32,7 +32,6 @@ export class InputsComponent{
     // {name: "Flag", value: "flag"},
   ];
   arrayItems: {name: string, value: string}[];
-  url: string = '';
   signalSettingForm: FormGroup = this.fb.group({
     zigzagdraw: [false],
     zigzag: [10,Validators.required],
