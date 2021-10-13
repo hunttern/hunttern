@@ -56,6 +56,10 @@ import { BarChartComponent } from './Components/Charts/bar-chart/bar-chart.compo
 import { ScreenerComponent } from './Components/platform/screener/screener.component';
 import { SettingsComponent } from './Components/platform/screener/settings/settings.component';
 import { ChartComponent } from './Components/platform/chart/chart.component';
+import { HarmonicComponent } from './Components/platform/inputs/harmonic/harmonic.component';
+import { CandleComponent } from './Components/platform/inputs/candle/candle.component';
+import { ContinuousComponent } from './Components/platform/inputs/continuous/continuous.component';
+import { ReversalComponent } from './Components/platform/inputs/reversal/reversal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,7 +109,11 @@ import { ChartComponent } from './Components/platform/chart/chart.component';
     BarChartComponent,
     ScreenerComponent,
     SettingsComponent,
-    ChartComponent
+    ChartComponent,
+    HarmonicComponent,
+    CandleComponent,
+    ContinuousComponent,
+    ReversalComponent
   ],
   imports: [
     BrowserModule,

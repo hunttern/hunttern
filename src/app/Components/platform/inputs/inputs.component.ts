@@ -1,56 +1,51 @@
-import { Component } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { SignalRService } from 'src/app/Services/signal-r.service';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-inputs',
   templateUrl: './inputs.component.html',
   styleUrls: ['./inputs.component.scss']
 })
-export class InputsComponent{
+export class InputsComponent implements OnChanges{
 
-  constructor(private fb: FormBuilder, private signalr: SignalRService ) { }
-  subgroup: AbstractControl[] = [];
-  patterns: Array<any> = [
-    {name: "ABCD", value: "ABCD"},
-    {name: "Bat", value: "Bat"},
-    {name: "AltBat", value: "AltBat"},
-    {name: "Butterfly", value: "Butterfly"},
-    {name: "Cypher", value: "Cypher"},
-    {name: "Crab", value: "Crab"},
-    {name: "DeepCrab", value: "DeepCrab"},
-    {name: "Shark", value: "Shark"},
-    {name: "ThreeDrives", value: "ThreeDrives"},
-    {name: "Gartley", value: "Gartley"},
-    {name: "5-0", value: "5-0"},
-    // {name: "Cup", value: "cup"},
-    // {name: "HeadandShoulders", value: "headandShoulders"},
-    // {name: "Double", value: "double"},
-    // {name: "Triple", value: "triple"},
-    // {name: "Rectangle", value: "rectangle"},
-    // {name: "Triangle", value: "triangle"},
-    // {name: "Flag", value: "flag"},
-  ];
-  arrayItems: {name: string, value: string}[];
-  signalSettingForm: FormGroup = this.fb.group({
-    zigzagdraw: [false],
-    zigzag: [10,Validators.required],
-    error: [10,Validators.required],
-    patterns: [this.fb.array(this.subgroup)]
-  });
-  onSubmit(){
-    this.signalr.OnClick(this.signalSettingForm);
-  }
-  onCheckboxChange(e: any) {
-    if (e.target.checked) {
-      this.subgroup.push(new FormControl(e.target.value));
-    } else {
-      this.subgroup.forEach((item: any, index: number) => {
-        if (item.value == e.target.value) {
-          this.subgroup.splice(index,1);
-        }
-      });
+  constructor() { }
+
+  harmonic: boolean = true;
+  candle: boolean = false;
+  continuous: boolean = false;
+  reversal: boolean = false;
+  
+  @Input() input: string = 'harmonic';
+  
+  ngOnChanges(){
+    switch(this.input){
+      case 'reversal' : {
+        this.reversal = true;
+        this.harmonic = false;
+        this.continuous = false;
+        this.candle = false;
+      }
+      break;
+      case 'harmonic' : {
+        this.reversal = false;
+        this.harmonic = true;
+        this.continuous = false;
+        this.candle = false;
+      }
+      break;
+      case 'candle' : {
+        this.reversal = false;
+        this.harmonic = false;
+        this.continuous = false;
+        this.candle = true;
+      }
+      break;
+      case 'continuous' : {
+        this.reversal = false;
+        this.harmonic = false;
+        this.continuous = true;
+        this.candle = false;
+      }
+      break;
     }
-    this.signalSettingForm.get('patterns')?.setValue(this.subgroup);
   }
 }

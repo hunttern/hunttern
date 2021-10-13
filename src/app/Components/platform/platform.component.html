@@ -11,10 +11,10 @@
 				<div class="sidebar">
 					<nav class="type">
 						<ul>
-							<li><a>Reversal</a></li>
-							<li><a>Chanel</a></li>
-							<li><a class="active">Harmonic</a></li>
-							<li><a>continuous</a></li>
+							<li><a (click)="onReversal()">Reversal</a></li>
+							<li><a (click)="onCandle()">Candel</a></li>
+							<li><a (click)="onHarmonic()" class="active">Harmonic</a></li>
+							<li><a (click)="onContinuous()">Continuous</a></li>
 						</ul>
 					</nav>
 					<nav>
@@ -24,7 +24,7 @@
 						</ul>
 					</nav>
 					<div class="inputs">
-						<app-inputs></app-inputs>
+						<app-inputs [input]="input"></app-inputs>
 					</div>
 				</div>
 			</as-split>

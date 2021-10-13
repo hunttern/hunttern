@@ -55,6 +55,7 @@ export class SignalRService {
   OnClick(data: FormGroup){
     const form = data.value;
     const zigzag = form.zigzag;
+    const prediction = form.prediction;
     const showZigZag = form.zigzagdraw;
     const error = form.error;
     const patterns: string[] = [];
@@ -67,7 +68,6 @@ export class SignalRService {
       this.HarmonicPatterns = msg.Found_Patterns.Harmonic_Patterns;
       this.zigzag = msg.ZigZag;
       this.drawZigzag();
-      
       
       if(this.chart && this.draw){
         this.chart.removeAllShapes();

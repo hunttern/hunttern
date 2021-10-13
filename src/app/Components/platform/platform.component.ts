@@ -20,4 +20,17 @@ export class PlatformComponent {
   onFormSubmit(formValue: any) {
     alert(JSON.stringify(formValue, null, 2));
   }
+  input: string;
+  onReversal(){
+    this.input = 'reversal';
+  }
+  onCandle(){
+    this.input = 'candle';
+  }
+  onHarmonic(){
+    this.input = 'harmonic';
+  }
+  onContinuous(){
+    this.input = 'continuous';
+  }
 }
