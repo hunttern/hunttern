@@ -109,10 +109,10 @@ export class SignalRService {
       if(prevtime && index < this.zigzag.length-1){
 
         if(price > prevprice){
-          color = "#00ff00";
+          color = "#ff0000";
         }
         else{
-          color = "#ff0000";
+          color = "#00ff00";
         }
         zigzagID = this.chart.createMultipointShape([{ time: prevtime, price: prevprice }, { time: time, price: price }],
           {
@@ -174,6 +174,12 @@ export class SignalRService {
     if(patterns.ThreeDrives.length != 0){
       this.drawPatterns("ThreeDrives",patterns.ThreeDrives)
     }
+    if(patterns.ThreeDrives.length != 0){
+      this.drawPatterns("HeadandShoulders",patterns.headandShoulders)
+    }
+    if(patterns.ThreeDrives.length != 0){
+      this.drawPatterns("Double",patterns.headandShoulders)
+    }
     if(patterns['5-0'].length != 0){
       this.drawPatterns("5-0",patterns['5-0'])
     }
@@ -205,12 +211,75 @@ export class SignalRService {
         this.drawXABCD(pattern, patternName);
         return;
       case 'ThreeDrives':
-        this.drawXABCD(pattern, patternName);
+        this.drawTriple(pattern);
         return;
       case 'five':
         this.drawXABCD(pattern, patternName);
         return;
+      case 'headandShoulders':
+        this.drawHeadandShoulders(pattern);
+        return;
+      case 'Double':
+        this.drawXABCD(pattern, 'Double');
+        return;
+      case 'Triple':
+        this.drawTriple(pattern);
+        return;
     }
+  }
+  drawTriple(pattern: any[]){
+    pattern.forEach(point => {
+      const Aprice = point.Price[6];
+      const Bprice = point.Price[5];
+      const Cprice = point.Price[4];
+      const Dprice = point.Price[3];
+      const Eprice = point.Price[2];
+      const Fprice = point.Price[1];
+      const Gprice = point.Price[0];
+      const Atime = (Date.parse(point.Time[6]) / 1000);
+      const Btime = (Date.parse(point.Time[5]) / 1000);
+      const Ctime = (Date.parse(point.Time[4]) / 1000);
+      const Dtime = (Date.parse(point.Time[3]) / 1000);
+      const Etime = (Date.parse(point.Time[2]) / 1000);
+      const Ftime = (Date.parse(point.Time[1]) / 1000);
+      const Gtime = (Date.parse(point.Time[0]) / 1000);
+      const shapeID = this.chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }, { time: Etime, price: Eprice }, { time: Ftime, price: Fprice }, { time: Gtime, price: Gprice },],
+        {
+          shape: "3divers_pattern",
+          lock: true,
+          disableSelection: true,
+          disableSave: true,
+          disableUndo: true
+        });
+        this.harmonicShape.push({label: '', shape: shapeID});
+    })
+  }
+  drawHeadandShoulders(pattern: any[]){
+    pattern.forEach(point => {
+      const Aprice = point.Price[6];
+      const Bprice = point.Price[5];
+      const Cprice = point.Price[4];
+      const Dprice = point.Price[3];
+      const Eprice = point.Price[2];
+      const Fprice = point.Price[1];
+      const Gprice = point.Price[0];
+      const Atime = (Date.parse(point.Time[6]) / 1000);
+      const Btime = (Date.parse(point.Time[5]) / 1000);
+      const Ctime = (Date.parse(point.Time[4]) / 1000);
+      const Dtime = (Date.parse(point.Time[3]) / 1000);
+      const Etime = (Date.parse(point.Time[2]) / 1000);
+      const Ftime = (Date.parse(point.Time[1]) / 1000);
+      const Gtime = (Date.parse(point.Time[0]) / 1000);
+      const shapeID = this.chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }, { time: Etime, price: Eprice }, { time: Ftime, price: Fprice }, { time: Gtime, price: Gprice },],
+        {
+          shape: "head_and_shoulders",
+          lock: true,
+          disableSelection: true,
+          disableSave: true,
+          disableUndo: true
+        });
+        this.harmonicShape.push({label: '', shape: shapeID});
+    })
   }
   drawXABCD(pattern: any[], name: string){
     pattern.forEach(point => {
