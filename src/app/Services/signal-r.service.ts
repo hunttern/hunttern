@@ -3,7 +3,6 @@ import * as signalR from '@aspnet/signalr';
 import { FormGroup } from '@angular/forms';
 import { patternClass } from '../Patterns/Patterns.class';
 import { EntityId } from 'src/scripts/charting_library/charting_library';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -18,11 +17,13 @@ export class SignalRService {
   zigzagShape: EntityId[] = [];
   draw: boolean = true;
   constructor() {
-     this._createSocket();
+    patternClass.userId = Math.random().toString(36).substr(2, 9);
+    this._createSocket();
   }
   _createSocket() {
+    const userId: string = patternClass.userId;
     this.hubConnection = new signalR.HubConnectionBuilder()
-    .withUrl(this.url)
+    .withUrl(this.url+`?uniqeId=${userId}`)
     .build();
     
     this.hubConnection

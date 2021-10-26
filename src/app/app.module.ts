@@ -60,6 +60,7 @@ import { HarmonicComponent } from './Components/platform/inputs/harmonic/harmoni
 import { CandleComponent } from './Components/platform/inputs/candle/candle.component';
 import { ContinuousComponent } from './Components/platform/inputs/continuous/continuous.component';
 import { ReversalComponent } from './Components/platform/inputs/reversal/reversal.component';
+import { MobilePlatformComponent } from './Components/mobile-platform/mobile-platform.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -113,7 +114,8 @@ import { ReversalComponent } from './Components/platform/inputs/reversal/reversa
     HarmonicComponent,
     CandleComponent,
     ContinuousComponent,
-    ReversalComponent
+    ReversalComponent,
+    MobilePlatformComponent
   ],
   imports: [
     BrowserModule,

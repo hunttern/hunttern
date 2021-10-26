@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { patternClass } from '../../Patterns/Patterns.class';
 @Component({
   selector: 'app-platform',
   templateUrl: './platform.component.html',
@@ -16,7 +16,6 @@ export class PlatformComponent {
       acceptTerms: [false, Validators.requiredTrue]
     });
   }
-
   onFormSubmit(formValue: any) {
     alert(JSON.stringify(formValue, null, 2));
   }

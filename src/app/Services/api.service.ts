@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { IBasicDataFeed } from '../../assets/charting_library/charting_library';
 import { SignalRService } from './signal-r.service';
 import { HttpClient } from '@angular/common/http';
-import {retry} from 'rxjs/operators';
+import { patternClass } from '../Patterns/Patterns.class';
 
 import * as data from '../../Data/a.json';
 @Injectable({
@@ -29,7 +29,10 @@ export class ApiService implements IBasicDataFeed {
     
     const start = (new Date(startTime * 1000));
     const startDate: string = this.convertDate(start);
-    return this.http.get(this.url+`?from=${startDate}&to=${endDate}`);
+
+    const userId: string = patternClass.userId;
+
+    return this.http.get(this.url+`?from=${startDate}&to=${endDate}&uniqeId=${userId}`);
   }
   onReady(callback: any) {
     this.symbols = data.symbols;
