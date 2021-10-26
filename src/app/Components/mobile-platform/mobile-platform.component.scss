@@ -1,0 +1,17 @@
+@import '../../../assets/styleSotrage/vars';
+.main{
+    display: grid;
+    grid-template-rows: 1fr 12fr;
+    height: 100vh;
+    width: 100vw;
+    background-color: $platformBackground;
+    color: $primary;
+    div{
+        display: grid;
+        grid-template-columns: 8fr 1.25fr;
+        body{
+            display: grid;
+            grid-template-rows: 7fr 3fr;
+        }
+    }
+}

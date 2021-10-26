@@ -1,0 +1,20 @@
+@import '../../../../assets/styleSotrage/vars';
+div{
+    overflow: scroll;
+    height: 100%;
+    background-color: $platformBackground;
+    table{
+        width: 100%;
+        td,th{
+            padding: 1rem;
+            font-size: 14px;
+        }
+        th{
+            border-bottom: 0.05rem solid $border;
+            color: #7A7AB1;
+        }
+        td{
+            color: #D6D6EE;
+        }
+    }
+}

@@ -60,7 +60,7 @@ import { HarmonicComponent } from './Components/platform/inputs/harmonic/harmoni
 import { CandleComponent } from './Components/platform/inputs/candle/candle.component';
 import { ContinuousComponent } from './Components/platform/inputs/continuous/continuous.component';
 import { ReversalComponent } from './Components/platform/inputs/reversal/reversal.component';
-import { MobilePlatformComponent } from './Components/mobile-platform/mobile-platform.component';
+import { MobilePlatformModule } from './Components/mobile-platform/mobile-platform.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -114,8 +114,7 @@ import { MobilePlatformComponent } from './Components/mobile-platform/mobile-pla
     HarmonicComponent,
     CandleComponent,
     ContinuousComponent,
-    ReversalComponent,
-    MobilePlatformComponent
+    ReversalComponent
   ],
   imports: [
     BrowserModule,
@@ -126,7 +125,8 @@ import { MobilePlatformComponent } from './Components/mobile-platform/mobile-pla
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularSplitModule
+    AngularSplitModule,
+    MobilePlatformModule
   ],
   providers: [],
   bootstrap: [AppComponent]
