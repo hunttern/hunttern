@@ -19,8 +19,8 @@ export class ApiService implements IBasicDataFeed {
     const dateMonth = date.getMonth() + 1;
     const dateDay = date.getDate();
     const dateHour = date.getHours();
-    const dateMin = date.getSeconds();
-    const dateSec = date.getMinutes();
+    const dateMin = date.getMinutes();
+    const dateSec = date.getSeconds();
     return dateYear + "-" + ((dateMonth<10)?0: '') + dateMonth + "-" + ((dateDay<10)?0: '') + dateDay + "T" + ((dateHour<10)?0: '') + dateHour + ":" + ((dateMin<10)?0: '') + dateMin + ":" + ((dateSec<10)?0: '') + dateSec + ".000";
   }
   binanceKlines(symbol: any, interval: any, startTime: any, endTime: any, limit: any){

@@ -44,4 +44,13 @@
 
         }
     }
+    .strategy{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        span{
+            position: relative;
+            right: 3rem;
+        }
+    }
 }

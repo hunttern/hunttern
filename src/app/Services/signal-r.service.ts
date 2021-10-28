@@ -12,6 +12,7 @@ export class SignalRService {
   streams: any[] = [];
   chart: any;
   HarmonicPatterns: any;
+  ReversalPatterns: any;
   harmonicShape: [{shape: EntityId | string, label: EntityId | string}] = [{label: '',shape: ''}];
   zigzag: any;
   zigzagShape: EntityId[] = [];
@@ -60,6 +61,7 @@ export class SignalRService {
     const showZigZag = form.zigzagdraw;
     const error = form.error;
     const patterns: string[] = [];
+    this.draw = true;
     form.patterns.forEach((item: any) => {
       patterns.push(item.value);
     });
@@ -67,12 +69,14 @@ export class SignalRService {
     this.hubConnection.invoke('SetPatterns', {ShowZigZag: showZigZag, ShowPosition: false, ShowPrediction: false, ShowStatistic: false, ShowCandlePattern: false, PivotSensitivity: zigzag, HarmonicError: error, RisktoReward: 25, Patterns: patterns});
     this.hubConnection.on("ProccessCandles", (msg: any) => {
       this.HarmonicPatterns = msg.Found_Patterns.Harmonic_Patterns;
+      this.ReversalPatterns = msg.Found_Patterns.Reversal_Patterns;
       this.zigzag = msg.ZigZag;
       this.drawZigzag();
       
       if(this.chart && this.draw){
         this.chart.removeAllShapes();
         this.drawShape();
+        this.drawReversalShape();
         this.draw = false;
       }
     });
@@ -97,17 +101,15 @@ export class SignalRService {
     }
   }
   drawZigzag(){
-    // this.chart.removeAllShapes();
     this.removeZigzag();
     let zigzagID: EntityId;
     let prevtime: any;
     let prevprice: any;
-
     this.zigzag.forEach((point:any, index: number) => {
       let time = (Date.parse(point[0]) / 1000);;
       let price = point[1];
       let color;
-      if(prevtime && index < this.zigzag.length-1){
+      if(prevtime && index < this.zigzag.length-2){
 
         if(price > prevprice){
           color = "#ff0000";
@@ -146,6 +148,18 @@ export class SignalRService {
       this.zigzagShape = [];
     }
   }
+  private drawReversalShape(){
+    const patterns = this.ReversalPatterns;
+    if(patterns.Head_and_Shoulders.length != 0){
+      this.drawPatterns("HeadandShoulders",patterns.Head_and_Shoulders)
+    }
+    if(patterns.Double.length != 0){
+      this.drawPatterns("Double",patterns.Double)
+    }
+    if(patterns.Triple.length != 0){
+      this.drawPatterns("Triple",patterns.Triple)
+    }
+  }
   public drawShape(){
     const patterns = this.HarmonicPatterns;
     if(patterns.ABCD.length != 0){
@@ -174,12 +188,6 @@ export class SignalRService {
     }
     if(patterns.ThreeDrives.length != 0){
       this.drawPatterns("ThreeDrives",patterns.ThreeDrives)
-    }
-    if(patterns.ThreeDrives.length != 0){
-      this.drawPatterns("HeadandShoulders",patterns.headandShoulders)
-    }
-    if(patterns.ThreeDrives.length != 0){
-      this.drawPatterns("Double",patterns.headandShoulders)
     }
     if(patterns['5-0'].length != 0){
       this.drawPatterns("5-0",patterns['5-0'])
@@ -220,11 +228,11 @@ export class SignalRService {
       case 'headandShoulders':
         this.drawHeadandShoulders(pattern);
         return;
-      case 'Double':
-        this.drawXABCD(pattern, 'Double');
+        case 'Double':
+        this.drawDouble(pattern);
         return;
       case 'Triple':
-        this.drawTriple(pattern);
+        this.drawHeadandShoulders(pattern);
         return;
     }
   }
@@ -253,6 +261,44 @@ export class SignalRService {
           disableUndo: true
         });
         this.harmonicShape.push({label: '', shape: shapeID});
+    })
+  }
+  private drawDouble(pattern: any){
+    pattern.forEach((point: any) => {
+      const Aprice = point.Price[4];
+      const Bprice = point.Price[3];
+      const Cprice = point.Price[2];
+      const Dprice = point.Price[1];
+      const Eprice = point.Price[0];
+      const Atime = (Date.parse(point.Time[4]) / 1000);
+      const Btime = (Date.parse(point.Time[3]) / 1000);
+      const Ctime = (Date.parse(point.Time[2]) / 1000);
+      const Dtime = (Date.parse(point.Time[1]) / 1000);
+      const Etime = (Date.parse(point.Time[0]) / 1000);
+      
+      let m = (Aprice - Bprice) / (Atime - Btime);
+      const midAB = ((Cprice - Aprice) / m) + Atime;
+      m = (Dprice - Eprice) / (Dtime - Etime);
+      const midDE = ((Cprice - Dprice) / m) + Dtime;
+
+      const shape1ID = this.chart.createMultipointShape([{ time: midAB, price: Cprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }],
+        {
+          shape: "triangle",
+          lock: true,
+          disableSelection: true,
+          disableSave: true,
+          disableUndo: true
+        });
+      const shape2ID = this.chart.createMultipointShape([{ time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }, { time: midDE, price: Cprice }],
+        {
+          shape: "triangle",
+          lock: true,
+          disableSelection: true,
+          disableSave: true,
+          disableUndo: true
+        });
+        this.harmonicShape.push({label: '', shape: shape1ID});
+        this.harmonicShape.push({label: '', shape: shape2ID});
     })
   }
   drawHeadandShoulders(pattern: any[]){

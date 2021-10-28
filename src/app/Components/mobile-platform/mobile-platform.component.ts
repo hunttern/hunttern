@@ -5,11 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './mobile-platform.component.html',
   styleUrls: ['./mobile-platform.component.scss']
 })
-export class MobilePlatformComponent implements OnInit {
+export class MobilePlatformComponent {
 
-  constructor() { }
+  panel: string = '';
 
-  ngOnInit(): void {
+  signalPanel(){
+    this.panel = (this.panel == '') ? 'signal': '';
   }
-
 }

@@ -1,15 +1,20 @@
 <div class="main">
     <header>
-        <app-header></app-header>
+        <app-header (signal)="signalPanel()"></app-header>
     </header>
-    <div>
-        <body>
-            <section style="background-color: aqua;">
-                <!-- <app-chart></app-chart> -->
-            </section>
-            <section>
-                <app-signals></app-signals>
-            </section>
+    <div class="body">
+        <body [ngSwitch]="panel">
+            <div class="chart">
+                <section>
+                    <app-chart></app-chart>
+                </section>
+                <section>
+                    <app-signals></app-signals>
+                </section>
+            </div>
+            <div *ngSwitchCase="'signal'" class="pattern">
+                <app-inputs></app-inputs>
+            </div>
         </body>
         <nav>
             <app-tools></app-tools>

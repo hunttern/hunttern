@@ -38,29 +38,11 @@ import { ProfileComponent } from './Components/dashboard/profile/profile.compone
 import { StatisticsComponent } from './Components/dashboard/statistics/statistics.component';
 import { PlansComponent } from './Components/dashboard/plans/plans.component';
 import { ChangepasswordComponent } from './Components/dashboard/profile/changepassword/changepassword.component';
-import { PlatformComponent } from './Components/platform/platform.component';
-import { InputsComponent } from './Components/platform/inputs/inputs.component';
-import { TabComponent } from './Components/platform/tab/tab.component';
-import { StrategyComponent } from './Components/platform/strategy/strategy.component';
-import { TradingComponent } from './Components/platform/strategy/trading/trading.component';
-import { ToolsComponent } from './Components/platform/tools/tools.component';
-import { WhatchlistComponent } from './Components/platform/tools/whatchlist/whatchlist.component';
-import { AlertComponent } from './Components/platform/tools/alert/alert.component';
-import { HotlistComponent } from './Components/platform/tools/hotlist/hotlist.component';
-import { EventsComponent } from './Components/platform/tools/events/events.component';
-import { ListComponent } from './Components/platform/tools/whatchlist/list/list.component';
-import { InformationComponent } from './Components/platform/tools/whatchlist/information/information.component';
-import { PerformanceComponent } from './Components/platform/tools/whatchlist/information/performance/performance.component';
 import { SubdashboardComponent } from './Components/dashboard/subdashboard/subdashboard.component';
-import { BarChartComponent } from './Components/Charts/bar-chart/bar-chart.component';
-import { ScreenerComponent } from './Components/platform/screener/screener.component';
-import { SettingsComponent } from './Components/platform/screener/settings/settings.component';
-import { ChartComponent } from './Components/platform/chart/chart.component';
-import { HarmonicComponent } from './Components/platform/inputs/harmonic/harmonic.component';
-import { CandleComponent } from './Components/platform/inputs/candle/candle.component';
-import { ContinuousComponent } from './Components/platform/inputs/continuous/continuous.component';
-import { ReversalComponent } from './Components/platform/inputs/reversal/reversal.component';
+
 import { MobilePlatformModule } from './Components/mobile-platform/mobile-platform.module';
+import { WindowsPlatformModule } from './Components/windows-platform/windows-platform.module';
+import { PlatformComponent } from './Components/platform/platform.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,28 +75,8 @@ import { MobilePlatformModule } from './Components/mobile-platform/mobile-platfo
     StatisticsComponent,
     PlansComponent,
     ChangepasswordComponent,
-    PlatformComponent,
-    InputsComponent,
-    TabComponent,
-    StrategyComponent,
-    TradingComponent,
-    ToolsComponent,
-    WhatchlistComponent,
-    AlertComponent,
-    HotlistComponent,
-    EventsComponent,
-    ListComponent,
-    InformationComponent,
-    PerformanceComponent,
     SubdashboardComponent,
-    BarChartComponent,
-    ScreenerComponent,
-    SettingsComponent,
-    ChartComponent,
-    HarmonicComponent,
-    CandleComponent,
-    ContinuousComponent,
-    ReversalComponent
+    PlatformComponent
   ],
   imports: [
     BrowserModule,
@@ -126,7 +88,8 @@ import { MobilePlatformModule } from './Components/mobile-platform/mobile-platfo
     FormsModule,
     ReactiveFormsModule,
     AngularSplitModule,
-    MobilePlatformModule
+    MobilePlatformModule,
+    WindowsPlatformModule
   ],
   providers: [],
   bootstrap: [AppComponent]
