@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { patternClass } from 'src/app/Patterns/Patterns.class';
-import { ChartingLibraryWidgetOptions, IChartingLibraryWidget, IChartWidgetApi, ResolutionString,widget } from '../../../../assets/charting_library/charting_library';
-import { ApiService } from '../../../Services/api.service';
+import { ChartingLibraryWidgetOptions, IChartingLibraryWidget, IChartWidgetApi, ResolutionString,widget } from '../../assets/charting_library/charting_library';
+import { ApiService } from '../Services/api.service';
 
 @Component({
   selector: 'app-chart',
