@@ -10,7 +10,7 @@ export class PlatformComponent {
 
   windowsize: boolean;
   constructor() {
-    window.innerWidth > 700 ? true : false
+    this.windowsize = window.innerWidth > 700 ? true : false;
     fromEvent(window,'resize').pipe(
       tap( (window: any) => {
         this.windowsize = window.target.innerWidth > 700 ? true : false;

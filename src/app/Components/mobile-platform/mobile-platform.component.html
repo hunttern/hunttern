@@ -12,7 +12,7 @@
                     <app-signals></app-signals>
                 </section>
             </div>
-            <div *ngSwitchCase="'signal'" class="pattern">
+            <div *ngSwitchCase="'signal'" class="pattern" [@Inputpanel]="state">
                 <app-inputs></app-inputs>
             </div>
         </body>

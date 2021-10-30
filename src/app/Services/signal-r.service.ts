@@ -71,8 +71,9 @@ export class SignalRService {
       this.HarmonicPatterns = msg.Found_Patterns.Harmonic_Patterns;
       this.ReversalPatterns = msg.Found_Patterns.Reversal_Patterns;
       this.zigzag = msg.ZigZag;
-      this.drawZigzag();
-      
+      if(this.chart && zigzag){
+        this.drawZigzag();
+      }
       if(this.chart && this.draw){
         this.chart.removeAllShapes();
         this.drawShape();
