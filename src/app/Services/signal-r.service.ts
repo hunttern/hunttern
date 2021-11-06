@@ -14,17 +14,17 @@ export class SignalRService {
   HarmonicPatterns: any;
   ReversalPatterns: any;
   harmonicShape: [{shape: EntityId | string, label: EntityId | string}] = [{label: '',shape: ''}];
-  zigzag: any;
+  reversalShape: [{shape: EntityId | string, label?: EntityId | string}] = [{label: '',shape: ''}];
   zigzagShape: EntityId[] = [];
   draw: boolean = true;
   constructor() {
-    patternClass.userId = Math.random().toString(36).substr(2, 9);
-    this._createSocket();
+    // this._createSocket();
   }
   _createSocket() {
     const userId: string = patternClass.userId;
+    const symbol: string = patternClass.Symbol;
     this.hubConnection = new signalR.HubConnectionBuilder()
-    .withUrl(this.url+`?uniqeId=${userId}`)
+    .withUrl(this.url+`?uniqeId=${userId}&coin=${symbol}`)
     .build();
     
     this.hubConnection
@@ -37,6 +37,7 @@ export class SignalRService {
     })
   }
   subscribeOnStream(symbolInfo: any, resolution: any, onRealtimeCallback: any, subscribeUID: any, onResetCacheNeededCallback: any) {
+    this._createSocket();
     this.hubConnection.on("RealTime", (msg: any) => {
     let sData = msg      
     if (sData && sData.open) {
@@ -62,17 +63,18 @@ export class SignalRService {
     const error = form.error;
     const patterns: string[] = [];
     this.draw = true;
-    form.patterns.forEach((item: any) => {
-      patterns.push(item.value);
-    });
+    if(form.patterns.length > 0){
+      form.patterns.forEach((item: any) => {
+        patterns.push(item.value);
+      });
+    }
     this.chart = patternClass.chart;
     this.hubConnection.invoke('SetPatterns', {ShowZigZag: showZigZag, ShowPosition: false, ShowPrediction: false, ShowStatistic: false, ShowCandlePattern: false, PivotSensitivity: zigzag, HarmonicError: error, RisktoReward: 25, Patterns: patterns});
     this.hubConnection.on("ProccessCandles", (msg: any) => {
       this.HarmonicPatterns = msg.Found_Patterns.Harmonic_Patterns;
       this.ReversalPatterns = msg.Found_Patterns.Reversal_Patterns;
-      this.zigzag = msg.ZigZag;
-      if(this.chart && zigzag){
-        this.drawZigzag();
+      if(this.chart && showZigZag){
+        this.drawZigzag(msg.ZigZag);
       }
       if(this.chart && this.draw){
         this.chart.removeAllShapes();
@@ -82,42 +84,41 @@ export class SignalRService {
       }
     });
   }
-  unsubscribeFromStream(subscriberUID: any) {
-    try {
-      let id = subscriberUID.split("_")[0]
-      const obj = {
-        method: "ReceiveMessage",
-        params: [
-          this.streams[id]
-        ],
-        id: 1
-      }
-      delete this.streams[id]
-      // if (this.hubConnection.readyState === 1) {
-      //     this.hubConnection.send(JSON.stringify(obj))
-      // }
-    }
-    catch (e) {
-      console.error(e)
-    }
+  unsubscribeFromStream(subscriberUID?: any) {
+    this.hubConnection.stop();
+    // try {
+    //   let id = subscriberUID.split("_")[0]
+    //   const obj = {
+    //     method: "ReceiveMessage",
+    //     params: [
+    //       this.streams[id]
+    //     ],
+    //     id: 1
+    //   }
+    //   delete this.streams[id]
+    //   // if (this.hubConnection.readyState === 1) {
+    //   //     this.hubConnection.send(JSON.stringify(obj))
+    //   // }
+    // }
+    // catch (e) {
+    //   console.error(e)
+    // }
   }
-  drawZigzag(){
+  drawZigzag(zigzag: any){
     this.removeZigzag();
     let zigzagID: EntityId;
-    let prevtime: any;
-    let prevprice: any;
-    this.zigzag.forEach((point:any, index: number) => {
-      let time = (Date.parse(point[0]) / 1000);;
+    let prevtime = Date.parse(zigzag[0][0]);
+    let prevprice = zigzag[0][1];
+    // for(let i=this.zigzag.length-1; i > 0; i--){
+    //   let time = (Date.parse(this.zigzag[i][0]) / 1000);
+    //   let price = 
+    // }
+    zigzag.forEach((point:any, index: number) => {
+      let time = (Date.parse(point[0]) / 1000);
       let price = point[1];
       let color;
-      if(prevtime && index < this.zigzag.length-2){
-
-        if(price > prevprice){
-          color = "#ff0000";
-        }
-        else{
-          color = "#00ff00";
-        }
+      if(index > 0){
+        color = price < prevprice ? "#ff0000" : "#00ff00";
         zigzagID = this.chart.createMultipointShape([{ time: prevtime, price: prevprice }, { time: time, price: price }],
           {
             shape: "trend_line",
@@ -133,9 +134,6 @@ export class SignalRService {
             }
           });
         this.zigzagShape.push(zigzagID);
-        prevprice = price;
-        prevtime = time;
-      }else{
         prevprice = price;
         prevtime = time;
       }
@@ -298,8 +296,8 @@ export class SignalRService {
           disableSave: true,
           disableUndo: true
         });
-        this.harmonicShape.push({label: '', shape: shape1ID});
-        this.harmonicShape.push({label: '', shape: shape2ID});
+        this.reversalShape.push({label: '', shape: shape1ID});
+        this.reversalShape.push({label: '', shape: shape2ID});
     })
   }
   drawHeadandShoulders(pattern: any[]){
@@ -326,7 +324,7 @@ export class SignalRService {
           disableSave: true,
           disableUndo: true
         });
-        this.harmonicShape.push({label: '', shape: shapeID});
+        this.reversalShape.push({label: '', shape: shapeID});
     })
   }
   drawXABCD(pattern: any[], name: string){

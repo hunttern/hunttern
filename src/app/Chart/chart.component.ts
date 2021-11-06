@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+
 import { patternClass } from 'src/app/Patterns/Patterns.class';
 import { ChartingLibraryWidgetOptions, IChartingLibraryWidget, IChartWidgetApi, ResolutionString,widget } from '../../assets/charting_library/charting_library';
 import { ApiService } from '../Services/api.service';
@@ -13,7 +14,9 @@ export class ChartComponent implements OnInit, AfterViewInit {
   chartObject: IChartWidgetApi;
   widgetOptions: ChartingLibraryWidgetOptions;
 
-  constructor(private bfAPI: ApiService) { }
+  constructor(private bfAPI: ApiService) {
+    patternClass.userId = Math.random().toString(36).substr(2, 9);
+  }
 
   ngOnInit(){
     this.widgetOptions = {
@@ -45,6 +48,18 @@ export class ChartComponent implements OnInit, AfterViewInit {
     if (!this.tvWidget) return
     this.tvWidget.onChartReady(() => {
       patternClass.chart = this.tvWidget.activeChart();
+      const chart = this.tvWidget.activeChart();
+      
+      // console.log(chart.resolution());
+      const Sub = chart.onSymbolChanged().subscribe(null, () => {
+        const symbol: string = chart.symbolExt().symbol;
+        if(symbol.includes('BTC')){
+          patternClass.Symbol = 'BTC';
+        }else{
+          patternClass.Symbol = 'ETH';
+        }
+      });
+
     });
   }
   getLocalLanguage() {

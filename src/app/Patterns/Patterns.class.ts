@@ -3,4 +3,5 @@ export class patternClass{
     public static HarmonicPatterns: any;
     public static zigzag: any;
     public static userId: string;
+    public static Symbol: string = "BTC";
 }

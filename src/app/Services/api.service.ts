@@ -5,12 +5,20 @@ import { HttpClient } from '@angular/common/http';
 import { patternClass } from '../Patterns/Patterns.class';
 
 import * as data from '../../Data/a.json';
+enum symbols{
+  BTCUSDT = 1,
+  ETHUSDT = 2,
+  ADAUSDT = 3,
+  BNBUSDT = 4,
+  XRPUSDT = 5
+}
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService implements IBasicDataFeed {
   symbols: any;
-  url: string = 'http://87.107.146.161:5000/api/Index';
+  url: string = 'http://87.107.146.161:5000/api/home/';
+  first: boolean = true;
   constructor(public ws: SignalRService, private http: HttpClient ) {
     this.symbols = data.symbols;
   }
@@ -24,6 +32,7 @@ export class ApiService implements IBasicDataFeed {
     return dateYear + "-" + ((dateMonth<10)?0: '') + dateMonth + "-" + ((dateDay<10)?0: '') + dateDay + "T" + ((dateHour<10)?0: '') + dateHour + ":" + ((dateMin<10)?0: '') + dateMin + ":" + ((dateSec<10)?0: '') + dateSec + ".000";
   }
   binanceKlines(symbol: any, interval: any, startTime: any, endTime: any, limit: any){
+
     const end = new Date(endTime * 1000);
     const endDate: string = this.convertDate(end);
     
@@ -31,8 +40,9 @@ export class ApiService implements IBasicDataFeed {
     const startDate: string = this.convertDate(start);
 
     const userId: string = patternClass.userId;
-
-    return this.http.get(this.url+`?from=${startDate}&to=${endDate}&uniqeId=${userId}`);
+    const newurl: string = this.url + patternClass.Symbol;
+    console.log(symbol.base_name[0]);
+    return this.http.get(newurl+`?from=${startDate}&to=${endDate}&uniqeId=${userId}`);
   }
   onReady(callback: any) {
     this.symbols = data.symbols;
@@ -63,6 +73,7 @@ export class ApiService implements IBasicDataFeed {
     )
   }
   getBars(symbolInfo: any, resolution: any, from: any, to: any, onHistoryCallback: any, onErrorCallback: any, firstDataRequest: any) {
+    console.log("History");
     this.binanceKlines(symbolInfo, resolution, from, to, 500).subscribe({
       next: (totalKlines: any) => {
         let historyCBArray = totalKlines.map((kline: any) => ({
@@ -81,10 +92,12 @@ export class ApiService implements IBasicDataFeed {
     });
   }
   subscribeBars(symbolInfo: any, resolution: any, onRealtimeCallback: any, subscriberUID: any, onResetCacheNeededCallback: any) {
-    this.ws.subscribeOnStream(symbolInfo, resolution, onRealtimeCallback, subscriberUID, onResetCacheNeededCallback)
+    console.log("ON");
+    this.ws.subscribeOnStream(symbolInfo, resolution, onRealtimeCallback, subscriberUID, onResetCacheNeededCallback);
   }
   unsubscribeBars(subscriberUID: any) {
-    //  this.ws.unsubscribeFromStream(subscriberUID)
+    console.log("OFF");
+    this.ws.unsubscribeFromStream();
   }
   resolveSymbol(symbolName : any, onSymbolResolvedCallback: any, onResolveErrorCallback: any) {
     false && console.log('👉 resolveSymbol:', symbolName)
