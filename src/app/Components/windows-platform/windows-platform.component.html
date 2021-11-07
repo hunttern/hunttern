@@ -1,7 +1,7 @@
 <body class="body">
 	<div #col1 class="col1" [style.width]="w1+'%'">
 		<div class="hidescroll">
-			<h2>Harmonic Pattern - Live <i class="material-icons">close</i></h2>
+			<h2>Harmonic Pattern - Live <i class="material-icons" (click)="ClosePattern()">close</i></h2>
 			<div class="inputs">
 				<app-inputs></app-inputs>
 			</div>
@@ -29,7 +29,7 @@
 					</ul>
 				</nav>
 				<span class="page">
-					<button class="minimize"><i class="material-icons">minimize</i></button>
+					<button class="minimize"><i class="material-icons" (click)="Minitrade()">minimize</i></button>
 					<button class="expand"></button>
 				</span>
 			</header>

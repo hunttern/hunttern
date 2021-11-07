@@ -32,7 +32,14 @@ export class WindowsPlatformComponent {
   onFormSubmit(formValue: any) {
     alert(JSON.stringify(formValue, null, 2));
   }
-
+  ClosePattern(){
+    this.w1 = 0;
+    this.w2 = 75;
+  }
+  Minitrade(){
+    this.h1 = 100;
+    this.h2 = 0;
+  }
   setPerY1(result: any){
     this.h1 = result;
     this.h2 = 97 - result;
