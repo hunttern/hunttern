@@ -1,97 +1,64 @@
 <body class="body">
-    <as-split direction="horizontal" class="test">
-		<as-split-area id="leftSide" [size]="22" [maxSize]="30" [minSize]="20">
-			<as-split direction="vertical" >
-				<header>
-					<div>
-						<h2>Harmonic Pattern - Live</h2>
-						<i class="material-icons">close</i>
+	<div #col1 class="col1" [style.width]="w1+'%'">
+		<div class="hidescroll">
+			<h2>Harmonic Pattern - Live <i class="material-icons">close</i></h2>
+			<div class="inputs">
+				<app-inputs></app-inputs>
+			</div>
+		</div>
+		<span class="COL" Col (relative)="setPerX1($event)"></span>
+	</div>
+	<div #col2 class="col2" [style.width]="w2+'%'">
+		<div #row1 class="row1" [style.height]="h1+'%'">
+			<app-chart></app-chart>
+		  	<span Row class="ROW" (relative)="setPerY1($event)"></span>
+		</div>
+		<div #row2 class="row2 hidescroll" [style.height]="h2+'%'">
+			<header>
+				<nav class="links">
+					<ul>
+						<li>
+							<a class="strategytest">Setting</a>
+						</li>
+						<li>
+							<a class="active">Security</a>
+						</li>
+						<li>
+							<a class="active">View:Default</a>
+						</li>
+					</ul>
+				</nav>
+				<span class="page">
+					<button class="minimize"><i class="material-icons">minimize</i></button>
+					<button class="expand"></button>
+				</span>
+			</header>
+			<div class="hidescroll">
+				<app-trading></app-trading>
+				<app-settings></app-settings>
+			</div>
+		</div>
+	</div>
+	<div #col3 class="col3 hidescroll" [style.width]="w3+'%'">
+		<span class="COL hidescroll scroll" Col (relative)="setPerX2($event)"></span>
+		<div class="profile">
+			<app-tab></app-tab>
+		</div>
+		<div class="parent ">
+			<div class="main hidescroll">
+				<div #row1 class="row1 hidescroll" [style.height]="h3+'%'">
+					<div class="list ">
+						<app-list></app-list>
 					</div>
-				</header>
-				<div class="sidebar">
-					<nav class="type">
-						<ul>
-							<li><a (click)="onReversal()">Reversal</a></li>
-							<li><a (click)="onCandle()">Candel</a></li>
-							<li><a (click)="onHarmonic()" class="active">Harmonic</a></li>
-							<li><a (click)="onContinuous()">Continuous</a></li>
-						</ul>
-					</nav>
-					<nav>
-						<ul>
-							<li><a class="active">Inputs</a></li>
-							<li><a>Settings</a></li>
-						</ul>
-					</nav>
-					<div class="inputs">
-						<app-inputs [input]="input"></app-inputs>
-					</div>
+					<span Row class="ROW hidescroll" (relative)="setPerY2($event)"></span>
 				</div>
-			</as-split>
-		</as-split-area>
-		<as-split-area id="midleside" [size]="78">
-			<as-split direction="vertical">
-				<as-split-area>
-					<div>
-                        <app-tab></app-tab>
-                    </div>
-					<as-split direction="horizontal">
-						<as-split-area id="charttSide" [size]="60">
-							<as-split direction="vertical">
-								<as-split-area [size]="40" [minSize]="20" class="hidescroll">
-									<app-chart></app-chart>
-								</as-split-area>
-								<as-split-area [size]="60" [minSize]="40" class="hidescroll">
-									<div class="tester">
-                                        <header>
-                                            <nav class="links">
-                                                <ul>
-                                                    <li>
-                                                        <a class="strategytest">Setting</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="active">Security</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="active">View:Default</a>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                            <span class="page">
-                                                <button class="minimize"><i class="material-icons">minimize</i></button>
-                                                <button class="expand"></button>
-                                            </span>
-                                        </header>
-                                        <div class="hidescroll">
-                                            <app-trading></app-trading>
-                                            <app-settings></app-settings>
-                                        </div>
-                                    </div>
-								</as-split-area>
-							</as-split>
-						</as-split-area>
-						<as-split-area id="listside" [size]="33" [minSize]="25" [maxSize]="35">
-							<as-split direction="vertical">
-								<as-split-area [size]="40" [minSize]="25" [maxSize]="60" class="hidescroll">
-                       		 		<div class="list ">
-                            			<app-list></app-list>
-                        			</div>
-				    			</as-split-area>
-				    			<as-split-area [size]="60" [minSize]="40" [maxSize]="75" class="hidescroll">
-					    			<div class="info ">
-                            			<app-information></app-information>
-                        			</div>
-				    			</as-split-area>
-							</as-split>
-						</as-split-area>
-						<as-split-area [size]="7" [lockSize]="true" id="rightside">
-							<div class="tool">
-                            	<app-tools></app-tools>
-                        	</div>
-						</as-split-area>
-					</as-split>
-				</as-split-area>
-			</as-split>
-		</as-split-area>
-	</as-split>
+				<div #row2 class="row2 hidescroll" [style.height]="h4+'%'">
+					<app-information></app-information>
+				</div>
+			</div>
+			<div class="toolbar">
+				<app-tools></app-tools>
+			</div>
+		</div>
+	</div>
 </body>

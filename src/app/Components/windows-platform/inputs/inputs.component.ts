@@ -5,7 +5,7 @@ import { Component, Input, OnChanges } from '@angular/core';
   templateUrl: './inputs.component.html',
   styleUrls: ['./inputs.component.scss']
 })
-export class InputsComponent implements OnChanges{
+export class InputsComponent{
 
   constructor() { }
 
@@ -13,11 +13,9 @@ export class InputsComponent implements OnChanges{
   candle: boolean = false;
   continuous: boolean = false;
   reversal: boolean = false;
-  
-  @Input() input: string = 'harmonic';
-  
-  ngOnChanges(){
-    switch(this.input){
+
+  onClink(type: string){
+    switch(type){
       case 'reversal' : {
         this.reversal = true;
         this.harmonic = false;

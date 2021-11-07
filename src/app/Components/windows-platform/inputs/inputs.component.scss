@@ -7,3 +7,14 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
+ul{
+    display: flex;
+    gap: 1rem;
+    a{
+        color: $platformBorder;
+        text-decoration: none;
+        &.active{
+            color: #D6D6EE;
+        }
+    }
+}

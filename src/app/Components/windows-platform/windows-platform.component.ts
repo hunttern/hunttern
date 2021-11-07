@@ -1,53 +1,52 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SplitAreaDirective, SplitComponent } from 'angular-split';
 
 @Component({
   selector: 'app-windows-platform',
   templateUrl: './windows-platform.component.html',
   styleUrls: ['./windows-platform.component.scss']
 })
-export class WindowsPlatformComponent implements AfterViewInit { 
+export class WindowsPlatformComponent { 
+  h1: number = 60;
+  h2: number = 40;
+  h3: number = 50;
+  h4: number = 50;
+  w1: number = 20;
+  w2: number = 55;
+  w3: number = 25;
 
-  isChecked = true;
+  height1 = {"height": `${this.h1}%`};
+  height2 = {"height": `${this.h2}%`};
+  height3 = {"height": `${this.h3}%`};
+  height4 = {"height": `${this.h4}%`};
+  
   formGroup: FormGroup;
-  leftPanelSize: number = 22;
-  rightPanelSize: number = 78;
-
-  // @ViewChild('leftSide') leftpanel: SplitAreaDirective;
-
+  
   constructor(formBuilder: FormBuilder) {
     this.formGroup = formBuilder.group({
       enableWifi: false,
       acceptTerms: [false, Validators.requiredTrue]
     });
   }
-  ngAfterViewInit(){
-    // console.log("leftPanel : ",this.leftpanel.collapse(0));
-  }
+
   onFormSubmit(formValue: any) {
     alert(JSON.stringify(formValue, null, 2));
   }
-  input: string;
-  onReversal(){
-    this.input = 'reversal';
+
+  setPerY1(result: any){
+    this.h1 = result;
+    this.h2 = 97 - result;
   }
-  onCandle(){
-    this.input = 'candle';
+  setPerY2(result: any){  
+    this.h3 = result - 3;
+    this.h4 = 103 - result;
   }
-  onHarmonic(){
-    this.input = 'harmonic';
+  setPerX1(result: any){
+    this.w1 = result;
+    this.w2 = 100 - result - this.w3;
   }
-  onContinuous(){
-    this.input = 'continuous';
-  }
-  closeLeftPanel(){
-    // this.leftPanelSize = 0;
-    // this.rightPanelSize = 100;
-    // console.log(this.leftpanel.size);
-    // for(let i=0; i< this.leftPanelSize; i++){
-    //   this.leftPanelSize--;
-    //   this.rightPanelSize++;
-    // }
+  setPerX2(result: any){
+    this.w3 = 101 - result;
+    this.w2 = result - this.w1;
   }
 }

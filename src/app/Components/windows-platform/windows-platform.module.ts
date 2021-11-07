@@ -26,8 +26,11 @@ import { CandleComponent } from './inputs/candle/candle.component';
 import { ContinuousComponent } from './inputs/continuous/continuous.component';
 import { ReversalComponent } from './inputs/reversal/reversal.component';
 
+import { RowDirective } from './row.directive';
+import { ColDirective } from './col.directive';
+
 @NgModule({
-  declarations: [WindowsPlatformComponent, InputsComponent, TabComponent, StrategyComponent, TradingComponent, ToolsComponent, WhatchlistComponent, AlertComponent, HotlistComponent, EventsComponent, ListComponent, InformationComponent, PerformanceComponent, ScreenerComponent, SettingsComponent, HarmonicComponent, CandleComponent, ContinuousComponent, ReversalComponent],
+  declarations: [WindowsPlatformComponent, InputsComponent, TabComponent, StrategyComponent, TradingComponent, ToolsComponent, WhatchlistComponent, AlertComponent, HotlistComponent, EventsComponent, ListComponent, InformationComponent, PerformanceComponent, ScreenerComponent, SettingsComponent, HarmonicComponent, CandleComponent, ContinuousComponent, ReversalComponent, RowDirective, ColDirective],
   imports: [
     CommonModule,
     AngularSplitModule,

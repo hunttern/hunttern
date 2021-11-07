@@ -1,4 +1,18 @@
 <body class="hidescroll">
+    <nav class="type">
+        <ul>
+            <li><a (click)="onClink('reversal')">Reversal</a></li>
+            <li><a (click)="onClink('candle')">Candel</a></li>
+            <li><a (click)="onClink('harmonic')" class="active">Harmonic</a></li>
+            <li><a (click)="onClink('continuous')">Continuous</a></li>
+        </ul>
+    </nav>
+    <nav>
+        <ul>
+            <li><a class="active">Inputs</a></li>
+            <li><a>Settings</a></li>
+        </ul>
+    </nav>
     <section *ngIf="harmonic">
         <app-harmonic></app-harmonic>
     </section>

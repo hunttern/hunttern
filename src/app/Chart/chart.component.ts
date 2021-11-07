@@ -6,7 +6,7 @@ import { ApiService } from '../Services/api.service';
 
 @Component({
   selector: 'app-chart',
-  template: `<button (click)="changeTheme()">Change Theme</button> <div id="container" #container></div>`,
+  template: `<div id="container" #container></div>`,
   styleUrls: ['./chart.component.scss']
 })
 export class ChartComponent implements OnInit, AfterViewInit {
