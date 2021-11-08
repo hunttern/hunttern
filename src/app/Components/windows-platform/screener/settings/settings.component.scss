@@ -1,4 +1,5 @@
 @import '../../../../../assets/styleSotrage/vars';
+$fontSize: 0.85rem;
 section{
     padding: 0 10px;
     header{
@@ -10,7 +11,7 @@ section{
             position: relative;
             top: 8px;
         }
-        font-size: 16px;
+        font-size: $fontSize;
         background-color: #313029;
         color: rgb(160, 160, 160);
     }

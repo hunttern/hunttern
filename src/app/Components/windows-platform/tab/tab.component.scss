@@ -1,6 +1,7 @@
 @import "../../../../assets/styleSotrage/vars";
 @import "../../../../assets/styleSotrage/mixinss";
-
+$fontSize: 0.85rem;
+$fontSize1: 1.25rem;
 main{
     height: 100%;
     float: right;
@@ -27,7 +28,7 @@ main{
             flex-direction: column;
             gap: 0.5rem;
             #username{
-                font-size: 16px;
+                font-size: $fontSize;
                 line-height: 20px;
                 color: #D6D6EE;
             }
@@ -66,7 +67,7 @@ main{
                 a,i{
                     color: #D6D6EE;
                     text-decoration: none;
-                    font-size: 18px;
+                    font-size: $fontSize;
                 }
 
             }
@@ -83,7 +84,7 @@ main{
         align-items: center;
     }
     i{
-        font-size: 25px;
+        font-size: $fontSize1;
         color:#8282B2;
         cursor: pointer;
     }

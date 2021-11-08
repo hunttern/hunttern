@@ -39,11 +39,6 @@ nav{
         a{
             text-align: center;
             text-decoration: none;
-            @if($nav == 1){
-                color: #E9E8F7;
-            }@else if($nav == 0){
-                color: #191633;
-            }
         }
     }
 }

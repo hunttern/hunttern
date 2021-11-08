@@ -1,6 +1,6 @@
 @import "../../../assets/styleSotrage/vars";
 @import "../../../assets/styleSotrage/mixinss";
-
+$fontSize: 1rem;
 .hidescroll::-webkit-scrollbar{
     display: none;
 }
@@ -9,6 +9,9 @@
     scrollbar-width: none;  /* Firefox */
 }
 .body{
+    h2{
+        font-size: $fontSize;
+    }
     width: 100vw;
     height: 100vh;
     display: flex;

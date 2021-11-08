@@ -3,12 +3,12 @@
         <i class="fas fa-gem"></i><span>Hunttern</span>
     </div>
     <div id="navigation">
-        <ul>
-            <li><a [routerLink]="['/home']">Home</a></li>
-            <li><a [routerLink]="['/features']">Features</a></li>
-            <li><a [routerLink]="['/service']">Service</a></li>
-            <li><a [routerLink]="['/about']">About</a></li>
-            <li><a [routerLink]="['/contact']">Contact</a></li>
+        <ul #links>
+            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/home']">Home</a></li>
+            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/features']">Features</a></li>
+            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/service']">Service</a></li>
+            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/about']">About</a></li>
+            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/contact']">Contact</a></li>
         </ul>
     </div>
     <div id="login">

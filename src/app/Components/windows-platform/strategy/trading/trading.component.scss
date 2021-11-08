@@ -1,5 +1,6 @@
 @import "../../../../../assets/styleSotrage/mixinss";
 @import "../../../../../assets/styleSotrage/vars";
+$fontSize: 0.85rem;
 body{
     border-top: 0.05rem solid $border;
     background-color: $platformBackground;
@@ -10,11 +11,11 @@ body{
             align-items: center;
             gap: 3rem;
             h6{
-                font-size: 14px;
+                font-size: $fontSize;
                 color: #7A7AB1;
             }
             label{
-                font-size: 17px;
+                font-size: $fontSize;
                 color: #D6D6EE;
             }
         }
@@ -25,7 +26,7 @@ body{
             width: 100%;
             td,th{
                 padding: 1rem;
-                font-size: 14px;
+                font-size: $fontSize;
             }
             th{
                 border-bottom: 0.05rem solid $border;

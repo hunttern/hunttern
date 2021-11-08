@@ -20,6 +20,7 @@ export class WindowsPlatformComponent {
   height3 = {"height": `${this.h3}%`};
   height4 = {"height": `${this.h4}%`};
   
+  rightPanel: boolean = true;
   formGroup: FormGroup;
   
   constructor(formBuilder: FormBuilder) {
@@ -29,8 +30,15 @@ export class WindowsPlatformComponent {
     });
   }
   setTool(name: string){
-    this.w3 = 0;
-    this.w2 = 80;
+    if(this.rightPanel){
+      this.w3 = 0;
+      this.w2 = 80;
+      this.rightPanel = false;
+    }else{
+      this.w3 = 20;
+      this.w2 = 57;
+      this.rightPanel = true;
+    }
   }
   onFormSubmit(formValue: any) {
     alert(JSON.stringify(formValue, null, 2));
