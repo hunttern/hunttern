@@ -12,8 +12,8 @@ export class WindowsPlatformComponent {
   h3: number = 50;
   h4: number = 50;
   w1: number = 20;
-  w2: number = 55;
-  w3: number = 25;
+  w2: number = 57;
+  w3: number = 20;
 
   height1 = {"height": `${this.h1}%`};
   height2 = {"height": `${this.h2}%`};
@@ -28,18 +28,22 @@ export class WindowsPlatformComponent {
       acceptTerms: [false, Validators.requiredTrue]
     });
   }
-
+  setTool(name: string){
+    this.w3 = 0;
+    this.w2 = 80;
+  }
   onFormSubmit(formValue: any) {
     alert(JSON.stringify(formValue, null, 2));
   }
   ClosePattern(){
     this.w1 = 0;
-    this.w2 = 75;
+    this.w2 = 70;
   }
   Minitrade(){
     this.h1 = 100;
     this.h2 = 0;
   }
+
   setPerY1(result: any){
     this.h1 = result;
     this.h2 = 97 - result;
@@ -49,11 +53,11 @@ export class WindowsPlatformComponent {
     this.h4 = 103 - result;
   }
   setPerX1(result: any){
-    this.w1 = result;
-    this.w2 = 100 - result - this.w3;
+    this.w1 = result + 1;
+    this.w2 = 102 - result - this.w3;
   }
   setPerX2(result: any){
-    this.w3 = 101 - result;
+    this.w3 = 98 - result;
     this.w2 = result - this.w1;
   }
 }

@@ -21,10 +21,7 @@ export class RowDirective {
         this.sub.push(move);
       })
     ).subscribe();
-  }
-  @HostListener('mouseup') onMouseup(){
-    this.sub.forEach(element => {
-      element.unsubscribe();
-    });
+    fromEvent(document.body,'mouseup').pipe(
+      tap(() => move.unsubscribe())).subscribe();
   }
 }

@@ -6,7 +6,7 @@
 				<app-inputs></app-inputs>
 			</div>
 		</div>
-		<span class="COL" Col (relative)="setPerX1($event)"></span>
+		<span class="COL" Col [max]="20" [min]="10" (relative)="setPerX1($event)"></span>
 	</div>
 	<div #col2 class="col2" [style.width]="w2+'%'">
 		<div #row1 class="row1" [style.height]="h1+'%'">
@@ -35,7 +35,7 @@
 			</header>
 			<div class="hidescroll">
 				<app-trading></app-trading>
-				<app-settings></app-settings>
+				<!-- <app-settings></app-settings> -->
 			</div>
 		</div>
 	</div>
@@ -56,9 +56,9 @@
 					<app-information></app-information>
 				</div>
 			</div>
-			<div class="toolbar">
-				<app-tools></app-tools>
-			</div>
 		</div>
+	</div>
+	<div class="toolbar col4">
+		<app-tools (panel)="setTool($event)"></app-tools>
 	</div>
 </body>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-tools',
@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class ToolsComponent implements OnInit {
 
   constructor() { }
-
+  @Output() panel: EventEmitter<string> = new EventEmitter();
   ngOnInit(): void {
   }
-
+  activePanel(name: string){
+    this.panel.emit(name);
+  }
 }

@@ -85,6 +85,11 @@ export class SignalRService {
     });
   }
   unsubscribeFromStream(subscriberUID?: any) {
+    // const oldCoin: string = '';
+    // const newCoin: string = '';
+
+    // this.hubConnection.invoke('ChangeCoin', {old: oldCoin, newCoin: newCoin});
+
     this.hubConnection.stop();
     // try {
     //   let id = subscriberUID.split("_")[0]

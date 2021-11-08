@@ -96,7 +96,6 @@
         }
         .parent{
             display: grid;
-            grid-template-columns: 10fr 1.5fr;
             .toolbar{
                 border-left: thin solid $platformBorder;
             }
@@ -110,5 +109,11 @@
                 width: 100%;
             }
         }
+    }
+    .col4{
+        width: 3%;
+        height: 100vh;
+        background-color: $platformBackground;
+        border-left: thin solid $platformBorder;
     }
 }

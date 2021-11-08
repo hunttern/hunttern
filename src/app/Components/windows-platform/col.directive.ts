@@ -1,4 +1,4 @@
-import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
+import { Directive, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { fromEvent, Subscription } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
@@ -7,8 +7,9 @@ import { tap } from 'rxjs/operators';
 })
 export class ColDirective {
 
-  private sub: Subscription[] = [];
   private dif: number;
+  @Input() min: number = 0;
+  @Input() max: number = 100;
   @Output() relative: EventEmitter<number> = new EventEmitter();
 
   @HostListener('mousedown',['$event']) onMousedown(event: any){
@@ -17,14 +18,17 @@ export class ColDirective {
         const EX: number = event.pageX;
         const WX: number = window.innerWidth;
         this.dif = EX/WX;
-        this.relative.emit(Math.ceil(this.dif * 100));
-        this.sub.push(move);
+        const emit = Math.ceil(this.dif * 100);
+        if(emit > this.max){
+          this.relative.emit(this.max);
+        }else if(emit < this.min){
+          this.relative.emit(0);
+        }else{
+          this.relative.emit(emit);
+        }
       })
     ).subscribe();
-  }
-  @HostListener('mouseup') onMouseup(){
-    this.sub.forEach(element => {
-      element.unsubscribe();
-    });
+    fromEvent(document.body,'mouseup').pipe(
+      tap(() => move.unsubscribe())).subscribe();
   }
 }

@@ -41,7 +41,7 @@ export class ApiService implements IBasicDataFeed {
 
     const userId: string = patternClass.userId;
     const newurl: string = this.url + patternClass.Symbol;
-    console.log(symbol.base_name[0]);
+    // console.log(symbol.base_name[0]);
     return this.http.get(newurl+`?from=${startDate}&to=${endDate}&uniqeId=${userId}`);
   }
   onReady(callback: any) {
