@@ -5,6 +5,7 @@ import { AngularSplitModule } from 'angular-split';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { ChartModule } from 'src/app/Chart/chart.module';
+import { MaterialsModule } from 'src/app/Shared/materials/materials.module';
 
 import { WindowsPlatformComponent } from './windows-platform.component';
 import { InputsComponent } from './inputs/inputs.component';
@@ -36,7 +37,8 @@ import { ColDirective } from './col.directive';
     AngularSplitModule,
     RouterModule,
     ReactiveFormsModule,
-    ChartModule
+    ChartModule,
+    MaterialsModule
   ],
   exports: [WindowsPlatformComponent]
 })

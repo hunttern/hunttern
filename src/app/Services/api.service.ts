@@ -16,12 +16,24 @@ enum symbols{
   providedIn: 'root'
 })
 export class ApiService implements IBasicDataFeed {
+
   symbols: any;
   url: string = 'http://87.107.146.161:5000/api/home/';
-  first: boolean = true;
+  interval: string = '5';
+
+
   constructor(public ws: SignalRService, private http: HttpClient ) {
     this.symbols = data.symbols;
   }
+  // function convertTZ(date, tzString) {
+  //   return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));   
+  // }
+  // convertTZ("2012/04/20 10:10:30 +0000", "Asia/Jakarta");
+  // const convertedDate = convertTZ("2012/04/20 10:10:30 +0000", "Asia/Jakarta");
+  // convertedDate.getHours();
+  // const date = new Date();
+  // convertTZ(date, "Asia/Jakarta");
+
   convertDate(date: Date): string{
     const dateYear = date.getFullYear();
     const dateMonth = date.getMonth() + 1;
@@ -40,6 +52,8 @@ export class ApiService implements IBasicDataFeed {
     const startDate: string = this.convertDate(start);
 
     const userId: string = patternClass.userId;
+    this.interval = interval;
+    // const newurl: string = this.url + patternClass.Symbol + `/${interval}`;
     const newurl: string = this.url + patternClass.Symbol;
     // console.log(symbol.base_name[0]);
     return this.http.get(newurl+`?from=${startDate}&to=${endDate}&uniqeId=${userId}`);
@@ -93,7 +107,7 @@ export class ApiService implements IBasicDataFeed {
   }
   subscribeBars(symbolInfo: any, resolution: any, onRealtimeCallback: any, subscriberUID: any, onResetCacheNeededCallback: any) {
     console.log("ON");
-    this.ws.subscribeOnStream(symbolInfo, resolution, onRealtimeCallback, subscriberUID, onResetCacheNeededCallback);
+    this.ws.subscribeOnStream(symbolInfo, resolution, onRealtimeCallback, subscriberUID, onResetCacheNeededCallback,this.interval);
   }
   unsubscribeBars(subscriberUID: any) {
     console.log("OFF");

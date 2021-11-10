@@ -11,7 +11,8 @@
             <i class="material-icons">expand_more 
                 <ul class="dropdown">
                     <li><a [routerLink]='["/dashboard"]'><i class="material-icons">dashboard</i> Dashboard</a></li>
-                    <li><a><i class="material-icons">dark_mode</i> Dark Mode</a></li>
+                    <li *ngIf="dark" (click)="changeTheme()"><a><i class="material-icons">dark_mode</i> Dark Mode</a></li>
+                    <li *ngIf="!dark" (click)="changeTheme()"><a><i class="material-icons">light_mode</i> Light Mode</a></li>
                     <li><a><i class="material-icons">logout</i> Sign out</a></li>
                 </ul>
             </i>

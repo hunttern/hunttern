@@ -2,7 +2,7 @@
 @import "../../../../assets/styleSotrage/mixinss";
 
 .forget{
-    @include _center;
+    @include center;
     padding: 3rem;
     flex-direction: column;
     background-color: #E5E5E5;
@@ -12,7 +12,7 @@
         padding: 2rem 3rem;
         border-radius: 35px;
         .image{
-            @include _center;
+            @include center;
             margin-bottom: 2rem;
         }
     }

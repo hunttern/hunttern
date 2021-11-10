@@ -13,6 +13,9 @@
     }
 }
 footer{
+    ul{
+        list-style: none;
+    }
     color: #9C99BE;
     display: grid;
     grid-template-columns: 3fr 1fr 2fr 2fr 2fr;
@@ -27,7 +30,7 @@ footer{
     padding: 3rem 4rem 1rem ;
     background-color: #13102C;
     .rights{
-        @include _center;
+        @include center;
         grid-area: rights;
         border-top: #9C99BE thin solid;
         margin-top: 1rem;
@@ -57,7 +60,7 @@ footer{
         gap: 0.5rem;
         list-style: none;
         i{
-            @include _center;
+            @include center;
             color: #2D2768;
             background-color: #fff;
             border-radius: 50%;

@@ -1,21 +1,23 @@
 @import "../../../assets/styleSotrage/vars";
 @import "../../../assets/styleSotrage/mixinss";
 $fontSize: 1rem;
+$bordersize: 10px;
 .hidescroll::-webkit-scrollbar{
     display: none;
 }
 .hidescroll {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
-.body{
+body{
+    background-color: $platformBackground;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
     h2{
+        padding: 0 1rem;
         font-size: $fontSize;
     }
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
     span{
         background-color: $platformBorder;
     }
@@ -23,19 +25,24 @@ $fontSize: 1rem;
         display: grid;
         background-color:  $platformBackground;
         position: relative;
-        padding-right: 15px;
+        padding-right: $bordersize;
         color: $primary;
         h2{
-            padding: 1rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            justify-content: space-between;
+        }
+        .C1{
+            overflow-y: auto;
         }
         span{
             position: absolute;
             right: 0;
-            width: 15px;
+            width: $bordersize;
             height: 100%;
+        }
+        .inputs{
+            width: 100%;
         }
     }
     .col2{
@@ -45,16 +52,27 @@ $fontSize: 1rem;
         .row1{
             position: relative;
             width: 100%;
-            padding-bottom: 15px;
+            padding-bottom: $bordersize;
+            overflow-y: scroll;
             span{
                 position: absolute;
-                height: 15px;
+                height: $bordersize;
                 width: 100%;
                 bottom: 0;
             }
         }
         .row2{
             width: 100%;
+            overflow-y: scroll;
+            .page{
+                display: flex;
+                gap: 1rem;
+                button{
+                    background-color: transparent;
+                    border: none;
+                    border-radius: 1rem;
+                }
+            }
             header{
                 display: flex;
                 justify-content: space-between;
@@ -70,7 +88,7 @@ $fontSize: 1rem;
                             @include center();
                         }
                         a{
-                            padding: 1rem;
+                            padding: 0.75rem;
                             color: #CCCCE4;
                             text-decoration: none;
                         }
@@ -83,40 +101,31 @@ $fontSize: 1rem;
                     }
                 }
             }
-        
         }
     }
     .col3{
-        background-color: $platformBackground;
-        position: relative;
-        padding-left: 15px;
         display: grid;
-        .COL{
+        background-color:  $platformBackground;
+        position: relative;
+        padding-left: $bordersize;
+        color: $primary;
+        .C1{
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+        .input{
+            width: 100%;
+        }
+        span{
             position: absolute;
             left: 0;
+            width: $bordersize;
             height: 100%;
-            width: 15px;
-        }
-        .parent{
-            display: grid;
-            .toolbar{
-                border-left: thin solid $platformBorder;
-            }
-        }
-        .row1{
-            position: relative;
-            .ROW{
-                position: absolute;
-                bottom: 0;
-                height: 15px;
-                width: 100%;
-            }
         }
     }
     .col4{
         width: 3%;
         height: 100vh;
-        background-color: $platformBackground;
         border-left: thin solid $platformBorder;
     }
 }

@@ -9,7 +9,7 @@ article{
             color: #191633;
         }
         h4{
-            @include _center;
+            @include center;
             color: #615F79;
             display: flex;
             gap:1rem;

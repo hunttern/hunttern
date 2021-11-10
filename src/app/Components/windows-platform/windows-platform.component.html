@@ -1,15 +1,15 @@
-<body class="body">
+<body>
 	<div #col1 class="col1" [style.width]="w1+'%'">
-		<div class="hidescroll">
-			<h2>Harmonic Pattern - Live <i class="material-icons" (click)="ClosePattern()">close</i></h2>
+		<div class="C1 hidescroll">
+			<h2>Hunttern <i class="material-icons" (click)="ClosePattern()">close</i></h2>
 			<div class="inputs">
 				<app-inputs></app-inputs>
 			</div>
 		</div>
 		<span class="COL" Col [max]="20" [min]="10" (relative)="setPerX1($event)"></span>
 	</div>
-	<div #col2 class="col2" [style.width]="w2+'%'">
-		<div #row1 class="row1" [style.height]="h1+'%'">
+	<div #col2 class="col2 C1" [style.width]="w2+'%'">
+		<div #row1 class="row1 hidescroll" [style.height]="h1+'%'">
 			<app-chart></app-chart>
 		  	<span Row class="ROW" (relative)="setPerY1($event)"></span>
 		</div>
@@ -30,7 +30,7 @@
 				</nav>
 				<span class="page">
 					<button class="minimize"><i class="material-icons" (click)="Minitrade()">minimize</i></button>
-					<button class="expand"></button>
+					<button class="minimize"><i class="material-icons" (click)="Minitrade()">minimize</i></button>
 				</span>
 			</header>
 			<div class="hidescroll">
@@ -39,24 +39,11 @@
 			</div>
 		</div>
 	</div>
-	<div #col3 class="col3 hidescroll" [style.width]="w3+'%'">
-		<span class="COL hidescroll scroll" Col (relative)="setPerX2($event)"></span>
-		<div class="profile">
-			<app-tab></app-tab>
+	<div #col3 class="col3" [style.width]="w3+'%'">
+		<div class="C1 hidescroll">
+			<app-whatchlist></app-whatchlist>
 		</div>
-		<div class="parent ">
-			<div class="main hidescroll">
-				<div #row1 class="row1 hidescroll" [style.height]="h3+'%'">
-					<div class="list ">
-						<app-list></app-list>
-					</div>
-					<span Row class="ROW hidescroll" (relative)="setPerY2($event)"></span>
-				</div>
-				<div #row2 class="row2 hidescroll" [style.height]="h4+'%'">
-					<app-information></app-information>
-				</div>
-			</div>
-		</div>
+		<span class="COL hidescroll" Col (relative)="setPerX2($event)"></span>
 	</div>
 	<div class="toolbar col4">
 		<app-tools (panel)="setTool($event)"></app-tools>

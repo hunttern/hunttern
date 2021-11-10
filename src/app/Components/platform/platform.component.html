@@ -1,8 +1,6 @@
-<div *ngIf="windowsize; then window else mobile">
-</div>
-<ng-template #window>
+<div *ngIf="windowsize">
 	<app-windows-platform></app-windows-platform>
-</ng-template>
-<ng-template #mobile>
+</div>
+<div *ngIf="!windowsize">
 	<app-mobile-platform></app-mobile-platform>
-</ng-template>
+</div>

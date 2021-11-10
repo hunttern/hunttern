@@ -22,30 +22,42 @@ export class WindowsPlatformComponent {
   
   rightPanel: boolean = true;
   formGroup: FormGroup;
-  
-  constructor(formBuilder: FormBuilder) {
-    this.formGroup = formBuilder.group({
-      enableWifi: false,
-      acceptTerms: [false, Validators.requiredTrue]
-    });
-  }
+
   setTool(name: string){
     if(this.rightPanel){
-      this.w3 = 0;
-      this.w2 = 80;
-      this.rightPanel = false;
+      const close = setInterval(() => {
+        if(this.w3 !== 0){
+          this.w3--;
+          this.w2++;
+        }else{
+          this.rightPanel = false;
+          clearInterval(close);
+        }
+      }, 15);
     }else{
-      this.w3 = 20;
-      this.w2 = 57;
-      this.rightPanel = true;
+      const close = setInterval(() => {
+        if(this.w3 !== 20){
+          this.w3++;
+          this.w2--;
+        }else{
+          clearInterval(close);
+          this.rightPanel = true;
+        }
+      }, 15);
     }
   }
   onFormSubmit(formValue: any) {
     alert(JSON.stringify(formValue, null, 2));
   }
   ClosePattern(){
-    this.w1 = 0;
-    this.w2 = 70;
+    const close = setInterval( () => {
+      if(this.w1 !== 0){
+        this.w2++;
+        this.w1--;
+      }else{
+        clearInterval(close);
+      }
+    },15);
   }
   Minitrade(){
     this.h1 = 100;
@@ -54,18 +66,18 @@ export class WindowsPlatformComponent {
 
   setPerY1(result: any){
     this.h1 = result;
-    this.h2 = 97 - result;
+    this.h2 = 100 - result;
   }
   setPerY2(result: any){  
-    this.h3 = result - 3;
-    this.h4 = 103 - result;
+    this.h3 = result;
+    this.h4 = 100 - result;
   }
   setPerX1(result: any){
-    this.w1 = result + 1;
-    this.w2 = 102 - result - this.w3;
+    this.w1 = result;
+    this.w2 = 97 - result - this.w3;
   }
   setPerX2(result: any){
-    this.w3 = 98 - result;
+    this.w3 = 97 - result;
     this.w2 = result - this.w1;
   }
 }

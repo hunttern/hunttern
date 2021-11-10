@@ -21,18 +21,13 @@ nav{
     grid-area: logo;
     span{
         margin-left: 0.5rem;
-        @if($nav == 1){
-            color: #E9E8F7;
-            height: 100vh;
-        }@else if($nav == 0){
-            color: #191633;
-        }
+        color: #191633;
     }
 }
 #navigation{
     grid-area: navigation;
     ul{
-        @include _center;
+        @include center;
         list-style: none;
         flex-direction: row;
         gap: 2rem;

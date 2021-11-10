@@ -34,7 +34,7 @@ section{
             color: #514F67;
         }
         span{
-            @include _center();
+            @include center();
             border-radius: 50%;
             background: linear-gradient(146.31deg, #E8A62C 15.26%, #EA5C28 83.68%);
             box-shadow: 0px 8px 20px rgba(233, 100, 40, 0.09);

@@ -2,7 +2,7 @@
 @import "../../../../assets/styleSotrage/mixinss";
 
 .register{
-    @include _center;
+    @include center;
     flex-direction: column;
     background-color: #E5E5E5;
     padding: 3rem;

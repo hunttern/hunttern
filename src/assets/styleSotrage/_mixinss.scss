@@ -1,8 +1,3 @@
-@mixin _center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 @mixin gradiant {
     background: -webkit-linear-gradient(#EA5C28,#E8A82C);
     -webkit-background-clip: text;

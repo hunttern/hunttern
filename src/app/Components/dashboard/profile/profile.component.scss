@@ -123,7 +123,7 @@ form{
             font-size: 26px;
         }
         .recharge{
-            @include _center;
+            @include center;
 
             button{
                 background: #F19F48;

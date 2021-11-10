@@ -1,5 +1,6 @@
 @import "../../../../../..//assets/styleSotrage/vars";
 section{
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -58,4 +59,11 @@ section{
             }
         }
     }
+}
+.hidescroll::-webkit-scrollbar{
+    display: none;
+}
+.hidescroll {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }

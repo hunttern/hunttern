@@ -2,7 +2,7 @@
 @import "../../../../assets/styleSotrage/mixinss";
 
 .login{
-    @include _center;
+    @include center;
     flex-direction: column;
     background-color: #E5E5E5;
     padding: 3rem;
@@ -94,8 +94,6 @@
         .form{
             width: 90%;
             padding: 2rem;
-        }
-        form{
         }
     }
 }

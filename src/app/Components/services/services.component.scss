@@ -1,36 +1,31 @@
 @import "../../../assets/styleSotrage/mixinss";
-@import "../../../assets/styleSotrage/vars";
+@import "../../../assets/styleSotrage/colors";
+
 section{
-    @include _center();
-    padding: 0 5rem;
-    background-color: $backcolor;
+    height: 100vh;
+    background-color: $mainColor;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     .image{
+        @include center();
         img{
-            width: 100%;
-            height: 100%;
+            object-fit: cover;
         }
     }
-    .content{
-        @include _center();
-        padding: 5rem;
-        color: antiquewhite;
+    .note{
+        display: grid;
+        padding: 2rem;
+        color: #fff;
         .header{
-            margin-bottom: 4rem;
-            h2{
-                font-size: 44px;
-                line-height: 70px;
-                color: #FFFFFF;
-            }
-            p{
-                font-size: 20px;
-                line-height: 31px;
-                color: #D1CFEA;
-            }
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .description{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             h3{
                 display: flex;
-                flex-direction: row;
                 align-items: center;
                 gap: 0.5rem;
                 color: #FFFFFF;
@@ -43,7 +38,7 @@ section{
                 line-height: 30px;
             }
             span{
-                @include _center();
+                @include center();
                 background-color: #302975;
                 border-radius: 50%;
                 width: 40px;
@@ -56,6 +51,7 @@ section{
         }
     }
 }
+
 @media (max-width: 426px){
     section{
         padding: 1rem;

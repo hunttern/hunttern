@@ -20,11 +20,11 @@ export class SignalRService {
   constructor() {
     // this._createSocket();
   }
-  _createSocket() {
+  _createSocket(interval: string) {
     const userId: string = patternClass.userId;
     const symbol: string = patternClass.Symbol;
     this.hubConnection = new signalR.HubConnectionBuilder()
-    .withUrl(this.url+`?uniqeId=${userId}&coin=${symbol}`)
+    .withUrl(this.url+`?uniqeId=${userId}&coin=${symbol}&interval=${interval}`)
     .build();
     
     this.hubConnection
@@ -36,8 +36,8 @@ export class SignalRService {
       return console.error(err.toString());
     })
   }
-  subscribeOnStream(symbolInfo: any, resolution: any, onRealtimeCallback: any, subscribeUID: any, onResetCacheNeededCallback: any) {
-    this._createSocket();
+  subscribeOnStream(symbolInfo: any, resolution: any, onRealtimeCallback: any, subscribeUID: any, onResetCacheNeededCallback: any, interval: string) {
+    this._createSocket(interval);
     this.hubConnection.on("RealTime", (msg: any) => {
     let sData = msg      
     if (sData && sData.open) {
@@ -264,7 +264,16 @@ export class SignalRService {
           disableSave: true,
           disableUndo: true
         });
-        this.harmonicShape.push({label: '', shape: shapeID});
+        const labelID = this.chart.createMultipointShape([{ time: Gtime, price: Gprice }],
+          {
+            shape: "text",
+            lock: true,
+            disableSelection: false,
+            disableSave: true,
+            disableUndo: true,
+            text: name
+          });
+        this.harmonicShape.push({label: labelID, shape: shapeID});
     })
   }
   private drawDouble(pattern: any){
@@ -301,8 +310,17 @@ export class SignalRService {
           disableSave: true,
           disableUndo: true
         });
+        const labelID = this.chart.createMultipointShape([{ time: midDE, price: Cprice }],
+          {
+            shape: "text",
+            lock: true,
+            disableSelection: false,
+            disableSave: true,
+            disableUndo: true,
+            text: name
+          });
         this.reversalShape.push({label: '', shape: shape1ID});
-        this.reversalShape.push({label: '', shape: shape2ID});
+        this.reversalShape.push({label: labelID, shape: shape2ID});
     })
   }
   drawHeadandShoulders(pattern: any[]){
@@ -329,8 +347,17 @@ export class SignalRService {
           disableSave: true,
           disableUndo: true
         });
-        this.reversalShape.push({label: '', shape: shapeID});
-    })
+        const labelID = this.chart.createMultipointShape([{ time: Atime, price: Aprice }],
+          {
+            shape: "text",
+            lock: true,
+            disableSelection: false,
+            disableSave: true,
+            disableUndo: true,
+            text: name
+          });
+        this.reversalShape.push({label: labelID, shape: shapeID});
+      })
   }
   drawXABCD(pattern: any[], name: string){
     pattern.forEach(point => {

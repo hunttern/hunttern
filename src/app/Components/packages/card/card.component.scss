@@ -54,7 +54,7 @@
                 border-radius: 50%;
                 width: 2rem;
                 height: 2rem;
-                @include _center;
+                @include center;
             }
             i{
                 color: #28CD7E;
@@ -62,7 +62,7 @@
         }
     }
     .footer{
-        @include _center();
+        @include center();
         padding: 1.5rem;
         button{
             width: 100%;
@@ -74,7 +74,7 @@
             background-color: #393884;
         }
         span{
-            @include _center();
+            @include center();
             color: #fff;
             position: relative;
             right: 2rem;

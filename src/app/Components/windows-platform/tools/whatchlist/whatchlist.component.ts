@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-whatchlist',
   templateUrl: './whatchlist.component.html',
   styleUrls: ['./whatchlist.component.scss']
 })
-export class WhatchlistComponent implements OnInit {
+export class WhatchlistComponent {
+  h1: number = 50;
+  h2: number = 50;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  setPerY1(result: any){  
+    this.h1 = result;
+    this.h2 = 100 - result;
   }
-
 }

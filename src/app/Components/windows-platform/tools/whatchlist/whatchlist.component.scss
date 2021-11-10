@@ -1,19 +1,22 @@
-main{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: "list"
-                         "info";
+@import '../../../../../assets/styleSotrage/vars';
+.main{
     height: 100%;
     .list{
-        grid-area: list;
-        height: 100%;
-        overflow: auto;
+        overflow-x: hidden;
+        position: relative;
+        width: 100%;
+        padding-bottom: 10px;
+        span{
+            position: absolute;
+            background-color: $platformBorder;
+            height: 10px;
+            width: 100%;
+            bottom: 0;
+        }
     }
     .info{
-        grid-area: info;
-        height: 100%;
-        overflow: auto;
+        width: 100%;
+        overflow-x: hidden;
     }
 }
 .hidescroll::-webkit-scrollbar{
