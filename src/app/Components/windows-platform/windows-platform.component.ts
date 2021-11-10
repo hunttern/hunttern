@@ -60,10 +60,25 @@ export class WindowsPlatformComponent {
     },15);
   }
   Minitrade(){
-    this.h1 = 100;
-    this.h2 = 0;
+    const close = setInterval(() => {
+      if(this.h2 > 5){
+        this.h2--;
+        this.h1++;
+      }else{
+        clearInterval(close);
+      }
+    },15);
   }
-
+  Maxitrade(){
+    const open = setInterval(() => {
+      if(this.h2 < 41){
+        this.h2++;
+        this.h1--;
+      }else{
+        clearInterval(open);
+      }
+    },15);
+  }
   setPerY1(result: any){
     this.h1 = result;
     this.h2 = 100 - result;
