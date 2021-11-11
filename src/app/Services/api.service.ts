@@ -54,7 +54,7 @@ export class ApiService implements IBasicDataFeed {
     const userId: string = patternClass.userId;
     this.interval = interval;
     // const newurl: string = this.url + patternClass.Symbol + `/${interval}`;
-    const newurl: string = this.url + patternClass.Symbol;
+    const newurl: string = this.url + patternClass.Symbol + interval + 'M';
     // console.log(symbol.base_name[0]);
     return this.http.get(newurl+`?from=${startDate}&to=${endDate}&uniqeId=${userId}`);
   }
@@ -65,7 +65,7 @@ export class ApiService implements IBasicDataFeed {
       supports_timescale_marks: false,
       supports_time: true,
       supported_resolutions: [
-         '5', '15', '30', '60', '120', '240', '360', '480', '720', '1D', '3D', '1W', '1M'
+         '5', '15', '30', '60', '240', '1D','1W'
       ]
     });
   }
@@ -87,7 +87,6 @@ export class ApiService implements IBasicDataFeed {
     )
   }
   getBars(symbolInfo: any, resolution: any, from: any, to: any, onHistoryCallback: any, onErrorCallback: any, firstDataRequest: any) {
-    console.log("History");
     this.binanceKlines(symbolInfo, resolution, from, to, 500).subscribe({
       next: (totalKlines: any) => {
         let historyCBArray = totalKlines.map((kline: any) => ({
@@ -106,11 +105,9 @@ export class ApiService implements IBasicDataFeed {
     });
   }
   subscribeBars(symbolInfo: any, resolution: any, onRealtimeCallback: any, subscriberUID: any, onResetCacheNeededCallback: any) {
-    console.log("ON");
     this.ws.subscribeOnStream(symbolInfo, resolution, onRealtimeCallback, subscriberUID, onResetCacheNeededCallback,this.interval);
   }
   unsubscribeBars(subscriberUID: any) {
-    console.log("OFF");
     this.ws.unsubscribeFromStream();
   }
   resolveSymbol(symbolName : any, onSymbolResolvedCallback: any, onResolveErrorCallback: any) {

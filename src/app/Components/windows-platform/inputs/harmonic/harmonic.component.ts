@@ -47,11 +47,11 @@ export class HarmonicComponent implements OnInit {
     this.signalr.OnClick(this.signalSettingForm);
   }
   onCheckboxChange(e: any) {
-    if (e.target.checked) {
-      this.subgroup.push(new FormControl(e.target.value));
+    if (e.checked) {
+      this.subgroup.push(new FormControl(e.source.value));
     } else {
       this.subgroup.forEach((item: any, index: number) => {
-        if (item.value == e.target.value) {
+        if (item.value == e.source.value) {
           this.subgroup.splice(index,1);
         }
       });

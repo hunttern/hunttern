@@ -1,0 +1,66 @@
+import { Injectable } from '@angular/core';
+import { EntityId } from 'src/assets/charting_library/charting_library';
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class ZigzagService {
+  private _zigzag: any[] = [];
+  private _zigzagID: EntityId[] = [];
+  private _chart: any;
+
+  set chart(chart: any){
+    this._chart = chart;
+  }
+  set zigzag(zigzag: any[]){
+    this._zigzag = zigzag;
+  }
+  constructor() { }
+
+  drawZigzag(){
+
+    this.removeZigzag();
+
+    let prevtime = Date.parse(this._zigzag[0][0]);
+    let prevprice = this._zigzag[0][1];
+
+    this._zigzag.forEach((point:any, index: number) => {
+      
+      let time = (Date.parse(point[0]) / 1000);
+      let price = point[1];
+      let color;
+
+      if(index > 0){
+        color = price < prevprice ? "#ff0000" : "#00ff00";
+        const id = this._chart.createMultipointShape([{ time: prevtime, price: prevprice }, { time: time, price: price }],
+          {
+            shape: "trend_line",
+            lock: true,
+            disableSelection: false,
+            disableSave: true,
+            disableUndo: true,
+            overrides: {
+              bold: true,
+              linewidth: 3,
+              linestyle: 0,
+              linecolor: color
+            }
+          });
+        this._zigzagID.push(id);
+
+        prevprice = price;
+        prevtime = time;
+      }
+    });
+  }
+
+  private removeZigzag(){
+    if(this._zigzagID.length > 0){
+      this._zigzagID.forEach(id => {
+        this._chart.removeEntity(id);
+      });
+      this._zigzagID = [];
+    }
+  }
+}
