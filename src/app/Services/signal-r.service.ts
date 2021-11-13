@@ -5,6 +5,7 @@ import { patternClass } from '../Patterns/Patterns.class';
 import { HarmonicService } from '../Patterns/Services/harmonic.service';
 import { ZigzagService } from '../Patterns/Services/zigzag.service';
 import { ReversalService } from '../Patterns/Services/reversal.service';
+import { HarmoonicService } from '../Patterns/Services/Prediction/harmoonic.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +14,7 @@ export class SignalRService {
   url: string = 'http://87.107.146.161:5000/TestHub';
   streams: any[] = [];
 
-  constructor(private _drawHarmonic: HarmonicService, private _drawZigzag: ZigzagService, private _drawReversal: ReversalService) {}
+  constructor(private _drawHarmonic: HarmonicService, private _drawZigzag: ZigzagService, private _drawReversal: ReversalService, private _prediction: HarmoonicService) {}
   _createSocket(interval: string) {
     const userId: string = patternClass.userId;
     const symbol: string = patternClass.Symbol;
@@ -56,6 +57,7 @@ export class SignalRService {
     const showZigZag = form.zigzagdraw;
     const error = form.error;
     const patterns: string[] = [];
+
     if(form.patterns.length > 0){
       form.patterns.forEach((item: any) => {
         patterns.push(item.value);
@@ -64,12 +66,12 @@ export class SignalRService {
     this._drawHarmonic.chart = patternClass.chart;
     this._drawZigzag.chart = patternClass.chart;
     this._drawReversal.chart = patternClass.chart;
+    this._prediction.chart = patternClass.chart;
 
     this.hubConnection.invoke('SetPatterns', {ShowZigZag: showZigZag, ShowPosition: false, ShowPrediction: prediction, ShowStatistic: false, ShowCandlePattern: false, PivotSensitivity: zigzag, HarmonicError: error, RisktoReward: 25, Patterns: patterns});
     
     this.hubConnection.on("ProccessCandles", (msg: any) => {
-      
-      if(patterns.length > 0){
+      if(!prediction){
         this._drawHarmonic.harmonicPattern = msg.Found_Patterns.Harmonic_Patterns;
         this._drawHarmonic.drawPatterns(patterns);
         this._drawReversal.reversalPattern = msg.Found_Patterns.Reversal_Patterns;
@@ -78,6 +80,10 @@ export class SignalRService {
       if(showZigZag){
         this._drawZigzag.zigzag = msg.ZigZag;
         this._drawZigzag.drawZigzag();
+      }
+      if(prediction){
+        this._prediction.harmonicPattern = msg.Prediction.Harmonic_Patterns;
+        this._prediction.drawPatterns(patterns);
       }
     });
   }

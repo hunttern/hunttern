@@ -189,7 +189,7 @@ export class HarmonicService {
     });
   }
   private removePatterns(){
-    if(this._harmonicID.length > 1){
+    if(this._harmonicID.length > 2){
         this._harmonicID.forEach(id => {
         this._chart.removeEntity(id.label);
         this._chart.removeEntity(id.pattern);

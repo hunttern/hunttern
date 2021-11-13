@@ -36,6 +36,7 @@ export class ChartComponent implements OnInit, AfterViewInit {
     this.tvWidget = new widget(this.widgetOptions);
     this.chartReady();
   }
+  
   changeTheme(){
     const theme: string = this.tvWidget.getTheme() as string;
     if(theme === "light"){
@@ -44,24 +45,26 @@ export class ChartComponent implements OnInit, AfterViewInit {
       this.tvWidget.changeTheme('Light');
     }
   }
+
   chartReady () {
     if (!this.tvWidget) return
     this.tvWidget.onChartReady(() => {
       patternClass.chart = this.tvWidget.activeChart();
       const chart = this.tvWidget.activeChart();
-      
-      // console.log(chart.resolution());
+
       const Sub = chart.onSymbolChanged().subscribe(null, () => {
         const symbol: string = chart.symbolExt().symbol;
-        if(symbol.includes('BTC')){
-          patternClass.Symbol = 'BTC';
-        }else{
-          patternClass.Symbol = 'ETH';
-        }
+        patternClass.Symbol = this.splitSymbol(symbol);
       });
 
     });
   }
+  splitSymbol(symbol: string): string{
+    const sub: number = symbol.indexOf("USDT");
+    const main: string = symbol.slice(0,sub);
+    return main;
+  }
+
   getLocalLanguage() {
     return navigator.language.split('-')[0] || 'en'
   }

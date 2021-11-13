@@ -21,7 +21,6 @@ export class ApiService implements IBasicDataFeed {
   url: string = 'http://87.107.146.161:5000/api/home/';
   interval: string = '5';
 
-
   constructor(public ws: SignalRService, private http: HttpClient ) {
     this.symbols = data.symbols;
   }
@@ -53,9 +52,8 @@ export class ApiService implements IBasicDataFeed {
 
     const userId: string = patternClass.userId;
     this.interval = interval;
-    // const newurl: string = this.url + patternClass.Symbol + `/${interval}`;
     const newurl: string = this.url + patternClass.Symbol + interval + 'M';
-    // console.log(symbol.base_name[0]);
+    console.log(symbol.base_name[0]);
     return this.http.get(newurl+`?from=${startDate}&to=${endDate}&uniqeId=${userId}`);
   }
   onReady(callback: any) {
