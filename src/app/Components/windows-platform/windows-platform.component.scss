@@ -9,9 +9,19 @@ $bordersize: 10px;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+.contain{
+    height: 100vh;
+    .header{
+        height: 7%;
+        width: 100%;
+        padding-top: 0.5rem;
+        background-color: $platformBackground;
+        border-bottom: 5px solid $platformBorder;
+    }
+}
 body{
     background-color: $platformBackground;
-    height: 100vh;
+    height: 93%;
     overflow: hidden;
     display: flex;
     h2{

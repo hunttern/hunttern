@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  darkTheme: boolean = true;
+  tab: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  onChangeTheme(){
+    this.darkTheme = !this.darkTheme;
+  }
+  displayTab(){
+    this.tab = !this.tab;
+  }
 }

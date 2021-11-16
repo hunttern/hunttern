@@ -10,6 +10,7 @@ import { MaterialsModule } from 'src/app/Shared/materials/materials.module';
 import { WindowsPlatformComponent } from './windows-platform.component';
 import { InputsComponent } from './inputs/inputs.component';
 import { TabComponent } from './tab/tab.component';
+import { ProfileComponent } from './profile/profile.component';
 import { StrategyComponent } from './strategy/strategy.component';
 import { TradingComponent } from './strategy/trading/trading.component';
 import { ToolsComponent } from './tools/tools.component';
@@ -31,7 +32,7 @@ import { RowDirective } from './row.directive';
 import { ColDirective } from './col.directive';
 
 @NgModule({
-  declarations: [WindowsPlatformComponent, InputsComponent, TabComponent, StrategyComponent, TradingComponent, ToolsComponent, WhatchlistComponent, AlertComponent, HotlistComponent, EventsComponent, ListComponent, InformationComponent, PerformanceComponent, ScreenerComponent, SettingsComponent, HarmonicComponent, CandleComponent, ContinuousComponent, ReversalComponent, RowDirective, ColDirective],
+  declarations: [WindowsPlatformComponent, InputsComponent, TabComponent, StrategyComponent, TradingComponent, ToolsComponent, WhatchlistComponent, AlertComponent, HotlistComponent, EventsComponent, ListComponent, InformationComponent, PerformanceComponent, ScreenerComponent, SettingsComponent, HarmonicComponent, CandleComponent, ContinuousComponent, ReversalComponent, RowDirective, ColDirective,ProfileComponent],
   imports: [
     CommonModule,
     AngularSplitModule,

@@ -16,46 +16,48 @@ export class ZigzagService {
   set zigzag(zigzag: any[]){
     this._zigzag = zigzag;
   }
-  constructor() { }
 
   drawZigzag(){
-
-    this.removeZigzag();
-
-    let prevtime = Date.parse(this._zigzag[0][0]);
-    let prevprice = this._zigzag[0][1];
-
-    this._zigzag.forEach((point:any, index: number) => {
-      
-      let time = (Date.parse(point[0]) / 1000);
-      let price = point[1];
-      let color;
-
-      if(index > 0){
-        color = price < prevprice ? "#ff0000" : "#00ff00";
-        const id = this._chart.createMultipointShape([{ time: prevtime, price: prevprice }, { time: time, price: price }],
-          {
-            shape: "trend_line",
-            lock: true,
-            disableSelection: false,
-            disableSave: true,
-            disableUndo: true,
-            overrides: {
-              bold: true,
-              linewidth: 3,
-              linestyle: 0,
-              linecolor: color
-            }
-          });
-        this._zigzagID.push(id);
-
-        prevprice = price;
-        prevtime = time;
-      }
-    });
+    if(this._zigzag.length > 0){
+      this.removeZigzag();
+  
+      let prevtime = Date.parse(this._zigzag[0][0]);
+      let prevprice = this._zigzag[0][1];
+  
+      this._zigzag.forEach((point:any, index: number) => {
+        
+        let time = (Date.parse(point[0]) / 1000);
+        let price = point[1];
+        let color;
+  
+        if(index > 0){
+          color = price < prevprice ? "#ff0000" : "#00ff00";
+          const id = this._chart.createMultipointShape([{ time: prevtime, price: prevprice }, { time: time, price: price }],
+            {
+              shape: "trend_line",
+              lock: true,
+              disableSelection: false,
+              disableSave: true,
+              disableUndo: true,
+              overrides: {
+                bold: true,
+                linewidth: 3,
+                linestyle: 0,
+                linecolor: color
+              }
+            });
+          this._zigzagID.push(id);
+  
+          prevprice = price;
+          prevtime = time;
+        }
+      });
+    }else{
+      this.removeZigzag();
+    }
   }
 
-  private removeZigzag(){
+  removeZigzag(){
     if(this._zigzagID.length > 0){
       this._zigzagID.forEach(id => {
         this._chart.removeEntity(id);

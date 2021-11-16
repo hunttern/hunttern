@@ -76,14 +76,22 @@ export class SignalRService {
         this._drawHarmonic.drawPatterns(patterns);
         this._drawReversal.reversalPattern = msg.Found_Patterns.Reversal_Patterns;
         this._drawReversal.drawPatterns(patterns);
+      }else{
+        this._drawHarmonic.removePatterns();
+        this._drawReversal.removePatterns();
+        
       }
       if(showZigZag){
         this._drawZigzag.zigzag = msg.ZigZag;
         this._drawZigzag.drawZigzag();
+      }else{
+        this._drawZigzag.removeZigzag();
       }
       if(prediction){
         this._prediction.harmonicPattern = msg.Prediction.Harmonic_Patterns;
         this._prediction.drawPatterns(patterns);
+      }else{
+        this._prediction.removePatterns();
       }
     });
   }

@@ -33,7 +33,7 @@ export class WindowsPlatformComponent {
           this.rightPanel = false;
           clearInterval(close);
         }
-      }, 15);
+      }, 10);
     }else{
       const close = setInterval(() => {
         if(this.w3 !== 20){
@@ -43,7 +43,7 @@ export class WindowsPlatformComponent {
           clearInterval(close);
           this.rightPanel = true;
         }
-      }, 15);
+      }, 10);
     }
   }
   onFormSubmit(formValue: any) {
@@ -57,7 +57,7 @@ export class WindowsPlatformComponent {
       }else{
         clearInterval(close);
       }
-    },15);
+    },10);
   }
   Minitrade(){
     const close = setInterval(() => {
@@ -67,7 +67,7 @@ export class WindowsPlatformComponent {
       }else{
         clearInterval(close);
       }
-    },15);
+    },10);
   }
   Maxitrade(){
     const open = setInterval(() => {
@@ -77,15 +77,11 @@ export class WindowsPlatformComponent {
       }else{
         clearInterval(open);
       }
-    },15);
+    },10);
   }
   setPerY1(result: any){
-    this.h1 = result;
+    this.h1 = result - 3;
     this.h2 = 100 - result;
-  }
-  setPerY2(result: any){  
-    this.h3 = result;
-    this.h4 = 100 - result;
   }
   setPerX1(result: any){
     this.w1 = result;

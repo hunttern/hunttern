@@ -9,8 +9,8 @@ export class WhatchlistComponent {
   h1: number = 50;
   h2: number = 50;
 
-  setPerY1(result: any){  
-    this.h1 = result;
+  setPerY1(result: any){
+    this.h1 = result - 3;
     this.h2 = 100 - result;
   }
 }

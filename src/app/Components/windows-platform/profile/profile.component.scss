@@ -1,0 +1,70 @@
+@import '../../../../assets/styleSotrage/vars';
+$fontSize: 0.85rem;
+$fontSize1: 1.25rem;
+.body{
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    color: $primary;
+    i, span{
+        cursor: pointer;
+    }
+    .logo{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.5rem;
+        i{
+            color: $maincolor;
+            width: 30px;
+            height: 30px;
+        }
+    }
+    ul{
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        li{
+            list-style: none;
+        }
+        .pic{
+            position: relative;
+            .profile{
+                width: 30px;
+                height: 30px;
+                border: 1px solid $platformBorder;
+                border-radius: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .dropdown{
+                border-radius: 5px;
+                border: 0.1rem solid $platformBorder;
+                z-index: 2;
+                background-color: $platformBackground;
+                position: absolute;
+                margin: 0;
+                padding: 0;
+                right: -3rem;
+                display: flex;
+                flex-direction: column;
+                a{
+                    padding: 1rem 1.5rem;
+                    &:not(:last-child){
+                        border-bottom: 0.1rem solid $platformBorder;
+                    }
+                    display: flex;
+                    align-items: center;
+                    gap: 0.25rem;
+                    color: #D6D6EE;
+                    text-decoration: none;
+                    font-size: $fontSize;
+                }
+            }
+        }
+    }
+}

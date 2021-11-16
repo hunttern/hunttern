@@ -174,7 +174,10 @@ export class HarmonicService {
           lock: true,
           disableSelection: true,
           disableSave: true,
-          disableUndo: true
+          disableUndo: true,
+          overrides: {
+            transparency: 0
+          }
         });
         labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }],
           {
@@ -188,7 +191,7 @@ export class HarmonicService {
           this._harmonicID.push({label: labelID, pattern: patternID});
     });
   }
-  private removePatterns(){
+  removePatterns(){
     if(this._harmonicID.length > 2){
         this._harmonicID.forEach(id => {
         this._chart.removeEntity(id.label);

@@ -165,7 +165,7 @@ export class ReversalService {
     this._double = this._reversalPattern.Double;
     this._triple = this._reversalPattern.Triple;
   }
-  private removePatterns(){
+  removePatterns(){
     if(this._reversalId.length > 2){
         this._reversalId.forEach(id => {
         this._chart.removeEntity(id.label);
