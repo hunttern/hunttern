@@ -1,6 +1,6 @@
 @import "../../../assets/styleSotrage/vars";
 @import "../../../assets/styleSotrage/mixinss";
-$fontSize: 1rem;
+@import "../../../assets/styleSotrage/fonts";
 $bordersize: 10px;
 .hidescroll::-webkit-scrollbar{
     display: none;
@@ -26,7 +26,7 @@ body{
     display: flex;
     h2{
         padding: 0 1rem;
-        font-size: $fontSize;
+        font-size: $main;
     }
     span{
         background-color: $platformBorder;

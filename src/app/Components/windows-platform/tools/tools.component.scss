@@ -1,4 +1,5 @@
 @import "../../../../assets/styleSotrage/mixinss";
+@import "../../../../assets/styleSotrage/fonts";
 nav{
     height: 100%;
     @include center();
@@ -13,7 +14,7 @@ nav{
         left: -1rem;
         i{
             cursor: pointer;
-            font-size: 30px;
+            font-size: $main;
             color: #40406D;
 
         }

@@ -1,6 +1,5 @@
 @import "../../../../assets/styleSotrage/vars";
-$fontSize: 0.85rem;
-$fontSize1: 1.25rem;
+@import "../../../../assets/styleSotrage/fonts";
 
 @mixin center {
     display: flex;
@@ -20,7 +19,7 @@ main{
             ul{
                 @include center();
                 a{
-                    font-size: $fontSize;
+                    font-size: $secondary;
                     color: #7A7AB1;
                 }
             }
@@ -28,7 +27,7 @@ main{
         span{
             @include center();
             select{
-                font-size: $fontSize;
+                font-size: $secondary;
                 color: #7A7AB1;
                 padding: 0.5rem;
                 background-color: transparent;
@@ -37,7 +36,7 @@ main{
             button{
                 background-color: transparent;
                 color: #7A7AB1;
-                font-size: $fontSize1;
+                font-size: $secondary;
                 border: none;
             }
         }

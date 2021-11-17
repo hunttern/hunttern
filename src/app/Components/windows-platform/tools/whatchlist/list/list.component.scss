@@ -1,4 +1,5 @@
 @import "../../../../../..//assets/styleSotrage/vars";
+@import "../../../../../..//assets/styleSotrage/fonts";
 section{
     overflow-x: hidden;
     display: flex;
@@ -12,6 +13,7 @@ section{
         justify-content: space-between;
         align-items: center;
         padding: 1rem;
+        font-size: $main;
         .edit{
             display: flex;
             gap: 0.5rem;
@@ -19,7 +21,6 @@ section{
                 border: none;
                 background-color: transparent;
                 i{
-                    font-size: 25px;
                     color: #8282B2;
                 }
             }
@@ -28,7 +29,9 @@ section{
             color: #D6D6EE;
             background-color: transparent;
             border: none;
-            font-size: 18px;
+            option{
+                font-size: $secondary;
+            }
         }
     }
     body{
@@ -40,13 +43,13 @@ section{
                 border-bottom: 0.025rem solid $platformBorder;
             }
             th{
-                font-size: 12px;
+                font-size: $secondary;
                 padding: 00.5rem;
                 color: #585886;
             }
             td{
                 padding: 00.5rem;
-                font-size: 14px;
+                font-size: $secondary;
             }
             .symbol{
                 color: #D6D6EE;

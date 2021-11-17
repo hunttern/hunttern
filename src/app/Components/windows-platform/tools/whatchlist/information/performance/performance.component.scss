@@ -1,3 +1,4 @@
+@import '../../../../../../../assets/styleSotrage/fonts';
 div{
     overflow-x: hidden;
     padding: 1rem;
@@ -7,10 +8,10 @@ div{
     justify-content: center;
     align-items: center;
     h3{
-        font-size: 16px;
+        font-size: $secondary;
     }
     label{
-        font-size: 14px;
+        font-size: $secondary;
         color: #D7D7EF;
     }
 }

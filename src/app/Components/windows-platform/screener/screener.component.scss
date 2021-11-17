@@ -1,5 +1,6 @@
 @import '../../../../assets/styleSotrage/vars';
 @import '../../../../assets/styleSotrage/mixinss';
+@import '../../../../assets/styleSotrage/fonts';
 nav{
     padding: 0 2rem;
     display: grid;
@@ -15,6 +16,7 @@ nav{
         color: #fff;
         padding: 0.5rem 1rem;
         width: fit-content;
+        font-size: $secondary;
     }
 }
 body{

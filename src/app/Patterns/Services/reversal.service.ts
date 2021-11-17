@@ -64,14 +64,17 @@ export class ReversalService {
           disableSave: true,
           disableUndo: true
         });
-        const labelID = this.chart.createMultipointShape([{ time: Atime, price: Aprice }],
+        const labelID = this.chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
           {
-            shape: "text",
+            shape: "callout",
             lock: true,
             disableSelection: false,
             disableSave: true,
             disableUndo: true,
-            text: 'Head % Shoulder'
+            text: 'Head & Shoulder',
+            overrides:{
+              fontsize: 12
+            }
           });
         this._reversalId.push({label: labelID, pattern: shapeID});
       })
@@ -110,14 +113,17 @@ export class ReversalService {
           disableSave: true,
           disableUndo: true
         });
-        const labelID = this._chart.createMultipointShape([{ time: midDE, price: Cprice }],
+        const labelID = this._chart.createMultipointShape([{ time: midAB, price: Cprice },{ time: midAB, price: Cprice }],
           {
-            shape: "text",
+            shape: "callout",
             lock: true,
             disableSelection: false,
             disableSave: true,
             disableUndo: true,
-            text: 'Double'
+            text: 'Double',
+            overrides:{
+              fontsize: 12
+            }
           });
         this._reversalId.push({label: '' as EntityId, pattern: shape1ID});
         this._reversalId.push({label: labelID, pattern: shape2ID});
@@ -147,15 +153,18 @@ export class ReversalService {
           disableSave: true,
           disableUndo: true
         });
-        const labelID = this.chart.createMultipointShape([{ time: Gtime, price: Gprice }],
+        const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
           {
-            shape: "text",
+            shape: "callout",
             lock: true,
             disableSelection: false,
             disableSave: true,
             disableUndo: true,
-            text: 'Triple'
-          });
+            text: 'Triple',
+            overrides:{
+              fontsize: 12
+            }
+          })
         this._reversalId.push({label: labelID, pattern: shapeID});
     })
   }

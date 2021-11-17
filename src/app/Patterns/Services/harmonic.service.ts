@@ -88,14 +88,14 @@ export class HarmonicService {
   }
   private drawThreeDrive(pattern: any){
     pattern.forEach((point: any) => {
-      const Aprice = point.Price[6];
+      const Aprice = point.Price[5];
       const Bprice = point.Price[5];
       const Cprice = point.Price[4];
       const Dprice = point.Price[3];
       const Eprice = point.Price[2];
       const Fprice = point.Price[1];
       const Gprice = point.Price[0];
-      const Atime = (Date.parse(point.Time[6]) / 1000);
+      const Atime = (Date.parse(point.Time[5]) / 1000);
       const Btime = (Date.parse(point.Time[5]) / 1000);
       const Ctime = (Date.parse(point.Time[4]) / 1000);
       const Dtime = (Date.parse(point.Time[3]) / 1000);
@@ -110,22 +110,23 @@ export class HarmonicService {
           disableSave: true,
           disableUndo: true
         });
-        const labelID = this._chart.createMultipointShape([{ time: Gtime, price: Gprice }],
+        const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
           {
-            shape: "text",
+            shape: "callout",
             lock: true,
             disableSelection: false,
             disableSave: true,
             disableUndo: true,
-            text: "Three Drives"
-          });
+            text: "Three Drives",
+            overrides:{
+              fontsize: 12
+            }
+          })
         this._harmonicID.push({label: labelID, pattern: shapeID});
     });
   }
   private drawABCD(abcdPattern: any[]){
     abcdPattern.forEach(point => {
-      let labelID: EntityId;
-      let patternID: EntityId;
       const Aprice = point.Price[3];
       const Bprice = point.Price[2];
       const Cprice = point.Price[1];
@@ -134,7 +135,7 @@ export class HarmonicService {
       const Btime = (Date.parse(point.Time[2]) / 1000);
       const Ctime = (Date.parse(point.Time[1]) / 1000);
       const Dtime = (Date.parse(point.Time[0]) / 1000);
-      patternID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }],
+      const patternID = this._chart.createMultipointShape([{ time: Dtime, price: Dprice }, { time: Ctime, price: Cprice }, { time: Btime, price: Bprice }, { time: Atime, price: Aprice }],
         {
           shape: "abcd_pattern",
           lock: false,
@@ -142,22 +143,23 @@ export class HarmonicService {
           disableSave: true,
           disableUndo: true
         });
-      labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }],
-        {
-          shape: "text",
-          lock: true,
-          disableSelection: true,
-          disableSave: true,
-          disableUndo: true,
-          text: "ABCD"
-        })
+        const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
+          {
+            shape: "callout",
+            lock: true,
+            disableSelection: false,
+            disableSave: true,
+            disableUndo: true,
+            text: "ABCD",
+            overrides:{
+              fontsize: 12
+            }
+          })
         this._harmonicID.push({label: labelID, pattern: patternID});
     });
   }
   private drawXABCD(pattern: any[], name: string){
     pattern.forEach(point => {
-      let labelID: EntityId;
-      let shapeID: EntityId;
       const Aprice = point.Price[4];
       const Bprice = point.Price[3];
       const Cprice = point.Price[2];
@@ -172,23 +174,28 @@ export class HarmonicService {
         {
           shape: "xabcd_pattern",
           lock: true,
-          disableSelection: true,
+          disableSelection: false,
           disableSave: true,
           disableUndo: true,
           overrides: {
-            transparency: 0
+            textcolor: '#FFFFFF',
+            transparency: 50,
+            color: '#CC2895'
           }
         });
-        labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }],
-          {
-            shape: "text",
-            lock: true,
-            disableSelection: false,
-            disableSave: true,
-            disableUndo: true,
-            text: name
-          })
-          this._harmonicID.push({label: labelID, pattern: patternID});
+      const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
+        {
+          shape: "callout",
+          lock: true,
+          disableSelection: false,
+          disableSave: true,
+          disableUndo: true,
+          text: name,
+          overrides:{
+            fontsize: 12
+          }
+        })
+        this._harmonicID.push({label: labelID, pattern: patternID});
     });
   }
   removePatterns(){

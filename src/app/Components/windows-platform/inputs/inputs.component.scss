@@ -1,5 +1,6 @@
 @import '../../../../assets/styleSotrage/vars';
-$fontSize: 0.85rem;
+@import '../../../../assets/styleSotrage/fonts';
+
 .hidescroll::-webkit-scrollbar{
     display: none;
 }
@@ -14,7 +15,7 @@ nav{
         gap: 0.5rem;
         list-style: none;
         a{
-            font-size: $fontSize;
+            font-size: $secondary;
             color: $platformBorder;
             text-decoration: none;
             &.active{

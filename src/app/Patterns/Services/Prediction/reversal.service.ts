@@ -1,35 +1,28 @@
 import { Injectable } from '@angular/core';
 import { EntityId } from 'src/assets/charting_library/charting_library';
-import { Harmonic } from '../../Interfaces/harmonic';
 import { Pattern } from '../../Interfaces/pattern';
+import { reversal } from '../../Interfaces/reversal';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HarmoonicService {
-  private _harmonicPattern: Harmonic;
+export class ReversalService {
 
-  private _harmonicID: [{label: EntityId, pattern: EntityId}] = [{label:'' as EntityId,pattern:'' as EntityId}];
+  private _reversalPattern: reversal;
+
+  private _reversalID: [{label: EntityId, pattern: EntityId}] = [{label:'' as EntityId,pattern:'' as EntityId}];
   private _chart: any;
 
-  private _abcd: Pattern[];
-  private _bat: Pattern[];
-  private _altbat: Pattern[];
-  private _butterfly: Pattern[];
-  private _cypher: Pattern[];
-  private _crab: Pattern[];
-  private _deepcrab: Pattern[];
-  private _shark: Pattern[];
-  private _threedrives: Pattern[];
-  private _gartley: Pattern[];
-  private _5_0: Pattern[];
+  private _double: Pattern[];
+  private _triple: Pattern[];
+  private _headandshoulder: Pattern[];
 
   private delay: number = 1800000000;
   set chart(chart: any){
     this._chart = chart;
   }
-  set harmonicPattern(patterns: Harmonic){
-    this._harmonicPattern = patterns;
+  set reversalPattern(patterns: reversal){
+    this._reversalPattern = patterns;
   }
 
   drawPatterns(patterns: string[]){
@@ -37,86 +30,41 @@ export class HarmoonicService {
     this.split();
     patterns.forEach(patternName => {
       switch (patternName){
-        case 'ABCD' :{
-          if(this._abcd.length > 0){
-            this.drawABCD(this._abcd);
+        case 'Double' :{
+          if(this._double.length > 0){
+            this.drawDouble(this._double);
           }
         }
         break;
-        case 'Bat' :{
-          if(this._bat.length > 0)
-          this.drawXABCD(this._bat, 'Bat');
+        case 'Triple' :{
+          if(this._triple.length > 0)
+          this.drawTriple(this._triple);
         }
         break;
-        case 'AltBat' :{
-          if(this._altbat.length > 0)
-          this.drawXABCD(this._altbat, 'Alt Bat');
+        case 'HeadandShoulders' :{
+          if(this._headandshoulder.length > 0)
+          this.drawHeadAndShoulder(this._headandshoulder);
         }
-        break;
-        case 'Butterfly' :{
-          if(this._butterfly.length > 0)
-          this.drawXABCD(this._butterfly, 'Butterfly');
-        }
-        break;
-        case '5-0' :
-          if(this._5_0.length > 0){
-            this.drawXABCD(this._5_0, '5-0');
-          }
-        break;
-        case 'Gartley' :
-          if(this._gartley.length > 0){
-            this.drawXABCD(this._gartley, 'Gartley');
-          }
-        break;
-        case 'ThreeDrives' :
-          if(this._threedrives.length > 0){
-            this.drawThreeDrive(this._threedrives);
-          }
-        break;
-        case 'Cypher' :
-          if(this._cypher.length > 0)
-          this.drawXABCD(this._cypher, 'Cypher');
-        break;
-        case 'Crab' :
-          if(this._crab.length > 0)
-          this.drawXABCD(this._crab, 'Crab');
-        break;
-        case 'DeepCrab' : 
-          if(this._deepcrab.length > 0)
-          this.drawXABCD(this._deepcrab, 'DeepCrab');
-        break;
-        case 'Shark' : 
-          if(this._shark.length > 0)
-          this.drawXABCD(this._shark, 'Shark');
-        break;
       }
     });
   }
-  
-  private split(){
-    this._abcd = this._harmonicPattern.ABCD;
-    this._bat = this._harmonicPattern.Bat;
-    this._altbat = this._harmonicPattern.AltBat;
-    this._butterfly = this._harmonicPattern.Butterfly;
-    this._cypher = this._harmonicPattern.Cypher;
-    this._crab = this._harmonicPattern.Crab;
-    this._deepcrab = this._harmonicPattern.DeepCrab;
-    this._shark = this._harmonicPattern.Shark;
-    this._threedrives = this._harmonicPattern.ThreeDrives;
-    this._gartley = this._harmonicPattern.Gartley;
-    this._5_0 = this._harmonicPattern["5-0"];
-  }
+
   removePatterns(){
-    if(this._harmonicID.length > 2){
-        this._harmonicID.forEach(id => {
+    if(this._reversalID.length > 2){
+        this._reversalID.forEach(id => {
         this._chart.removeEntity(id.label);
         this._chart.removeEntity(id.pattern);
       });
-      this._harmonicID = [{label: '' as EntityId,pattern: '' as EntityId}];
+      this._reversalID = [{label: '' as EntityId,pattern: '' as EntityId}];
     }
   }
+  private split(){
+    this._double = this._reversalPattern.Double;
+    this._triple = this._reversalPattern.Triple;
+    this._headandshoulder = this._reversalPattern.Head_and_Shoulders;
+  }
 
-  private drawThreeDrive(patterns: any){
+  private drawDouble(patterns: any){
     const pattern = patterns[0];
     const P1 = pattern.LastPatternPoint[0];
     const P2 = pattern.LastPatternPoint[1];
@@ -130,7 +78,7 @@ export class HarmoonicService {
         disableSelection: false,
         disableSave: true,
         disableUndo: true,
-        text: "Three Drives",
+        text: "Double",
         overrides:{
           fontsize: 12
         }
@@ -159,10 +107,10 @@ export class HarmoonicService {
             linecolor: '#ffff00'
           }
         });
-      this._harmonicID.push({label: labelID, pattern: '' as EntityId});
-      this._harmonicID.push({label: line1ID, pattern: line2ID});
+      this._reversalID.push({label: labelID, pattern: '' as EntityId});
+      this._reversalID.push({label: line1ID, pattern: line2ID});
   }
-  private drawABCD(abcdPattern: Pattern[]){
+  private drawTriple(abcdPattern: Pattern[]){
     const pattern = abcdPattern[0];
     const P1 = pattern.LastPatternPoint[0];
     const P2 = pattern.LastPatternPoint[1];
@@ -176,7 +124,7 @@ export class HarmoonicService {
         disableSelection: true,
         disableSave: true,
         disableUndo: true,
-        text: "ABCD",
+        text: "Triple",
         overrides:{
           fontsize: 12
         }
@@ -205,10 +153,10 @@ export class HarmoonicService {
           linecolor: '#ffff00'
         }
       });
-    this._harmonicID.push({label: labelID, pattern: '' as EntityId});
-    this._harmonicID.push({label: line1ID, pattern: line2ID});
+    this._reversalID.push({label: labelID, pattern: '' as EntityId});
+    this._reversalID.push({label: line1ID, pattern: line2ID});
   }
-  private drawXABCD(patterns: Pattern[], name: string){
+  private drawHeadAndShoulder(patterns: Pattern[]){
     const pattern = patterns[0];
     const P1 = pattern.LastPatternPoint[0];
     const P2 = pattern.LastPatternPoint[1];
@@ -222,7 +170,7 @@ export class HarmoonicService {
         disableSelection: false,
         disableSave: true,
         disableUndo: true,
-        text: name,
+        text: "Head & Sholder",
         overrides:{
           fontsize: 12
         }
@@ -251,7 +199,8 @@ export class HarmoonicService {
             linecolor: '#ffff00'
           }
         });
-      this._harmonicID.push({label: labelID, pattern: '' as EntityId});
-      this._harmonicID.push({label: line1ID, pattern: line2ID});
+      this._reversalID.push({label: labelID, pattern: '' as EntityId});
+      this._reversalID.push({label: line1ID, pattern: line2ID});
   }
+
 }
