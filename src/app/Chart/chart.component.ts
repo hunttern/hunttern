@@ -60,7 +60,7 @@ export class ChartComponent implements OnInit, AfterViewInit {
     });
   }
   splitSymbol(symbol: string): string{
-    const sub: number = symbol.indexOf("USDT");
+    const sub: number = symbol.indexOf("USD");
     const main: string = symbol.slice(0,sub);
     return main;
   }

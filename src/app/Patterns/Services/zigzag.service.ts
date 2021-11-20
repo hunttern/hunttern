@@ -21,18 +21,15 @@ export class ZigzagService {
     if(this._zigzag.length > 0){
       this.removeZigzag();
   
-      let prevtime = Date.parse(this._zigzag[0][0]);
-      let prevprice = this._zigzag[0][1];
+      let prevtime = (Date.parse(this._zigzag[1][0]) / 1000);
+      let prevprice = this._zigzag[1][1];
   
       this._zigzag.forEach((point:any, index: number) => {
-        
-        let time = (Date.parse(point[0]) / 1000);
-        let price = point[1];
-        let color;
-  
-        if(index > 0){
-          color = price < prevprice ? "#ff0000" : "#00ff00";
-          const id = this._chart.createMultipointShape([{ time: prevtime, price: prevprice }, { time: time, price: price }],
+        if(index > 1){
+          const time = (Date.parse(point[0]) / 1000);
+          const price = point[1];
+          const color = price < prevprice ? "#ff0000" : "#00ff00";
+          const id = this._chart.createMultipointShape([{ time: time, price: price }, { time: prevtime, price: prevprice }],
             {
               shape: "trend_line",
               lock: true,
@@ -47,7 +44,6 @@ export class ZigzagService {
               }
             });
           this._zigzagID.push(id);
-  
           prevprice = price;
           prevtime = time;
         }

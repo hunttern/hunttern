@@ -11,10 +11,10 @@ export class PlatformComponent {
   windowsize: boolean;
   constructor() {
     this.windowsize = window.innerWidth > 700 ? true : false;
-    fromEvent(window,'resize').pipe(
-      tap( (window: any) => {
-        this.windowsize = window.target.innerWidth > 700 ? true : false;
-      })
-    ).subscribe();
+    // fromEvent(window,'resize').pipe(
+    //   tap( (window: any) => {
+    //     this.windowsize = window.target.innerWidth > 700 ? true : false;
+    //   })
+    // ).subscribe();
   }
 }
