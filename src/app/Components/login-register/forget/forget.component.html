@@ -1,24 +1,17 @@
-<div class="forget">
-    <div class="form">
-        <div class="image">
-            <img src="../../../../assets/Images/forget.png">
+<div class="form">
+    <h1>Forget Password</h1>
+    <h3>Enter your email address that you entered during your registeration.</h3>
+    <form [formGroup]="forgetForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label>Email Address :</label>
+            <div class="input">
+                <i class="material-icons">email</i><input type="text" formControlName="email" name="email">
+            </div>
         </div>
-        <h1>Forget Password</h1>
-        <h3>Enter your email address that you entered during your registeration.</h3>
-        <form [formGroup]="forgetForm" (ngSubmit)="onSubmit()">
-            <div>
-                <label>Email Address :</label>
-                <div class="input">
-                    <i class="material-icons">email</i><input type="text" formControlName="email" name="email">
-                </div>
-            </div>
-            <button>Forget Password</button>
-            <div class="new">
-                <h5>Not registered yet? <a [routerLink]="['/register']">Create an Account</a></h5>
-            </div>
-        </form>
-    </div>
-    <div class="rights">
-        <label>Copyright © 1999-2021 GodCrypto Inc. All rights reserved.</label>
-    </div>
+        <button [disabled]="!forgetForm.valid">Forget Password</button>
+        <div class="new">
+            <h5>Not registered yet? <a (click)="navigate('register')">Create an Account</a></h5>
+            <label>Copyright © 1999-2021 GodCrypto Inc. All rights reserved.</label>
+        </div>
+    </form>
 </div>

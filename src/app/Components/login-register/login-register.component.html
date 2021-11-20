@@ -1,0 +1,11 @@
+<div [ngSwitch]="form">
+    <div *ngSwitchCase="'login'">
+        <app-login (page)="changePage($event)"></app-login>
+    </div>
+    <div *ngSwitchCase="'forget'">
+        <app-forget (page)="changePage($event)"></app-forget>
+    </div>
+    <div *ngSwitchCase="'register'">
+        <app-register (page)="changePage($event)"></app-register>
+    </div>
+</div>

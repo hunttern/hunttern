@@ -9,9 +9,7 @@ import { ProfileComponent } from './Components/dashboard/profile/profile.compone
 import { StatisticsComponent } from './Components/dashboard/statistics/statistics.component';
 import { SubdashboardComponent } from './Components/dashboard/subdashboard/subdashboard.component';
 import { HomeComponent } from './Components/home/home.component';
-import { ForgetComponent } from './Components/login-register/forget/forget.component';
-import { LoginComponent } from './Components/login-register/login/login.component';
-import { RegisterComponent } from './Components/login-register/register/register.component';
+import { LoginRegisterComponent } from './Components/login-register/login-register.component';
 import { PlatformComponent } from './Components/platform/platform.component';
 import { CreditsProgramComponent } from './Components/terms/credits-program/credits-program.component';
 import { InstructorTermsComponent } from './Components/terms/instructor-terms/instructor-terms.component';
@@ -25,9 +23,7 @@ import { UdemyComponent } from './Components/terms/udemy/udemy.component';
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: '', redirectTo: "home", pathMatch: "full"},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'forget', component: ForgetComponent},
+  {path: 'user', component: LoginRegisterComponent},
   {path: 'terms', component: TermsComponent, children: [
     {path: 'TermsOfUse', component: TermsOfUseComponent},
     {path: 'PrivacyPolicy', component: PrivacyPolicyComponent},

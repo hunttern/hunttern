@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { EnrollmentService } from 'src/app/Services/enrollment.service';
 
 @Component({
@@ -8,8 +9,8 @@ import { EnrollmentService } from 'src/app/Services/enrollment.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private enroll: EnrollmentService, private builder: FormBuilder){}
-
+  constructor(private builder: FormBuilder,private _dialog: MatDialogRef<LoginComponent>){}
+  @Output() page: EventEmitter<string> = new EventEmitter();
   loginForm: FormGroup = this.builder.group({
     fullname: ['', Validators.required],
     email: ['', Validators.required],
@@ -17,13 +18,9 @@ export class LoginComponent {
   })
 
   onSubmit(){
-    this.enroll.login(this.loginForm.value).subscribe({
-      next: (data: any) => {
-        localStorage.setItem('Token', data.accessToken);
-      },
-      error: (err: any) => {
-        console.error(err)
-      }
-    })
+    this._dialog.close(this.loginForm.value);
+  }
+  navigate(page: string){
+    this.page.emit(page);
   }
 }

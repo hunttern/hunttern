@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { EnrollmentService } from 'src/app/Services/enrollment.service';
 import { checkPassword } from './Custome';
@@ -11,7 +11,7 @@ import { checkPassword } from './Custome';
 export class RegisterComponent{
   
   constructor(private enroll: EnrollmentService, private builder: FormBuilder){}
-
+  @Output() page: EventEmitter<string> = new EventEmitter();
   registerForm = this.builder.group({
     fullname: ['', Validators.required],
     email: ['', Validators.required],
@@ -28,5 +28,7 @@ export class RegisterComponent{
       }
     })
   }
-
+  navigate(page: string){
+    this.page.emit(page);
+  }
 }

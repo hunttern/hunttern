@@ -1,40 +1,36 @@
-<div class="login">
-    <div class="form" >
-        <h1>Login</h1>
-        <h3>Login with your data that you entered during your registeration.</h3>
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <div>
-                <label>Full Name :</label>
-                <div class="input">
-                    <i class="material-icons">person</i><input type="text" formControlName="fullname" name="fullname">
-                </div>
+<div class="form" >
+    <h1>Login</h1>
+    <h3>Login with your data that you entered during your registeration.</h3>
+    <form [formGroup]="loginForm" #login (ngSubmit)="onSubmit()">
+        <div>
+            <label>Full Name :</label>
+            <div class="input">
+                <i class="material-icons">person</i><input type="text" formControlName="fullname" name="fullname">
             </div>
-            <div >
-                <label>Email Address :</label>
-                <div class="input">
-                    <i class="material-icons">email</i><input type="text" formControlName="email" name="email">
-                </div>
+        </div>
+        <div >
+            <label>Email Address :</label>
+            <div class="input">
+                <i class="material-icons">email</i><input type="text" formControlName="email" name="email">
             </div>
-            <div>
-                <label>Password :</label>
-                <div class="input">
-                    <i class="material-icons">lock</i><input type="password" formControlName="password" name="password"><i class="material-icons">visibility</i>
-                </div>
+        </div>
+        <div>
+            <label>Password :</label>
+            <div class="input">
+                <i class="material-icons">lock</i><input type="password" formControlName="password" name="password"><i class="material-icons">visibility</i>
             </div>
-            <div class="forget">
-                <div class="check">
-                    <input type="checkbox" name="login">
-                    <label>Keep my signed in</label>
-                </div>
-                <a [routerLink]="['/forget']" >Forget Password?</a>
+        </div>
+        <div class="forget">
+            <div class="check">
+                <input type="checkbox" name="login">
+                <label>Keep my signed in</label>
             </div>
-            <button>Login</button>
-            <div class="new">
-                <h5>Not registered yet? <a [routerLink]="['/register']">Create an Account</a></h5>
-            </div>
-        </form>
-    </div>
-    <div class="rights">
-        <label>Copyright © 1999-2021 GodCrypto Inc. All rights reserved.</label>
-    </div>
+            <a (click)="navigate('forget')">Forget Password?</a>
+        </div>
+        <button [disabled]="!loginForm.valid">Login</button>
+        <div class="new">
+            <h5>Not registered yet? <a (click)="navigate('register')">Create an Account</a></h5>
+            <label>Copyright © 1999-2021 GodCrypto Inc. All rights reserved.</label>
+        </div>
+    </form>
 </div>

@@ -1,45 +1,41 @@
-<div class="register">
-    <div class="form">
-        <h1>Register</h1>
-        <h3>Login with your data that you entered during your registeration.</h3>
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<div class="form">
+    <h1>Register</h1>
+    <h3>Login with your data that you entered during your registeration.</h3>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label>Full Name :</label>
+            <div class="input">
+                <i class="material-icons">person</i><input type="text" formControlName="fullname" name="fullname">
+            </div>
+        </div>
+        <div >
+            <label>Email Address :</label>
+            <div class="input">
+                <i class="material-icons">email</i><input type="text" formControlName="email" name="email">
+            </div>
+        </div>
+        <div class="password">
             <div>
-                <label>Full Name :</label>
+                <label>Password :</label>
                 <div class="input">
-                    <i class="material-icons">person</i><input type="text" formControlName="fullname" name="fullname">
+                    <i class="material-icons">lock</i><input type="password" formControlName="password" name="password"><i class="material-icons">visibility</i>
                 </div>
             </div>
-            <div >
-                <label>Email Address :</label>
+            <div>
+                <label>Confirm Password :</label>
                 <div class="input">
-                    <i class="material-icons">email</i><input type="text" formControlName="email" name="email">
+                    <i class="material-icons">lock</i><input type="password" formControlName="confirmPassword" name="confirmPassword"><i class="material-icons">visibility</i>
                 </div>
             </div>
-            <div class="password">
-                <div>
-                    <label>Password :</label>
-                    <div class="input">
-                        <i class="material-icons">lock</i><input type="password" formControlName="password" name="password"><i class="material-icons">visibility</i>
-                    </div>
-                </div>
-                <div>
-                    <label>Confirm Password :</label>
-                    <div class="input">
-                        <i class="material-icons">lock</i><input type="password" formControlName="confirmPassword" name="confirmPassword"><i class="material-icons">visibility</i>
-                    </div>
-                </div>
-            </div>
-            <div class="check">
-                <input type="checkbox" name="terms">
-                <label>By creating an account , you agree to the Terms of Service and Conditions.</label>
-            </div>
-            <button>Register</button>
-            <div class="new">
-                <h5>Already have an account? <a [routerLink]="['/login']">Login</a></h5>
-            </div>
-        </form>
-    </div>
-    <div class="rights">
-        <label>Copyright © 1999-2021 GodCrypto Inc. All rights reserved.</label>
-    </div>
+        </div>
+        <div class="check">
+            <input type="checkbox" name="terms">
+            <label>By creating an account , you agree to the Terms of Service and Conditions.</label>
+        </div>
+        <button [disabled]="!registerForm.valid">Register</button>
+        <div class="new">
+            <h5>Already have an account? <a (click)="navigate('login')">Login</a></h5>
+            <label>Copyright © 1999-2021 GodCrypto Inc. All rights reserved.</label>
+        </div>
+    </form>
 </div>

@@ -17,9 +17,6 @@ import { CardComponent } from './Components/packages/card/card.component';
 import { ServicesComponent } from './Components/services/services.component';
 import { FeaturesComponent } from './Components/features/features.component';
 import { HomeComponent } from './Components/home/home.component';
-import { LoginComponent } from './Components/login-register/login/login.component';
-import { RegisterComponent } from './Components/login-register/register/register.component';
-import { ForgetComponent } from './Components/login-register/forget/forget.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TermsComponent } from './Components/terms/terms.component';
 import { InstructorTermsComponent } from './Components/terms/instructor-terms/instructor-terms.component';
@@ -39,10 +36,12 @@ import { StatisticsComponent } from './Components/dashboard/statistics/statistic
 import { PlansComponent } from './Components/dashboard/plans/plans.component';
 import { ChangepasswordComponent } from './Components/dashboard/profile/changepassword/changepassword.component';
 import { SubdashboardComponent } from './Components/dashboard/subdashboard/subdashboard.component';
+import { PlatformComponent } from './Components/platform/platform.component';
+
 
 import { MobilePlatformModule } from './Components/mobile-platform/mobile-platform.module';
 import { WindowsPlatformModule } from './Components/windows-platform/windows-platform.module';
-import { PlatformComponent } from './Components/platform/platform.component';
+import { LoginRegisterModule } from './Components/login-register/login-register.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,9 +54,6 @@ import { PlatformComponent } from './Components/platform/platform.component';
     ServicesComponent,
     FeaturesComponent,
     HomeComponent,
-    LoginComponent,
-    RegisterComponent,
-    ForgetComponent,
     TermsComponent,
     InstructorTermsComponent,
     TermsOfUseComponent,
@@ -89,7 +85,8 @@ import { PlatformComponent } from './Components/platform/platform.component';
     ReactiveFormsModule,
     AngularSplitModule,
     MobilePlatformModule,
-    WindowsPlatformModule
+    WindowsPlatformModule,
+    LoginRegisterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
