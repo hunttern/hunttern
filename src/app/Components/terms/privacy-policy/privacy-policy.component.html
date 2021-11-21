@@ -1,1 +1,13 @@
-<p>privacy-policy works!</p>
+<article>
+    <ul class="part1">
+        <li>
+            <header>
+                <h2>Part1</h2>
+                <i class="material-icons" (click)="collpse()" [@rotation]="cond">expand_less</i>
+            </header>
+            <body [@open-close]="cond">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat excepturi non voluptatibus et, quam id optio cupiditate soluta ipsam nisi veniam inventore in molestiae quasi ad modi, ullam quae facilis!
+            </body>
+        </li>
+    </ul>
+</article>

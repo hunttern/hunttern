@@ -1,0 +1,25 @@
+ul{
+    list-style: none;
+    li{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        header{
+            padding: 0 1rem;
+            border-bottom: thin #333 solid;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            i{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20px;
+                height: 20px;
+                border: solid thin #333;
+                border-radius: 7px;
+                z-index: 200;
+            }
+        }
+    }
+}
