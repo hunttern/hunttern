@@ -8,9 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularSplitModule } from 'angular-split';
 
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './Components/navigation/navigation.component';
 import { HeaderComponent } from './Components/header/header.component';
-import { FooterComponent } from './Components/footer/footer.component';
 import { SubscribeComponent } from './Components/subscribe/subscribe.component';
 import { PackagesComponent } from './Components/packages/packages.component';
 import { CardComponent } from './Components/packages/card/card.component';
@@ -18,14 +16,6 @@ import { ServicesComponent } from './Components/services/services.component';
 import { FeaturesComponent } from './Components/features/features.component';
 import { HomeComponent } from './Components/home/home.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { TermsComponent } from './Components/terms/terms.component';
-import { InstructorTermsComponent } from './Components/terms/instructor-terms/instructor-terms.component';
-import { TermsOfUseComponent } from './Components/terms/terms-of-use/terms-of-use.component';
-import { PrivacyPolicyComponent } from './Components/terms/privacy-policy/privacy-policy.component';
-import { CreditsProgramComponent } from './Components/terms/credits-program/credits-program.component';
-import { IntellectualPropertyPolicyComponent } from './Components/terms/intellectual-property-policy/intellectual-property-policy.component';
-import { UdemyComponent } from './Components/terms/udemy/udemy.component';
-import { MasterServicesAgreementComponent } from './Components/terms/master-services-agreement/master-services-agreement.component';
 import { BlogComponent } from './Components/blog/blog.component';
 import { NewsComponent } from './Components/blog/news/news.component';
 import { NewscardComponent } from './Components/blog/newscard/newscard.component';
@@ -42,26 +32,19 @@ import { PlatformComponent } from './Components/platform/platform.component';
 import { MobilePlatformModule } from './Components/mobile-platform/mobile-platform.module';
 import { WindowsPlatformModule } from './Components/windows-platform/windows-platform.module';
 import { LoginRegisterModule } from './Components/login-register/login-register.module';
+import { TermsModule } from './Components/terms/terms.module';
+import { SharedModule } from './Shared/shared.module';
+
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
     HeaderComponent,
-    FooterComponent,
     SubscribeComponent,
     PackagesComponent,
     CardComponent,
     ServicesComponent,
     FeaturesComponent,
     HomeComponent,
-    TermsComponent,
-    InstructorTermsComponent,
-    TermsOfUseComponent,
-    PrivacyPolicyComponent,
-    CreditsProgramComponent,
-    IntellectualPropertyPolicyComponent,
-    UdemyComponent,
-    MasterServicesAgreementComponent,
     BlogComponent,
     NewsComponent,
     NewscardComponent,
@@ -84,9 +67,11 @@ import { LoginRegisterModule } from './Components/login-register/login-register.
     FormsModule,
     ReactiveFormsModule,
     AngularSplitModule,
+    SharedModule,
     MobilePlatformModule,
     WindowsPlatformModule,
-    LoginRegisterModule
+    LoginRegisterModule,
+    TermsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
