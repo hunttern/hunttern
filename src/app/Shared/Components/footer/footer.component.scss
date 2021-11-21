@@ -1,5 +1,5 @@
-@import "../../../assets/styleSotrage/mixinss";
-@import "../../../assets/styleSotrage/vars";
+@import "../../../../assets/styleSotrage/mixinss";
+@import "../../../../assets/styleSotrage/vars";
 @mixin col($main) {
     display: flex;
     flex-direction: column;
