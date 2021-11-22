@@ -18,7 +18,7 @@ enum symbols{
 export class ApiService implements IBasicDataFeed {
 
   symbols: any;
-  url: string = 'http://87.107.146.161:5000/api/home/';
+  url: string = 'http://195.248.243.186:5000/api/home/';
   interval: string = '5';
 
   constructor(public ws: SignalRService, private http: HttpClient ) {

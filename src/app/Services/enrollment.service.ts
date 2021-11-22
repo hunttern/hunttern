@@ -8,8 +8,8 @@ import { FormGroup } from '@angular/forms';
 export class EnrollmentService {
   constructor(private http: HttpClient) { }
 
-  private url: string = 'http://87.107.146.161:5000/api/account';
-  private patternUrl: string = 'http://87.107.146.161:5000/api/Index?ShowZigZag=true&ShowPosition=true&ShowPrediction=true&ShowStatistic=true&ShowCandlePattern=true&PivotSensitivity=50&HarmonicError=3&RisktoReward=3';
+  private url: string = 'http://195.248.243.186:5000/api/account';
+  private patternUrl: string = 'http://195.248.243.186:5000/api/Index?ShowZigZag=true&ShowPosition=true&ShowPrediction=true&ShowStatistic=true&ShowCandlePattern=true&PivotSensitivity=50&HarmonicError=3&RisktoReward=3';
   Token = localStorage.getItem('userToken');
   reqheader = new HttpHeaders().set("Authorization", `Token ${this.Token}`);
   subscribe(email: string){

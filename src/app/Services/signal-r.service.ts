@@ -11,7 +11,7 @@ import { HarmoonicService } from '../Patterns/Services/Prediction/harmoonic.serv
 })
 export class SignalRService {
   hubConnection: signalR.HubConnection;
-  url: string = 'http://87.107.146.161:5000/TestHub';
+  url: string = 'http://195.248.243.186:5000/TestHub';
   streams: any[] = [];
 
   constructor(private _drawHarmonic: HarmonicService, private _drawZigzag: ZigzagService, private _drawReversal: ReversalService, private _prediction: HarmoonicService) {}
