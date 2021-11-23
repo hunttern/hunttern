@@ -123,44 +123,46 @@ export class HarmoonicService {
     const Aprice = (P1 + P2)/2;
     const Btime = (Date.parse(pattern.Time[5]) / 1000);
     const Atime = Btime + this.delay;
-    const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
-      {
-        shape: "callout",
-        lock: true,
-        disableSelection: false,
-        disableSave: true,
-        disableUndo: true,
-        text: "Three Drives",
-        overrides:{
-          fontsize: 12
-        }
-      });
-      const line1ID = this._chart.createMultipointShape([{time: Atime, price: P1}],
+    if(pattern.Status[0] === "completing"){
+      const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
         {
-          shape: "horizontal_line",
+          shape: "callout",
           lock: true,
-          disableSelection: true,
+          disableSelection: false,
           disableSave: true,
           disableUndo: true,
-          overrides: {
-            linestyle: 2,
-            linecolor: '#ffff00'
+          text: "Three Drives",
+          overrides:{
+            fontsize: 12
           }
         });
-      const line2ID = this._chart.createMultipointShape([{time: Atime, price: P2}],
-        {
-          shape: "horizontal_line",
-          lock: true,
-          disableSelection: true,
-          disableSave: true,
-          disableUndo: true,
-          overrides: {
-            linestyle: 2,
-            linecolor: '#ffff00'
-          }
-        });
-      this._harmonicID.push({label: labelID, pattern: '' as EntityId});
-      this._harmonicID.push({label: line1ID, pattern: line2ID});
+        const line1ID = this._chart.createMultipointShape([{time: Atime, price: P1}],
+          {
+            shape: "horizontal_line",
+            lock: true,
+            disableSelection: true,
+            disableSave: true,
+            disableUndo: true,
+            overrides: {
+              linestyle: 2,
+              linecolor: '#ffff00'
+            }
+          });
+        const line2ID = this._chart.createMultipointShape([{time: Atime, price: P2}],
+          {
+            shape: "horizontal_line",
+            lock: true,
+            disableSelection: true,
+            disableSave: true,
+            disableUndo: true,
+            overrides: {
+              linestyle: 2,
+              linecolor: '#ffff00'
+            }
+          });
+        this._harmonicID.push({label: labelID, pattern: '' as EntityId});
+        this._harmonicID.push({label: line1ID, pattern: line2ID});
+    }
   }
   private drawABCD(abcdPattern: Pattern[]){
     const pattern = abcdPattern[0];
@@ -169,64 +171,19 @@ export class HarmoonicService {
     const Aprice = (P1+P2) / 2;
     const Btime = (Date.parse(pattern.Time[2]) / 1000);
     const Atime = Btime + this.delay;
-    const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Atime, price: Aprice }],
-      {
-        shape: "callout",
-        lock: true,
-        disableSelection: true,
-        disableSave: true,
-        disableUndo: true,
-        text: "ABCD",
-        overrides:{
-          fontsize: 12
-        }
-      });
-    const line1ID = this._chart.createMultipointShape([{time: Atime, price: P1}],
-      {
-        shape: "horizontal_line",
-        lock: true,
-        disableSelection: true,
-        disableSave: true,
-        disableUndo: true,
-        overrides: {
-          linestyle: 2,
-          linecolor: '#ffff00'
-        }
-      });
-    const line2ID = this._chart.createMultipointShape([{time: Atime, price: P2}],
-      {
-        shape: "horizontal_line",
-        lock: true,
-        disableSelection: true,
-        disableSave: true,
-        disableUndo: true,
-        overrides: {
-          linestyle: 2,
-          linecolor: '#ffff00'
-        }
-      });
-    this._harmonicID.push({label: labelID, pattern: '' as EntityId});
-    this._harmonicID.push({label: line1ID, pattern: line2ID});
-  }
-  private drawXABCD(patterns: Pattern[], name: string){
-    const pattern = patterns[0];
-    const P1 = pattern.LastPatternPoint[0];
-    const P2 = pattern.LastPatternPoint[1];
-    const Aprice = (P1 + P2) / 2;
-    const Btime = (Date.parse(pattern.Time[3]) / 1000);
-    const Atime = Btime + this.delay;
-    const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
-      {
-        shape: "callout",
-        lock: true,
-        disableSelection: false,
-        disableSave: true,
-        disableUndo: true,
-        text: name,
-        overrides:{
-          fontsize: 12
-        }
-      });
+    if(pattern.Status[0] === "completing"){
+      const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Atime, price: Aprice }],
+        {
+          shape: "callout",
+          lock: true,
+          disableSelection: true,
+          disableSave: true,
+          disableUndo: true,
+          text: "ABCD",
+          overrides:{
+            fontsize: 12
+          }
+        });
       const line1ID = this._chart.createMultipointShape([{time: Atime, price: P1}],
         {
           shape: "horizontal_line",
@@ -237,7 +194,7 @@ export class HarmoonicService {
           overrides: {
             linestyle: 2,
             linecolor: '#ffff00'
-        }
+          }
         });
       const line2ID = this._chart.createMultipointShape([{time: Atime, price: P2}],
         {
@@ -253,5 +210,54 @@ export class HarmoonicService {
         });
       this._harmonicID.push({label: labelID, pattern: '' as EntityId});
       this._harmonicID.push({label: line1ID, pattern: line2ID});
+    }
+  }
+  private drawXABCD(patterns: Pattern[], name: string){
+    const pattern = patterns[0];
+    const P1 = pattern.LastPatternPoint[0];
+    const P2 = pattern.LastPatternPoint[1];
+    const Aprice = (P1 + P2) / 2;
+    const Btime = (Date.parse(pattern.Time[3]) / 1000);
+    const Atime = Btime + this.delay;
+    if(pattern.Status[0] === "completing"){
+      const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
+        {
+          shape: "callout",
+          lock: true,
+          disableSelection: false,
+          disableSave: true,
+          disableUndo: true,
+          text: name,
+          overrides:{
+            fontsize: 12
+          }
+        });
+        const line1ID = this._chart.createMultipointShape([{time: Atime, price: P1}],
+          {
+            shape: "horizontal_line",
+            lock: true,
+            disableSelection: true,
+            disableSave: true,
+            disableUndo: true,
+            overrides: {
+              linestyle: 2,
+              linecolor: '#ffff00'
+          }
+          });
+        const line2ID = this._chart.createMultipointShape([{time: Atime, price: P2}],
+          {
+            shape: "horizontal_line",
+            lock: true,
+            disableSelection: true,
+            disableSave: true,
+            disableUndo: true,
+            overrides: {
+              linestyle: 2,
+              linecolor: '#ffff00'
+            }
+          });
+        this._harmonicID.push({label: labelID, pattern: '' as EntityId});
+        this._harmonicID.push({label: line1ID, pattern: line2ID});
+    }
   }
 }
