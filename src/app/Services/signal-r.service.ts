@@ -71,37 +71,9 @@ export class SignalRService {
         patterns.push(item.value);
       });
     }
-    this._drawHarmonic.chart = patternClass.chart;
-    this._drawZigzag.chart = patternClass.chart;
-    this._drawReversal.chart = patternClass.chart;
-    this._prediction.chart = patternClass.chart;
-    this._drawPosition.chart = patternClass.chart;
 
-    this.hubConnection.invoke('SetPatterns', {ShowZigZag: showZigZag, ShowPosition: false, ShowPrediction: prediction, ShowStatistic: false, ShowCandlePattern: false, PivotSensitivity: zigzag, HarmonicError: error, RisktoReward: 25, Patterns: patterns});
-    
-    this.hubConnection.on("ProccessCandles", (msg: any) => {
-      
-      this._drawHarmonic.harmonicPattern = msg.Found_Patterns.Harmonic_Patterns;
-      this._drawHarmonic.drawPatterns(patterns);
-      this._drawReversal.reversalPattern = msg.Found_Patterns.Reversal_Patterns;
-      this._drawReversal.drawPatterns(patterns);
-      this._drawPosition.position = msg.Position.Harmonic_Patterns;
-      this._drawPosition.drawPosition();
+    this.draw(showZigZag,prediction,zigzag,error,patterns);
 
-      if(showZigZag){
-        this._drawZigzag.zigzag = msg.ZigZag;
-        this._drawZigzag.drawZigzag();
-      }else{
-        this._drawZigzag.removeZigzag();
-      }
-
-      if(prediction){
-        this._prediction.harmonicPattern = msg.Prediction.Harmonic_Patterns;
-        this._prediction.drawPatterns(patterns);
-      }else{
-        this._prediction.removePatterns();
-      }
-    });
   }
   unsubscribeFromStream(subscriberUID?: any) {
     this.hubConnection.stop();
@@ -127,5 +99,39 @@ export class SignalRService {
     // catch (e) {
     //   console.error(e)
     // }
+  }
+
+  draw(showZigZag: boolean, prediction: boolean,zigzag: number, error: number, patterns: string[]){
+    this._drawHarmonic.chart = patternClass.chart;
+    this._drawZigzag.chart = patternClass.chart;
+    this._drawReversal.chart = patternClass.chart;
+    this._prediction.chart = patternClass.chart;
+    this._drawPosition.chart = patternClass.chart;
+
+    this.hubConnection.invoke('SetPatterns', {ShowZigZag: showZigZag, ShowPosition: true, ShowPrediction: prediction, ShowStatistic: false, ShowCandlePattern: false, PivotSensitivity: zigzag, HarmonicError: error, RisktoReward: 25, Patterns: patterns});
+    
+    this.hubConnection.on("ProccessCandles", (msg: any) => {
+      
+      this._drawHarmonic.harmonicPattern = msg.Found_Patterns.Harmonic_Patterns;
+      this._drawHarmonic.drawPatterns(patterns);
+      this._drawReversal.reversalPattern = msg.Found_Patterns.Reversal_Patterns;
+      this._drawReversal.drawPatterns(patterns);
+      this._drawPosition.position = msg.Position.Harmonic_Patterns;
+      this._drawPosition.drawLines(patterns);
+
+      if(showZigZag){
+        this._drawZigzag.zigzag = msg.ZigZag;
+        this._drawZigzag.drawZigzag();
+      }else{
+        this._drawZigzag.removeZigzag();
+      }
+
+      if(prediction){
+        this._prediction.harmonicPattern = msg.Prediction.Harmonic_Patterns;
+        this._prediction.drawPatterns(patterns);
+      }else{
+        this._prediction.removePatterns();
+      }
+    });
   }
 }

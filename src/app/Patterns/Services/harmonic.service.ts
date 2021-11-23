@@ -33,7 +33,7 @@ export class HarmonicService {
   }
 
   drawPatterns(patterns: string[]){
-    this.removePatterns()
+    this.removePatterns();
     this.split();
     patterns.forEach(patternName => {
       switch (patternName){
