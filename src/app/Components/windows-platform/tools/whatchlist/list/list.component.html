@@ -21,40 +21,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr (click)="getSymbolChart(symbol1.innerText)">
-                    <td class="symbol" #symbol1>BTCUSDT</td>
-                    <td class="last">1301.05</td>
-                    <td class="change">5.65%</td>
-                    <td class="vol">125.71M</td>
-                </tr>
-                <tr (click)="getSymbolChart(symbol2.innerText)">
-                    <td class="symbol" #symbol2>ETHUSDT</td>
-                    <td class="last">1301.05</td>
-                    <td class="change">5.65%</td>
-                    <td class="vol">125.71M</td>
-                </tr>
-                <tr (click)="getSymbolChart(symbol3.innerText)">
-                    <td class="symbol" #symbol3>ADAUSDT</td>
-                    <td class="last">1301.05</td>
-                    <td class="change">5.65%</td>
-                    <td class="vol">125.71M</td>
+                <tr *ngFor="let coin of coins; index as i" [ngClass]="{'active': selectedRow === i}" (click)="getSymbolChart(coin.symbol, i)">
+                    <td class="symbol">{{coin.symbol}}</td>
+                    <td class="last">{{coin.last}}</td>
+                    <td class="change">{{coin.change}}%</td>
+                    <td class="vol">{{coin.vol}}M</td>
                 </tr>
             </tbody>
-        </table>
-        <br>
-        <table>
-            <tr>
-                <th>Index</th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-                <td class="symbol">BTCUSD</td>
-                <td class="last">1301.05</td>
-                <td class="change">5.65%</td>
-                <td class="vol">125.71M</td>
-            </tr>
         </table>
     </body>
 </section>

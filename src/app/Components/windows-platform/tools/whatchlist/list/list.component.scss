@@ -39,6 +39,14 @@ section{
         table{
             width: 100%;
             padding: 0.5rem;
+            tr{
+                margin-top: 0.5rem;
+                background-color: $platformBackground;
+                cursor: pointer;
+                &.active{
+                    background-color: $platformBorder;
+                }
+            }
             tr:not(:last-child){
                 border-bottom: 0.025rem solid $platformBorder;
             }
