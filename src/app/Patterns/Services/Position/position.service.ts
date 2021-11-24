@@ -72,7 +72,6 @@ export class PositionService {
     });
   }
   drawPosition(position: Iposition[]){
-    console.log("Pos: ",position);
     if(position.length > 0){
       const prz: number[] = position[0].PRZ;
       const entry: any = position[0].Entry;
@@ -80,7 +79,6 @@ export class PositionService {
       const TP1: number = position[0].TargetPoints[0];
       const TP2: number = position[0].TargetPoints[1];
       const type: string = position[0].PositionType[0];
-      console.log("draw");
       const entryLineID = this._chart.createMultipointShape([{price: entry}],
         {
           shape: "horizontal_line",

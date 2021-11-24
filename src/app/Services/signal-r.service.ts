@@ -16,6 +16,10 @@ export class SignalRService {
   streams: any[] = [];
 
   private _inputs: any;
+  private _patterns: string[] = [];
+  get input(){
+    return this._inputs;
+  }
   constructor(private _drawHarmonic: HarmonicService, private _drawZigzag: ZigzagService,
      private _drawReversal: ReversalService, private _prediction: HarmoonicService,
      private _drawPosition: PositionService
@@ -57,7 +61,7 @@ export class SignalRService {
       }
     });
   }
-  OnClick(data: FormGroup){
+  OnClick(data: FormGroup): void{
     const form = data.value;
     this._inputs = form;
     const zigzag = form.zigzag;
@@ -70,6 +74,7 @@ export class SignalRService {
       form.patterns.forEach((item: any) => {
         patterns.push(item.value);
       });
+      this._patterns = patterns;
     }
 
     this.draw(showZigZag,prediction,zigzag,error,patterns);
@@ -100,8 +105,14 @@ export class SignalRService {
     //   console.error(e)
     // }
   }
-
-  draw(showZigZag: boolean, prediction: boolean,zigzag: number, error: number, patterns: string[]){
+  defaultDraw(form: any){
+    const zigzag = form.zigzag;
+    const prediction = form.prediction;
+    const showZigZag = form.zigzagdraw;
+    const error = form.error;
+    this.draw(showZigZag,prediction,zigzag,error,this._patterns);
+  }
+  private draw(showZigZag: boolean, prediction: boolean,zigzag: number, error: number, patterns: string[]){
     this._drawHarmonic.chart = patternClass.chart;
     this._drawZigzag.chart = patternClass.chart;
     this._drawReversal.chart = patternClass.chart;

@@ -3,6 +3,15 @@
 		<app-profile></app-profile>
 	</header>
 	<body>
+		<div class="col0">
+			<nav>
+				<ul>
+					<li>
+						<i class="material-icons active" (click)="CloseInput()">table_chart</i>
+					</li>
+				</ul>
+			</nav>
+		</div>
 		<div #col1 class="col1" [style.width]="w1+'%'">
 			<div class="C1 hidescroll">
 				<h2>Hunttern <i class="material-icons" (click)="ClosePattern()">close</i></h2>
@@ -10,7 +19,7 @@
 					<app-inputs></app-inputs>
 				</div>
 			</div>
-			<span class="COL" Col [max]="20" [min]="10" (relative)="setPerX1($event)"></span>
+			<span class="COL" Col [max]="25" [min]="10" (relative)="setPerX1($event)"></span>
 		</div>
 		<div #col2 class="col2 C1" [style.width]="w2+'%'">
 			<div #row1 class="row1 hidescroll" [style.height]="h1+'%'">
@@ -46,7 +55,7 @@
 			</div>
 			<span class="COL hidescroll" Col (relative)="setPerX2($event)"></span>
 		</div>
-		<div class="toolbar col4">
+		<div class="col4">
 			<app-tools (panel)="setTool($event)"></app-tools>
 		</div>
 	</body>
