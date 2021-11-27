@@ -4,7 +4,6 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { EnrollmentService } from 'src/app/Services/enrollment.service';
 import { LoginRegisterComponent } from 'src/app/Components/login-register/login-register.component';
-import { LoginComponent } from 'src/app/Components/login-register/login/login.component';
 
 @Component({
   selector: 'app-navigation',
@@ -21,7 +20,7 @@ export class NavigationComponent{
 
   openLogin(){
     this.dialog = this._dialog.open(LoginRegisterComponent,{
-      disableClose: true
+      disableClose: false
     });
     this.dialog.afterClosed().subscribe((res: FormGroup) => {
       this.enroll.login(res.value).subscribe({

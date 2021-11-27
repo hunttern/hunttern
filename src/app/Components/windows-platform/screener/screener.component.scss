@@ -3,9 +3,7 @@
 @import '../../../../assets/styleSotrage/fonts';
 nav{
     padding: 0 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 2fr;
-    gap: 5rem;
+    display: flex;
     padding: 1rem;
     background-color: $platformBackground;
     a{

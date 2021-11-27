@@ -5,13 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { patternClass } from '../Patterns/Patterns.class';
 
 import * as data from '../../Data/a.json';
-enum symbols{
-  BTCUSDT = 1,
-  ETHUSDT = 2,
-  ADAUSDT = 3,
-  BNBUSDT = 4,
-  XRPUSDT = 5
-}
+
 @Injectable({
   providedIn: 'root'
 })
