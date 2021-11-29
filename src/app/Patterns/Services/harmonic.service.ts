@@ -10,7 +10,7 @@ export class HarmonicService {
 
   private _harmonicPattern: Harmonic;
 
-  private _harmonicID: [{label: EntityId, pattern: EntityId}] = [{label:'' as EntityId,pattern:'' as EntityId}];
+  private _harmonicID: [{label: EntityId, pattern: EntityId}] = [{label: '' as EntityId, pattern: '' as EntityId}];
   private _chart: any;
 
   private _abcd: any[];
@@ -32,48 +32,27 @@ export class HarmonicService {
     this._harmonicPattern = patterns;
   }
 
-  drawPatterns(patterns: string[]){
+  drawPatterns(patterns: string[]): void{
     this.removePatterns();
     this.split();
     patterns.forEach(patternName => {
       switch (patternName){
-        case 'ABCD' : 
-          this.drawABCD(this._abcd);
-        break;
-        case 'Bat' : 
-          this.drawXABCD(this._bat, 'Bat');
-        break;
-        case 'AltBat' : 
-          this.drawXABCD(this._altbat, 'Alt Bat');
-        break;
-        case 'Butterfly' : 
-          this.drawXABCD(this._butterfly, 'Butterfly');
-        break;
-        case '5-0' : 
-          this.drawXABCD(this._5_0, '5-0');
-        break;
-        case 'Gartley' : 
-          this.drawXABCD(this._gartley, 'Gartley');
-        break;
-        case 'ThreeDrives' : 
-          this.drawThreeDrive(this._threedrives);
-        break;
-        case 'Cypher' : 
-          this.drawXABCD(this._cypher, 'Cypher');
-        break;
-        case 'Crab' : 
-          this.drawXABCD(this._crab, 'Crab');
-        break;
-        case 'DeepCrab' : 
-          this.drawXABCD(this._deepcrab, 'DeepCrab');
-        break;
-        case 'Shark' : 
-          this.drawXABCD(this._shark, 'Shark');
-        break;
+        case 'ABCD' : this.drawABCD(this._abcd); break;
+        case 'Bat' : this.drawXABCD(this._bat, 'Bat','#8e44ad'); break;
+        case 'AltBat' : this.drawXABCD(this._altbat, 'Alt Bat','#9b59b6'); break;
+        case 'Butterfly' : this.drawXABCD(this._butterfly, 'Butterfly','#f1c40f'); break;
+        case '5-0' : this.drawXABCD(this._5_0, '5-0','#e74c3c'); break;
+        case 'Gartley' : this.drawXABCD(this._gartley, 'Gartley','#16a085'); break;
+        case 'ThreeDrives' : this.drawThreeDrive(this._threedrives); break;
+        case 'Cypher' : this.drawXABCD(this._cypher, 'Cypher','#3498db'); break;
+        case 'Crab' : this.drawXABCD(this._crab, 'Crab','#f39c12'); break;
+        case 'DeepCrab' : this.drawXABCD(this._deepcrab, 'DeepCrab','#d35400'); break;
+        case 'Shark' : this.drawXABCD(this._shark, 'Shark','#2980b9'); break;
       }
     });
   }
-  private split(){
+
+  private split(): void{
     this._abcd = this._harmonicPattern.ABCD;
     this._bat = this._harmonicPattern.Bat;
     this._altbat = this._harmonicPattern.AltBat;
@@ -84,9 +63,9 @@ export class HarmonicService {
     this._shark = this._harmonicPattern.Shark;
     this._threedrives = this._harmonicPattern.ThreeDrives;
     this._gartley = this._harmonicPattern.Gartley;
-    this._5_0 = this._harmonicPattern["5-0"];
+    this._5_0 = this._harmonicPattern['5-0'];
   }
-  private drawThreeDrive(pattern: any){
+  private drawThreeDrive(pattern: any): void{
     pattern.forEach((point: any) => {
       const Aprice = point.Price[5];
       const Bprice = point.Price[5];
@@ -102,30 +81,40 @@ export class HarmonicService {
       const Etime = (Date.parse(point.Time[2]) / 1000);
       const Ftime = (Date.parse(point.Time[1]) / 1000);
       const Gtime = (Date.parse(point.Time[0]) / 1000);
-      const shapeID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }, { time: Etime, price: Eprice }, { time: Ftime, price: Fprice }, { time: Gtime, price: Gprice },],
+
+      const shapeID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }, { time: Etime, price: Eprice }, { time: Ftime, price: Fprice }, { time: Gtime, price: Gprice }, ],
         {
-          shape: "3divers_pattern",
+          shape: '3divers_pattern',
           lock: true,
           disableSelection: true,
           disableSave: true,
-          disableUndo: true
+          disableUndo: true,
+          overrides: {
+            textcolor: '#FFFFFF',
+            transparency: 50,
+            color: '#2ecc71',
+            backgroundColor: '#2ecc71'
+          }
         });
-        const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
+      const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Atime, price: Aprice }],
           {
-            shape: "callout",
+            shape: 'callout',
             lock: true,
             disableSelection: false,
             disableSave: true,
             disableUndo: true,
-            text: "Three Drives",
-            overrides:{
-              fontsize: 12
+            text: 'Three Drives',
+            overrides: {
+              fontsize: 12,
+              backgroundColor: '#2ecc71',
+              borderColor: '#2ecc71',
+              color: '#FFFFFF'
             }
-          })
-        this._harmonicID.push({label: labelID, pattern: shapeID});
+          });
+      this._harmonicID.push({label: labelID, pattern: shapeID});
     });
   }
-  private drawABCD(abcdPattern: any[]){
+  private drawABCD(abcdPattern: any[]): void{
     abcdPattern.forEach(point => {
       const Aprice = point.Price[3];
       const Bprice = point.Price[2];
@@ -135,30 +124,40 @@ export class HarmonicService {
       const Btime = (Date.parse(point.Time[2]) / 1000);
       const Ctime = (Date.parse(point.Time[1]) / 1000);
       const Dtime = (Date.parse(point.Time[0]) / 1000);
+
       const patternID = this._chart.createMultipointShape([{ time: Dtime, price: Dprice }, { time: Ctime, price: Cprice }, { time: Btime, price: Bprice }, { time: Atime, price: Aprice }],
         {
-          shape: "abcd_pattern",
+          shape: 'abcd_pattern',
           lock: false,
           disableSelection: false,
           disableSave: true,
-          disableUndo: true
+          disableUndo: true,
+          overrides: {
+            textcolor: '#FFFFFF',
+            transparency: 50,
+            color: '#1abc9c',
+            backgroundColor: '#1abc9c'
+          }
         });
-        const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
+      const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Atime, price: Aprice }],
           {
-            shape: "callout",
+            shape: 'callout',
             lock: true,
             disableSelection: false,
             disableSave: true,
             disableUndo: true,
-            text: "ABCD",
-            overrides:{
-              fontsize: 12
+            text: 'ABCD',
+            overrides: {
+              fontsize: 12,
+              backgroundColor: '#1abc9c',
+              borderColor: '#1abc9c',
+              color: '#FFFFFF'
             }
-          })
-        this._harmonicID.push({label: labelID, pattern: patternID});
+          });
+      this._harmonicID.push({label: labelID, pattern: patternID});
     });
   }
-  private drawXABCD(pattern: any[], name: string){
+  private drawXABCD(pattern: any[], name: string, color: string): void{
     pattern.forEach(point => {
       const Aprice = point.Price[4];
       const Bprice = point.Price[3];
@@ -170,9 +169,10 @@ export class HarmonicService {
       const Ctime = (Date.parse(point.Time[2]) / 1000);
       const Dtime = (Date.parse(point.Time[1]) / 1000);
       const Etime = (Date.parse(point.Time[0]) / 1000);
+      
       const patternID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }, { time: Etime, price: Eprice }],
         {
-          shape: "xabcd_pattern",
+          shape: 'xabcd_pattern',
           lock: true,
           disableSelection: false,
           disableSave: true,
@@ -180,31 +180,35 @@ export class HarmonicService {
           overrides: {
             textcolor: '#FFFFFF',
             transparency: 50,
-            color: '#CC2895'
+            color: color,
+            backgroundColor: color
           }
         });
-      const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
+      const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Atime, price: Aprice }],
         {
-          shape: "callout",
+          shape: 'callout',
           lock: true,
           disableSelection: false,
           disableSave: true,
           disableUndo: true,
           text: name,
-          overrides:{
-            fontsize: 12
+          overrides: {
+            fontsize: 12,
+            backgroundColor: color,
+            borderColor: color,
+            color: '#FFFFFF'
           }
-        })
-        this._harmonicID.push({label: labelID, pattern: patternID});
+        });
+      this._harmonicID.push({label: labelID, pattern: patternID});
     });
   }
-  removePatterns(){
-    if(this._harmonicID.length > 2){
+  removePatterns(): void{
+    if (this._harmonicID.length > 2){
         this._harmonicID.forEach(id => {
         this._chart.removeEntity(id.label);
         this._chart.removeEntity(id.pattern);
       });
-      this._harmonicID = [{label: '' as EntityId,pattern: '' as EntityId}];
+        this._harmonicID = [{label: '' as EntityId, pattern: '' as EntityId}];
     }
   }
 }

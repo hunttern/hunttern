@@ -38,7 +38,7 @@ export class ZigzagService {
               disableUndo: true,
               overrides: {
                 bold: true,
-                linewidth: 3,
+                linewidth: 1,
                 linestyle: 0,
                 linecolor: color
               }

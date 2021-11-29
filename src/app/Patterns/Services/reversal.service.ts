@@ -62,7 +62,13 @@ export class ReversalService {
           lock: true,
           disableSelection: true,
           disableSave: true,
-          disableUndo: true
+          disableUndo: true,
+          overrides: {
+            textcolor: '#FFFFFF',
+            transparency: 50,
+            color: '#fdcb6e',
+            backgroundColor: '#fdcb6e'
+          }
         });
         const labelID = this.chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
           {
@@ -72,8 +78,11 @@ export class ReversalService {
             disableSave: true,
             disableUndo: true,
             text: 'Head & Shoulder',
-            overrides:{
-              fontsize: 12
+            overrides: {
+              textcolor: '#FFFFFF',
+              transparency: 50,
+              color: '#fdcb6e',
+              backgroundColor: '#fdcb6e'
             }
           });
         this._reversalId.push({label: labelID, pattern: shapeID});
@@ -103,7 +112,13 @@ export class ReversalService {
           lock: true,
           disableSelection: true,
           disableSave: true,
-          disableUndo: true
+          disableUndo: true,
+          overrides: {
+            textcolor: '#FFFFFF',
+            transparency: 50,
+            color: '#fd79a8',
+            backgroundColor: '#fd79a8'
+          }
         });
       const shape2ID = this._chart.createMultipointShape([{ time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }, { time: midDE, price: Cprice }],
         {
@@ -111,7 +126,13 @@ export class ReversalService {
           lock: true,
           disableSelection: true,
           disableSave: true,
-          disableUndo: true
+          disableUndo: true,
+          overrides: {
+            textcolor: '#FFFFFF',
+            transparency: 50,
+            color: '#fd79a8',
+            backgroundColor: '#fd79a8'
+          }
         });
         const labelID = this._chart.createMultipointShape([{ time: midAB, price: Cprice },{ time: midAB, price: Cprice }],
           {
@@ -121,8 +142,11 @@ export class ReversalService {
             disableSave: true,
             disableUndo: true,
             text: 'Double',
-            overrides:{
-              fontsize: 12
+            overrides: {
+              fontsize: 12,
+              backgroundColor: '#fd79a8',
+              borderColor: '#fd79a8',
+              color: '#FFFFFF'
             }
           });
         this._reversalId.push({label: '' as EntityId, pattern: shape1ID});
@@ -151,7 +175,13 @@ export class ReversalService {
           lock: true,
           disableSelection: true,
           disableSave: true,
-          disableUndo: true
+          disableUndo: true,
+          overrides: {
+            textcolor: '#FFFFFF',
+            transparency: 50,
+            color: '#00cec9',
+            backgroundColor: '#00cec9'
+          }
         });
         const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
           {
@@ -161,8 +191,11 @@ export class ReversalService {
             disableSave: true,
             disableUndo: true,
             text: 'Triple',
-            overrides:{
-              fontsize: 12
+            overrides: {
+              fontsize: 12,
+              backgroundColor: '#00cec9',
+              borderColor: '#00cec9',
+              color: '#FFFFFF'
             }
           })
         this._reversalId.push({label: labelID, pattern: shapeID});
