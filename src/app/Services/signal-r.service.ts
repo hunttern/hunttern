@@ -15,11 +15,9 @@ export class SignalRService {
   url: string = 'http://195.248.243.186:5000/TestHub';
   streams: any[] = [];
 
-  private _inputs: any;
+  private _inputs: FormGroup;
   private _patterns: string[] = [];
-  get input(){
-    return this._inputs;
-  }
+
   constructor(private _drawHarmonic: HarmonicService, private _drawZigzag: ZigzagService,
      private _drawReversal: ReversalService, private _prediction: HarmoonicService,
      private _drawPosition: PositionService
@@ -35,6 +33,8 @@ export class SignalRService {
     .start()
     .then(() => {
       localStorage.setItem("wsStatus", '1')
+      if(this._inputs)
+      this.OnClick(this._inputs);
     })
     .catch((err: any) => {
       return console.error(err.toString());
@@ -57,13 +57,12 @@ export class SignalRService {
         low: parseFloat(lastCandle.Low),
       }
       onRealtimeCallback({...lastSocketData})
-      
       }
     });
   }
   OnClick(data: FormGroup): void{
     const form = data.value;
-    this._inputs = form;
+    this._inputs = data;
     const zigzag = form.zigzag;
     const prediction = form.prediction;
     const showZigZag = form.zigzagdraw;
