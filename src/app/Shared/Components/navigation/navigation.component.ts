@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { EnrollmentService } from 'src/app/Services/enrollment.service';
 import { LoginRegisterComponent } from 'src/app/Components/login-register/login-register.component';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navigation',
@@ -14,23 +15,15 @@ export class NavigationComponent{
 
   @Input() linkColor: string = '#191633';
 
-  dialog: MatDialogRef<LoginRegisterComponent>;
-
-  constructor(private _dialog: MatDialog,private enroll: EnrollmentService, private _router: Router) {}
+  constructor(private enroll: EnrollmentService, private modal: NgbModal) {}
 
   openLogin(){
-    this.dialog = this._dialog.open(LoginRegisterComponent,{
-      disableClose: false
+    const modalRef = this.modal.open(LoginRegisterComponent);
+    modalRef.result.then((res: any) => {
+      if(res){
+        // this.enroll.login(res);
+        console.log("Login");
+      }
     });
-    this.dialog.afterClosed().subscribe((res: FormGroup) => {
-      this.enroll.login(res.value).subscribe({
-        next: (data: any) => {
-          localStorage.setItem('Token', data.accessToken);
-        },
-        error: (err: any) => {
-          console.error(err)
-        }
-      })
-    })
   }
 }

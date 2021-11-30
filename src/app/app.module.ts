@@ -34,6 +34,7 @@ import { WindowsPlatformModule } from './Components/windows-platform/windows-pla
 import { LoginRegisterModule } from './Components/login-register/login-register.module';
 import { TermsModule } from './Components/terms/terms.module';
 import { SharedModule } from './Shared/shared.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { SharedModule } from './Shared/shared.module';
     MobilePlatformModule,
     WindowsPlatformModule,
     LoginRegisterModule,
-    TermsModule
+    TermsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

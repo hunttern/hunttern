@@ -1,6 +1,11 @@
 <div class="form">
-    <h1>Forget Password</h1>
-    <h3>Enter your email address that you entered during your registeration.</h3>
+    <header>
+        <div class="title">
+            <h1>Forget Password</h1>
+            <span class="material-icons" (click)="close()">close</span>
+        </div>
+        <h3>Enter your email address that you entered during your registeration.</h3>
+    </header>
     <form [formGroup]="forgetForm" (ngSubmit)="onSubmit()">
         <div>
             <label>Email Address :</label>

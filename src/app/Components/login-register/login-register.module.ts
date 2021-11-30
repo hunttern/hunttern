@@ -7,7 +7,6 @@ import { LoginRegisterComponent } from './login-register.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgetComponent } from './forget/forget.component';
-
 @NgModule({
   declarations: [LoginRegisterComponent, ForgetComponent, LoginComponent, RegisterComponent],
   imports: [

@@ -6,11 +6,18 @@
     width: 40vw;
     background-color: #fff;
     padding: 2rem 3rem;
-    border-radius: 35px;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    span{
+        cursor: pointer;
+    }
 }
 h1{
     font-weight: bold;

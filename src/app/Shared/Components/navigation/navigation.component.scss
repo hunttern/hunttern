@@ -9,7 +9,7 @@
 nav{
     display: grid;
     background-color: transparent;
-    grid-template-columns: '1fr 2fr 1fr';
+    grid-template-columns: "1fr 2fr 1fr";
     grid-template-areas: "logo navigation login";
     padding-top: 0.5rem;
 }

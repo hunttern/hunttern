@@ -1,6 +1,11 @@
 <div class="form" >
-    <h1>Login</h1>
-    <h3>Login with your data that you entered during your registeration.</h3>
+    <header>
+        <div class="title">
+            <h1>Login</h1>
+            <span class="material-icons" (click)="close()">close</span>
+        </div>
+        <h3>Login with your data that you entered during your registeration.</h3>
+    </header>
     <form [formGroup]="loginForm" #login (ngSubmit)="onSubmit()">
         <div>
             <label>Full Name :</label>
@@ -27,7 +32,7 @@
             </div>
             <a (click)="navigate('forget')">Forget Password?</a>
         </div>
-        <button [disabled]="!loginForm.valid">Login</button>
+        <button [disabled]="!loginForm.valid" (click)="onSubmit()">Login</button>
         <div class="new">
             <h5>Not registered yet? <a (click)="navigate('register')">Create an Account</a></h5>
             <label>Copyright © 1999-2021 GodCrypto Inc. All rights reserved.</label>

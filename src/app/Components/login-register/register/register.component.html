@@ -1,6 +1,11 @@
 <div class="form">
-    <h1>Register</h1>
-    <h3>Login with your data that you entered during your registeration.</h3>
+    <header>
+        <div class="title">
+            <h1>Register</h1>
+            <span class="material-icons" (click)="close()">close</span>
+        </div>
+        <h3>Login with your data that you entered during your registeration.</h3>
+    </header>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div>
             <label>Full Name :</label>
