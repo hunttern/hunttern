@@ -12,6 +12,7 @@
         cursor: pointer;
     }
     .logo{
+        cursor: pointer;
         display: flex;
         align-items: center;
         font-size: $main;
@@ -19,6 +20,7 @@
             color: $maincolor;
             width: 25px;
             height: 25px;
+            margin-right: 1rem;
         }
     }
     ul{

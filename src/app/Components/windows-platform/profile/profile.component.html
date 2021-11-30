@@ -1,5 +1,7 @@
 <div class="body">
-    <h1 class="logo"><i class="fas fa-gem"></i>Hunttern</h1>
+  <span class="logo">
+    <h1 (click)="navigate()"><i class="fas fa-gem"></i>Hunttern</h1>
+  </span>
     <ul>
         <li class="pic">
             <span class="profile"(click)="displayTab()">P</span>
@@ -7,7 +9,6 @@
                 <a [routerLink]='["/dashboard"]'><i class="material-icons">dashboard</i> Dashboard</a>
                 <a><i class="material-icons">logout</i> Sign out</a>
             </span>
-
         </li>
         <li>
             <i *ngIf="darkTheme" (click)="onChangeTheme()" class="material-icons">dark_mode</i>
