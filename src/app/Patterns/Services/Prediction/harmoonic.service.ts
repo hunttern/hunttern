@@ -45,27 +45,27 @@ export class HarmoonicService {
         break;
         case 'Bat' :{
           if(this._bat.length > 0)
-          this.drawXABCD(this._bat, 'Bat');
+          this.drawXABCD(this._bat, 'Bat','#BCEBCB');
         }
         break;
         case 'AltBat' :{
           if(this._altbat.length > 0)
-          this.drawXABCD(this._altbat, 'Alt Bat');
+          this.drawXABCD(this._altbat, 'Alt Bat','#77A6B6');
         }
         break;
         case 'Butterfly' :{
           if(this._butterfly.length > 0)
-          this.drawXABCD(this._butterfly, 'Butterfly');
+          this.drawXABCD(this._butterfly, 'Butterfly','#D0EFB1');
         }
         break;
         case '5-0' :
           if(this._5_0.length > 0){
-            this.drawXABCD(this._5_0, '5-0');
+            this.drawXABCD(this._5_0, '5-0','#4D7298');
           }
         break;
         case 'Gartley' :
           if(this._gartley.length > 0){
-            this.drawXABCD(this._gartley, 'Gartley');
+            this.drawXABCD(this._gartley, 'Gartley','#9DC3C2');
           }
         break;
         case 'ThreeDrives' :
@@ -75,19 +75,19 @@ export class HarmoonicService {
         break;
         case 'Cypher' :
           if(this._cypher.length > 0)
-          this.drawXABCD(this._cypher, 'Cypher');
+          this.drawXABCD(this._cypher, 'Cypher', '#E8C7DE');
         break;
         case 'Crab' :
           if(this._crab.length > 0)
-          this.drawXABCD(this._crab, 'Crab');
+          this.drawXABCD(this._crab, 'Crab', '#CBBEB3');
         break;
         case 'DeepCrab' : 
           if(this._deepcrab.length > 0)
-          this.drawXABCD(this._deepcrab, 'DeepCrab');
+          this.drawXABCD(this._deepcrab, 'DeepCrab', '#FF715B');
         break;
         case 'Shark' : 
           if(this._shark.length > 0)
-          this.drawXABCD(this._shark, 'Shark');
+          this.drawXABCD(this._shark, 'Shark', '#F9CB40');
         break;
       }
     });
@@ -145,7 +145,7 @@ export class HarmoonicService {
             disableUndo: true,
             overrides: {
               linestyle: 2,
-              linecolor: '#ffff00'
+              linecolor: '#B5FED9'
             }
           });
         const line2ID = this._chart.createMultipointShape([{time: Atime, price: P2}],
@@ -157,7 +157,7 @@ export class HarmoonicService {
             disableUndo: true,
             overrides: {
               linestyle: 2,
-              linecolor: '#ffff00'
+              linecolor: '#B5FED9'
             }
           });
         this._harmonicID.push({label: labelID, pattern: '' as EntityId});
@@ -193,7 +193,7 @@ export class HarmoonicService {
           disableUndo: true,
           overrides: {
             linestyle: 2,
-            linecolor: '#ffff00'
+            linecolor: '#BCEBCB'
           }
         });
       const line2ID = this._chart.createMultipointShape([{time: Atime, price: P2}],
@@ -205,14 +205,14 @@ export class HarmoonicService {
           disableUndo: true,
           overrides: {
             linestyle: 2,
-            linecolor: '#ffff00'
+            linecolor: '#BCEBCB'
           }
         });
       this._harmonicID.push({label: labelID, pattern: '' as EntityId});
       this._harmonicID.push({label: line1ID, pattern: line2ID});
     }
   }
-  private drawXABCD(patterns: Pattern[], name: string){
+  private drawXABCD(patterns: Pattern[], name: string,color: string){
     const pattern = patterns[0];
     const P1 = pattern.LastPatternPoint[0];
     const P2 = pattern.LastPatternPoint[1];
@@ -241,7 +241,7 @@ export class HarmoonicService {
             disableUndo: true,
             overrides: {
               linestyle: 2,
-              linecolor: '#ffff00'
+              linecolor: color
           }
           });
         const line2ID = this._chart.createMultipointShape([{time: Atime, price: P2}],
@@ -253,7 +253,7 @@ export class HarmoonicService {
             disableUndo: true,
             overrides: {
               linestyle: 2,
-              linecolor: '#ffff00'
+              linecolor: color
             }
           });
         this._harmonicID.push({label: labelID, pattern: '' as EntityId});
