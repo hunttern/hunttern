@@ -1,5 +1,5 @@
-import { AfterViewInit, Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-windows-platform',
@@ -11,9 +11,9 @@ export class WindowsPlatformComponent {
   h2: number = 40;
   h3: number = 50;
   h4: number = 50;
-  w1: number = 22;
-  w2: number = 50;
-  w3: number = 22;
+  w1: number = 20;
+  w2: number = 57;
+  w3: number = 20;
 
   height1 = {"height": `${this.h1}%`};
   height2 = {"height": `${this.h2}%`};
@@ -82,36 +82,34 @@ export class WindowsPlatformComponent {
     this.h2 = 100 - result;
   }
   setPerX1(result: any){
-    this.w1 = result - 3;
+    this.w1 = result;
     this.w2 = 97 - result - this.w3;
     if(result === 0){
       this.w1 = 0;
-      this.w2 == 96 - this.w3
+      this.w2 == 97 - this.w3
     }
   }
   setPerX2(result: any){
     this.w3 = 97 - result;
-    this.w2 = result - this.w1 - 3;
+    this.w2 = result - this.w1;
   }
-  CloseInput(){
-    if(this.leftPanel){
+  openInputPanel(open: boolean){
+    if(!open){
       const close = setInterval(() => {
         if(this.w1 !== 0){
           this.w1--;
           this.w2++;
         }else{
-          this.leftPanel = false;
           clearInterval(close);
         }
       }, 10);
     }else{
       const close = setInterval(() => {
-        if(this.w1 !== 22){
+        if(this.w1 < 20){
           this.w1++;
           this.w2--;
         }else{
           clearInterval(close);
-          this.leftPanel = true;
         }
       }, 10);
     }

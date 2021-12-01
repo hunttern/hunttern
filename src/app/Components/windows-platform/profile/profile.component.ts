@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,8 @@ export class ProfileComponent implements OnInit {
 
   darkTheme: boolean = true;
   tab: boolean = false;
-
+  @Output() open_Input: EventEmitter<boolean> = new EventEmitter();
+  open: boolean = true;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -23,5 +24,9 @@ export class ProfileComponent implements OnInit {
   }
   navigate(){
     this.router.navigate(['/home'])
+  }
+  openInput(){
+    this.open = !this.open;
+    this.open_Input.emit(this.open)
   }
 }
