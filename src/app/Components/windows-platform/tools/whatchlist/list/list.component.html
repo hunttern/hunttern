@@ -7,7 +7,11 @@
         </span>
         <span class="edit">
             <button><i class="material-icons">add</i></button>
-            <button><i class="material-icons">more_horiz</i></button>
+            <button mat-button [matMenuTriggerFor]="options"><i class="material-icons">more_horiz</i></button>
+            <mat-menu #options="matMenu">
+                <button mat-menu-item (click)="addWatchlist()">Add watchlist</button>
+                <button mat-menu-item (click)="renameWatchlist()" >Rename watchlist</button>
+              </mat-menu>
         </span>
     </header>
     <body>

@@ -30,9 +30,10 @@ import { ReversalComponent } from './inputs/reversal/reversal.component';
 
 import { RowDirective } from './row.directive';
 import { ColDirective } from './col.directive';
+import { DialogComponent } from './tools/whatchlist/dialog/dialog.component';
 
 @NgModule({
-  declarations: [WindowsPlatformComponent, InputsComponent, TabComponent, StrategyComponent, TradingComponent, ToolsComponent, WhatchlistComponent, AlertComponent, HotlistComponent, EventsComponent, ListComponent, InformationComponent, PerformanceComponent, ScreenerComponent, SettingsComponent, HarmonicComponent, CandleComponent, ContinuousComponent, ReversalComponent, RowDirective, ColDirective,ProfileComponent],
+  declarations: [WindowsPlatformComponent, InputsComponent, TabComponent, StrategyComponent, TradingComponent, ToolsComponent, WhatchlistComponent, AlertComponent, HotlistComponent, EventsComponent, ListComponent, InformationComponent, PerformanceComponent, ScreenerComponent, SettingsComponent, HarmonicComponent, CandleComponent, ContinuousComponent, ReversalComponent, RowDirective, ColDirective,ProfileComponent, DialogComponent],
   imports: [
     CommonModule,
     AngularSplitModule,

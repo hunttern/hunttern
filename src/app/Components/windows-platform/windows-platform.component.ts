@@ -90,7 +90,7 @@ export class WindowsPlatformComponent {
     }
   }
   setPerX2(result: any){
-    this.w3 = 97 - result;
+    this.w3 = 98 - result;
     this.w2 = result - this.w1;
   }
   openInputPanel(open: boolean){
