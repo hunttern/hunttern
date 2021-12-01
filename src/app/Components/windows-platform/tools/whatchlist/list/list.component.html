@@ -1,8 +1,8 @@
 <section class="hidescroll">
     <header>
         <span class="selection">
-            <select name="watchlistname">
-                <option value="0">Jessie</option>
+            <select name="watchlistname" (change)="selectWtchlist($event)">
+                <option value="{{i}}" *ngFor="let watchlist of watchlists; index as i">{{watchlist.watchlistName}}</option>
             </select>
         </span>
         <span class="edit">
@@ -25,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let coin of coins; index as i" [ngClass]="{'active': selectedRow === i}" (click)="getSymbolChart(coin.symbol, i)">
+                <tr *ngFor="let coin of watchlists[selectedwatchlist].coins; index as i" [ngClass]="{'active': selectedRow === i}" (click)="getSymbolChart(coin.symbol, i)">
                     <td class="symbol">{{coin.symbol}}</td>
                     <td class="last">{{coin.last}}</td>
                     <td class="change">{{coin.change}}%</td>

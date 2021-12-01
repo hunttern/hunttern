@@ -37,4 +37,9 @@ export class EnrollmentService {
     });
     return this.http.get(this.patternUrl + extendedurl);
   }
+  getWatchlist(){
+    //get userID
+    const userId: string | null = this.Token;
+    this.http.get(this.url);
+  }
 }
