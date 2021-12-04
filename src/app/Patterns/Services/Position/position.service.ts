@@ -79,6 +79,8 @@ export class PositionService {
       const TP1: number = position[0].TargetPoints[0];
       const TP2: number = position[0].TargetPoints[1];
       const type: string = position[0].PositionType[0];
+      const tpColor: string = type === 'Long' ? '#00ff00' : '#ff0000';
+      const slColor: string = type === 'Long' ? '#ff0000' : '#00ff00';
       const entryLineID = this._chart.createMultipointShape([{price: entry}],
         {
           shape: "horizontal_line",
@@ -88,7 +90,7 @@ export class PositionService {
           disableUndo: true,
           overrides: {
             linestyle: 2,
-            linecolor: '#ffff00'
+            linecolor: '#0000ff'
           }
         });
       const SLLineID = this._chart.createMultipointShape([{price: SL}],
@@ -100,7 +102,7 @@ export class PositionService {
           disableUndo: true,
           overrides: {
             linestyle: 2,
-            linecolor: '#ff0000'
+            linecolor: slColor
           }
         });
       this._harmonicID.push({label: entryLineID, pattern: SLLineID});
@@ -113,7 +115,7 @@ export class PositionService {
           disableUndo: true,
           overrides: {
             linestyle: 2,
-            linecolor: '#00ff00'
+            linecolor: tpColor
           }
         });
       const TP2LineID = this._chart.createMultipointShape([{price: TP2}],
@@ -125,7 +127,7 @@ export class PositionService {
           disableUndo: true,
           overrides: {
             linestyle: 2,
-            linecolor: '#00ff00'
+            linecolor: tpColor
           }
         });
       this._harmonicID.push({label: TP1LineID, pattern: TP2LineID});

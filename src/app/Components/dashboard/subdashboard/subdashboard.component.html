@@ -1,39 +1,18 @@
 <body>
     <header>
-        <div class="search">
-            <i class="material-icons">search</i>
-            <input type="text" placeholder="Search load or another ...">
-        </div>
         <div class="tools">
-            <div class="icons">
-                <span><i class="material-icons">email</i></span>
-                <span><i class="material-icons">notifications</i></span>
-            </div>
-            <div class="profile">
-                <div>
-                    <img src="../../../../assets/Images/proflie.png" alt="">
-                </div>
+            <span><i class="material-icons">email</i></span>
+            <span><i class="material-icons">notifications</i></span>
+            <div>
+                <span class="profile">{{username[0]}}</span>
                 <span class="data">
-                    <label id="username">James Arthur</label>
-                    <label id="email">Priority account</label>
+                    <label id="username">{{username}}</label>
+                    <label id="plan">{{plan}}</label>
                 </span>
                 <i class="material-icons">expand_more</i>
             </div>
         </div>
     </header>
     <section>
-        <header>
-            <h2>Dashboard Overview</h2>
-        </header>
-        <div class="cards">
-            <span class="card">
-                <h4>Left Days</h4>
-                <!-- <app-bar-chart></app-bar-chart> -->
-            </span>
-            <span class="card">
-                <h4>Payment</h4>
-                <!-- <app-bar-chart></app-bar-chart> -->
-            </span>
-        </div>
     </section>
 </body>

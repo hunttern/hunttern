@@ -1,26 +1,38 @@
+@import '../../../assets/styleSotrage/colors';
 @mixin col {
     display: flex;
     flex-direction: column;
 }
-.sidebar{
-    height: 100vh;
+body{
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+}
+nav{
+    height: 100%;
     background-color: #13102C;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    padding-top: 3rem;
     .userinformation{
-        @include col;
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        margin-top: 5rem;
-        img{
-            width: 85px;
-            height: 85px;
+        justify-content: center;
+        gap: 1.5rem;
+        span{
+            width: 80px;
+            height: 80px;
+            border: none;
+            border-radius: 7px;
+            background-color: $darkPlatformBorderColor;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $darkPlatformFontColor;
         }
         h2{
             color: #D6D6EE;
-        }
-        h4{
-            color: #595983;
         }
     }
     .navigation{
@@ -37,7 +49,7 @@
                 a{
                     color: #7D7DB1;
                     text-decoration: none;
-                    &:active{
+                    &.active{
                         color: #7146EB;
                     }
                 }

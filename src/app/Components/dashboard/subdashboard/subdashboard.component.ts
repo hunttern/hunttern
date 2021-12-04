@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { EnrollmentService } from 'src/app/Services/enrollment.service';
 
 @Component({
@@ -8,10 +8,12 @@ import { EnrollmentService } from 'src/app/Services/enrollment.service';
 })
 export class SubdashboardComponent implements OnInit {
 
-  constructor(private enroll: EnrollmentService) { }
+  @Input() username: string = 'saeed';
+  @Input() plan: string = 'dimond';
 
+  constructor(private enroll: EnrollmentService) { }
   ngOnInit(): void {
-    this.enroll.getData();
+    // this.enroll.getData();
   }
 
 }

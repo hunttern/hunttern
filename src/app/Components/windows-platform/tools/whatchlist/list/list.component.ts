@@ -36,13 +36,13 @@ export class ListComponent {
     let dialogRef = this.dialog.open(DialogComponent, {
       data: {title: "Add to Watchlist", action: "add", label: "watchlist name"}
     });
-    dialogRef.afterClosed().subscribe(console.log)
+    dialogRef.afterClosed().subscribe( (res: string) => this.watchlists.push({watchlistName: res,coins:[]}));
   }
   renameWatchlist(){
     let dialogRef = this.dialog.open(DialogComponent, {
       data: {title: "Rename Watchlist", action: "edit", label: "watchlist name"}
     })
-    dialogRef.afterClosed().subscribe(console.log)
+    dialogRef.afterClosed().subscribe((res: string) => this.watchlists[this.selectedwatchlist].watchlistName = res)
   }
   selectWtchlist(i:any){
     this.selectedwatchlist = i.target.value;
