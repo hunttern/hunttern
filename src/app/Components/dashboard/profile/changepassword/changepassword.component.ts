@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-changepassword',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChangepasswordComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _modal: NgbActiveModal) { }
 
   ngOnInit(): void {
   }
-
+  changePassword(){
+    this._modal.close("test");
+  }
 }
