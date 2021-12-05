@@ -90,9 +90,7 @@ export class HarmonicService {
           disableSave: true,
           disableUndo: true,
           overrides: {
-            textcolor: '#FFFFFF',
             transparency: 50,
-            color: '#2ecc71',
             backgroundColor: '#2ecc71'
           }
         });
@@ -133,9 +131,9 @@ export class HarmonicService {
           disableSave: true,
           disableUndo: true,
           overrides: {
-            textcolor: '#FFFFFF',
+            textcolor: 'transparent',
             transparency: 50,
-            color: '#1abc9c',
+            color: 'transparent',
             backgroundColor: '#1abc9c'
           }
         });
@@ -178,9 +176,9 @@ export class HarmonicService {
           disableSave: true,
           disableUndo: true,
           overrides: {
-            textcolor: '#FFFFFF',
+            textcolor: 'transparent',
             transparency: 50,
-            color: color,
+            color: 'transparent',
             backgroundColor: color
           }
         });

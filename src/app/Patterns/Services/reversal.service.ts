@@ -64,9 +64,9 @@ export class ReversalService {
           disableSave: true,
           disableUndo: true,
           overrides: {
-            textcolor: '#FFFFFF',
+            textcolor: 'transparent',
             transparency: 50,
-            color: '#fdcb6e',
+            color: 'transparent',
             backgroundColor: '#fdcb6e'
           }
         });
@@ -114,9 +114,9 @@ export class ReversalService {
           disableSave: true,
           disableUndo: true,
           overrides: {
-            textcolor: '#FFFFFF',
+            textcolor: 'transparent',
             transparency: 50,
-            color: '#fd79a8',
+            color: 'transparent',
             backgroundColor: '#fd79a8'
           }
         });
@@ -128,9 +128,9 @@ export class ReversalService {
           disableSave: true,
           disableUndo: true,
           overrides: {
-            textcolor: '#FFFFFF',
+            textcolor: 'transparent',
             transparency: 50,
-            color: '#fd79a8',
+            color: 'transparent',
             backgroundColor: '#fd79a8'
           }
         });
@@ -177,9 +177,9 @@ export class ReversalService {
           disableSave: true,
           disableUndo: true,
           overrides: {
-            textcolor: '#FFFFFF',
+            textcolor: 'transparent',
             transparency: 50,
-            color: '#00cec9',
+            color: 'transparent',
             backgroundColor: '#00cec9'
           }
         });
