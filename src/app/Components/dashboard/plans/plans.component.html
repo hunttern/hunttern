@@ -1,8 +1,19 @@
 <div class="body">
     <div class="plan">
-        <div class="chart">
-            <h3>Diamond Plan</h3>
-            <h4>27 Days left</h4>
+        <div>
+            <h3>Diamond Plan :</h3>
+            <div class="chart">
+                <h3>{{leftDays}}</h3>
+                <ngx-charts-pie-chart
+                [view]="[100,100]"
+                [scheme]="{domain: ['#00ff00', '#fff']}"
+                [results]="data"
+                [legend]="false"
+                [labels]="false"
+                [doughnut]="true"
+                [animations]="false">
+                </ngx-charts-pie-chart>
+            </div>
         </div>
     </div>
     <div>

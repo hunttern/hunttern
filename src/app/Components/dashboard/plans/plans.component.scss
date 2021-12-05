@@ -12,9 +12,21 @@
 }
 .plan{
     @include section;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    > div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .chart{
+        position: relative;
         h3{
             @include gradiant;
+            position: absolute;
+            left: 40%;
+            top: 37%;
         }
         h4{
             color: #4D4D63;
