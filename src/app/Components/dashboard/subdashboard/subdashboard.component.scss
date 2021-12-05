@@ -2,10 +2,9 @@
 @import "../../../../assets/styleSotrage/mixinss";
 body{
     header{
-        width: 100%;
         border-bottom: solid 0.01rem $darkPlatformBorderColor;
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
         align-items: center;
         padding: 1rem 2rem;
         .profile{
@@ -60,6 +59,25 @@ body{
                 display: flex;
                 line-height: 30px;
             }
+        }
+    }
+}
+section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    .info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+        button{
+            background-color: $darkPlatformBorderColor;
+            color: $darkPlatformFontColor;
+            width: 20%;
+            border: none;
+            border-radius: 7px;
+            padding: 0.5rem;
         }
     }
 }

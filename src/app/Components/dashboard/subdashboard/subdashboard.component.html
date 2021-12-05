@@ -14,5 +14,11 @@
         </div>
     </header>
     <section>
+        <div class="info">
+            <h3>Username: {{username}}</h3>
+            <h3>Email: {{email}}</h3>
+            <button (click)="editInfo()">Edit</button>
+        </div>
+        <app-card [cardtype]="plan" [cardvalue]="75"></app-card>
     </section>
 </body>
