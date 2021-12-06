@@ -27,7 +27,7 @@ export class ReversalService {
     this.split();
     patterns.forEach(patternName => {
       switch (patternName){
-        case 'headandShoulders' : 
+        case 'Head_and_Shoulders' : 
           this.drawHeadandShoulders(this._headandshoulder);
         break;
         case 'Double' : 
@@ -56,7 +56,7 @@ export class ReversalService {
       const Etime = (Date.parse(point.Time[2]) / 1000);
       const Ftime = (Date.parse(point.Time[1]) / 1000);
       const Gtime = (Date.parse(point.Time[0]) / 1000);
-      const shapeID = this.chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }, { time: Etime, price: Eprice }, { time: Ftime, price: Fprice }, { time: Gtime, price: Gprice },],
+      const shapeID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }, { time: Etime, price: Eprice }, { time: Ftime, price: Fprice }, { time: Gtime, price: Gprice },],
         {
           shape: "head_and_shoulders",
           lock: true,
@@ -70,7 +70,7 @@ export class ReversalService {
             backgroundColor: '#fdcb6e'
           }
         });
-        const labelID = this.chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
+        const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
           {
             shape: "callout",
             lock: true,
@@ -169,7 +169,7 @@ export class ReversalService {
       const Etime = (Date.parse(point.Time[2]) / 1000);
       const Ftime = (Date.parse(point.Time[1]) / 1000);
       const Gtime = (Date.parse(point.Time[0]) / 1000);
-      const shapeID = this.chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }, { time: Etime, price: Eprice }, { time: Ftime, price: Fprice }, { time: Gtime, price: Gprice },],
+      const shapeID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }, { time: Etime, price: Eprice }, { time: Ftime, price: Fprice }, { time: Gtime, price: Gprice },],
         {
           shape: "3divers_pattern",
           lock: true,
@@ -177,9 +177,7 @@ export class ReversalService {
           disableSave: true,
           disableUndo: true,
           overrides: {
-            textcolor: 'transparent',
             transparency: 50,
-            color: 'transparent',
             backgroundColor: '#00cec9'
           }
         });

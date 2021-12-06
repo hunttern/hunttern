@@ -75,63 +75,128 @@ export class PositionService {
     if(position.length > 0){
       const prz: number[] = position[0].PRZ;
       const entry: any = position[0].Entry;
-      const SL: number = position[0].StopLosses[0];
+      const SL1: number = position[0].StopLosses[0];
       const TP1: number = position[0].TargetPoints[0];
       const TP2: number = position[0].TargetPoints[1];
       const type: string = position[0].PositionType[0];
-      const entryLineID = this._chart.createMultipointShape([{price: entry}],
-        {
-          shape: "horizontal_line",
-          lock: true,
-          disableSelection: true,
-          disableSave: true,
-          disableUndo: true,
-          overrides: {
-            linestyle: 2,
-            linecolor: '#ffff00'
-          }
-        });
-      const SLLineID = this._chart.createMultipointShape([{price: SL}],
-        {
-          shape: "horizontal_line",
-          lock: true,
-          disableSelection: true,
-          disableSave: true,
-          disableUndo: true,
-          overrides: {
-            linestyle: 2,
-            linecolor: '#ff0000'
-          }
-        });
-      this._harmonicID.push({label: entryLineID, pattern: SLLineID});
-      const TP1LineID = this._chart.createMultipointShape([{price: TP1}],
-        {
-          shape: "horizontal_line",
-          lock: true,
-          disableSelection: true,
-          disableSave: true,
-          disableUndo: true,
-          overrides: {
-            linestyle: 2,
-            linecolor: '#00ff00'
-          }
-        });
-      const TP2LineID = this._chart.createMultipointShape([{price: TP2}],
-        {
-          shape: "horizontal_line",
-          lock: true,
-          disableSelection: true,
-          disableSave: true,
-          disableUndo: true,
-          overrides: {
-            linestyle: 2,
-            linecolor: '#00ff00'
-          }
-        });
-      this._harmonicID.push({label: TP1LineID, pattern: TP2LineID});
+      this.draw(entry,TP1,TP2,SL1);
     }
   }
-
+  private draw(entry: number, tp1: number, tp2: number, sl1: number){
+    const time: number = (+Date.now * 1000000);
+    const entryLineID = this._chart.createMultipointShape([{price: entry}],
+      {
+        shape: "horizontal_line",
+        lock: true,
+        disableSelection: true,
+        disableSave: true,
+        disableUndo: true,
+        overrides: {
+          linestyle: 3,
+          linecolor: '#0000ff'
+        }
+      });
+      const entrylabelID = this._chart.createMultipointShape([{ time: time, price: entry }, { time: time, price: entry }],
+        {
+          shape: 'callout',
+          lock: true,
+          disableSelection: false,
+          disableSave: true,
+          disableUndo: true,
+          text: 'Entry',
+          overrides: {
+            fontsize: 12,
+            backgroundColor: '#2ecc71',
+            borderColor: '#2ecc71',
+            color: '#FFFFFF'
+          }
+        });
+    this._harmonicID.push({label: entryLineID, pattern: entrylabelID});
+    const SL1LineID = this._chart.createMultipointShape([{price: sl1}],
+      {
+        shape: "horizontal_line",
+        lock: true,
+        disableSelection: true,
+        disableSave: true,
+        disableUndo: true,
+        overrides: {
+          linestyle: 3,
+          linecolor: '#ff0000'
+        }
+      });
+      const sl1labelID = this._chart.createMultipointShape([{ time: time, price: sl1 }, { time: time, price: sl1 }],
+        {
+          shape: 'callout',
+          lock: true,
+          disableSelection: false,
+          disableSave: true,
+          disableUndo: true,
+          text: 'SL',
+          overrides: {
+            fontsize: 12,
+            backgroundColor: '#2ecc71',
+            borderColor: '#2ecc71',
+            color: '#FFFFFF'
+          }
+        });
+    this._harmonicID.push({label: SL1LineID, pattern: sl1labelID});
+    const TP1LineID = this._chart.createMultipointShape([{price: tp1}],
+      {
+        shape: "horizontal_line",
+        lock: true,
+        disableSelection: true,
+        disableSave: true,
+        disableUndo: true,
+        overrides: {
+          linestyle: 3,
+          linecolor: '#00ff00'
+        }
+      });
+      const tp1labelID = this._chart.createMultipointShape([{ time: time, price: tp1 }, { time: time, price: tp1 }],
+        {
+          shape: 'callout',
+          lock: true,
+          disableSelection: false,
+          disableSave: true,
+          disableUndo: true,
+          text: 'TP1',
+          overrides: {
+            fontsize: 12,
+            backgroundColor: '#2ecc71',
+            borderColor: '#2ecc71',
+            color: '#FFFFFF'
+          }
+        });
+      this._harmonicID.push({label: TP1LineID, pattern: tp1labelID});
+    const TP2LineID = this._chart.createMultipointShape([{price: tp2}],
+      {
+        shape: "horizontal_line",
+        lock: true,
+        disableSelection: true,
+        disableSave: true,
+        disableUndo: true,
+        overrides: {
+          linestyle: 3,
+          linecolor: '#00ff00'
+        }
+      });
+      const tp2labelID = this._chart.createMultipointShape([{ time: time, price: tp2 }, { time: time, price: tp2 }],
+        {
+          shape: 'callout',
+          lock: true,
+          disableSelection: false,
+          disableSave: true,
+          disableUndo: true,
+          text: 'TP2',
+          overrides: {
+            fontsize: 12,
+            backgroundColor: '#2ecc71',
+            borderColor: '#2ecc71',
+            color: '#FFFFFF'
+          }
+        });
+    this._harmonicID.push({label: TP2LineID, pattern: tp2labelID});
+  }
   private split(){
     this._abcd = this._harmonicPattern.ABCD;
     this._bat = this._harmonicPattern.Bat;

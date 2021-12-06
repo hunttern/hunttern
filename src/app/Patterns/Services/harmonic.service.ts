@@ -133,7 +133,7 @@ export class HarmonicService {
           overrides: {
             textcolor: 'transparent',
             transparency: 50,
-            color: 'transparent',
+            color: '#1abc9c',
             backgroundColor: '#1abc9c'
           }
         });

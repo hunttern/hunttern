@@ -27,7 +27,7 @@ export class HarmonicComponent implements OnInit {
     {name: "ThreeDrives", value: "ThreeDrives"},
     {name: "Gartley", value: "Gartley"},
     {name: "5-0", value: "5-0"},
-    {name: "Head & Shoulders", value: "HeadandShoulders"},
+    {name: "Head & Shoulders", value: "Head_and_Shoulders"},
     {name: "Double", value: "Double"},
     {name: "Triple", value: "Triple"},
     // {name: "Cup", value: "cup"},
