@@ -73,27 +73,42 @@ export class HarmonicService {
       const Dprice = point.Price[3];
       const Eprice = point.Price[2];
       const Fprice = point.Price[1];
-      const Gprice = point.Price[0];
       const Atime = (Date.parse(point.Time[5]) / 1000);
       const Btime = (Date.parse(point.Time[5]) / 1000);
       const Ctime = (Date.parse(point.Time[4]) / 1000);
       const Dtime = (Date.parse(point.Time[3]) / 1000);
       const Etime = (Date.parse(point.Time[2]) / 1000);
       const Ftime = (Date.parse(point.Time[1]) / 1000);
-      const Gtime = (Date.parse(point.Time[0]) / 1000);
 
-      const shapeID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }, { time: Etime, price: Eprice }, { time: Ftime, price: Fprice }, { time: Gtime, price: Gprice }, ],
+      const shape1ID = this._chart.createMultipointShape([{ time: Etime, price: Eprice }, { time: Ftime, price: Fprice }, { time: Dtime, price: Dprice }],
         {
-          shape: '3divers_pattern',
+          shape: "triangle",
           lock: true,
           disableSelection: true,
           disableSave: true,
           disableUndo: true,
           overrides: {
+            textcolor: 'transparent',
             transparency: 50,
+            color: 'transparent',
             backgroundColor: '#2ecc71'
           }
         });
+      const shape2ID = this._chart.createMultipointShape([{ time: Dtime, price: Dprice }, { time: Ctime, price: Cprice }, { time: Btime, price: Bprice }],
+        {
+          shape: "triangle",
+          lock: true,
+          disableSelection: true,
+          disableSave: true,
+          disableUndo: true,
+          overrides: {
+            textcolor: 'transparent',
+            transparency: 50,
+            color: 'transparent',
+            backgroundColor: '#2ecc71'
+          }
+        });
+      this._harmonicID.push({label: shape1ID, pattern: shape2ID});
       const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Atime, price: Aprice }],
           {
             shape: 'callout',
@@ -109,7 +124,7 @@ export class HarmonicService {
               color: '#FFFFFF'
             }
           });
-      this._harmonicID.push({label: labelID, pattern: shapeID});
+      this._harmonicID.push({label: labelID, pattern: '' as EntityId});
     });
   }
   private drawABCD(abcdPattern: any[]): void{
@@ -123,17 +138,31 @@ export class HarmonicService {
       const Ctime = (Date.parse(point.Time[1]) / 1000);
       const Dtime = (Date.parse(point.Time[0]) / 1000);
 
-      const patternID = this._chart.createMultipointShape([{ time: Dtime, price: Dprice }, { time: Ctime, price: Cprice }, { time: Btime, price: Bprice }, { time: Atime, price: Aprice }],
+      const shape1ID = this._chart.createMultipointShape([{ time: Atime, price: Aprice }, { time: Btime, price: Bprice }, { time: Ctime, price: Cprice }],
         {
-          shape: 'abcd_pattern',
-          lock: false,
-          disableSelection: false,
+          shape: "triangle",
+          lock: true,
+          disableSelection: true,
           disableSave: true,
           disableUndo: true,
           overrides: {
             textcolor: 'transparent',
             transparency: 50,
-            color: '#1abc9c',
+            color: 'transparent',
+            backgroundColor: '#1abc9c'
+          }
+        });
+      const shape2ID = this._chart.createMultipointShape([{ time: Btime, price: Bprice }, { time: Ctime, price: Cprice }, { time: Dtime, price: Dprice }],
+        {
+          shape: "triangle",
+          lock: true,
+          disableSelection: true,
+          disableSave: true,
+          disableUndo: true,
+          overrides: {
+            textcolor: 'transparent',
+            transparency: 50,
+            color: 'transparent',
             backgroundColor: '#1abc9c'
           }
         });
@@ -152,7 +181,8 @@ export class HarmonicService {
               color: '#FFFFFF'
             }
           });
-      this._harmonicID.push({label: labelID, pattern: patternID});
+      this._harmonicID.push({label: shape1ID, pattern: shape2ID});
+      this._harmonicID.push({label: labelID, pattern: '' as EntityId});
     });
   }
   private drawXABCD(pattern: any[], name: string, color: string): void{

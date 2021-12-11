@@ -83,7 +83,7 @@ export class PositionService {
     }
   }
   private draw(entry: number, tp1: number, tp2: number, sl1: number){
-    const time: number = (+Date.now * 1000000);
+    const time: number =  new Date().getTime();
     const entryLineID = this._chart.createMultipointShape([{price: entry}],
       {
         shape: "horizontal_line",
