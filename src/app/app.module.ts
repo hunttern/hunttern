@@ -8,13 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularSplitModule } from 'angular-split';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './Components/header/header.component';
-import { SubscribeComponent } from './Components/subscribe/subscribe.component';
-import { PackagesComponent } from './Components/packages/packages.component';
-import { CardComponent } from './Components/packages/card/card.component';
-import { ServicesComponent } from './Components/services/services.component';
-import { FeaturesComponent } from './Components/features/features.component';
-import { HomeComponent } from './Components/home/home.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BlogComponent } from './Components/blog/blog.component';
 import { NewsComponent } from './Components/blog/news/news.component';
@@ -31,6 +24,7 @@ import { PlatformComponent } from './Components/platform/platform.component';
 
 import { MobilePlatformModule } from './Components/mobile-platform/mobile-platform.module';
 import { WindowsPlatformModule } from './Components/windows-platform/windows-platform.module';
+import { HomeModule } from './Components/home/home.module';
 import { LoginRegisterModule } from './Components/login-register/login-register.module';
 import { TermsModule } from './Components/terms/terms.module';
 import { SharedModule } from './Shared/shared.module';
@@ -39,13 +33,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    SubscribeComponent,
-    PackagesComponent,
-    CardComponent,
-    ServicesComponent,
-    FeaturesComponent,
-    HomeComponent,
     BlogComponent,
     NewsComponent,
     NewscardComponent,
@@ -71,6 +58,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SharedModule,
     MobilePlatformModule,
     WindowsPlatformModule,
+    HomeModule,
     LoginRegisterModule,
     TermsModule,
     NgbModule
