@@ -70,7 +70,7 @@ export class ReversalService {
             backgroundColor: '#fdcb6e'
           }
         });
-        const labelID = this._chart.createMultipointShape([{ time: Atime, price: Aprice },{ time: Atime, price: Aprice }],
+        const labelID = this._chart.createMultipointShape([{ time: Btime, price: Bprice },{ time: Btime, price: Bprice }],
           {
             shape: "callout",
             lock: true,
