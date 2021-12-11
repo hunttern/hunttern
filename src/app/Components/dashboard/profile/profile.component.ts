@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
 @Component({
   selector: 'app-profile',
@@ -7,5 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent {
 
+  @Input() username: string = 'saeed';
+
+  image: string;
   leftdays: number = 25;
+
+  constructor(private modal: NgbModal){}
+
+  openChange(){
+    const modalRef = this.modal.open(ChangepasswordComponent);
+    modalRef.closed.subscribe(res => console.log(res));
+  }
 }

@@ -1,21 +1,19 @@
-<div class="row">
-    <div class="col-md-2 sidebar">
+<body>
+    <nav>
         <div class="userinformation">
-            <img src="../../../assets/Images/profile.png">
+            <span>{{username[0]}}</span>
             <h2>{{username}}</h2>
-            <h4>{{email}}</h4>
         </div>
         <div class="navigation">
             <ul>
                 <li><a [routerLink]="['dashboard']"routerLinkActive="active"><span><i class="material-icons">speed</i></span>Dashboard</a></li>
                 <li><a [routerLink]="['Profile']" routerLinkActive="active"><span><i class="material-icons">person</i></span>Profile</a></li>
-                <li><a [routerLink]="['Statistics']" routerLinkActive="active"><span><i class="material-icons">bar_chart</i></span>Statistics</a></li>
                 <li><a [routerLink]="['Payments']" routerLinkActive="active"><span><i class="material-icons">account_balance_wallet</i></span>Payments & Plans</a></li>
                 <li class="logout"><a [routerLink]="['/home']" routerLinkActive="active"><span><i class="material-icons">logout</i></span>Sign out</a></li>
             </ul>
         </div>
-    </div>
-    <div class="col-md-10">
+    </nav>
+    <main>
         <router-outlet></router-outlet>
-    </div>
-</div>
+    </main>
+</body>

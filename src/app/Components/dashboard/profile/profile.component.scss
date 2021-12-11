@@ -16,12 +16,22 @@ header{
         gap: 1rem;
         padding: 1rem;
         img{
-            grid-area: image;
             width: 100px;
             height: 100px;
             border-radius: 25px;
             box-shadow: 0 0 0 5px #fff,
-                        0 0 0 6px #7146EB;
+            0 0 0 6px #7146EB;
+        }
+        span{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 7px;
+            box-shadow: 0 0 0 5px #fff,
+            0 0 0 6px #7146EB;
+
         }
         .buttons{
             grid-area: buttons;
@@ -56,39 +66,21 @@ header{
     }
 }
 form{
-    margin-top: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: "name lastname"
-                        "username country"
-                        "email email";
-    gap: 3rem 1rem;
-    .input{
-        width: 100%;
-        box-sizing: border-box;
-        border-radius: 7px;
-        border: 1.2px solid #E5E5EF;
-        padding: 0.5rem;
-    }
-    label{
-        font-size: 18px;
-        color: #4D4D63;
-    }
-    .name{
-        grid-area: name;
-    }
-    .lastname{
-        grid-area: lastname;
-    }
-    .username{
-        grid-area: username;
-    }
-    .country{
-        grid-area: country;
-    }
-    .email{
-        grid-area: email;
+    gap: 2rem;
+    > div{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .input{
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 7px;
+            border: 1.2px solid #E5E5EF;
+            padding: 0.5rem;
+        }
     }
     button{
         width: 75%;
@@ -98,48 +90,6 @@ form{
         font-size: 19px;
         border: none;
         color: #fff;
-    }
-}
-.plan{
-    padding: 1rem;
-    border: thin #4D4D63 dashed;
-    border-radius: 10px;
-    .row{
-        border-bottom: #4D4D63 thin dashed;
-        .leftdays{
-            font-weight: 300;
-            font-size: 18px;
-            line-height: 30px;
-            color: #7146EB;
-        }
-        h3{
-            font-weight: 300;
-            font-size: 18px;
-            color: #4D4D63;
-        }
-        h2{
-            @include gradiant;
-            font-weight: normal;
-            font-size: 26px;
-        }
-        .recharge{
-            @include center;
-
-            button{
-                background: #F19F48;
-                border-radius: 7px;
-                color: #fff;
-                padding: 0.5rem 1.25rem;
-                border: none;
-            }
-        }
-    }
-    .par{
-        margin-top: 2rem;
-        font-weight: 300;
-        font-size: 18px;
-        line-height: 26px;
-        color: #585886;
     }
 }
 @media (max-width: 426px){

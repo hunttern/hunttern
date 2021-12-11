@@ -51,6 +51,7 @@ import { DashboardModule } from './Components/dashboard/dashboard.module';
     LoginRegisterModule,
     DashboardModule,
     TermsModule,
+    DashboardModule,
     NgbModule
   ],
   providers: [],
