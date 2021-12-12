@@ -10,6 +10,7 @@ $bordersize: 10px;
     scrollbar-width: none;
 }
 .contain{
+    position: relative;
     height: 100vh;
     .header{
         height: 7%;
@@ -178,4 +179,15 @@ nav{
             color: #F1F1F8;
         }
     }
+}
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #00000040, $alpha: 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
 }

@@ -15,25 +15,20 @@ import { StrategyComponent } from './strategy/strategy.component';
 import { TradingComponent } from './strategy/trading/trading.component';
 import { ToolsComponent } from './tools/tools.component';
 import { WhatchlistComponent } from './tools/whatchlist/whatchlist.component';
-import { AlertComponent } from './tools/alert/alert.component';
-import { HotlistComponent } from './tools/hotlist/hotlist.component';
-import { EventsComponent } from './tools/events/events.component';
 import { ListComponent } from './tools/whatchlist/list/list.component';
 import { InformationComponent } from './tools/whatchlist/information/information.component';
 import { PerformanceComponent } from './tools/whatchlist/information/performance/performance.component';
 import { ScreenerComponent } from './screener/screener.component';
 import { SettingsComponent } from './screener/settings/settings.component';
 import { HarmonicComponent } from './inputs/harmonic/harmonic.component';
-import { CandleComponent } from './inputs/candle/candle.component';
 import { ContinuousComponent } from './inputs/continuous/continuous.component';
-import { ReversalComponent } from './inputs/reversal/reversal.component';
 
 import { RowDirective } from './row.directive';
 import { ColDirective } from './col.directive';
 import { DialogComponent } from './tools/whatchlist/dialog/dialog.component';
 
 @NgModule({
-  declarations: [WindowsPlatformComponent, InputsComponent, TabComponent, StrategyComponent, TradingComponent, ToolsComponent, WhatchlistComponent, AlertComponent, HotlistComponent, EventsComponent, ListComponent, InformationComponent, PerformanceComponent, ScreenerComponent, SettingsComponent, HarmonicComponent, CandleComponent, ContinuousComponent, ReversalComponent, RowDirective, ColDirective,ProfileComponent, DialogComponent],
+  declarations: [WindowsPlatformComponent, InputsComponent, TabComponent, StrategyComponent, TradingComponent, ToolsComponent, WhatchlistComponent, ListComponent, InformationComponent, PerformanceComponent, ScreenerComponent, SettingsComponent, HarmonicComponent, ContinuousComponent, RowDirective, ColDirective,ProfileComponent, DialogComponent],
   imports: [
     CommonModule,
     AngularSplitModule,

@@ -49,4 +49,7 @@
 			<app-tools (panel)="setTool($event)"></app-tools>
 		</div>
 	</body>
+	<div class="loading" *ngIf="loading$ | async">
+		<h1>Loading ...</h1>
+	</div>
 </div>

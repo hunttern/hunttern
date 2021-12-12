@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class PlansComponent implements OnInit {
   leftDays: number = 27;
   goneDays: number = 3;
-  data: any = [  {
+  data: any = [{
     "name": "left",
     "value": this.leftDays
   },

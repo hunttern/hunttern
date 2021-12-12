@@ -7,10 +7,15 @@ import { ZigzagService } from '../Patterns/Services/zigzag.service';
 import { ReversalService } from '../Patterns/Services/reversal.service';
 import { HarmoonicService } from '../Patterns/Services/Prediction/harmoonic.service';
 import { PositionService } from '../Patterns/Services/Position/position.service';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class SignalRService {
+
+  public static loading$ = new BehaviorSubject<boolean>(false);
+
+
   hubConnection: signalR.HubConnection;
   url: string = 'http://195.248.243.186:5000/TestHub';
   streams: any[] = [];
@@ -77,7 +82,6 @@ export class SignalRService {
     }
 
     this.draw(showZigZag,prediction,zigzag,error,patterns);
-
   }
   unsubscribeFromStream(subscriberUID?: any) {
     this.hubConnection.stop();
@@ -142,6 +146,7 @@ export class SignalRService {
       }else{
         this._prediction.removePatterns();
       }
+      // SignalRService.loading$.next(false);
     });
   }
 }

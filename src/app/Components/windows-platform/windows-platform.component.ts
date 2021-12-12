@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { SignalRService } from 'src/app/Services/signal-r.service';
 
 @Component({
   selector: 'app-windows-platform',
@@ -7,6 +9,8 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./windows-platform.component.scss']
 })
 export class WindowsPlatformComponent { 
+  loading$:  Observable<boolean>;
+
   h1: number = 60;
   h2: number = 40;
   h3: number = 50;
@@ -23,6 +27,10 @@ export class WindowsPlatformComponent {
   rightPanel: boolean = true;
   leftPanel: boolean = true;
   formGroup: FormGroup;
+
+  constructor() {
+    this.loading$ = SignalRService.loading$;
+  }
 
   setTool(name: string){
     if(this.rightPanel){
