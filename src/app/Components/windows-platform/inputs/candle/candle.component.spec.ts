@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContinuousComponent } from './continuous.component';
+import { CandleComponent } from './candle.component';
 
-describe('ContinuousComponent', () => {
-  let component: ContinuousComponent;
-  let fixture: ComponentFixture<ContinuousComponent>;
+describe('CandleComponent', () => {
+  let component: CandleComponent;
+  let fixture: ComponentFixture<CandleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContinuousComponent ]
+      declarations: [ CandleComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContinuousComponent);
+    fixture = TestBed.createComponent(CandleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

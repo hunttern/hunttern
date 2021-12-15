@@ -21,14 +21,18 @@ import { PerformanceComponent } from './tools/whatchlist/information/performance
 import { ScreenerComponent } from './screener/screener.component';
 import { SettingsComponent } from './screener/settings/settings.component';
 import { HarmonicComponent } from './inputs/harmonic/harmonic.component';
-import { ContinuousComponent } from './inputs/continuous/continuous.component';
+import { DialogComponent } from './tools/whatchlist/dialog/dialog.component';
+import { CandleComponent } from './inputs/candle/candle.component';
+import { ClassicComponent } from './inputs/classic/classic.component';
 
 import { RowDirective } from './row.directive';
 import { ColDirective } from './col.directive';
-import { DialogComponent } from './tools/whatchlist/dialog/dialog.component';
 
 @NgModule({
-  declarations: [WindowsPlatformComponent, InputsComponent, TabComponent, StrategyComponent, TradingComponent, ToolsComponent, WhatchlistComponent, ListComponent, InformationComponent, PerformanceComponent, ScreenerComponent, SettingsComponent, HarmonicComponent, ContinuousComponent, RowDirective, ColDirective,ProfileComponent, DialogComponent],
+  declarations: [WindowsPlatformComponent, InputsComponent, TabComponent, StrategyComponent, TradingComponent,
+     ToolsComponent, WhatchlistComponent, ListComponent, InformationComponent, PerformanceComponent,
+      ScreenerComponent, SettingsComponent, HarmonicComponent, RowDirective, ColDirective,
+      ProfileComponent, DialogComponent, CandleComponent, ClassicComponent],
   imports: [
     CommonModule,
     AngularSplitModule,
