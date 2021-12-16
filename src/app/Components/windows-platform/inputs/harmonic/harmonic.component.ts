@@ -1,21 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { SignalRService } from 'src/app/Services/signal-r.service';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-harmonic',
   templateUrl: './harmonic.component.html',
   styleUrls: ['./harmonic.component.scss']
 })
-export class HarmonicComponent implements OnInit {
+export class HarmonicComponent {
 
-  constructor(private fb: FormBuilder, private signalr: SignalRService) { }
-
-  ngOnInit(): void {
-  }
-
+  @Output() harmonicPatterns: EventEmitter<{form:FormGroup, type: string}> = new EventEmitter();
+  
   subgroup: AbstractControl[] = [];
-  patterns: Array<any> = [
+
+  constructor(private fb: FormBuilder) { }
+
+  patterns: Array<{name: string, value: string}> = [
     {name: "ABCD", value: "ABCD"},
     {name: "Bat", value: "Bat"},
     {name: "AltBat", value: "AltBat"},
@@ -26,26 +25,14 @@ export class HarmonicComponent implements OnInit {
     {name: "Shark", value: "Shark"},
     {name: "ThreeDrives", value: "ThreeDrives"},
     {name: "Gartley", value: "Gartley"},
-    {name: "5-0", value: "5-0"},
-    {name: "Head & Shoulders", value: "Head_and_Shoulders"},
-    {name: "Double", value: "Double"},
-    {name: "Triple", value: "Triple"},
-    // {name: "Cup", value: "cup"},
-    // {name: "Rectangle", value: "rectangle"},
-    // {name: "Triangle", value: "triangle"},
-    // {name: "Flag", value: "flag"},
+    {name: "5-0", value: "5-0"}
   ];
-  arrayItems: {name: string, value: string}[];
   signalSettingForm: FormGroup = this.fb.group({
-    zigzagdraw: [false],
-    prediction: [false],
-    zigzag: [10,Validators.required],
-    error: [10,Validators.required],
     patterns: [this.fb.array(this.subgroup)]
   });
   onSubmit(){
-    // SignalRService.loading$.next(true);
-    this.signalr.OnClick(this.signalSettingForm);
+    const result = {form:this.signalSettingForm,type: 'harmonic'};
+    this.harmonicPatterns.emit(result);
   }
   onCheckboxChange(e: any) {
     if (e.checked) {
@@ -59,5 +46,4 @@ export class HarmonicComponent implements OnInit {
     }
     this.signalSettingForm.get('patterns')?.setValue(this.subgroup);
   }
-
 }

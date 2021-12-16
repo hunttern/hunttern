@@ -1,1 +1,12 @@
-<p>candle works!</p>
+<form [formGroup]="signalSettingForm" (ngsubmit)="onSubmit()" class="hidescroll">
+    <section class="patterns">
+        <ul formArrayName="patterns">
+            <li *ngFor="let pattern of patterns"><mat-checkbox color="primary" class="example-margin" name="pattern" [value]="pattern.value" (change)="onCheckboxChange($event)">{{pattern.name}}</mat-checkbox></li>
+        </ul>
+    </section>
+    <div class="buttons">
+        <span class="section2">
+            <button mat-raised-button color="primary"  id="ok" (click)="onSubmit()">OK</button>
+        </span>
+    </div>
+</form>

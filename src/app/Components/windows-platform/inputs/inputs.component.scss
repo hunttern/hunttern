@@ -24,3 +24,38 @@ nav{
         }
     }
 }
+form{
+    padding: 0 2rem;
+}
+.zigzag{
+    display: flex;
+    gap: 1rem;
+    color: #FFFFFF;
+    div{
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+}
+.inputs{
+    label{
+        margin-top: 1rem;
+        color: #7A7AB1;
+        font-size: $secondary;
+    }
+    input{
+        padding: 0.5rem;
+        margin-left: 1rem;
+        width: 75px;
+        height: 30px;
+        margin-bottom: 0.1rem;
+        background: transparent;
+        border: 1.3px solid #242448;
+        box-sizing: border-box;
+        border-radius: 8px;
+        color: #FFFFFF;
+        &:focus{
+            outline: none;
+        }
+    }
+}

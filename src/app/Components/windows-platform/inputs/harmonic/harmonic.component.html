@@ -1,22 +1,4 @@
 <form [formGroup]="signalSettingForm" (ngsubmit)="onSubmit()" class="hidescroll">
-    <section class="zigzag">
-        <div>
-            <mat-slide-toggle color="primary" formControlName="zigzagdraw">Zigzag</mat-slide-toggle>
-            <mat-slide-toggle color="primary" formControlName="prediction">Prediction</mat-slide-toggle>
-        </div>
-    </section>
-    <section class="textinput">
-        <div class="inputs">
-            <div>
-                <label>Sensitivity :</label>
-                <input type="number" max="30" min="2" formControlName="zigzag">
-            </div>
-            <div>
-                <label>Error :</label>
-                <input type="number" max="30" min="1" formControlName="error">
-            </div>
-        </div>
-    </section>
     <section class="patterns">
         <ul formArrayName="patterns">
             <li *ngFor="let pattern of patterns"><mat-checkbox color="primary" class="example-margin" name="pattern" [value]="pattern.value" (change)="onCheckboxChange($event)">{{pattern.name}}</mat-checkbox></li>

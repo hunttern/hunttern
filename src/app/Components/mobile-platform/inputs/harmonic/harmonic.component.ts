@@ -44,7 +44,7 @@ export class HarmonicComponent implements OnInit {
     patterns: [this.fb.array(this.subgroup)]
   });
   onSubmit(){
-    this.signalr.OnClick(this.signalSettingForm);
+    // this.signalr.OnClick(this.signalSettingForm);
   }
   onCheckboxChange(e: any) {
     if (e.target.checked) {
