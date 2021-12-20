@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { PieChartModule } from '@swimlane/ngx-charts';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
 import { DashboardComponent } from './dashboard.component';
@@ -17,7 +17,7 @@ import { SharedModule } from 'src/app/Shared/shared.module';
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
-    NgxChartsModule
+    PieChartModule
   ]
 })
 export class DashboardModule { }

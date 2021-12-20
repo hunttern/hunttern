@@ -1,0 +1,42 @@
+<section>
+    <header>
+        Create new plans
+    </header>
+    <form [formGroup]="featuresForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label>Name</label>
+            <input type="text" formControlName="name">
+        </div>
+        <div>
+            <label>Price</label>
+            <input type="number" formControlName="price">
+        </div>
+        <div>
+            <label>Currencey</label>
+            <select name="currencey" id="currencey" formControlName="currencey">
+                <option value="euro">euro</option>
+                <option value="dollar">dollar</option>
+                <option value="USDT">USDT</option>
+                <option value="BTC">BTC</option>
+            </select>
+        </div>
+        <div>
+            <label>Period</label>
+            <select name="period" id="period" formControlName="period">
+                <option value="1M">1 Month</option>
+                <option value="3M">3 Month</option>
+                <option value="6M">6 Month</option>
+                <option value="12M">12 Month</option>
+            </select>
+        </div>
+        <div class="features">
+            <label>ّFeatures</label>
+            <div formArrayName="features">
+                <div *ngFor="let option of features$ | async" class="options">
+                    <label>{{option.desc}} <input type="checkbox" [value]="option.value" (change)="onCheckboxChange($event)"></label>
+                </div>
+            </div>
+        </div>
+    </form>
+    <button>Add Plan</button>
+</section>

@@ -22,6 +22,7 @@ import { SharedModule } from './Shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardModule } from './Components/dashboard/dashboard.module';
 import { PlatformModule } from './Components/platform/platform.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { PlatformModule } from './Components/platform/platform.module';
     TermsModule,
     DashboardModule,
     NgbModule,
-    PlatformModule
+    PlatformModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

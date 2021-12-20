@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: 'dashboard', loadChildren: () => import('./Components/dashboard/dashboard.module').then(m => m.DashboardModule)},
   {path: 'article', component: ArticleComponent},
   {path: 'platform', loadChildren: () => import('./Components/platform/platform.module').then(m => m.PlatformModule)},
+  {path: 'admin', loadChildren: () => import ('./admin/admin.module').then(m => m.AdminModule)},
   {path: '**' , redirectTo: 'home'},
 ];
 
