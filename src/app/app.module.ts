@@ -13,17 +13,15 @@ import { BlogComponent } from './Components/blog/blog.component';
 import { NewsComponent } from './Components/blog/news/news.component';
 import { NewscardComponent } from './Components/blog/newscard/newscard.component';
 import { ArticleComponent } from './Components/article/article.component';
-import { PlatformComponent } from './Components/platform/platform.component';
 
 
-import { MobilePlatformModule } from './Components/mobile-platform/mobile-platform.module';
-import { WindowsPlatformModule } from './Components/windows-platform/windows-platform.module';
 import { HomeModule } from './Components/home/home.module';
 import { LoginRegisterModule } from './Components/login-register/login-register.module';
 import { TermsModule } from './Components/terms/terms.module';
 import { SharedModule } from './Shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardModule } from './Components/dashboard/dashboard.module';
+import { PlatformModule } from './Components/platform/platform.module';
 
 @NgModule({
   declarations: [
@@ -31,8 +29,7 @@ import { DashboardModule } from './Components/dashboard/dashboard.module';
     BlogComponent,
     NewsComponent,
     NewscardComponent,
-    ArticleComponent,
-    PlatformComponent
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
@@ -45,14 +42,13 @@ import { DashboardModule } from './Components/dashboard/dashboard.module';
     ReactiveFormsModule,
     AngularSplitModule,
     SharedModule,
-    MobilePlatformModule,
-    WindowsPlatformModule,
     HomeModule,
     LoginRegisterModule,
     DashboardModule,
     TermsModule,
     DashboardModule,
-    NgbModule
+    NgbModule,
+    PlatformModule
   ],
   providers: [],
   bootstrap: [AppComponent]
