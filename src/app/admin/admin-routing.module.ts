@@ -7,6 +7,7 @@ import { AdminComponent } from './admin.component';
 const routes: Routes = [
   {path: '', component: AdminComponent, children: [
     {path:'plans', component: PlansComponent},
+    {path: '**', redirectTo: 'plans', pathMatch: 'full'}
   ]}
 ];
 

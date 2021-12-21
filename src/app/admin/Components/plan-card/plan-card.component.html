@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="cardHeader">
+        <h2>{{title}}</h2>
+        <label>{{price}}  {{currencey}}</label>
+    </div>
+    <div class="cardBody">
+        <h3>features</h3>
+        <label *ngFor="let item of features">{{item.desc}}</label>
+    </div>
+    <div class="cardFooter">
+        <button (click)="onEdit()">Edit</button>
+        <button (click)="onDelete()">Delete</button>
+    </div>
+</div>

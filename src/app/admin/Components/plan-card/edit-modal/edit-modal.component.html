@@ -1,12 +1,5 @@
-<section class="cards">
-    <div *ngFor="let plan of plans$ | async">
-        <app-plan-card [title]="plan.title" [price]="plan.price" [currencey]="plan.currencey" [features]="plan.features"></app-plan-card>
-    </div>
-</section>
-<section>
-    <header>
-        Create new plans
-    </header>
+<div>
+    <h1>Edit</h1>
     <form [formGroup]="featuresForm" (ngSubmit)="onSubmit()">
         <div>
             <label>Name</label>
@@ -37,11 +30,11 @@
         <div class="features">
             <label>ّFeatures</label>
             <div formArrayName="features">
-                <div *ngFor="let option of features$ | async" class="options">
+                <div *ngFor="let option of features" class="options">
                     <label>{{option.desc}} <input type="checkbox" [value]="option.value" (change)="onCheckboxChange($event)"></label>
                 </div>
             </div>
         </div>
+        <button>Edit</button>
     </form>
-    <button>Add Plan</button>
-</section>
+</div>
