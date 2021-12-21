@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { EditModalComponent } from './edit-modal/edit-modal.component';
 
 @Component({
@@ -17,7 +17,11 @@ export class PlanCardComponent {
 constructor(private modal: NgbModal) {}
 
   onEdit(){
-    const modalRef = this.modal.open(EditModalComponent);
+    let ngbModalOptions: NgbModalOptions = {
+      backdrop : 'static',
+      keyboard : false
+    };
+    const modalRef = this.modal.open(EditModalComponent,ngbModalOptions);
     modalRef.componentInstance.features = this.features;
     modalRef.result.then((res: any) => {
       if(res)

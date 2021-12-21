@@ -1,4 +1,4 @@
-<div>
+<div class="main">
     <h1>Edit</h1>
     <form [formGroup]="featuresForm" (ngSubmit)="onSubmit()">
         <div>
@@ -35,6 +35,9 @@
                 </div>
             </div>
         </div>
-        <button>Edit</button>
+        <div class="footer">
+            <button (click)="onSubmit()">Edit</button>
+            <button (click)="onCancel()">Cancel</button>
+        </div>
     </form>
 </div>

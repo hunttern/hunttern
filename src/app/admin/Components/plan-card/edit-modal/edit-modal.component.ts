@@ -31,5 +31,10 @@ export class EditModalComponent {
     }
     this.featuresForm.get('features')?.setValue(this.subgroup);
   }
-  onSubmit(){}
+  onSubmit(){
+    this.activeModal.close(this.featuresForm);
+  }
+  onCancel(){
+    this.activeModal.close();
+  }
 }
