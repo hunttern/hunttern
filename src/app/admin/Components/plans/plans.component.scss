@@ -8,8 +8,13 @@ section{
     }
     form{
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
+        gap: 2rem;
+        .first{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+
+        }
         & > div{
             display: flex;
             align-items: center;
@@ -43,13 +48,13 @@ section{
                 }
             }
         }
-    }
-    button{
-        width: 20%;
-        background-color: #262063;
-        border: none;
-        border-radius: 7px;
-        padding: 00.5rem 1rem;
-        color: #fff;
+        button{
+            width: 20%;
+            background-color: #262063;
+            border: none;
+            border-radius: 7px;
+            padding: 00.5rem 1rem;
+            color: #fff;
+        }
     }
 }

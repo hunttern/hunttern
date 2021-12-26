@@ -1,11 +1,26 @@
+enum Currency
+{
+    USD,
+    EUR
+}
+
+enum Period
+{
+    Month,
+    Year
+} 
 export interface Ifeature{
+    id: string;
+    name: string;
     value: string;
-    desc: string;
+    plans: any[];
 }
 export interface Iplan{
     id: string;
-    title: string;
-    price: string;
-    currencey: string;
+    name: string;
+    amount: number;
+    currency: Currency;
+    period: Period;
     features: Ifeature[];
+    descriptions: string;
   }

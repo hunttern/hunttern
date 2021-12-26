@@ -1,0 +1,31 @@
+main{
+    display: grid;
+    gap: 2rem;
+    section{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+    form{
+        display: grid;
+        gap: 1rem;
+        input{
+            width: 70%;
+            padding: 0.5rem 1rem;
+            border: thin #0a0a0a solid ;
+            border-radius: 7px;
+            &:focus{
+                outline: none;
+            }
+        }
+        button{
+            width: 20%;
+            background-color: #262063;
+            border: none;
+            border-radius: 7px;
+            padding: 00.5rem 1rem;
+            color: #fff;
+            margin-top: 2rem;
+        }
+    }
+}

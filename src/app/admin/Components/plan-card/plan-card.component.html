@@ -1,11 +1,11 @@
 <div class="card">
     <div class="cardHeader">
-        <h2>{{title}}</h2>
-        <label>{{price}}  {{currencey}}</label>
+        <h2>{{name}}</h2>
+        <label>{{amount}}  {{test}}</label>
     </div>
     <div class="cardBody">
         <h3>features</h3>
-        <label *ngFor="let item of features">{{item.desc}}</label>
+        <label *ngFor="let item of features">{{item.name}}</label>
     </div>
     <div class="cardFooter">
         <button (click)="onEdit()">Edit</button>
