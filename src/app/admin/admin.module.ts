@@ -9,6 +9,7 @@ import { PlanCardComponent } from './Components/plan-card/plan-card.component';
 import { EditModalComponent } from './Components/plan-card/edit-modal/edit-modal.component';
 import { FeaturesComponent } from './Components/features/features.component';
 
+import { MaterialsModule } from '../Shared/materials/materials.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FeaturesComponent } from './Components/features/features.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialsModule
   ]
 })
 export class AdminModule { }

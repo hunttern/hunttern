@@ -1,11 +1,21 @@
-<body>
-    <nav>
-        <ul>
-            <li><a [routerLink]="['plans']" routerLinkActive="active">Plans</a></li>
-            <li><a [routerLink]="['features']" routerLinkActive="active">Features</a></li>
-        </ul>
-    </nav>
+<body id="wrapper">
+    <aside id="sidebar-wrapper">
+      <div class="sidebar-brand">
+        <h2>Amin Panel</h2>
+      </div>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="#"><i class="fa fa-home"></i>Home</a>
+        </li>
+        <li>
+          <a [routerLink]="['plans']" routerLinkActive="active"><i class="fa fa-map"></i>Plans</a>
+        </li>
+        <li>
+          <a [routerLink]="['features']" routerLinkActive="active"><i class="fa fa-periscope"></i>Features</a>
+        </li>
+      </ul>
+    </aside>
     <main>
         <router-outlet></router-outlet>
     </main>
-</body>
+  </body>

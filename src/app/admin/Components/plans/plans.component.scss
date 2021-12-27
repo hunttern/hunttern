@@ -1,60 +1,23 @@
 section{
     display: grid;
     gap: 2rem;
-    margin-top: 2rem;
-    &.cards{
+    padding: 1rem;
+    .cards{
+        display: grid;
+        gap: 2rem;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 2rem;
     }
-    form{
+    .example-margin {
+        margin: 1rem;
+      }
+      .first{
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+      }
+    .features{
         display: grid;
-        gap: 2rem;
-        .first{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-
-        }
-        & > div{
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        input, select{
-            width: 100%;
-            padding: 0.5rem 1rem;
-            border: thin #0a0a0a solid ;
-            border-radius: 7px;
-            &:focus{
-                outline: none;
-            }
-        }
-        .features{
-            display: grid;
-            gap: 1rem;
-            & > div{
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-
-            }
-            label{
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                input{
-                    width: 1em;
-                    height: 1em;
-                }
-            }
-        }
-        button{
-            width: 20%;
-            background-color: #262063;
-            border: none;
-            border-radius: 7px;
-            padding: 00.5rem 1rem;
-            color: #fff;
-        }
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }

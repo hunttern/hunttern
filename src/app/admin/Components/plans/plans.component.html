@@ -1,51 +1,51 @@
-<section class="cards">
-    <div *ngFor="let plan of plans$ | async">
-        <app-plan-card [name]="plan.name" [amount]="plan.amount" [currency]="plan.currency" [features]="plan.features" [id]="plan.id"></app-plan-card>
+<section >
+    <h2>Plans</h2>
+    <div class="cards">
+        <div *ngFor="let plan of plans$ | async">
+            <app-plan-card [name]="plan.name" [amount]="plan.amount" [currency]="plan.currency" [features]="plan.features" [id]="plan.id"></app-plan-card>
+        </div>
     </div>
 </section>
 <section>
     <header>
-        Create new plans
+        <h1>Create new plans</h1>
     </header>
     <form [formGroup]="featuresForm" (ngSubmit)="onSubmit()">
         <div class="first">
-            <div>
-                <label>Name</label>
-                <input type="text" formControlName="name">
-            </div>
-            <div>
-                <label>Price</label>
-                <input type="number" formControlName="amount">
-            </div>
-            <div>
-                <label>Currencey</label>
-                <select name="currency" id="currency" formControlName="currency">
-                    <option value="1">euro</option>
-                    <option value="0">dollar</option>
-                </select>
-            </div>
-            <div>
-                <label>Period</label>
-                <select name="period" id="period" formControlName="period">
-                    <option value="01">1 Month</option>
-                    <option value="03">3 Month</option>
-                    <option value="06">6 Month</option>
-                    <option value="11">12 Month</option>
-                </select>
-            </div>
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="fill" floatLabel="always">
+              <mat-label>Price</mat-label>
+              <input matInput type="number" class="example-right-align" placeholder="0" formControlName="amount">
+              <span matPrefix>$&nbsp;</span>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Currencey</mat-label>
+              <mat-select name="currency" id="currency" formControlName="currency">
+                  <mat-option value="0">Dollar</mat-option>
+                <mat-option value="1">EURO</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Period</mat-label>
+              <mat-select name="currency" id="currency" formControlName="currency">
+                <mat-option value="01">1 Month</mat-option>
+                <mat-option value="03">3 Month</mat-option>
+                <mat-option value="06">6 Month</mat-option>
+                <mat-option value="11">12 Month</mat-option>
+              </mat-select>
+            </mat-form-field>
         </div>
-        <div class="features">
+        <div>
             <label>ّFeatures</label>
-            <div formArrayName="features">
+            <div formArrayName="features" class="features">
                 <div *ngFor="let option of features$ | async" class="options">
-                    <label>{{option.name}} <input type="checkbox" [value]="option.id" (change)="onCheckboxChange($event)"></label>
+                    <mat-checkbox color="primary" class="example-margin" [value]="option.id" (change)="onCheckboxChange($event)">{{option.name}}</mat-checkbox>
                 </div>
             </div>
         </div>
-        <div>
-            <label>Description</label>
-            <input type="text" formControlName="descriptions">
-        </div>
-        <button>Add Plan</button>
+        <button mat-raised-button>Add Plan</button>
     </form>
 </section>

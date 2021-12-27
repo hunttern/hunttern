@@ -14,7 +14,8 @@ import { ManagerService } from '../../services/manager.service';
 export class PlansComponent {
   features$: Observable<Ifeature[]>;
   subgroup: AbstractControl[] = [];
-  plans$: Observable<Iplan[]>
+  plans$: Observable<Iplan[]>;
+  hide = true;
   constructor(private fb: FormBuilder, private features: ManagerService ) {
     this.features$ = this.features.getFeatures();
     this.plans$ = this.features.getPlans();
@@ -30,11 +31,12 @@ export class PlansComponent {
   })
 
   onCheckboxChange(e: any) {
-    if (e.target.checked) {
-      this.subgroup.push((new FormControl(e.target.value)).value);
+    console.log(e)
+    if (e.checked) {
+      this.subgroup.push((new FormControl(e.source.value)).value);
     } else {
       this.subgroup.forEach((item: any, index: number) => {
-        if (item.value == e.target.value) {
+        if (item.value == e.source.value) {
           this.subgroup.splice(index,1);
         }
       });
