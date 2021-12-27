@@ -26,13 +26,14 @@ export class PlanCardComponent {
   @Input() id: string = '';
   @Input() name: string = '';
   @Input() amount: number = 0;
-  @Input() currency: Currency = 0;
+  @Input() currency: Currency;
   @Input() features: Ifeature[];
-  test = Currency[this.currency];
-constructor(private modal: NgbModal, private deletePlan: ManagerService) {}
+constructor(private modal: NgbModal, private deletePlan: ManagerService) {
+}
 
-  onEdit(){
-    let ngbModalOptions: NgbModalOptions = {
+onEdit(){
+  console.log(typeof(this.currency))
+  let ngbModalOptions: NgbModalOptions = {
       backdrop : 'static',
       keyboard : false
     };
