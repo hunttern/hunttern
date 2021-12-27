@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { EnrollmentService } from 'src/app/Services/enrollment.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private builder: FormBuilder,private activeModal: NgbActiveModal){}
+  constructor(private builder: FormBuilder,private activeModal: NgbActiveModal,private registerService: EnrollmentService){}
   @Output() page: EventEmitter<string> = new EventEmitter();
   loginForm: FormGroup = this.builder.group({
     fullname: ['', Validators.required],
@@ -17,6 +18,7 @@ export class LoginComponent {
   })
 
   onSubmit(){
+    this.registerService.login(this.loginForm).subscribe();
     this.activeModal.close(this.loginForm);
   }
   navigate(page: string){

@@ -32,7 +32,7 @@
             </div>
             <a (click)="navigate('forget')">Forget Password?</a>
         </div>
-        <button [disabled]="!loginForm.valid" (click)="onSubmit()">Login</button>
+        <button [disabled]="!loginForm.valid">Login</button>
         <div class="new">
             <h5>Not registered yet? <a (click)="navigate('register')">Create an Account</a></h5>
             <label>Copyright © 1999-2021 GodCrypto Inc. All rights reserved.</label>
