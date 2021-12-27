@@ -4,7 +4,7 @@ import { SignalRService } from './signal-r.service';
 import { HttpClient } from '@angular/common/http';
 import { patternClass } from '../Patterns/Patterns.class';
 
-import * as data from '../../Data/a.json';
+import { testData } from '../../Data/a';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class ApiService implements IBasicDataFeed {
   interval: string = '5M';
 
   constructor(public ws: SignalRService, private http: HttpClient ) {
-    this.symbols = data.symbols;
+    this.symbols = testData.symbols;
   }
   // function convertTZ(date, tzString) {
   //   return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));   
@@ -65,7 +65,7 @@ export class ApiService implements IBasicDataFeed {
     return this.http.get(newurl+`?from=${startDate}&to=${endDate}&uniqeId=${userId}`);
   }
   onReady(callback: any) {
-    this.symbols = data.symbols;
+    this.symbols = testData.symbols;
     callback({
       supports_marks: false,
       supports_timescale_marks: false,

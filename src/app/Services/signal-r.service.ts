@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import * as signalR from '@aspnet/signalr';
-import { FormGroup } from '@angular/forms';
 import { patternClass } from '../Patterns/Patterns.class';
 import { HarmonicService } from '../Patterns/Services/harmonic.service';
 import { ZigzagService } from '../Patterns/Services/zigzag.service';
