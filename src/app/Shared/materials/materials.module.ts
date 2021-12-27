@@ -9,11 +9,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSelectModule } from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 const materialComponents = [MatSlideToggleModule,MatButtonModule,MatCheckboxModule,MatMenuModule,
-  MatDialogModule,MatFormFieldModule,MatInputModule,MatCardModule,MatIconModule,MatSelectModule];
+  MatDialogModule,MatFormFieldModule,MatInputModule,MatCardModule,MatIconModule,MatSelectModule,
+  MatPaginatorModule,MatTableModule,MatProgressSpinnerModule
+];
 
 @NgModule({
   imports: [materialComponents],

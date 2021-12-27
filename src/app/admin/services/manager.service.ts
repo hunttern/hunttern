@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Ifeature, Iplan } from '../Model/Ifeature.interface';
 import { FormGroup } from '@angular/forms';
-
+import { Iuser } from '../Model/IUser.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +31,8 @@ export class ManagerService {
     console.log(id)
     console.log(newPlan.value)
     return this.http.put(this.baseUrl+'Plans/'+`${id}`,newPlan.value);
+  }
+  getUsers(){
+    return this.http.get<Iuser[]>(this.baseUrl+'GetUsers');
   }
 }
