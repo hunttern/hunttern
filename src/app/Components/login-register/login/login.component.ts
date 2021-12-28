@@ -1,7 +1,12 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { EnrollmentService } from 'src/app/Services/enrollment.service';
+import { MatDialogRef } from '@angular/material/dialog';
+
+
+import { Store } from '@ngrx/store';
+import { LoginRegisterComponent } from '../login-register.component';
+import { loginStart } from '../management/user.action';
+import { User } from '../management/users.model';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +14,7 @@ import { EnrollmentService } from 'src/app/Services/enrollment.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private builder: FormBuilder,private activeModal: NgbActiveModal,private registerService: EnrollmentService){}
+  constructor(private builder: FormBuilder,private dialog: MatDialogRef<LoginRegisterComponent>,private store: Store<{user: User}>){}
   @Output() page: EventEmitter<string> = new EventEmitter();
   loginForm: FormGroup = this.builder.group({
     fullname: ['', Validators.required],
@@ -18,13 +23,13 @@ export class LoginComponent {
   })
 
   onSubmit(){
-    this.registerService.login(this.loginForm).subscribe();
-    this.activeModal.close(this.loginForm);
+    this.store.dispatch(loginStart({loginForm: this.loginForm}));
+    this.dialog.close();
   }
   navigate(page: string){
     this.page.emit(page);
   }
   close(){
-    this.activeModal.close();
+    this.dialog.close();
   }
 }

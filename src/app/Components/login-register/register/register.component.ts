@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { EnrollmentService } from 'src/app/Services/enrollment.service';
+import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { LoginRegisterComponent } from '../login-register.component';
+import { AuthService } from '../Services/auth.service';
 import { checkPassword } from './Custome';
 
 @Component({
@@ -11,7 +12,7 @@ import { checkPassword } from './Custome';
 })
 export class RegisterComponent{
   
-  constructor(private builder: FormBuilder,private activeModal: NgbActiveModal,private registerService: EnrollmentService){}
+  constructor(private builder: FormBuilder,private dialog: MatDialogRef<LoginRegisterComponent>,private registerService: AuthService){}
   @Output() page: EventEmitter<string> = new EventEmitter();
   registerForm = this.builder.group({
     fullname: ['', Validators.required],
@@ -21,12 +22,12 @@ export class RegisterComponent{
   }, {validator: checkPassword})
   onSubmit(){
     this.registerService.register(this.registerForm).subscribe();
-    this.activeModal.close(this.registerForm);
+    this.dialog.close();
   }
   navigate(page: string){
     this.page.emit(page);
   }
   close(){
-    this.activeModal.close();
+    this.dialog.close();
   }
 }

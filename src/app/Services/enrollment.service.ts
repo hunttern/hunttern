@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,41 +8,8 @@ export class EnrollmentService {
   constructor(private http: HttpClient) { }
 
   private baseurl: string = 'http://195.248.243.186:5000/';
-  private patternUrl: string = 'http://195.248.243.186:5000/api/Index?ShowZigZag=true&ShowPosition=true&ShowPrediction=true&ShowStatistic=true&ShowCandlePattern=true&PivotSensitivity=50&HarmonicError=3&RisktoReward=3';
-  Token = localStorage.getItem('userToken');
-  getPlans(){
-    
-  }
-  reqheader = new HttpHeaders().set("Authorization", `Token ${this.Token}`);
+
   subscribe(email: string){
-    this.http.post(this.baseurl,email, {headers: this.reqheader});
-  }
-  register(data: FormGroup){
-    const registerData = data.value;
-    return this.http.post(this.baseurl+'register',registerData);
-  }
-  login(data: FormGroup){
-    return this.http.post(this.baseurl+'login',data.value);
-  }
-  forget(data: any){
-    return this.http.post(this.baseurl+'forget',data);
-  }
-  getData(){
-    return this.http.get(this.baseurl);
-  }
-  getPatterns(data: FormGroup){
-    const form = data.value;
-    // let param = new HttpParams();
-    let extendedurl: string = '';
-    form.patterns.forEach((item: any) => {
-      // param = param.set("Patterns", item.value);
-      extendedurl += "&Patterns=" + item.value;
-    });
-    return this.http.get(this.patternUrl + extendedurl);
-  }
-  getWatchlist(){
-    //get userID
-    const userId: string | null = this.Token;
-    this.http.get(this.baseurl);
+    this.http.post(this.baseurl,email);
   }
 }

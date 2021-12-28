@@ -23,6 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardModule } from './Components/dashboard/dashboard.module';
 import { PlatformModule } from './Components/platform/platform.module';
 import { AdminModule } from './admin/admin.module';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { AdminModule } from './admin/admin.module';
     DashboardModule,
     NgbModule,
     PlatformModule,
-    AdminModule
+    AdminModule,
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot({}),
   ],
   providers: [],
   bootstrap: [AppComponent]

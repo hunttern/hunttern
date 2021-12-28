@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialogRef } from '@angular/material/dialog';
+import { LoginRegisterComponent } from '../login-register.component';
 
 @Component({
   selector: 'app-forget',
@@ -9,18 +10,18 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ForgetComponent{
 
-  constructor(private builder: FormBuilder,private activeModal: NgbActiveModal) { }
+  constructor(private builder: FormBuilder,private dialog: MatDialogRef<LoginRegisterComponent>) { }
   @Output() page: EventEmitter<string> = new EventEmitter();
   forgetForm: FormGroup = this.builder.group({
     email: ['',Validators.required]
   })
   onSubmit(){
-    this.activeModal.close(this.forgetForm);
+    this.dialog.close();
   }
   navigate(page: string){
     this.page.emit(page);
   }
   close(){
-    this.activeModal.close();
+    this.dialog.close();
   }
 }
