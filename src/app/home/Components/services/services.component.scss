@@ -1,0 +1,89 @@
+@import "../../../../../assets/styleSotrage/mixinss";
+@import "../../../../../assets/styleSotrage/colors";
+
+section{
+    height: 100vh;
+    background-color: $mainColor;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .image{
+        @include center();
+        img{
+            object-fit: cover;
+        }
+    }
+    .note{
+        display: grid;
+        padding: 2rem;
+        color: #fff;
+        .header{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .description{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            h3{
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: #FFFFFF;
+                font-size: 24px;
+                line-height: 62px;
+            }
+            p{
+                color: #8D89BC;
+                font-size: 18px;
+                line-height: 30px;
+            }
+            span{
+                @include center();
+                background-color: #302975;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                img{
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 426px){
+    section{
+        padding: 1rem;
+        .image{
+            display: none;
+        }
+        .content{
+            padding: 1rem;
+            .header{
+                h2{
+                    font-size: 30px;
+                    line-height: 40px;
+                }
+                p{
+                    font-size: 16px;
+                    line-height: 20px;
+                }
+            }
+            .description{
+                h3{
+                    font-size: 20px;
+                    line-height: 30px;
+                }
+                img{
+                    width: 20px;
+                    height: 20px;
+                }
+                p{
+                    font-size: 16px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+}
