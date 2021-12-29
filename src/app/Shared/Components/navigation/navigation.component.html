@@ -1,17 +1,14 @@
-<nav class="container-fluid">
-    <div id="logo">
-        <i class="fas fa-gem"></i><span [ngStyle]="{'color': linkColor}">Hunttern</span>
-    </div>
+<nav>
     <div id="navigation">
         <ul #links>
             <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/home']">Home</a></li>
-            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/features']">Features</a></li>
-            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/service']">Service</a></li>
-            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/about']">About</a></li>
-            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/contact']">Contact</a></li>
+            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/features']">Blog</a></li>
+            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/platform']">Platform</a></li>
+            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/about']">Privacy policy</a></li>
+            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/contact']">FAQ</a></li>
         </ul>
     </div>
     <div id="login">
-        <a (click)="openLogin()">Login</a>
+        <a (click)="openLogin()">Start now</a>
     </div>
 </nav>

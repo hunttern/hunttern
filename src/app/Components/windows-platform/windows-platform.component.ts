@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { SignalRService } from 'src/app/Services/signal-r.service';
 
 @Component({
   selector: 'app-windows-platform',
@@ -9,28 +6,14 @@ import { SignalRService } from 'src/app/Services/signal-r.service';
   styleUrls: ['./windows-platform.component.scss']
 })
 export class WindowsPlatformComponent { 
-  loading$:  Observable<boolean>;
+  h1: number = 95;
+  h2: number = 5;
 
-  h1: number = 60;
-  h2: number = 40;
-  h3: number = 50;
-  h4: number = 50;
-  w1: number = 20;
-  w2: number = 57;
-  w3: number = 20;
-
-  height1 = {"height": `${this.h1}%`};
-  height2 = {"height": `${this.h2}%`};
-  height3 = {"height": `${this.h3}%`};
-  height4 = {"height": `${this.h4}%`};
+  w1: number = 0;
+  w2: number = 100;
+  w3: number = 0;
   
-  rightPanel: boolean = true;
-  leftPanel: boolean = true;
-  formGroup: FormGroup;
-
-  constructor() {
-    this.loading$ = SignalRService.loading$;
-  }
+  rightPanel: boolean = false;
 
   setTool(name: string){
     if(this.rightPanel){
@@ -54,16 +37,6 @@ export class WindowsPlatformComponent {
         }
       }, 10);
     }
-  }
-  ClosePattern(){
-    const close = setInterval( () => {
-      if(this.w1 !== 0){
-        this.w2++;
-        this.w1--;
-      }else{
-        clearInterval(close);
-      }
-    },10);
   }
   Minitrade(){
     const close = setInterval(() => {
@@ -102,7 +75,7 @@ export class WindowsPlatformComponent {
     this.w2 = result - this.w1;
   }
   openInputPanel(open: boolean){
-    if(!open){
+    if(open){
       const close = setInterval(() => {
         if(this.w1 !== 0){
           this.w1--;
