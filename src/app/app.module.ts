@@ -9,13 +9,8 @@ import { AngularSplitModule } from 'angular-split';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { BlogComponent } from './Components/blog/blog.component';
-import { NewsComponent } from './Components/blog/news/news.component';
-import { NewscardComponent } from './Components/blog/newscard/newscard.component';
-import { ArticleComponent } from './Components/article/article.component';
 
-
-import { HomeModule } from './Components/home/home.module';
+import { HomeModule } from './home/home.module';
 import { LoginRegisterModule } from './Components/login-register/login-register.module';
 import { TermsModule } from './Components/terms/terms.module';
 import { SharedModule } from './Shared/shared.module';
@@ -28,11 +23,7 @@ import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BlogComponent,
-    NewsComponent,
-    NewscardComponent,
-    ArticleComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
