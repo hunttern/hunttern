@@ -14,7 +14,8 @@ export class WindowsPlatformComponent {
   w3: number = 0;
   
   rightPanel: boolean = false;
-
+  screener: boolean = true;
+  
   setTool(name: string){
     if(this.rightPanel){
       const close = setInterval(() => {
@@ -44,12 +45,14 @@ export class WindowsPlatformComponent {
         this.h2--;
         this.h1++;
       }else{
+        this.screener = true;
         clearInterval(close);
       }
     },10);
   }
   Maxitrade(){
     const open = setInterval(() => {
+      this.screener = false;
       if(this.h2 < 41){
         this.h2++;
         this.h1--;

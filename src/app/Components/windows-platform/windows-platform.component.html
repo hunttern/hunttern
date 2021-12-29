@@ -18,20 +18,26 @@
 			</div>
 			<div #row2 class="row2 hidescroll" [style.height]="h2+'%'">
 				<header>
-					<nav class="links">
-						<ul>
-							<li>
-								<a class="strategytest">Setting</a>
-							</li>
-							<li>
-								<a class="active">Asset</a>
-							</li>
-						</ul>
-					</nav>
-					<span class="page">
-						<button class="minimize" (click)="Minitrade()"><i class="material-icons">expand_more</i></button>
-						<button class="minimize" (click)="Maxitrade()"><i class="material-icons">expand_less</i></button>
-					</span>
+					<div class="screnner" *ngIf="screener">
+						<h2>Screener</h2>
+						<span class="page">
+							<button class="minimize" (click)="Minitrade()"><i class="material-icons">expand_more</i></button>
+							<button class="minimize" (click)="Maxitrade()"><i class="material-icons">expand_less</i></button>
+						</span>
+					</div>
+					<div class="screnner">
+						<nav class="links">
+							<ul>
+								<li><a class="strategytest">Setting <i class="material-icons">settings</i></a></li>
+								<li><a class="active">Asset <i class="material-icons">work</i></a></li>
+							</ul>
+						</nav>
+						<span class="page" *ngIf="!screener">
+							<button class="minimize" (click)="Minitrade()"><i class="material-icons">expand_more</i></button>
+							<button class="minimize" (click)="Maxitrade()"><i class="material-icons">expand_less</i></button>
+						</span>
+
+					</div>
 				</header>
 				<div class="hidescroll">
 					<app-trading></app-trading>
