@@ -11,6 +11,7 @@ import { Iwatchlist } from './Data/Iwatchlist';
 export class ListComponent {
   selectedRow: number = 0;
   selectedwatchlist: number = 0;
+  watchlistOpen: boolean = false;
   watchlists: Iwatchlist[] = [
     {watchlistName: 'default1',
      coins: [
@@ -36,7 +37,11 @@ export class ListComponent {
     let dialogRef = this.dialog.open(DialogComponent, {
       data: {title: "Add to Watchlist", action: "add", label: "watchlist name"}
     });
-    dialogRef.afterClosed().subscribe( (res: string) => this.watchlists.push({watchlistName: res,coins:[]}));
+    dialogRef.afterClosed().subscribe( (res: string) => {
+      console.log(res)
+      if(res)
+      this.watchlists.push({watchlistName: res,coins:[]});
+    });
   }
   renameWatchlist(){
     let dialogRef = this.dialog.open(DialogComponent, {
@@ -44,7 +49,16 @@ export class ListComponent {
     })
     dialogRef.afterClosed().subscribe((res: string) => this.watchlists[this.selectedwatchlist].watchlistName = res)
   }
-  selectWtchlist(i:any){
-    this.selectedwatchlist = i.target.value;
+  selectWatchlist(i:number){
+    this.selectedwatchlist = i;
+  }
+
+  openWahtchlist(){
+    this.watchlistOpen = !this.watchlistOpen;
+  }
+  removeWatchlist(index: number){
+    console.log(index);
+    this.watchlists = this.watchlists.splice(index-1,1);
+    console.log(this.watchlists)
   }
 }

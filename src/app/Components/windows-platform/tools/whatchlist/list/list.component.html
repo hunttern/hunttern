@@ -1,18 +1,20 @@
 <section class="hidescroll">
     <header>
-        <span class="selection">
-            <select name="watchlistname" (change)="selectWtchlist($event)">
-                <option value="{{i}}" *ngFor="let watchlist of watchlists; index as i">{{watchlist.watchlistName}}</option>
-            </select>
-        </span>
-        <span class="edit">
+        <div class="selection">
+            <button (click)="openWahtchlist()">{{watchlists[selectedwatchlist].watchlistName}}<i class="material-icons">expand_more</i></button>
+            <ul class="lists" *ngIf="watchlistOpen">
+                <li><button (click)="addWatchlist()">New</button></li>
+                <li *ngFor="let list of watchlists; index as i"><button (click)="selectWatchlist(i)">{{list.watchlistName}} <button>{{list.coins.length}}</button><button (click)="removeWatchlist(i)"><i class="material-icons">close</i></button></button></li>
+            </ul>
+        </div>
+        <div class="edit">
             <button><i class="material-icons">add</i></button>
             <button mat-button [matMenuTriggerFor]="options"><i class="material-icons">more_horiz</i></button>
             <mat-menu #options="matMenu">
-                <button mat-menu-item (click)="addWatchlist()">Add watchlist</button>
+                <button mat-menu-item >Column</button>
                 <button mat-menu-item (click)="renameWatchlist()" >Rename watchlist</button>
-              </mat-menu>
-        </span>
+            </mat-menu>
+        </div>
     </header>
     <body>
         <table>
