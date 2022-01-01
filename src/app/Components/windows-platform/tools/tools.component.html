@@ -1,7 +1,20 @@
 <nav>
     <ul>
+        <li class="pic">
+            <span class="profile"(click)="displayTab()">P</span>
+            <span class="dropdown" *ngIf="tab">
+                <a [routerLink]='["/dashboard"]'><i class="material-icons">dashboard</i> Dashboard</a>
+                <a><i class="material-icons">logout</i> Sign out</a>
+            </span>
+        </li>
         <li>
-            <i class="material-icons active" (click)="activePanel('chart')">table_chart</i>
+            <i class="material-icons">notifications</i>
+        </li>
+        <li class="main">
+            <i class="material-icons" (click)="activePanel('chart')">table_chart</i>
+        </li>
+        <li>
+            <i class="material-icons active" (click)="activePanel('inputs')">insights</i>
         </li>
     </ul>
 </nav>

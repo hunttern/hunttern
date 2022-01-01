@@ -1,57 +1,47 @@
-<div class="contain">
-	<header class="header">
-		<app-profile (open_Input)="openInputPanel($event)"></app-profile>
-	</header>
-	<body>
-		<div #col1 class="col1" [style.width]="w1+'%'">
-			<div class="C1 hidescroll">
-				<div class="inputs">
-					<app-inputs></app-inputs>
-				</div>
-			</div>
-			<span class="COL" Col [max]="25" [min]="10" (relative)="setPerX1($event)"></span>
+<body>
+	<div #col2 class="col2 C1" [style.width]="w2+'%'">
+		<div #row1 class="row1 hidescroll" [style.height]="h1+'%'">
+			<app-chart></app-chart>
+			  <span Row class="ROW" (relative)="setPerY1($event)"></span>
 		</div>
-		<div #col2 class="col2 C1" [style.width]="w2+'%'">
-			<div #row1 class="row1 hidescroll" [style.height]="h1+'%'">
-				<app-chart></app-chart>
-				  <span Row class="ROW" (relative)="setPerY1($event)"></span>
-			</div>
-			<div #row2 class="row2 hidescroll" [style.height]="h2+'%'">
-				<header>
-					<div class="screnner" *ngIf="screener">
-						<h2>Screener</h2>
-						<span class="page">
-							<button class="minimize" (click)="Minitrade()"><i class="material-icons">expand_more</i></button>
-							<button class="minimize" (click)="Maxitrade()"><i class="material-icons">expand_less</i></button>
-						</span>
-					</div>
-					<div class="screnner">
-						<nav class="links">
-							<ul>
-								<li><a class="strategytest">Setting <i class="material-icons">settings</i></a></li>
-								<li><a class="active">Asset <i class="material-icons">work</i></a></li>
-							</ul>
-						</nav>
-						<span class="page" *ngIf="!screener">
-							<button class="minimize" (click)="Minitrade()"><i class="material-icons">expand_more</i></button>
-							<button class="minimize" (click)="Maxitrade()"><i class="material-icons">expand_less</i></button>
-						</span>
+		<div #row2 class="row2 hidescroll" [style.height]="h2+'%'">
+			<header>
+				<div class="screnner" *ngIf="screener">
+					<h2>Screener</h2>
+					<span class="page">
+						<button class="minimize" (click)="Minitrade()"><i class="material-icons">expand_more</i></button>
+						<button class="minimize" (click)="Maxitrade()"><i class="material-icons">expand_less</i></button>
+					</span>
+				</div>
+				<div class="screnner">
+					<nav class="links">
+						<ul>
+							<li><a class="strategytest">Setting <i class="material-icons">settings</i></a></li>
+							<li><a class="active">Asset <i class="material-icons">work</i></a></li>
+						</ul>
+					</nav>
+					<span class="page" *ngIf="!screener">
+						<button class="minimize" (click)="Minitrade()"><i class="material-icons">expand_more</i></button>
+						<button class="minimize" (click)="Maxitrade()"><i class="material-icons">expand_less</i></button>
+					</span>
 
-					</div>
-				</header>
-				<div class="hidescroll">
-					<app-trading></app-trading>
 				</div>
+			</header>
+			<div class="hidescroll">
+				<app-trading></app-trading>
 			</div>
 		</div>
-		<div #col3 class="col3" [style.width]="w3+'%'">
-			<div class="C1 hidescroll">
-				<app-whatchlist></app-whatchlist>
+	</div>
+	<div #col3 class="col3" [style.width]="w3+'%'">
+		<div class="C1 hidescroll" [ngSwitch]="tool">
+			<app-whatchlist *ngSwitchCase="'chart'"></app-whatchlist>
+			<div class="inputs"  *ngSwitchCase="'inputs'">
+				<app-inputs ></app-inputs>
 			</div>
-			<span class="COL hidescroll" Col (relative)="setPerX2($event)"></span>
 		</div>
-		<div class="col4">
-			<app-tools (panel)="setTool($event)"></app-tools>
-		</div>
-	</body>
-</div>
+		<span class="COL hidescroll" Col (relative)="setPerX2($event)"></span>
+	</div>
+	<div class="col4">
+		<app-tools (panel)="setTool($event)"></app-tools>
+	</div>
+</body>

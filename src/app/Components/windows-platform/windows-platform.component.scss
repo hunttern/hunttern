@@ -9,20 +9,9 @@ $bordersize: 5px;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-.contain{
-    position: relative;
-    height: 100vh;
-    .header{
-        height: 7%;
-        width: 100%;
-        padding-top: 0.5rem;
-        background-color: $platformBackground;
-        border-bottom: 5px solid $platformBorder;
-    }
-}
 body{
     background-color: $platformBackground;
-    height: 93%;
+    height: 100vh;
     overflow: hidden;
     display: flex;
     h2{

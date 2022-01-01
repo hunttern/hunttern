@@ -7,11 +7,16 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class ToolsComponent implements OnInit {
 
+  tab: boolean = false;
+  
   constructor() { }
   @Output() panel: EventEmitter<string> = new EventEmitter();
   ngOnInit(): void {
   }
   activePanel(name: string){
     this.panel.emit(name);
+  }
+  displayTab(){
+    this.tab = !this.tab;
   }
 }

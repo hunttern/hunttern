@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./windows-platform.component.scss']
 })
 export class WindowsPlatformComponent { 
+  tool: string = 'inputs';
   h1: number = 95;
   h2: number = 5;
 
@@ -17,26 +18,31 @@ export class WindowsPlatformComponent {
   screener: boolean = true;
   
   setTool(name: string){
-    if(this.rightPanel){
-      const close = setInterval(() => {
-        if(this.w3 !== 0){
-          this.w3--;
-          this.w2++;
-        }else{
-          this.rightPanel = false;
-          clearInterval(close);
-        }
-      }, 10);
+    
+    if(this.tool === name){
+      if(this.rightPanel){
+        const close = setInterval(() => {
+          if(this.w3 !== 0){
+            this.w3--;
+            this.w2++;
+          }else{
+            this.rightPanel = false;
+            clearInterval(close);
+          }
+        }, 10);
+      }else{
+        const close = setInterval(() => {
+          if(this.w3 !== 22){
+            this.w3++;
+            this.w2--;
+          }else{
+            clearInterval(close);
+            this.rightPanel = true;
+          }
+        }, 10);
+      }
     }else{
-      const close = setInterval(() => {
-        if(this.w3 !== 22){
-          this.w3++;
-          this.w2--;
-        }else{
-          clearInterval(close);
-          this.rightPanel = true;
-        }
-      }, 10);
+      this.tool = name;
     }
   }
   Minitrade(){
