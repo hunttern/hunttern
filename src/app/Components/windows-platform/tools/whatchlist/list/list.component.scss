@@ -16,8 +16,9 @@ section{
             display: flex;
             gap: 0.5rem;
             button{
-                border: none;
+                color: #D6D6EE;
                 background-color: transparent;
+                border: none;
                 i{
                     color: #8282B2;
                 }
@@ -46,23 +47,32 @@ section{
                     }
                 }
             }
-            .lists{
-                position: absolute;
-                z-index: 100;
-                border-radius: 3px;
-                border: thin solid #7D7DB1;
-                list-style: none;
+        }
+        .lists{
+            position: absolute;
+            z-index: 200;
+            border-radius: 3px;
+            border: thin solid #7D7DB1;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            
+            padding: 0;
+            li{
+                background-color: $platformBackground;
+                padding: 0.5rem 1rem;
                 display: flex;
-                flex-direction: column;
-                
-                padding: 0;
-                li{
-                    background-color: $platformBackground;
-                    padding: 0.5rem;
-                    &:not(:last-child){
-                        border-bottom: thin solid #7D7DB1;
-                    }
+                align-items: center;
+                gap: 0.5rem;
+                &:not(:last-child){
+                    border-bottom: thin solid #7D7DB1;
                 }
+            }
+        }
+        .editWatchlist{
+            right: 2rem;
+            .columns{
+                right: 6.5rem;
             }
         }
     }
@@ -90,12 +100,7 @@ section{
             td{
                 padding: 00.5rem;
                 font-size: $secondary;
-            }
-            .symbol{
                 color: #D6D6EE;
-            }
-            .last, .vol{
-                color: #7D7DB1;
             }
             .change{
                 color: #28CD7E;

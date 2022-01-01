@@ -9,11 +9,21 @@
         </div>
         <div class="edit">
             <button><i class="material-icons">add</i></button>
-            <button mat-button [matMenuTriggerFor]="options"><i class="material-icons">more_horiz</i></button>
-            <mat-menu #options="matMenu">
-                <button mat-menu-item >Column</button>
-                <button mat-menu-item (click)="renameWatchlist()" >Rename watchlist</button>
-            </mat-menu>
+            <div>
+                <button mat-button (click)="openEditWatchlist()"><i class="material-icons">more_horiz</i></button>
+                <ul class="lists editWatchlist" *ngIf="editWatchlist">
+                    <li><button (click)="columnOpen = !columnOpen">Column</button></li>
+                    <ul class="lists columns" *ngIf="columnOpen">
+                        <li><input type="checkbox" checked (click)="last = !last">Last</li>
+                        <li><input type="checkbox" checked (click)="changePer = !changePer">Chg%</li>
+                        <li><input type="checkbox" checked (click)="vol = !vol">Vol</li>
+                        <li><input type="checkbox" (click)="change = !change">Chg</li>
+                    </ul>
+                    <li><button (click)="renameWatchlist()">Rename</button></li>
+                    <li><button>Imoport</button></li>
+                    <li><button>Export</button></li>
+                </ul>
+            </div>
         </div>
     </header>
     <body>
@@ -21,17 +31,19 @@
             <thead>
                 <tr class="head">
                     <th>Symbol</th>
-                    <th>Last</th>
-                    <th>Chg%</th>
-                    <th>Vol</th>
+                    <th *ngIf="last">Last</th>
+                    <th *ngIf="changePer">Chg%</th>
+                    <th *ngIf="vol">Vol</th>
+                    <th *ngIf="change">Chg</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let coin of watchlists[selectedwatchlist].coins; index as i" [ngClass]="{'active': selectedRow === i}" (click)="getSymbolChart(coin.symbol, i)">
-                    <td class="symbol">{{coin.symbol}}</td>
-                    <td class="last">{{coin.last}}</td>
-                    <td class="change">{{coin.change}}%</td>
-                    <td class="vol">{{coin.vol}}M</td>
+                    <td >{{coin.symbol}}</td>
+                    <td *ngIf="last">{{coin.last}}</td>
+                    <td class="change" *ngIf="changePer">{{coin.changePer}}%</td>
+                    <td *ngIf="vol">{{coin.vol}}M</td>
+                    <td *ngIf="change">{{coin.change}}</td>
                 </tr>
             </tbody>
         </table>
