@@ -15,17 +15,43 @@ section{
         background-color: #313029;
         color: rgb(160, 160, 160);
     }
-    body{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 2rem;
-        padding: 1rem;
-        background-color: #1d1d1d;
-        color: #fff;
-        span{
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+}
+body,mat-radio-group{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+    padding: 1rem;
+    background-color: transparent;
+}
+::ng-deep .custom-frame {
+    color: #fff !important;
+    & .mat-checkbox-background,
+    .mat-checkbox-frame {
+        border-color: #fff;
+    }
+}
+mat-expansion-panel{
+    background-color: $platformNotActive !important;
+}
+mat-expansion-panel-header{
+    background-color: $platformBorder !important;
+    mat-panel-title{
+        color: #fff !important;
+    }
+}
+mat-radio-button{
+    &.mat-radio-button{
+        &.mat-primary {
+            color: #fff !important;
         }
+        &.mat-accent {
+          color: #fff !important;
+        }
+        &.mat-warn {
+          color: #fff !important;
+        }
+        border-color: #fff !important;
+    }
+    &.mat-radio-outer-circle {
     }
 }

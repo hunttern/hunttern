@@ -13,11 +13,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { MatExpansionModule } from '@angular/material/expansion'
+import { MatRadioModule } from '@angular/material/radio'
 
 const materialComponents = [MatSlideToggleModule,MatButtonModule,MatCheckboxModule,MatMenuModule,
   MatDialogModule,MatFormFieldModule,MatInputModule,MatCardModule,MatIconModule,MatSelectModule,
-  MatPaginatorModule,MatTableModule,MatProgressSpinnerModule
+  MatPaginatorModule,MatTableModule,MatProgressSpinnerModule,MatExpansionModule,MatRadioModule
 ];
 
 @NgModule({

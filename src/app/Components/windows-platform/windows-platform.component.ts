@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { SettingsComponent } from './screener/settings/settings.component';
 
 @Component({
   selector: 'app-windows-platform',
   templateUrl: './windows-platform.component.html',
   styleUrls: ['./windows-platform.component.scss']
 })
-export class WindowsPlatformComponent { 
+export class WindowsPlatformComponent {
+  constructor(private modal: MatDialog) {}
   tool: string = 'inputs';
   h1: number = 95;
   h2: number = 5;
@@ -103,5 +106,9 @@ export class WindowsPlatformComponent {
         }
       }, 10);
     }
+  }
+
+  onSetting(){
+    const refDialog: MatDialogRef<SettingsComponent> = this.modal.open(SettingsComponent)
   }
 }

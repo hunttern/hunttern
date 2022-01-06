@@ -1,77 +1,33 @@
-<section>
-    <header>
-        <h3>Pattern Status</h3>
-    </header>
-    <body>
-        <span>
-            <input type="radio" name="pattern">
-            <label>all</label>
-        </span>
-        <span>
-            <input type="radio" name="pattern">
-            <label>Complete</label>
-        </span>
-        <span>
-            <input type="radio" name="pattern">
-            <label>Incomplete</label>
-        </span>
-        <span>
-            <input type="radio" name="pattern">
-            <label>mature</label>
-        </span>
-    </body>
-</section>
-<section>
-    <header>
-        <h3>Timeframe</h3>
-    </header>
-    <body>
-        <span>
-            <input type="checkbox" name="timeframe">
-            <label>M5</label>
-        </span>
-        <span>
-            <input type="checkbox" name="timeframe">
-            <label>M15</label>
-        </span>
-        <span>
-            <input type="checkbox" name="timeframe">
-            <label>M30</label>
-        </span>
-        <span>
-            <input type="checkbox" name="timeframe">
-            <label>H1</label>
-        </span>
-        <span>
-            <input type="checkbox" name="timeframe">
-            <label>H4</label>
-        </span>
-        <span>
-            <input type="checkbox" name="timeframe">
-            <label>D</label>
-        </span>
-        <span>
-            <input type="checkbox" name="timeframe">
-            <label>W</label>
-        </span>
-        <span>
-            <input type="checkbox" name="timeframe">
-            <label>M</label>
-        </span>
-    </body>
-</section>
-<section>
-    <header>
-        <h3>Stock</h3>
-    </header>
-    <body>
-        <span>
-            <input type="checkbox" name="asset">
-            <label>Crypto</label>
-        </span>
-        <span>
-            <input type="checkbox" name="asset">
-            <label>Future</label>
-        </span>
-    </body>
-</section>
+<mat-accordion>
+    <mat-expansion-panel hideToggle [expanded]="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>Timeframe</mat-panel-title>
+        </mat-expansion-panel-header>
+        <body>
+            <mat-checkbox class="custom-frame" [color]="" name="timeframe">M15</mat-checkbox>
+            <mat-checkbox class="custom-frame" name="timeframe">H1</mat-checkbox>
+            <mat-checkbox class="custom-frame" name="timeframe">H4</mat-checkbox>
+            <mat-checkbox class="custom-frame" name="timeframe">D1</mat-checkbox>
+        </body>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>Pattern Status</mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-radio-group>
+            <mat-radio-button value="complete">Complete</mat-radio-button>
+            <mat-radio-button value="completing">Completing</mat-radio-button>
+            <mat-radio-button value="prediction">Prediction</mat-radio-button>
+        </mat-radio-group>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>Stock</mat-panel-title>
+        </mat-expansion-panel-header>
+        <body>
+            <mat-checkbox class="custom-frame" [color]="" name="Market">Crypto</mat-checkbox>
+            <mat-checkbox class="custom-frame" name="Market">Forex</mat-checkbox>
+            <mat-checkbox class="custom-frame" name="Market">Stock</mat-checkbox>
+        </body>
+    </mat-expansion-panel>
+</mat-accordion>
