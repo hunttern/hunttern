@@ -9,7 +9,7 @@ import { AuthResponseData, User } from '../management/users.model';
 })
 export class AuthService {
 
-  private baseurl: string = 'http://195.248.243.186:5000/';
+  private baseurl: string = 'http://195.248.243.186:5000/api/Account/';
   
   constructor(private http: HttpClient) { }
 

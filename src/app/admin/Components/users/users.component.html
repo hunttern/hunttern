@@ -4,21 +4,25 @@
       <mat-table [dataSource]="usersList" matSort class="example-table">
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-        <ng-container matColumnDef="number">
-          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>#</mat-header-cell>
-          <mat-cell *matCellDef="let row">{{row.number}}</mat-cell>
+        <ng-container matColumnDef="email">
+          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.email}}</mat-cell>
         </ng-container>
-        <ng-container matColumnDef="title">
-          <mat-header-cell  *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
-          <mat-cell *matCellDef="let row">{{row.title}}</mat-cell>
+        <ng-container matColumnDef="emailConfirmed">
+          <mat-header-cell  *matHeaderCellDef mat-sort-header>Email Confirmed</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.emailConfirmed}}</mat-cell>
         </ng-container>
-        <ng-container matColumnDef="state">
-          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>State</mat-header-cell>
-          <mat-cell *matCellDef="let row">{{row.state}}</mat-cell>
+        <ng-container matColumnDef="id">
+          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
         </ng-container>
-        <ng-container matColumnDef="created">
-          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Created</mat-header-cell>
-          <mat-cell *matCellDef="let row">{{row.created_at | date}}</mat-cell>
+        <ng-container matColumnDef="phoneNumber">
+          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>PhoneNumber</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.phoneNumber}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="userName">
+          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>User Name</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.userName}}</mat-cell>
         </ng-container>
       </mat-table>
     </div>

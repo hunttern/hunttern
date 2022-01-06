@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Ifeature, Iplan } from '../Model/Ifeature.interface';
 import { FormGroup } from '@angular/forms';
 import { Iuser } from '../Model/IUser.model';
+import { Store } from '@ngrx/store';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ManagerService {
   private baseUrl: string = 'http://195.248.243.186:5000/api/';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private store: Store<any>) {}
   getFeatures(): Observable<Ifeature[]>{
     return this.http.get<Ifeature[]>(this.baseUrl+'Features');
   }
@@ -28,11 +29,19 @@ export class ManagerService {
     return this.http.delete(this.baseUrl+'Plans/'+`${id}`);
   }
   editPlan(id: string,newPlan: FormGroup){
-    console.log(id)
-    console.log(newPlan.value)
     return this.http.put(this.baseUrl+'Plans/'+`${id}`,newPlan.value);
   }
   getUsers(){
-    return this.http.get<Iuser[]>(this.baseUrl+'GetUsers');
+    const token = this.getToken();
+    var reqheader = new HttpHeaders().set("Authorization", `bearer ${token}`);
+    return this.http.get<Iuser[]>(this.baseUrl+'Account/GetUsers',{headers: reqheader});
+  }
+
+  getToken(){
+    let token: string = '';
+    this.store.select('auth').subscribe(data => {
+      token = data.user.localId;
+    });
+    return token;
   }
 }

@@ -1,8 +1,6 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
-import {Observable } from 'rxjs';
 import { Iuser } from '../../Model/IUser.model';
 import { ManagerService } from '../../services/manager.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -14,13 +12,15 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class UsersComponent implements AfterViewInit {
 
-  displayedColumns: string[] = ['created', 'state', 'number', 'title'];
-  usersList: MatTableDataSource<Iuser> = new MatTableDataSource(this.loadTokens());
+  displayedColumns: string[] = ['email', 'emailConfirmed', 'id', 'phoneNumber','userName'];
+  usersList: MatTableDataSource<Iuser>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private usersService: ManagerService) {}
+  constructor(private usersService: ManagerService) {
+    this.loadTokens();
+  }
   
   ngAfterViewInit() {
     this.usersList.paginator = this.paginator;
@@ -29,7 +29,11 @@ export class UsersComponent implements AfterViewInit {
   
   loadTokens() {
     let users: Iuser[] = [];
-    this.usersService.getUsers().subscribe(data => users = data);
-    return users;
+    this.usersService.getUsers().subscribe((data: any) => {
+      console.log("Data: ",data);
+      users = data.data;
+      this.usersList = new MatTableDataSource(users);
+    });
+    console.log("users : ",users);
   }
 }
