@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularSplitModule } from 'angular-split';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 import { AppComponent } from './app.component';
 
 import { HomeModule } from './home/home.module';
@@ -20,6 +22,7 @@ import { PlatformModule } from './Components/platform/platform.module';
 import { AdminModule } from './admin/admin.module';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,9 @@ import { StoreModule } from '@ngrx/store';
     AdminModule,
     EffectsModule.forRoot([]),
     StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument({
+      logOnly: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
