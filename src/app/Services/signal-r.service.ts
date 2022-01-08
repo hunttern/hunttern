@@ -6,6 +6,7 @@ import { ZigzagService } from '../Patterns/Services/zigzag.service';
 import { ReversalService } from '../Patterns/Services/reversal.service';
 import { HarmoonicService } from '../Patterns/Services/Prediction/harmoonic.service';
 import { PositionService } from '../Patterns/Services/Position/position.service';
+import { Store } from '@ngrx/store';
 import { BehaviorSubject } from 'rxjs';
 
 interface Ipatterns{
@@ -28,6 +29,7 @@ export class SignalRService {
   hubConnection: signalR.HubConnection;
   url: string = 'http://195.248.243.186:5000/TestHub';
   streams: any[] = [];
+  token = this.getToken();
 
   private _inputs: Ipatterns;
   private _harmonicpatterns: string[] = [];
@@ -36,13 +38,14 @@ export class SignalRService {
 
   constructor(private _drawHarmonic: HarmonicService, private _drawZigzag: ZigzagService,
      private _drawReversal: ReversalService, private _prediction: HarmoonicService,
-     private _drawPosition: PositionService
+     private _drawPosition: PositionService,
+     private store: Store<any> 
      ) {}
   _createSocket(interval: string) {
     const userId: string = patternClass.userId;
     const symbol: string = patternClass.Symbol;
     this.hubConnection = new signalR.HubConnectionBuilder()
-    .withUrl(this.url+`?uniqeId=${userId}&coin=${symbol}${interval}`)
+    .withUrl(this.url+`?uniqeId=${userId}&coin=${symbol}${interval}`,{accessTokenFactory: ()=> this.token})
     .build();
     
     this.hubConnection
@@ -59,20 +62,20 @@ export class SignalRService {
   subscribeOnStream(symbolInfo: any, resolution: any, onRealtimeCallback: any, subscribeUID: any, onResetCacheNeededCallback: any, interval: string) {
     this._createSocket(interval);
     this.hubConnection.on("RealTime", (msg: any) => {
-    let sData = msg;
+      let sData = msg;
     
-    if (sData && sData.Open) {
+      if (sData && sData.Open) {
         
-      let lastCandle: { Open: any,  OpenTime: any, Close: any, CloseTime: any, High: any, Low: any } = sData;
+        let lastCandle: { Open: any,  OpenTime: any, Close: any, CloseTime: any, High: any, Low: any } = sData;
 
-      let lastSocketData = {
-        time: new Date(lastCandle.OpenTime).valueOf(),
-        close: parseFloat(lastCandle.Close),
-        open: parseFloat(lastCandle.Open),
-        high: parseFloat(lastCandle.High),
-        low: parseFloat(lastCandle.Low),
-      }
-      onRealtimeCallback({...lastSocketData})
+        let lastSocketData = {
+          time: new Date(lastCandle.OpenTime).valueOf(),
+          close: parseFloat(lastCandle.Close),
+          open: parseFloat(lastCandle.Open),
+          high: parseFloat(lastCandle.High),
+          low: parseFloat(lastCandle.Low),
+        }
+        onRealtimeCallback({...lastSocketData})
       }
     });
   }
@@ -185,5 +188,12 @@ export class SignalRService {
       }
       // SignalRService.loading$.next(false);
     });
+  }
+  getToken(){
+    let token: string = '';
+    this.store.select('auth').subscribe(data => {
+      token = data.user.localId;
+    });
+    return token;
   }
 }

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularSplitModule } from 'angular-split';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +23,7 @@ import { AdminModule } from './admin/admin.module';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
+import { AuthInterceptorService } from './Components/login-register/Services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { environment } from 'src/environments/environment';
       logOnly: environment.production
     })
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService,multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

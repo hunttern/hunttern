@@ -11,30 +11,30 @@ import { Store } from '@ngrx/store';
 })
 export class ManagerService {
   private baseUrl: string = 'http://195.248.243.186:5000/api/';
+  token = this.getToken();
+  reqheader = new HttpHeaders().set("Authorization", `bearer ${this.token}`);
   constructor(private http: HttpClient,private store: Store<any>) {}
   getFeatures(): Observable<Ifeature[]>{
-    return this.http.get<Ifeature[]>(this.baseUrl+'Features');
+    return this.http.get<Ifeature[]>(this.baseUrl+'Features',{headers: this.reqheader});
   }
   getPlans(): Observable<Iplan[]>{
-    return this.http.get<Iplan[]>(this.baseUrl+'Plans');
+    return this.http.get<Iplan[]>(this.baseUrl+'Plans',{headers: this.reqheader});
   }
   addPlan(plan: FormGroup){
     const newPlan = plan.value;
-    return this.http.post(this.baseUrl+'Plans',plan.value);
+    return this.http.post(this.baseUrl+'Plans',plan.value,{headers: this.reqheader});
   }
   addFeature(feature: FormGroup){
-    return this.http.post(this.baseUrl+'Features',feature.value);
+    return this.http.post(this.baseUrl+'Features',feature.value,{headers: this.reqheader});
   }
   deletePlan(id: string){
-    return this.http.delete(this.baseUrl+'Plans/'+`${id}`);
+    return this.http.delete(this.baseUrl+'Plans/'+`${id}`,{headers: this.reqheader});
   }
   editPlan(id: string,newPlan: FormGroup){
-    return this.http.put(this.baseUrl+'Plans/'+`${id}`,newPlan.value);
+    return this.http.put(this.baseUrl+'Plans/'+`${id}`,newPlan.value,{headers: this.reqheader});
   }
   getUsers(){
-    const token = this.getToken();
-    var reqheader = new HttpHeaders().set("Authorization", `bearer ${token}`);
-    return this.http.get<Iuser[]>(this.baseUrl+'Account/GetUsers',{headers: reqheader});
+    return this.http.get<Iuser[]>(this.baseUrl+'Account/GetUsers',{headers: this.reqheader});
   }
 
   getToken(){

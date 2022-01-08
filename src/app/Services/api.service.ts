@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { IBasicDataFeed } from '../../assets/charting_library/charting_library';
 import { SignalRService } from './signal-r.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { patternClass } from '../Patterns/Patterns.class';
+import { Store } from '@ngrx/store';
 
 import { testData } from '../../Data/a';
 
@@ -14,8 +15,9 @@ export class ApiService implements IBasicDataFeed {
   symbols: any;
   url: string = 'http://195.248.243.186:5000/api/home/';
   interval: string = '5M';
-
-  constructor(public ws: SignalRService, private http: HttpClient ) {
+  token = this.getToken();
+  reqheader = new HttpHeaders().set("Authorization", `bearer ${this.token}`);
+  constructor(public ws: SignalRService, private http: HttpClient,private store: Store<any>) {
     this.symbols = testData.symbols;
   }
   // function convertTZ(date, tzString) {
@@ -46,7 +48,7 @@ export class ApiService implements IBasicDataFeed {
 
     const userId: string = patternClass.userId;
     this.interval = interval;
-    let timeframe;
+    
     switch(interval){
       case '5': this.interval = '5M'
       break;
@@ -62,7 +64,7 @@ export class ApiService implements IBasicDataFeed {
     }
     const newurl: string = this.url + patternClass.Symbol + this.interval;
     // console.log(symbol.base_name[0]);
-    return this.http.get(newurl+`?from=${startDate}&to=${endDate}&uniqeId=${userId}`);
+    return this.http.get(newurl+`?from=${startDate}&to=${endDate}&uniqeId=${userId}`,{headers: this.reqheader});
   }
   onReady(callback: any) {
     this.symbols = testData.symbols;
@@ -154,5 +156,12 @@ export class ApiService implements IBasicDataFeed {
     // minmov/pricescale will give the value of decimal places that will be shown on y-axis of the chart
     //
     onResolveErrorCallback('not found')
+  }
+  getToken(){
+    let token: string = '';
+    this.store.select('auth').subscribe(data => {
+      token = data.user.localId;
+    });
+    return token;
   }
 }
