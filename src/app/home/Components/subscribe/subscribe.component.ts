@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { EnrollmentService } from 'src/app/Services/enrollment.service';
 
 @Component({
   selector: 'app-subscribe',
@@ -7,8 +6,6 @@ import { EnrollmentService } from 'src/app/Services/enrollment.service';
   styleUrls: ['./subscribe.component.scss']
 })
 export class SubscribeComponent{
-
-  constructor(private enroll: EnrollmentService){}
 
   email: string;
   onSubmit(data: any){
