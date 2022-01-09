@@ -11,10 +11,11 @@ import { ServicesComponent } from './Components/services/services.component';
 import { ServiceComponent } from './Components/services/service/service.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { MarketsComponent } from './components/markets/markets.component';
+import { SubscribeComponent } from './components/subscribe/subscribe.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, HeaderComponent, ServicesComponent, ServiceComponent, AboutUsComponent, MarketsComponent],
+  declarations: [HomeComponent, HeaderComponent, ServicesComponent, ServiceComponent, AboutUsComponent, MarketsComponent, SubscribeComponent],
   imports: [
     CommonModule,
     SharedModule,
