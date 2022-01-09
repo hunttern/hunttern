@@ -6,11 +6,13 @@ import { RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home.component';
 import { SharedModule } from 'src/app/Shared/shared.module';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { ServicesComponent } from './Components/services/services.component';
+import { ServiceComponent } from './Components/services/service/service.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, HeaderComponent],
+  declarations: [HomeComponent, HeaderComponent, ServicesComponent, ServiceComponent],
   imports: [
     CommonModule,
     SharedModule,
