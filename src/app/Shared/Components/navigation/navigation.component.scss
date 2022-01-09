@@ -1,86 +1,41 @@
 @import "../../../../assets/styleSotrage/mixinss";
 @import "../../../../assets/styleSotrage/vars";
 
-* {
-    font-size: 19px;
-    line-height: 30px;
-    z-index: 2;
-}
 nav{
+    padding: 1rem 5rem;
     display: grid;
-    background-color: transparent;
-    grid-template-columns: "1fr 2fr 1fr";
-    grid-template-areas: "logo navigation login";
-    padding-top: 0.5rem;
-}
-#logo{
-    position: relative;
-    left: 2rem;
-    color: $maincolor;
-    display: flex;
-    grid-area: logo;
-    span{
-        margin-left: 0.5rem;
-        color: #191633;
-    }
-}
-#navigation{
-    grid-area: navigation;
-    ul{
-        @include center;
-        list-style: none;
-        flex-direction: row;
-        gap: 2rem;
+    grid-template-columns: 13fr 1fr;
+    .navigation{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        ul{
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
         a{
+            font-weight: 400;
+            font-size: 1.15em;
+            line-height: 30px;
             text-align: center;
+            color: #FFFFFF;
             text-decoration: none;
         }
     }
-}
-#login{
-    position: relative;
-    right: 2rem;
-    grid-area: login;
-    a{
-        position: relative;
-        float: right;
-        padding: 0.25rem 1.5rem;
-        border: none;
-        border-radius: 7px;
-        background-color: $maincolor;
-        color: #E9E8F7;
-        text-decoration: none;
-    }
-}
-@media (max-width: 426px){
-    nav{
-        grid-gap: 0.15rem;
-    }
-    #logo{
-        left: 0.5rem;
-        i{
-            font-size: 15px;
-        }
+    .login{
+        display: flex;
+        align-items: center;
         span{
-            font-size: 14px;
-        }
-    }
-    #navigation{
-        ul{
-            gap: 0.25rem;
-            li{
-                a{
-                    font-size: 12px;
-                    line-height: 18px;
-                }
+            background: rgba($color: #fff, $alpha: 0.1);
+            box-shadow: 0px 17px 40px rgba(0, 0, 0, 0.08);
+            padding: 0.75rem 2rem;
+            border-radius: 1.5rem;
+            a{
+                text-align: center;
+                color: #FFFFFF;
             }
-        }
-    }
-    #login{
-        right: 0.5rem;
-        a{
-            padding: 0.15rem 0.35rem;
-            font-size: 15px;
         }
     }
 }

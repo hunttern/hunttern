@@ -1,14 +1,17 @@
 <nav>
-    <div id="navigation">
+    <div class="navigation">
         <ul #links>
             <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/home']">Home</a></li>
             <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/features']">Blog</a></li>
             <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/platform']">Platform</a></li>
+            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/about']">MetaTrader</a></li>
             <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/about']">Privacy policy</a></li>
             <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/contact']">FAQ</a></li>
         </ul>
     </div>
-    <div id="login">
-        <a (click)="openLogin()">Start now</a>
+    <div class="login">
+        <span>
+            <a (click)="openLogin()">Login</a>
+        </span>
     </div>
 </nav>
