@@ -9,10 +9,11 @@ import { SharedModule } from 'src/app/Shared/shared.module';
 import { HeaderComponent } from './Components/header/header.component';
 import { ServicesComponent } from './Components/services/services.component';
 import { ServiceComponent } from './Components/services/service/service.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, HeaderComponent, ServicesComponent, ServiceComponent],
+  declarations: [HomeComponent, HeaderComponent, ServicesComponent, ServiceComponent, AboutUsComponent],
   imports: [
     CommonModule,
     SharedModule,
