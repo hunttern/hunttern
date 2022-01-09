@@ -1,0 +1,77 @@
+.header{
+    position: relative;
+    background: linear-gradient(-135deg, #0E0C1F, transparent 70%),linear-gradient(45deg, #0E0C1F, transparent 70%),
+                linear-gradient(135deg, #584ED6, transparent 70%),linear-gradient(-45deg, rgb(116, 24, 24), #584ED6 40%);
+    height: 100vh;
+}
+section{
+    padding: 7rem 9rem;
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    .content{
+        padding-right: 5rem;
+        display: grid;
+        gap: 1rem;
+        p{
+            padding-right: 5rem;
+            color: #fff;
+            font-size: 1.15em;
+            line-height: 30px;
+            font-weight: 100;
+            opacity: 0.75;
+        }
+        h1{
+            font-size: 4.25em;
+            line-height: 80px;
+            color: #fff;
+            font-weight: 700;
+            word-spacing: 0.1em;
+
+        }
+    }
+    .platform{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            margin-top: 2rem;
+            background: radial-gradient(100% 100% at 0% 0%, rgba(255, 255, 255, 0.29) 0%, rgba(255, 255, 255, 0.05) 100%);
+            box-shadow: inset -5px -5px 250px rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(42px);
+            /* Note: backdrop-filter has minimal browser support */
+            border-radius: 0.5rem;
+            transform: rotate(90deg);
+            width: 100%;
+            border: none;
+            object-fit: cover;
+            transform: rotate(0deg);
+        }
+    }
+    .buttons{
+        margin-top: 1rem;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        a{
+            box-shadow: 0px 17px 40px rgba(0, 0, 0, 0.08);
+            border-radius: 2rem;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            width: 11rem;
+            text-align: center;
+            font-size: 1em;
+            line-height: 30px;
+        }
+        .trade{
+            font-style: normal;
+            font-weight: 600;
+            line-height: 30px;
+            color: #0E0C1F;
+            background-color: #fff;
+        }
+        .admin{
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+    }
+}
