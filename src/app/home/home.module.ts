@@ -15,10 +15,12 @@ import { AboutUsComponent } from './Components/about-us/about-us.component';
 import { MarketsComponent } from './Components/markets/markets.component';
 import { SubscribeComponent } from './Components/subscribe/subscribe.component';
 import { FAQComponent } from './Components/faq/faq.component';
+import { PlansComponent } from './Components/plans/plans.component';
+import { PlanCardComponent } from './Components/plans/plan-card/plan-card.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, HeaderComponent, ServicesComponent, ServiceComponent, AboutUsComponent, MarketsComponent, SubscribeComponent, FAQComponent],
+  declarations: [HomeComponent, HeaderComponent, ServicesComponent, ServiceComponent, AboutUsComponent, MarketsComponent, SubscribeComponent, FAQComponent, PlansComponent, PlanCardComponent],
   imports: [
     CommonModule,
     RouterModule,

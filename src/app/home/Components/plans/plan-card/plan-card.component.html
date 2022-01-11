@@ -1,0 +1,16 @@
+<body [ngStyle]="{'background': customeStyle.background}">
+    <div class="header">
+        <h4>{{title}}</h4>
+        <h5>{{currencey}}{{price}}<label> / {{duration}}</label></h5>
+    </div>
+    <div class="body" [ngStyle]="{'background': customeStyle.background}">
+        <ul>
+            <li *ngFor="let option of options" [ngClass]="{unavailable: !option.available}">
+                <h5><i class="material-icons">done</i>{{option.description}}</h5>
+            </li>
+        </ul>
+    </div>
+    <div class="footer">
+        <button [ngStyle]="{'background-color': customeStyle.btnBackground, 'color': customeStyle.btnColor}">Purchase now</button>
+    </div>
+</body>

@@ -1,0 +1,19 @@
+section{
+    background-color: #0E0C1F;
+    padding: 3rem 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 110vh;
+    h2{
+        text-align: center;
+        font-size: 2em;
+        line-height: 25px;
+        color: #FFFFFF;
+    }
+    .plans{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+}
