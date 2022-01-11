@@ -1,0 +1,26 @@
+section{
+    padding: 5rem;
+    background-color: #131124;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    h2{
+        text-align: center;
+        font-size: 2.5em;
+        line-height: 30px;
+        color: #FFFFFF;
+    }
+    mat-accordion{
+        mat-expansion-panel{
+            background-color: #19182E !important;
+            margin-top: 1rem;
+        }
+        mat-expansion-panel-header{
+            mat-panel-title{
+                color: #fff !important;
+                font-size: 1.5em;
+                line-height: 25px;
+            }
+        }
+    }
+}
