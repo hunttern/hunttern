@@ -2,7 +2,7 @@
     position: relative;
     background: linear-gradient(-135deg, #0E0C1F, transparent 70%),linear-gradient(45deg, #0E0C1F, transparent 70%),
                 linear-gradient(135deg, #584ED6, transparent 70%),linear-gradient(-45deg, rgb(116, 24, 24), #584ED6 40%);
-    height: 100vh;
+    
 }
 section{
     padding: 7rem 9rem;
@@ -36,7 +36,6 @@ section{
             color: #fff;
             font-weight: 700;
             word-spacing: 0.1em;
-
         }
     }
     .platform{
@@ -83,5 +82,12 @@ section{
             color: #fff;
             background: rgba(255, 255, 255, 0.1);
         }
+    }
+}
+@media (max-width: 811px){
+    section{
+        padding: 3rem;
+        display: grid;
+        grid-template-columns: 1fr;
     }
 }

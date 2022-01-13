@@ -1,5 +1,5 @@
 <nav>
-    <div class="navigation">
+    <div class="navigation" [ngClass]="{'nav-active': navActive}">
         <ul #links>
             <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/home']">Home</a></li>
             <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/features']">Blog</a></li>
@@ -14,4 +14,7 @@
             <a (click)="openLogin()">Login</a>
         </span>
     </div>
+    <button class="burger" (click)="onBurger()">
+        <span class="material-icons">menu</span>
+    </button>
 </nav>

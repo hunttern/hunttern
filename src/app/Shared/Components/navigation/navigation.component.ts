@@ -12,11 +12,14 @@ import { LoginRegisterComponent } from 'src/app/Components/login-register/login-
 export class NavigationComponent{
 
   @Input() linkColor: string = '#191633';
-
+  navActive: boolean = false;
   constructor(private modal: NgbModal,private dialog: MatDialog) {}
 
   openLogin(){
     const dialogRef: MatDialogRef<LoginRegisterComponent> = this.dialog.open(LoginRegisterComponent);
     // const modalRef = this.modal.open(LoginRegisterComponent);
+  }
+  onBurger(){
+    this.navActive = !this.navActive;
   }
 }

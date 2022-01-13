@@ -38,11 +38,14 @@ footer{
                         align-items: center;
                         justify-content: center;
                         color: #2D2768;
-                        font-size: 1.5em;
+                        font-size: 1.75em;
                         border-radius: 50%;
                         background-color: #fff;
                         width: 1.5em;
                         height: 1.5em;
+                        &.fa-youtube{
+                            font-size: 1.45em;
+                        }
                     }
                 }
             }
@@ -73,6 +76,7 @@ footer{
             }
         }
     }
+    
     .rights{
         padding: 1rem;
         display: flex;
@@ -86,6 +90,34 @@ footer{
             border-top: thin solid #6D6A8B;
             width: 80%;
             text-align: center;
+        }
+    }
+}
+@media (max-width: 811px){
+    footer{
+        padding: 2rem 2rem 0 2rem;
+        gap: 1rem;
+        .description{
+            grid-area: description;
+        }
+        .menu{
+            grid-area: menu;
+        }
+        .services{
+            grid-area: services;
+        }
+        .information{
+            grid-area: information;
+        }
+        .contact{
+            grid-area: contact;
+        }
+        section{
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-template-areas: 
+            "description menu services"
+            "description information contact";
         }
     }
 }

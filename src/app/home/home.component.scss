@@ -1,3 +1,9 @@
-header{
-    background-color: transparent;
+body{
+    display: grid;
+    overflow-x: hidden;
+}
+@media (max-width: 811px){
+    body{
+        overflow-x: hidden;
+    }
 }

@@ -50,3 +50,28 @@ section{
         }
     }
 }
+@media (max-width: 811px){
+    section{
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        .content{
+            padding: 2rem;
+            ul{
+                padding: 0;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                list-style: none;
+                h5{
+                    font-size: 1.5em;
+                    line-height: 34px;
+                    color: #FFFFFF;
+                }
+                p{
+                    font-size: 0.75em;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+}

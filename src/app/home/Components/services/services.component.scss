@@ -4,7 +4,6 @@ section{
     padding: 5rem;
     gap: 2rem;
     background-color: #0E0C1F;
-    height: 150vh;
     .header{
         display: flex;
         flex-direction: column;
@@ -34,4 +33,22 @@ section{
         height: 100%;
         padding: 0 5rem;
     }
+}
+@media (max-width: 811px){
+    section{
+        display: flex;
+        flex-direction: column;
+        padding: 3rem 1rem;
+        .header{
+            padding: 0 5rem 0 5rem;
+        }
+        .services{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 2rem;
+            height: 100%;
+            padding: 0 5rem;
+        }
+    }   
 }
