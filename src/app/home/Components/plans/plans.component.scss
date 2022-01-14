@@ -16,10 +16,20 @@ section{
         gap: 1rem;
     }
 }
-@media (max-width: 811px){
+@media (max-width: 821px){
     section{
         display: grid;
         padding: 2rem;
+        width: 100vw;
     }
-
+}
+@media (max-width: 426px){
+    section{
+        width: 100vw;
+        .plans{
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+    }
 }

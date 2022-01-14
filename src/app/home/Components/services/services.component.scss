@@ -34,11 +34,12 @@ section{
         padding: 0 5rem;
     }
 }
-@media (max-width: 811px){
+@media (max-width: 821px){
     section{
         display: flex;
         flex-direction: column;
         padding: 3rem 1rem;
+        width: 100vw;
         .header{
             padding: 0 5rem 0 5rem;
         }
@@ -51,4 +52,22 @@ section{
             padding: 0 5rem;
         }
     }   
+}
+@media (max-width: 426px){
+    section{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        .header{
+            padding: 0 3rem;
+        }
+        .services{
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            height: 100%;
+            padding: 0 3rem;
+        }
+    }
 }

@@ -50,9 +50,10 @@ section{
         }
     }
 }
-@media (max-width: 811px){
+@media (max-width: 821px){
     section{
         padding: 2rem;
+        width: 100vw;
         display: flex;
         flex-direction: column;
         .content{
@@ -71,6 +72,19 @@ section{
                     font-size: 0.75em;
                     line-height: 20px;
                 }
+            }
+        }
+    }
+}
+@media (max-width: 426px){
+    section{
+        padding: 1rem;
+        width: 100vw;
+        .content{
+            padding: 1rem;
+            ul{
+                padding: 0;
+                grid-template-columns: 1fr;
             }
         }
     }

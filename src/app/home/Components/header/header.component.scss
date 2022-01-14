@@ -84,10 +84,44 @@ section{
         }
     }
 }
-@media (max-width: 811px){
+@media (max-width: 821px){
     section{
+        width: 100vw;
         padding: 3rem;
         display: grid;
         grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 426px){
+    section{
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100vw;
+        .content{
+            padding-right: 1rem;
+            h1{
+                padding-right: 0rem;
+                font-size: 3em;
+                line-height: 60px;
+            }
+            p{
+                padding-right: 2rem;
+                font-size: 0.75em;
+                line-height: 25px;     
+            }
+            .buttons{
+                padding: 1rem;
+                a{
+                    padding: 1rem;
+                    width: 8rem;
+                    font-size: 1em;
+                    line-height: 30px;
+                }
+            }
+        }
+    }
+    .header{
+        width: 100vw;
     }
 }

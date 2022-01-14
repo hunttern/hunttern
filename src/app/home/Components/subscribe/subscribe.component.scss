@@ -61,11 +61,26 @@ section{
         }
     }
 }
-@media (max-width: 811px){
+@media (max-width: 821px){
     section{
         padding: 2rem;
+        width: 100vw;
         form{
             width: 80%;
         }
     }
+}
+@media (max-width: 426px){
+    section{
+        padding: 1rem;
+        width: 100vw;
+        form{
+            width: 100%;
+            button{
+                font-size: 1em;
+                width: 30%;
+            }
+        }
+    }
+
 }
