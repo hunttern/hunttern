@@ -11,6 +11,18 @@ section{
         line-height: 30px;
         color: #FFFFFF;
     }
+    h3{
+        font-size: 1em;
+    }
+    body{
+        background-color: transparent;
+        border-left: thin #fff solid;
+        padding-left: 1rem;
+        p{
+            color: #fff;
+            font-size: 1em;
+        }
+    }
     mat-accordion{
         mat-expansion-panel{
             background-color: #19182E !important;
