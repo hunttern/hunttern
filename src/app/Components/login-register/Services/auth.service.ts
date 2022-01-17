@@ -9,14 +9,14 @@ import { AuthResponseData, User } from '../management/users.model';
 })
 export class AuthService {
 
-  private baseurl: string = 'http://195.248.243.186:5000/api/Account/';
+  private baseurl: string = 'http://hunttern.com/api/Account/';
 
   user = new BehaviorSubject<User|null>(null);
   
   constructor(private http: HttpClient) { }
 
-  login(data: FormGroup): Observable<AuthResponseData>{
-    return this.http.post<AuthResponseData>(this.baseurl+'login',data.value);
+  login(data: {email: string, password: string}): Observable<AuthResponseData>{
+    return this.http.post<AuthResponseData>(this.baseurl+'login',data);
   }
   register(data: FormGroup){
     const registerData = data.value;

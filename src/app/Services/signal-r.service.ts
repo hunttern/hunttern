@@ -27,7 +27,7 @@ export class SignalRService {
 
 
   hubConnection: signalR.HubConnection;
-  url: string = 'http://195.248.243.186:5000/TestHub';
+  url: string = 'http://hunttern.com/TestHub';
   streams: any[] = [];
   token = this.getToken();
 

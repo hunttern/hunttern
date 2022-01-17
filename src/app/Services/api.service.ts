@@ -13,7 +13,7 @@ import { testData } from '../../Data/a';
 export class ApiService implements IBasicDataFeed {
 
   symbols: any;
-  url: string = 'http://195.248.243.186:5000/api/home/';
+  url: string = 'http://hunttern.com/api/home/';
   interval: string = '5M';
   token = this.getToken();
   reqheader = new HttpHeaders().set("Authorization", `bearer ${this.token}`);
