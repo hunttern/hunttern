@@ -13,10 +13,12 @@ import { AUTH_STATE_NAME } from './management/user.selector';
 import { AuthReducer } from './management/user.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './management/auth.effects';
-import { MaterialsModule } from 'src/app/Shared/materials/materials.module';
 import { SharedModule } from 'src/app/Shared/shared.module';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatIconModule } from '@angular/material/icon';
+
+const materials = [MatSnackBarModule,MatIconModule];
 @NgModule({
   declarations: [LoginRegisterComponent, ForgetComponent, LoginComponent, RegisterComponent],
   imports: [
@@ -24,9 +26,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MaterialsModule,
     SharedModule,
-    MatSnackBarModule,
+    materials,
     EffectsModule.forFeature([AuthEffects]),
     StoreModule.forFeature(AUTH_STATE_NAME, AuthReducer)
   ],

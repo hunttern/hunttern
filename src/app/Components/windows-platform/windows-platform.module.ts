@@ -5,7 +5,6 @@ import { AngularSplitModule } from 'angular-split';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { ChartModule } from 'src/app/Chart/chart.module';
-import { MaterialsModule } from 'src/app/Shared/materials/materials.module';
 
 import { WindowsPlatformComponent } from './windows-platform.component';
 import { InputsComponent } from './inputs/inputs.component';
@@ -28,6 +27,15 @@ import { ClassicComponent } from './inputs/classic/classic.component';
 import { RowDirective } from './row.directive';
 import { ColDirective } from './col.directive';
 
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+
+const materials = [MatSlideToggleModule,MatButtonModule,MatFormFieldModule,MatRadioModule,MatExpansionModule,MatCheckboxModule,MatDialogModule];
 @NgModule({
   declarations: [WindowsPlatformComponent, InputsComponent, TabComponent, StrategyComponent, TradingComponent,
      ToolsComponent, WhatchlistComponent, ListComponent, InformationComponent, PerformanceComponent,
@@ -39,7 +47,7 @@ import { ColDirective } from './col.directive';
     RouterModule,
     ReactiveFormsModule,
     ChartModule,
-    MaterialsModule
+    materials
   ],
   exports: [WindowsPlatformComponent]
 })

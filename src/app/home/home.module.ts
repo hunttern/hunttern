@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { MaterialsModule } from 'src/app/Shared/materials/materials.module';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 import { SharedModule } from '../Shared/shared.module';
 
 import { HomeComponent } from './home.component';
@@ -18,13 +19,13 @@ import { FAQComponent } from './Components/faq/faq.component';
 import { PlansComponent } from './Components/plans/plans.component';
 import { PlanCardComponent } from './Components/plans/plan-card/plan-card.component';
 
-
+const materials = [MatExpansionModule];
 @NgModule({
   declarations: [HomeComponent, HeaderComponent, ServicesComponent, ServiceComponent, AboutUsComponent, MarketsComponent, SubscribeComponent, FAQComponent, PlansComponent, PlanCardComponent],
   imports: [
     CommonModule,
     RouterModule,
-    MaterialsModule,
+    materials,
     SharedModule,
     ReactiveFormsModule
   ],

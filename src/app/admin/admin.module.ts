@@ -9,9 +9,16 @@ import { PlanCardComponent } from './Components/plan-card/plan-card.component';
 import { EditModalComponent } from './Components/plan-card/edit-modal/edit-modal.component';
 import { FeaturesComponent } from './Components/features/features.component';
 
-import { MaterialsModule } from '../Shared/materials/materials.module';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+
 import { UsersComponent } from './Components/users/users.component';
 
+const materials = [MatCardModule,MatPaginatorModule,MatTableModule,MatSelectModule,MatCheckboxModule,MatFormFieldModule];
 
 @NgModule({
   declarations: [AdminComponent, PlansComponent, PlanCardComponent, EditModalComponent, FeaturesComponent, UsersComponent],
@@ -19,7 +26,7 @@ import { UsersComponent } from './Components/users/users.component';
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
-    MaterialsModule
+    materials
   ]
 })
 export class AdminModule { }
