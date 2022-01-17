@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { AngularSplitModule } from 'angular-split';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { ChartModule } from 'src/app/Chart/chart.module';
@@ -43,7 +42,6 @@ const materials = [MatSlideToggleModule,MatButtonModule,MatFormFieldModule,MatRa
       ProfileComponent, DialogComponent, CandleComponent, ClassicComponent],
   imports: [
     CommonModule,
-    AngularSplitModule,
     RouterModule,
     ReactiveFormsModule,
     ChartModule,

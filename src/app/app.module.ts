@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AngularSplitModule } from 'angular-split';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -35,11 +33,9 @@ import { AppState } from './State/app.state';
     AppRoutingModule,
     NoopAnimationsModule,
     BrowserAnimationsModule,
-    NgxChartsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularSplitModule,
     SharedModule,
     HomeModule,
     LoginRegisterModule,
