@@ -1,4 +1,4 @@
-<div [ngSwitch]="form">
+<div class="form" [ngSwitch]="form">
     <div *ngSwitchCase="'login'">
         <app-login (page)="changePage($event)"></app-login>
     </div>
@@ -7,5 +7,8 @@
     </div>
     <div *ngSwitchCase="'register'">
         <app-register (page)="changePage($event)"></app-register>
+    </div>
+    <div class="loading" *ngIf="loading$ | async">
+        <app-loading></app-loading>
     </div>
 </div>

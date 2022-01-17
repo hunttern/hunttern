@@ -1,8 +1,8 @@
 import { User } from "./users.model";
 
-interface AuthState{
+export interface AuthState{
     user: User | null;
 }
-export const initailState = {
+export const initailState: AuthState = {
     user: null
 };

@@ -24,6 +24,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
 import { AuthInterceptorService } from './Components/login-register/Services/auth-interceptor.service';
+import { AppState } from './State/app.state';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { AuthInterceptorService } from './Components/login-register/Services/aut
     PlatformModule,
     AdminModule,
     EffectsModule.forRoot([]),
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(AppState),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
     })

@@ -4,6 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 
 import { Store } from '@ngrx/store';
+import { setLoading } from 'src/app/Shared/state/shared.action';
 import { LoginRegisterComponent } from '../login-register.component';
 import { loginStart } from '../management/user.action';
 import { User } from '../management/users.model';
@@ -14,16 +15,18 @@ import { User } from '../management/users.model';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  hide = true;
   constructor(private builder: FormBuilder,private dialog: MatDialogRef<LoginRegisterComponent>,private store: Store<{user: User}>){}
   @Output() page: EventEmitter<string> = new EventEmitter();
   loginForm: FormGroup = this.builder.group({
-    fullname: ['', Validators.required],
     email: ['', Validators.required],
     password: ['', Validators.required],
   })
 
   onSubmit(){
-    this.store.dispatch(loginStart({loginForm: this.loginForm}));
+    const data = {email: this.loginForm.value.email, password: this.loginForm.value.password};
+    this.store.dispatch(setLoading({status: true}));
+    this.store.dispatch(loginStart({loginForm: data}));
     this.dialog.close();
   }
   navigate(page: string){
