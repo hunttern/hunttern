@@ -27,7 +27,7 @@ export class AuthService {
   }
   formatUser(data: any){
     // const expDate = new Date(new Date().getTime() + +data.exireDate * 1000);
-    const user = new User(data.data.refreshToken,data.data.accessToken);
+    const user = new User(data.data.token.refreshToken,data.data.token.accessToken, data.data.roles);
     this.user.next(user);
     return user;
   }

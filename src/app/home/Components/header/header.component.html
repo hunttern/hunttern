@@ -7,7 +7,7 @@
             <p>Hunttern has this ability to find and predict all the harmonic patterns in the market with a smart algorithm for you.</p>
             <div class="buttons">
                 <a class="trade" [routerLink]="['/platform']">Start Trade</a>
-                <a class="admin" [routerLink]="['/routePath']" routerLinkActive="router-link-active">Admin</a>
+                <a class="admin" [routerLink]="['/routePath']" routerLinkActive="router-link-active" *ngIf="(flag$ | async) === 'Admin'" >Admin</a>
             </div>
         </div>
         <div class="platform">

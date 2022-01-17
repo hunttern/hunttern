@@ -7,7 +7,7 @@ import { catchError, exhaustMap, map } from "rxjs/operators";
 import { setErrorMessage, setLoading } from "src/app/Shared/state/shared.action";
 import { iAppState } from "src/app/State/app.state";
 import { AuthService } from "../Services/auth.service";
-import { loginStart, loginSuccess } from "./user.action";
+import { loginStart, loginSuccess, setRole } from "./user.action";
 
 @Injectable()
 export class AuthEffects {
@@ -18,8 +18,9 @@ export class AuthEffects {
             exhaustMap((action) => {
                 return this.authService.login(action.loginForm).pipe(
                     map((data) => {
-                        this.store.dispatch(setLoading({status: false}));
                         const user = this.authService.formatUser(data);
+                        this.store.dispatch(setLoading({status: false}));
+                        this.store.dispatch(setRole({role: data.role}));
                         return loginSuccess({user: user});
                     }),
                     catchError((errResp) => {
