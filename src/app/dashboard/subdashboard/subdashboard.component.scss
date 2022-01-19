@@ -1,0 +1,92 @@
+@import "../../../assets/styleSotrage/colors";
+@import "../../../assets/styleSotrage/mixinss";
+body{
+    header{
+        border-bottom: solid 0.01rem $darkPlatformBorderColor;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 1rem 2rem;
+        .profile{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $darkPlatformFontColor;
+            background-color: $darkPlatformBackgroundColor;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+        .tools{
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            align-items: center;
+            > div{
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+                align-items: center;
+                .data{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.1rem;
+                }
+            }
+        }
+    }
+    section{
+        padding: 2rem;
+        .cards{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .card{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            padding: 1rem;
+            border: solid #333 thin;
+            border-radius: 7px;
+            h4{
+                text-align: center;
+            }
+            i{
+                display: flex;
+                line-height: 30px;
+            }
+        }
+    }
+}
+section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    .info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+        button{
+            background-color: $darkPlatformBorderColor;
+            color: $darkPlatformFontColor;
+            width: 20%;
+            border: none;
+            border-radius: 7px;
+            padding: 0.5rem;
+        }
+    }
+}
+@media (max-width: 426px){
+    body{
+        > header{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+    }
+}

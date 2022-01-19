@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { LoginRegisterComponent } from 'src/app/Components/login-register/login-register.component';
+import { LoginRegisterComponent } from '../../../Auth/login-register.component';
 
 @Component({
   selector: 'app-navigation',

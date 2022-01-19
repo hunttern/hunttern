@@ -1,0 +1,105 @@
+@import '../../assets/styleSotrage/colors';
+@mixin col {
+    display: flex;
+    flex-direction: column;
+}
+body{
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+}
+nav{
+    height: 100%;
+    background-color: #13102C;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 3rem;
+    .userinformation{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        span{
+            width: 80px;
+            height: 80px;
+            border: none;
+            border-radius: 7px;
+            background-color: $darkPlatformBorderColor;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $darkPlatformFontColor;
+        }
+        h2{
+            color: #D6D6EE;
+        }
+    }
+    .navigation{
+        ul{
+            a{
+                display: flex;
+                gap:0.5rem;
+            }
+            @include col;
+            gap: 1.5rem;
+            padding:3rem;
+            list-style: none;
+            li{
+                a{
+                    color: #7D7DB1;
+                    text-decoration: none;
+                    &.active{
+                        color: #7146EB;
+                    }
+                }
+            }
+            .logout{
+                margin-top: 4rem;
+                a{
+                    color: #F3455A;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 426px){
+    .sidebar{
+        height: 40vh;
+        gap: 1rem;
+        .userinformation{
+            margin-top: 2rem;
+            img{
+                width: 50px;
+                height: 50px;
+            }
+            h2{
+                font-size: 18px;
+                line-height: 30px;
+            }
+            h4{
+                font-size: 12px;
+                line-height: 20px;
+            }
+        }
+        .navigation{
+            ul{
+                display: flex;
+                flex-direction: row;
+                gap: 0.25rem;
+                padding:1rem;
+                li{
+                    font-size: 12px;
+                    i{
+                        display: none;
+                    }
+                }
+                .logout{
+                    margin-top: 0;
+                }
+            }
+            
+        }
+    }
+}

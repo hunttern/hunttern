@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 interface iOption {
   description: string;
@@ -10,7 +10,7 @@ interface iOption {
   templateUrl: './plans.component.html',
   styleUrls: ['./plans.component.scss']
 })
-export class PlansComponent implements OnInit {
+export class PlansComponent {
 
   constructor() { }
   optionsCard1: iOption[] = [
@@ -40,7 +40,5 @@ export class PlansComponent implements OnInit {
     btnColor: '#0E0C1F',
     bodyBackground: 'background: linear-gradient(156.9deg, #5046C9 5.22%, #7268E7 93.52%)'
   };
-  ngOnInit(): void {
-  }
 
 }

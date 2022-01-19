@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { getUserRole } from 'src/app/Components/login-register/management/user.selector';
-import { AuthState } from 'src/app/Components/login-register/management/user.state';
+import { getUserRole } from 'src/app/Auth/management/user.selector';
+import { AuthState } from 'src/app/Auth/management/user.state';
 
 @Component({
   selector: 'app-header',

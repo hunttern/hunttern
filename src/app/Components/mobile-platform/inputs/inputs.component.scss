@@ -1,9 +1,0 @@
-@import '../../../../assets/styleSotrage/vars';
-.hidescroll::-webkit-scrollbar{
-    display: none;
-}
-.hidescroll {
-    background-color: $platformBackground;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}

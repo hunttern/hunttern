@@ -1,17 +1,8 @@
-@font-face {
-    font-family: "Jakarta";
-    src: local("Jakarta"), url(./assets/Fonts/PlusJakartaSans-Regular.ttf) format("truetype");
-}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Jakarta;
-    font-style: normal;
 }
 a:hover{
     cursor: pointer;
 }
-
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
