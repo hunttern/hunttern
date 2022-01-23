@@ -16,6 +16,7 @@ export class PlanCardComponent {
   @Input() price: number = 0;
   @Input() currencey: string = '';
   @Input() duration: string = '';
+  @Input() soon: boolean = false;
   @Input() options: iOption[] = [];
   @Input() customeStyle = {
     background: '#18152D',

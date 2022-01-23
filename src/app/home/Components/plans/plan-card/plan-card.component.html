@@ -1,6 +1,7 @@
 <body [ngStyle]="{'background': customeStyle.background}">
     <div class="header">
         <h4>{{title}}</h4>
+        <h5 *ngIf="soon">soon</h5>
         <h5>{{currencey}}{{price}}<label> / {{duration}}</label></h5>
     </div>
     <div class="body" [ngStyle]="{'background': customeStyle.background}">

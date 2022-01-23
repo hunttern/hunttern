@@ -12,6 +12,12 @@
         h3{
             font-size: 1.25em;
             color: #FFFFFF;
+            display: flex;
+            justify-content: space-between;
+            label{
+                font-size: 0.75em;
+                
+            }
         }
         p{
             font-weight: 100;

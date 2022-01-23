@@ -13,6 +13,8 @@ export class NavigationComponent{
 
   @Input() linkColor: string = '#191633';
   navActive: boolean = false;
+  product: boolean = false;
+
   constructor(private modal: NgbModal,private dialog: MatDialog) {}
 
   openLogin(){
@@ -21,5 +23,8 @@ export class NavigationComponent{
   }
   onBurger(){
     this.navActive = !this.navActive;
+  }
+  scroll(el: string){
+    document.getElementById(el)?.scrollIntoView({behavior:"smooth"});
   }
 }

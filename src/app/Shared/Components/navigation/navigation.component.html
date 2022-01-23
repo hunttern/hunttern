@@ -1,12 +1,19 @@
 <nav>
     <div class="navigation" [ngClass]="{'nav-active': navActive}">
         <ul #links>
-            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/home']">Home</a></li>
-            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/features']">Blog</a></li>
+            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/home']">Blog</a><label>soon</label></li>
             <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/platform']">Platform</a></li>
-            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/about']">MetaTrader</a></li>
-            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/about']">Privacy policy</a></li>
-            <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/contact']">FAQ</a></li>
+            <li><a (click)="scroll('feature')">Features</a></li>
+            <li><a (click)="scroll('plans')">Pricing</a></li>
+            <li class="product">
+                <a (click)="product = !product">Product</a>
+                <label>soon</label>
+                <ul *ngIf="product">
+                    <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/about']">TelegramBot</a></li>
+                    <li><a [ngStyle]="{'color': linkColor}" [routerLink]="['/about']">MetaTrader</a></li>
+                </ul>
+            </li>
+            <li><a (click)="scroll('faq')">FAQ</a></li>
         </ul>
     </div>
     <div class="login">

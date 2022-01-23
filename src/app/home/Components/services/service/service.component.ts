@@ -10,5 +10,6 @@ export class ServiceComponent {
   @Input() title: string = '';
   @Input() content: string = '';
   @Input() imgUrl: string = '';
+  @Input() soon: boolean = false;
 
 }
