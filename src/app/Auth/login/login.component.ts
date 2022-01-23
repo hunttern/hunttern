@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 
 import { Store } from '@ngrx/store';
@@ -20,14 +21,13 @@ export class LoginComponent {
   @Output() page: EventEmitter<string> = new EventEmitter();
   loginForm: FormGroup = this.builder.group({
     email: ['', Validators.required],
-    password: ['', Validators.required],
+    password: ['', Validators.required]
   })
 
   onSubmit(){
     const data = {email: this.loginForm.value.email, password: this.loginForm.value.password};
     this.store.dispatch(setLoading({status: true}));
     this.store.dispatch(loginStart({loginForm: data}));
-    this.dialog.close();
   }
   navigate(page: string){
     this.page.emit(page);

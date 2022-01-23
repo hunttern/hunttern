@@ -11,7 +11,8 @@ import { checkPassword } from './Custome';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent{
-  
+  hide1 = true;
+  hide2 = true;
   constructor(private builder: FormBuilder,private dialog: MatDialogRef<LoginRegisterComponent>,private registerService: AuthService){}
   @Output() page: EventEmitter<string> = new EventEmitter();
   registerForm = this.builder.group({

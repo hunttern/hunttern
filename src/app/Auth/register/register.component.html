@@ -23,13 +23,21 @@
             <div>
                 <label>Password :</label>
                 <div class="input">
-                    <i class="material-icons">lock</i><input type="password" formControlName="password" name="password"><i class="material-icons">visibility</i>
+                    <i class="material-icons">lock</i>
+                    <input matInput [type]="hide1 ? 'password' : 'text'" formControlName="password" name="password">
+                    <i (click)="hide1 = !hide1">
+                        <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </i>
                 </div>
             </div>
             <div>
                 <label>Confirm Password :</label>
                 <div class="input">
-                    <i class="material-icons">lock</i><input type="password" formControlName="confirmPassword" name="confirmPassword"><i class="material-icons">visibility</i>
+                    <i class="material-icons">lock</i>
+                    <input matInput [type]="hide2 ? 'password' : 'text'" formControlName="confirmPassword" name="confirmPassword">
+                    <i (click)="hide2 = !hide2">
+                        <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </i>
                 </div>
             </div>
         </div>

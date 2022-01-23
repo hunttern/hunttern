@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
 import { of } from "rxjs";
@@ -11,7 +12,7 @@ import { loginStart, loginSuccess, setRole } from "./user.action";
 
 @Injectable()
 export class AuthEffects {
-    constructor(private actions$: Actions,private authService: AuthService,private store: Store<iAppState>,private _snackBar: MatSnackBar) {}
+    constructor(private actions$: Actions,private authService: AuthService,private store: Store<iAppState>,private _snackBar: MatSnackBar,private router: Router) {}
     login$ = createEffect(() => {
         return this.actions$.pipe(
             ofType(loginStart),
@@ -21,6 +22,7 @@ export class AuthEffects {
                         const user = this.authService.formatUser(data);
                         this.store.dispatch(setLoading({status: false}));
                         this.store.dispatch(setRole({role: data.role}));
+                        this.router.navigate(['/platform']);
                         return loginSuccess({user: user});
                     }),
                     catchError((errResp) => {
