@@ -8,7 +8,7 @@ import { catchError, exhaustMap, map } from "rxjs/operators";
 import { setErrorMessage, setLoading } from "src/app/Shared/state/shared.action";
 import { iAppState } from "src/app/State/app.state";
 import { AuthService } from "../Services/auth.service";
-import { loginStart, loginSuccess, setRole } from "./user.action";
+import { loginStart, loginSuccess, registerStart, setRole } from "./user.action";
 
 @Injectable()
 export class AuthEffects {
@@ -41,4 +41,20 @@ export class AuthEffects {
             })
         );
     });
+    register$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(registerStart),
+            exhaustMap((action) => {
+                return this.authService.register(action.registerForm).pipe(
+                    map((data: any) => {
+                        const user = this.authService.formatUser(data);
+                        this.store.dispatch(setLoading({status: false}));
+                        this.store.dispatch(setRole({role: data.role}));
+                        this.router.navigate(['/platform']);
+                        return loginSuccess({user: user});
+                    })
+                )
+            })
+        )
+    })
 }

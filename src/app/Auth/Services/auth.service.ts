@@ -16,9 +16,8 @@ export class AuthService {
   login(data: {email: string, password: string}): Observable<AuthResponseData>{
     return this.http.post<AuthResponseData>(this.baseurl+'login',data);
   }
-  register(data: FormGroup){
-    const registerData = data.value;
-    return this.http.post(this.baseurl+'register',registerData);
+  register(data: {email: string, password: string}){
+    return this.http.post(this.baseurl+'register',data);
   }
   forget(data: any){
     return this.http.post(this.baseurl+'forget',data);

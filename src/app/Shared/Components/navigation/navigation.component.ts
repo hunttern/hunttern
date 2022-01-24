@@ -18,7 +18,13 @@ export class NavigationComponent{
   constructor(private modal: NgbModal,private dialog: MatDialog) {}
 
   openLogin(){
-    const dialogRef: MatDialogRef<LoginRegisterComponent> = this.dialog.open(LoginRegisterComponent);
+    const dialogRef: MatDialogRef<LoginRegisterComponent> = this.dialog.open(LoginRegisterComponent,{
+      maxHeight: '90vh',
+      panelClass: 'dialog',
+      position: {
+        top: '5%'
+      }
+    });
     // const modalRef = this.modal.open(LoginRegisterComponent);
   }
   onBurger(){
