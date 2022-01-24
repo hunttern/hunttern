@@ -4,8 +4,16 @@
 nav{
     padding: 1rem 5rem;
     display: grid;
-    grid-template-columns: 13fr 1fr;
+    grid-template-columns: 1fr 12fr 1fr;
     position: relative;
+    h2{
+        z-index: 100;
+        font-size: 1.75em;
+        display: flex;
+        align-items: center;
+        color: #F76F72;
+        letter-spacing: 0.25rem;
+    }
     .navigation{
         z-index: 100;
         display: flex;
