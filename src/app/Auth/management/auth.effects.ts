@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
@@ -7,12 +8,14 @@ import { of } from "rxjs";
 import { catchError, exhaustMap, map } from "rxjs/operators";
 import { setErrorMessage, setLoading } from "src/app/Shared/state/shared.action";
 import { iAppState } from "src/app/State/app.state";
+import { LoginRegisterComponent } from "../login-register.component";
 import { AuthService } from "../Services/auth.service";
 import { loginStart, loginSuccess, registerStart, setRole } from "./user.action";
 
 @Injectable()
 export class AuthEffects {
-    constructor(private actions$: Actions,private authService: AuthService,private store: Store<iAppState>,private _snackBar: MatSnackBar,private router: Router) {}
+    constructor(private actions$: Actions,private authService: AuthService,private store: Store<iAppState>,
+        private _snackBar: MatSnackBar,private router: Router,private dialog: MatDialog) {}
     login$ = createEffect(() => {
         return this.actions$.pipe(
             ofType(loginStart),
@@ -22,6 +25,7 @@ export class AuthEffects {
                         const user = this.authService.formatUser(data);
                         this.store.dispatch(setLoading({status: false}));
                         this.store.dispatch(setRole({role: data.role}));
+                        this.dialog.closeAll();
                         this.router.navigate(['/platform']);
                         return loginSuccess({user: user});
                     }),
