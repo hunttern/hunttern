@@ -1,6 +1,8 @@
 @import '../../../../../assets/styleSotrage/vars';
+@import '../../../../../assets/styleSotrage/colors';
 .main{
     height: 100%;
+    background-color: $darkPlatformBackgroundColor;
     .list{
         overflow-x: hidden;
         position: relative;

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { fromEvent } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { SettingsComponent } from './screener/settings/settings.component';
 
 @Component({
@@ -8,26 +10,53 @@ import { SettingsComponent } from './screener/settings/settings.component';
   styleUrls: ['./windows-platform.component.scss']
 })
 export class WindowsPlatformComponent {
-  constructor(private modal: MatDialog) {}
+  constructor(private modal: MatDialog) {
+    const windowSize = fromEvent(window, 'resize').pipe(
+      tap((size: any) => {
+        if(size.target.innerWidth < 450){
+          this.w3 = 10;
+          this.w1 = 90;
+          this.maxTrade = 30;
+          this.maxTool = 50;
+          console.log('1')
+        }else if(size.target.innerWidth < 821){
+          this.w3 = 5;
+          this.w1 = 95;
+          this.maxTrade = 30;
+          this.maxTool = 25;
+          console.log('2')
+        }else{
+          this.w3 = 3;
+          this.w1 = 97;
+          this.maxTrade = 41;
+          this.maxTool = 22;
+          console.log('3')
+        }
+      })
+    ).subscribe();
+  }
   tool: string = 'inputs';
   h1: number = 95;
   h2: number = 5;
 
-  w1: number = 0;
-  w2: number = 100;
-  w3: number = 0;
+  w1: number = 97;
+  w2: number = 0;
+  w3: number = 3;
   
   rightPanel: boolean = false;
   screener: boolean = true;
+
+  maxTrade: number = 41;
+  maxTool: number = 22;
   
   setTool(name: string){
     
     if(this.tool === name){
       if(this.rightPanel){
         const close = setInterval(() => {
-          if(this.w3 !== 0){
-            this.w3--;
-            this.w2++;
+          if(this.w2 !== 0){
+            this.w2--;
+            this.w1++;
           }else{
             this.rightPanel = false;
             clearInterval(close);
@@ -35,9 +64,9 @@ export class WindowsPlatformComponent {
         }, 10);
       }else{
         const close = setInterval(() => {
-          if(this.w3 !== 22){
-            this.w3++;
-            this.w2--;
+          if(this.w2 !== this.maxTool){
+            this.w2++;
+            this.w1--;
           }else{
             clearInterval(close);
             this.rightPanel = true;
@@ -62,7 +91,7 @@ export class WindowsPlatformComponent {
   Maxitrade(){
     const open = setInterval(() => {
       this.screener = false;
-      if(this.h2 < 41){
+      if(this.h2 < this.maxTrade){
         this.h2++;
         this.h1--;
       }else{
@@ -71,41 +100,14 @@ export class WindowsPlatformComponent {
     },10);
   }
   setPerY1(result: any){
-    this.h1 = result - 3;
-    this.h2 = 100 - result;
+    this.h1 = result - 2;
+    this.h2 = 100 - this.h1;
+    this.screener = this.h2 < 5 ? true : false;
   }
-  setPerX1(result: any){
-    this.w1 = result;
-    this.w2 = 97 - result - this.w3;
-    if(result === 0){
-      this.w1 = 0;
-      this.w2 == 97 - this.w3
-    }
-  }
+  
   setPerX2(result: any){
-    this.w3 = 98 - result;
-    this.w2 = result - this.w1;
-  }
-  openInputPanel(open: boolean){
-    if(open){
-      const close = setInterval(() => {
-        if(this.w1 !== 0){
-          this.w1--;
-          this.w2++;
-        }else{
-          clearInterval(close);
-        }
-      }, 10);
-    }else{
-      const close = setInterval(() => {
-        if(this.w1 < 20){
-          this.w1++;
-          this.w2--;
-        }else{
-          clearInterval(close);
-        }
-      }, 10);
-    }
+    this.w1 = result -2 ;
+    this.w2 = 100 - this.w3 - this.w1;
   }
 
   onSetting(){

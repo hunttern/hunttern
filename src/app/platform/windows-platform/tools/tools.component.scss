@@ -8,17 +8,20 @@ nav{
     align-items: center;
     gap: 2rem;
     padding-top: 3rem;
+    background-color: $platformBackground;
+    border-left: 0.1rem $platformBorder solid;
+    
     ul{
         list-style: none;
         display: grid;
+        padding: 0;
         gap: 2rem;
     }
     li{
         position: relative;
-        left: -1rem;
         i{
             cursor: pointer;
-            font-size: 30px;
+            font-size: 2rem;
             color: #40406D;
 
         }
@@ -66,4 +69,7 @@ nav{
             }
         }
     }
+}
+@media (max-width: 821px){
+    
 }

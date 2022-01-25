@@ -7,10 +7,8 @@ import { ChartModule } from 'src/app/platform/Chart/chart.module';
 
 import { WindowsPlatformComponent } from './windows-platform.component';
 import { InputsComponent } from './inputs/inputs.component';
-import { TabComponent } from './tab/tab.component';
 import { ProfileComponent } from './profile/profile.component';
-import { StrategyComponent } from './strategy/strategy.component';
-import { TradingComponent } from './strategy/trading/trading.component';
+import { TradingComponent } from './screener/trading/trading.component';
 import { ToolsComponent } from './tools/tools.component';
 import { WhatchlistComponent } from './tools/whatchlist/whatchlist.component';
 import { ListComponent } from './tools/whatchlist/list/list.component';
@@ -36,7 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 const materials = [MatSlideToggleModule,MatButtonModule,MatFormFieldModule,MatRadioModule,MatExpansionModule,MatCheckboxModule,MatDialogModule];
 @NgModule({
-  declarations: [WindowsPlatformComponent, TabComponent, StrategyComponent, TradingComponent,
+  declarations: [WindowsPlatformComponent, TradingComponent,
      ToolsComponent, WhatchlistComponent, ListComponent, InformationComponent, PerformanceComponent,
       ScreenerComponent, SettingsComponent, HarmonicComponent, RowDirective, ColDirective,
       InputsComponent,ProfileComponent, DialogComponent, CandleComponent, ClassicComponent],

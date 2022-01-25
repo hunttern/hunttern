@@ -26,13 +26,15 @@
             </div>
         </section>
     </form>
-    <section *ngIf="harmonic">
-        <app-harmonic (harmonicPatterns)="drawPatterns($event)"></app-harmonic>
-    </section>
-    <section *ngIf="candle">
-        <app-candle (candlePatterns)="drawPatterns($event)"></app-candle>
-    </section>
-    <section *ngIf="classic">
-        <app-classic (classicPatterns)="drawPatterns($event)"></app-classic>
-    </section>
+    <div>
+        <section *ngIf="harmonic">
+            <app-harmonic (harmonicPatterns)="drawPatterns($event)"></app-harmonic>
+        </section>
+        <section *ngIf="candle">
+            <app-candle (candlePatterns)="drawPatterns($event)"></app-candle>
+        </section>
+        <section *ngIf="classic">
+            <app-classic (classicPatterns)="drawPatterns($event)"></app-classic>
+        </section>
+    </div>
 </body>

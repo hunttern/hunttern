@@ -1,4 +1,5 @@
 @import '../../../../../assets/styleSotrage/fonts';
+@import '../../../../../assets/styleSotrage/colors';
 @mixin col {
     display: flex;
     flex-direction: column;
@@ -7,6 +8,7 @@
 form{
     position: relative;
     height: 100%;
+    background-color: $darkPlatformBackgroundColor;
     section{
         padding: 1rem;
     }
