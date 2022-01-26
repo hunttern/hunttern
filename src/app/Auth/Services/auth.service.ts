@@ -3,11 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AuthResponseData, User } from '../management/users.model';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable()
 export class AuthService {
 
-  private baseurl: string = 'http://195.248.243.186:5000/api/Account/';
+  private baseurl: string = environment.baseurl + '/api/Account/';
 
   user = new BehaviorSubject<User|null>(null);
   

@@ -9,6 +9,8 @@ import { PositionService } from './Patterns/Services/Position/position.service';
 import { Store } from '@ngrx/store';
 import { BehaviorSubject } from 'rxjs';
 
+import { environment } from 'src/environments/environment.prod';
+
 interface Ipatterns{
   harmonic: any;
   classic: any;
@@ -25,7 +27,7 @@ export class SignalRService {
 
 
   hubConnection: signalR.HubConnection;
-  url: string = 'http://195.248.243.186:5000/TestHub';
+  url: string = environment.baseurl + '/TestHub';
   streams: any[] = [];
   token = this.getToken();
 

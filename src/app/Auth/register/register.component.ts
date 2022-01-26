@@ -29,7 +29,6 @@ export class RegisterComponent{
     const data = {email: this.registerForm.value.email, password: this.registerForm.value.password};
     this.store.dispatch(setLoading({status: true}));
     this.store.dispatch(registerStart({registerForm: data}))
-    this.dialog.close();
   }
   navigate(page: string){
     this.page.emit(page);

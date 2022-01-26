@@ -5,12 +5,13 @@ import { Ifeature, Iplan } from '../Model/Ifeature.interface';
 import { FormGroup } from '@angular/forms';
 import { Iuser } from '../Model/IUser.model';
 import { Store } from '@ngrx/store';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ManagerService {
-  private baseUrl: string = 'http://195.248.243.186:5000/api/';
+  private baseUrl: string = environment.baseurl + '/api/';
   token = this.getToken();
   reqheader = new HttpHeaders().set("Authorization", `bearer ${this.token}`);
   constructor(private http: HttpClient,private store: Store<any>) {}

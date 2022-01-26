@@ -6,12 +6,13 @@ import { patternClass } from './Patterns/Patterns.class';
 import { Store } from '@ngrx/store';
 
 import { testData } from '../Chart/Data/a';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable()
 export class ApiService implements IBasicDataFeed {
 
   symbols: any;
-  url: string = 'http://195.248.243.186:5000/api/home/';
+  url: string = environment.baseurl + '/api/coin/';
   interval: string = '5M';
   token = this.getToken();
   reqheader = new HttpHeaders().set("Authorization", `bearer ${this.token}`);
