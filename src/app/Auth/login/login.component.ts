@@ -24,7 +24,7 @@ export class LoginComponent {
     password: ['', Validators.required]
   })
 
-  onSubmit(){
+  onLogin(){
     const data = {email: this.loginForm.value.email, password: this.loginForm.value.password};
     this.store.dispatch(setLoading({status: true}));
     this.store.dispatch(loginStart({loginForm: data}));

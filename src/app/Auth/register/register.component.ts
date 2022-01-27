@@ -25,8 +25,8 @@ export class RegisterComponent{
     password: ['', Validators.required],
     confirmPassword: ['', Validators.required]
   }, {validator: checkPassword})
-  onSubmit(){
-    const data = {email: this.registerForm.value.email, password: this.registerForm.value.password};
+  onRegister(){
+    const data = {email: this.registerForm.value.email, password: this.registerForm.value.password,confirmPassword: this.registerForm.value.confirmPassword};
     this.store.dispatch(setLoading({status: true}));
     this.store.dispatch(registerStart({registerForm: data}))
   }

@@ -15,7 +15,7 @@ export class ForgetComponent{
   forgetForm: FormGroup = this.builder.group({
     email: ['',Validators.required]
   })
-  onSubmit(){
+  onForget(){
     this.dialog.close();
   }
   navigate(page: string){

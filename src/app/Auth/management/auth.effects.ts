@@ -36,8 +36,7 @@ export class AuthEffects {
                             horizontalPosition: 'center',
                             verticalPosition: 'top',
                             duration: 5000
-                        }
-                        )
+                        })
                         return of(setErrorMessage({ message: errorMessage }));
                     })
                 );
