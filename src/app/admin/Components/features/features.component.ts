@@ -20,6 +20,7 @@ export class FeaturesComponent {
     value: []
   });
   addFeature(){
-    this.feature$ = this.feature.addFeature(this.featureForm).subscribe();
+    const feature = {name: this.featureForm.value.name, value: this.featureForm.value.value}
+    this.feature$ = this.feature.addFeature(feature).subscribe();
   }
 }

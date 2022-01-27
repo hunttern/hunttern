@@ -9,9 +9,9 @@ import { UsersComponent } from './Components/users/users.component';
 const routes: Routes = [
   {path: '', component: AdminComponent, children: [
     {path:'plans', component: PlansComponent},
+    {path: '', redirectTo: 'plans', pathMatch: 'full'},
     {path:'features', component: FeaturesComponent},
-    {path:'users', component: UsersComponent},
-    {path: '**', redirectTo: 'plans', pathMatch: 'full'}
+    {path:'users', component: UsersComponent}
   ]}
 ];
 
