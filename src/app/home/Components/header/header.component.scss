@@ -4,12 +4,11 @@
                 linear-gradient(135deg, #584ED6, transparent 70%),linear-gradient(-45deg, rgb(116, 24, 24), #584ED6 40%);
     
     .free{
-        background: -webkit-linear-gradient(91.53deg, #E8A82C 0%, #EB5729 99.45%);
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #FF3216;
         font-size: 1.5em;
         text-align: center;
         z-index: 200;
+        text-align: center;
     }
 }
 section{

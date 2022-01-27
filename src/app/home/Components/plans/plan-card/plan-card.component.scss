@@ -16,6 +16,9 @@ body{
             line-height: 20px;
             text-align: center;
             color: #FFFFFF;
+            &.soon{
+                color: #FF3216;
+            }
             label{
                 font-size: 0.75em;
                 line-height: 20px;
