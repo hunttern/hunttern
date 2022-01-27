@@ -20,10 +20,10 @@ export class AuthEffects {
             ofType(loginStart),
             exhaustMap((action) => {
                 return this.authService.login(action.loginForm).pipe(
-                    map((data) => {
+                    map((data: any) => {
                         const user = this.authService.formatUser(data);
                         this.store.dispatch(setLoading({status: false}));
-                        this.store.dispatch(setRole({role: data.role}));
+                        this.store.dispatch(setRole({role: data.data.roles[0].name}));
                         this.dialog.closeAll();
                         this.router.navigate(['/platform']);
                         return loginSuccess({user: user});
