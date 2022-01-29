@@ -17,5 +17,4 @@ export const registerSuccess = createAction(USER_REGISTER_SUCCESS, props<{user: 
 export const setRole = createAction(LOGIN_ROLE, props<{role: string}>());
 export const loginFail = createAction(USER_LOGIN_FAIL, props<{message: string}>());
 export const registerFail = createAction(USER_REGISTER_FAIL, props<{message: string}>());
-export const USER_REGISTER = createAction('USER_REGISTER');
 export const logout = createAction(USER_LOGOUT);
