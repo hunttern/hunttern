@@ -11,6 +11,23 @@ import { SettingsComponent } from './screener/settings/settings.component';
 })
 export class WindowsPlatformComponent {
   constructor(private modal: MatDialog) {
+    if(window.innerWidth < 450){
+      this.w3 = 10;
+      this.w1 = 90;
+      this.maxTrade = 30;
+      this.maxTool = 50;
+    }else if(window.innerWidth < 821){
+      this.w3 = 5;
+      this.w1 = 95;
+      this.maxTrade = 30;
+      this.maxTool = 25;
+    }else{
+      this.w3 = 3;
+      this.w1 = 97;
+      this.maxTrade = 41;
+      this.maxTool = 22;
+    }
+    
     const windowSize = fromEvent(window, 'resize').pipe(
       tap((size: any) => {
         if(size.target.innerWidth < 450){
@@ -18,19 +35,16 @@ export class WindowsPlatformComponent {
           this.w1 = 90;
           this.maxTrade = 30;
           this.maxTool = 50;
-          console.log('1')
         }else if(size.target.innerWidth < 821){
           this.w3 = 5;
           this.w1 = 95;
           this.maxTrade = 30;
           this.maxTool = 25;
-          console.log('2')
         }else{
           this.w3 = 3;
           this.w1 = 97;
           this.maxTrade = 41;
           this.maxTool = 22;
-          console.log('3')
         }
       })
     ).subscribe();

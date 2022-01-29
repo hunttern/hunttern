@@ -23,6 +23,10 @@ section{
             font-size: 1em;
         }
     }
+    .title{
+        padding: 1rem;
+        font-size: 1.25em;
+    }
     mat-accordion{
         mat-expansion-panel{
             background-color: #19182E !important;
@@ -33,8 +37,7 @@ section{
         mat-expansion-panel-header{
             mat-panel-title{
                 color: #fff !important;
-                font-size: 1.5em;
-                line-height: 25px;
+
             }
         }
     }
@@ -45,10 +48,15 @@ section{
         padding: 1rem;
         mat-accordion{
             mat-expansion-panel-header{
+                padding: 1rem !important;
                 mat-panel-title{
                     font-size: 1em;
                 }
             }
+        }
+        .title{
+            padding: 1rem;
+            font-size: 0.87em;
         }
     }
 }
