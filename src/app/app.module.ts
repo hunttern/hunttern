@@ -10,16 +10,14 @@ import { AppComponent } from './app.component';
 
 import { HomeModule } from './home/home.module';
 import { LoginRegisterModule } from './Auth/login-register.module';
-import { TermsModule } from './terms/terms.module';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { AdminModule } from './admin/admin.module';
-import { WindowsPlatformModule } from './platform/windows-platform/windows-platform.module';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AppState } from './State/app.state';
 
 import { environment } from 'src/environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthEffects } from './Auth/management/auth.effects';
 
 @NgModule({
   declarations: [
@@ -31,13 +29,9 @@ import { environment } from 'src/environments/environment';
     NoopAnimationsModule,
     BrowserAnimationsModule,
     HomeModule,
+    HttpClientModule,
     LoginRegisterModule,
-    DashboardModule,
-    TermsModule,
-    DashboardModule,
-    WindowsPlatformModule,
-    AdminModule,
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([AuthEffects]),
     StoreModule.forRoot(AppState),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production

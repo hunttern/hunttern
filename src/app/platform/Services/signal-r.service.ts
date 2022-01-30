@@ -6,7 +6,6 @@ import { ZigzagService } from './Patterns/Services/zigzag.service';
 import { ReversalService } from './Patterns/Services/reversal.service';
 import { HarmoonicService } from './Patterns/Services/Prediction/harmoonic.service';
 import { PositionService } from './Patterns/Services/Position/position.service';
-import { Store } from '@ngrx/store';
 import { BehaviorSubject } from 'rxjs';
 
 import { environment } from 'src/environments/environment.prod';
@@ -38,8 +37,7 @@ export class SignalRService {
 
   constructor(private _drawHarmonic: HarmonicService, private _drawZigzag: ZigzagService,
      private _drawReversal: ReversalService, private _prediction: HarmoonicService,
-     private _drawPosition: PositionService,
-     private store: Store<any> 
+     private _drawPosition: PositionService
      ) {}
   _createSocket(interval: string) {
     const userId: string = patternClass.userId;
@@ -115,12 +113,6 @@ export class SignalRService {
     const zigzag = data.zigzag.value;
     const prediction = data.prediction;
     const error = data.error;
-    
-    
-    
-    
-    
-
     this.draw(showZigZag,prediction,zigzag,error,{harmonic: harmonicpatterns,classic: classicpatterns,candle: candlepatterns});
   }
   unsubscribeFromStream(subscriberUID?: any) {
@@ -162,7 +154,6 @@ export class SignalRService {
     this._prediction.chart = patternClass.chart;
     this._drawPosition.chart = patternClass.chart;
     const allpattern = patterns.harmonic.concat(patterns.classic.concat(patterns.candle));
-
     this.hubConnection.invoke('SetPatterns', {ShowZigZag: showZigZag, ShowPosition: true, ShowPrediction: prediction, ShowStatistic: false, ShowCandlePattern: true, PivotSensitivity: zigzag, HarmonicError: error, RisktoReward: 25, Patterns: allpattern});
     
     this.hubConnection.on("ProccessCandles", (msg: any) => {
@@ -191,9 +182,6 @@ export class SignalRService {
   }
   getToken(){
     let token: string = '';
-    this.store.select('auth').subscribe(data => {
-      token = data.user.localId;
-    });
     return token;
   }
 }

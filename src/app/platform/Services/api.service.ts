@@ -3,7 +3,6 @@ import { IBasicDataFeed } from '../../../assets/charting_library/charting_librar
 import { SignalRService } from './signal-r.service';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { patternClass } from './Patterns/Patterns.class';
-import { Store } from '@ngrx/store';
 
 import { testData } from '../Chart/Data/a';
 import { environment } from 'src/environments/environment.prod';
@@ -16,7 +15,7 @@ export class ApiService implements IBasicDataFeed {
   interval: string = '5M';
   token = this.getToken();
   reqheader = new HttpHeaders().set("Authorization", `bearer ${this.token}`);
-  constructor(public ws: SignalRService, private http: HttpClient,private store: Store<any>) {
+  constructor(public ws: SignalRService, private http: HttpClient) {
     this.symbols = testData.symbols;
   }
   // function convertTZ(date, tzString) {
@@ -158,9 +157,6 @@ export class ApiService implements IBasicDataFeed {
   }
   getToken(){
     let token: string = '';
-    this.store.select('auth').subscribe(data => {
-      token = data.user.localId;
-    });
     return token;
   }
 }

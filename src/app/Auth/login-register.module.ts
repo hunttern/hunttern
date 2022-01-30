@@ -20,8 +20,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoadingModule } from 'src/app/Shared/loading/loading.module';
 import { AuthService } from './Services/auth.service';
 import { AuthInterceptorService } from './Services/auth-interceptor.service';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 
-const materials = [MatSnackBarModule,MatIconModule];
+const materials = [MatSnackBarModule,MatIconModule,MatDialogModule];
 @NgModule({
   declarations: [LoginRegisterComponent, ForgetComponent, LoginComponent, RegisterComponent],
   imports: [
@@ -35,6 +36,7 @@ const materials = [MatSnackBarModule,MatIconModule];
     StoreModule.forFeature(AUTH_STATE_NAME, AuthReducer)
   ],
   exports: [LoginRegisterComponent],
-  providers: [AuthService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService,multi: true}]
+  providers: [AuthService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService,multi: true},
+    {provide: MatDialogRef, useValue: {}}]
 })
 export class LoginRegisterModule { }
