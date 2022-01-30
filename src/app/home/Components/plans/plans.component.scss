@@ -15,7 +15,8 @@ section{
         grid-template-columns: 1fr 1fr 1fr;
         gap: 1rem;
         .disable{
-            opacity: 0.2;
+            opacity: 0.5;
+            filter: blur(0.1rem);
         }
     }
 }

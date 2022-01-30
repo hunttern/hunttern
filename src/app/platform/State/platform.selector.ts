@@ -9,6 +9,4 @@ export const getHarmonic = createSelector(platformState, state => {return state.
 export const getCandle = createSelector(platformState, state => {return state.candlePatterns});
 export const getClassic = createSelector(platformState, state => {return state.classicPatterns});
 
-export const inputs = createSelector(platformState, state => {return state.inputs});
-
-export const loading = createSelector(platformState, state => {return state.loading});
+export const getInputs = createSelector(platformState, state => {return state.inputs});
