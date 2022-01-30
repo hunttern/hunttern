@@ -12,12 +12,14 @@ import { HomeModule } from './home/home.module';
 import { LoginRegisterModule } from './Auth/login-register.module';
 import { TermsModule } from './terms/terms.module';
 import { DashboardModule } from './dashboard/dashboard.module';
-import { PlatformModule } from './platform/platform.module';
 import { AdminModule } from './admin/admin.module';
-import { EffectsModule } from '@ngrx/effects';
+import { WindowsPlatformModule } from './platform/windows-platform/windows-platform.module';
+
 import { StoreModule } from '@ngrx/store';
-import { environment } from 'src/environments/environment';
+import { EffectsModule } from '@ngrx/effects';
 import { AppState } from './State/app.state';
+
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,7 @@ import { AppState } from './State/app.state';
     DashboardModule,
     TermsModule,
     DashboardModule,
-    PlatformModule,
+    WindowsPlatformModule,
     AdminModule,
     EffectsModule.forRoot([]),
     StoreModule.forRoot(AppState),

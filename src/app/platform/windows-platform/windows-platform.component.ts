@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { fromEvent } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { SettingsComponent } from './screener/settings/settings.component';
+import { SettingsComponent } from './components/screener/settings/settings.component';
 
 @Component({
   selector: 'app-windows-platform',

@@ -1,0 +1,96 @@
+@import '/src/assets/styleSotrage/vars';
+@import '/src/assets/styleSotrage/fonts';
+
+.hidescroll::-webkit-scrollbar{
+    display: none;
+}
+.hidescroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+body{
+    background-color: $platformBackground;
+    height: 100%;
+    display: grid;
+    nav{
+        padding: 0 1rem;
+        border-bottom: 0.1rem $platformBorder solid;
+        display: flex;
+        align-items: center;
+        ul{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 0;
+            list-style: none;
+            a{
+                font-size: $secondary;
+                color: $platformBorder;
+                text-decoration: none;
+                &.active{
+                    color: #D6D6EE;
+                }
+            }
+        }
+    }
+    form{
+        padding: 1rem 2rem;
+        border-bottom: 0.1rem $platformBorder solid;
+        .zigzag{
+            display: flex;
+            gap: 1rem;
+            color: #FFFFFF;
+            div{
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+            }
+        }
+        .inputs{
+            label{
+                margin-top: 1rem;
+                color: #7A7AB1;
+                font-size: $secondary;
+            }
+            input{
+                padding: 0.5rem;
+                margin-left: 1rem;
+                width: 75px;
+                height: 30px;
+                margin-bottom: 0.1rem;
+                background: transparent;
+                border: 1.3px solid #242448;
+                box-sizing: border-box;
+                border-radius: 8px;
+                color: #FFFFFF;
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+    }
+    >div{
+        border-bottom: 0.1rem $platformBorder solid;
+    }
+}
+@media (max-width: 821px){
+    body{
+        width: 100%;
+        nav{
+            width: 100%;
+            ul{
+                display: flex;
+                justify-content: flex-start;
+                gap: 0.5rem;
+            }
+        }
+        form{
+            .zigzag{
+                div{
+                    display: grid;
+                }
+            }
+        }
+    }
+}

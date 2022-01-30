@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: 'user', component: LoginRegisterComponent},
   {path: 'terms', loadChildren: () => import('./terms/terms.module').then(m => m.TermsModule) },
   {path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),canActivate:[AuthGuard]},
-  {path: 'platform', loadChildren: () => import('./platform/platform.module').then(m => m.PlatformModule),canActivate:[AuthGuard]},
+  {path: 'platform', loadChildren: () => import('./platform/windows-platform/windows-platform.module').then(m => m.WindowsPlatformModule),canActivate:[AuthGuard]},
   {path: 'admin', loadChildren: () => import ('./admin/admin.module').then(m => m.AdminModule), canActivate:[AuthGuard]},
   {path: '**' , redirectTo: 'home'},
 ];

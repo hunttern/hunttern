@@ -1,0 +1,117 @@
+@import "/src/assets/styleSotrage/vars";
+@import "/src/assets/styleSotrage/fonts";
+section{
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100vw;
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        font-size: $main;
+        .edit{
+            display: flex;
+            gap: 0.5rem;
+            button{
+                color: #D6D6EE;
+                background-color: transparent;
+                border: none;
+                i{
+                    color: #8282B2;
+                }
+            }
+        }
+        .selection{
+            position: relative;
+            button{
+                color: #D6D6EE;
+                background-color: transparent;
+                border: none;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                button{
+                    font-size: 1em;
+                    display: none;
+                    i{
+                        font-size: 1em;
+                        color: red;
+                    }
+                }
+                &:hover{
+                    button{
+                        display: flex;
+                    }
+                }
+            }
+        }
+        .lists{
+            position: absolute;
+            z-index: 200;
+            border-radius: 3px;
+            border: thin solid #7D7DB1;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            
+            padding: 0;
+            li{
+                background-color: $platformBackground;
+                padding: 0.5rem 1rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                &:not(:last-child){
+                    border-bottom: thin solid #7D7DB1;
+                }
+            }
+        }
+        .editWatchlist{
+            right: 2rem;
+            .columns{
+                right: 6.5rem;
+            }
+        }
+    }
+    body{
+        background-color: transparent;
+        table{
+            width: 100%;
+            padding: 0.5rem;
+            tr{
+                margin-top: 0.5rem;
+                background-color: $platformBackground;
+                cursor: pointer;
+                &.active{
+                    background-color: $platformBorder;
+                }
+            }
+            tr:not(:last-child){
+                border-bottom: 0.025rem solid $platformBorder;
+            }
+            th{
+                font-size: $secondary;
+                padding: 00.5rem;
+                color: #585886;
+            }
+            td{
+                padding: 00.5rem;
+                font-size: $secondary;
+                color: #D6D6EE;
+            }
+            .change{
+                color: #28CD7E;
+            }
+        }
+    }
+}
+.hidescroll::-webkit-scrollbar{
+    display: none;
+}
+.hidescroll {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}

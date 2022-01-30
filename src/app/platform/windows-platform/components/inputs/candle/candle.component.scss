@@ -1,0 +1,72 @@
+@import '/src/assets/styleSotrage/fonts';
+@import '/src/assets/styleSotrage/colors';
+@mixin col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+form{
+    position: relative;
+    height: 100%;
+    background-color: $darkPlatformBackgroundColor;
+    section{
+        padding: 1rem;
+    }
+    .patterns{
+        margin-top: 1rem;
+        padding: 0;
+        li{
+            color: #FFFFFF;
+            font-size: $secondary;
+        }
+    }
+    
+    .buttons{
+        margin-top: 1rem;
+        padding: 1rem;
+        border-top: 1px solid #2C2C57;
+        button{
+            color: #FFFFFF;
+            background: #7146EB;
+            border: none;
+            width: 50%;
+            border-radius: 12px;
+        }
+    }
+    ul{
+        list-style: none;
+        @include col();
+        li{
+          input{
+              width: 15px;
+              height: 15px;
+          }
+          label{
+            font-size: $secondary;
+            color: #CCCCE4;
+          }
+        }
+    }
+    .inputs{
+        label{
+            margin-top: 1rem;
+            color: #7A7AB1;
+            font-size: $secondary;
+        }
+        input{
+            padding: 0.5rem;
+            margin-left: 1rem;
+            width: 75px;
+            height: 30px;
+            margin-bottom: 0.1rem;
+            background: transparent;
+            border: 1.3px solid #242448;
+            box-sizing: border-box;
+            border-radius: 8px;
+            color: #FFFFFF;
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+}

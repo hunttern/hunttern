@@ -1,0 +1,30 @@
+@import '/src/assets/styleSotrage/vars';
+@import '/src/assets/styleSotrage/colors';
+.main{
+    height: 100%;
+    background-color: $darkPlatformBackgroundColor;
+    .list{
+        overflow-x: hidden;
+        position: relative;
+        width: 100%;
+        padding-bottom: 10px;
+        span{
+            position: absolute;
+            background-color: $platformBorder;
+            height: 10px;
+            width: 100%;
+            bottom: 0;
+        }
+    }
+    .info{
+        width: 100%;
+        overflow-x: hidden;
+    }
+}
+.hidescroll::-webkit-scrollbar{
+    display: none;
+}
+.hidescroll {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
