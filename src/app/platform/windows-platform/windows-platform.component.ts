@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { fromEvent } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { fromEvent, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { getLoading } from 'src/app/platform/State/platform.selector';
+import { iPlatformState } from '../State/platform.state';
 import { SettingsComponent } from './components/screener/settings/settings.component';
 
 @Component({
@@ -10,7 +13,8 @@ import { SettingsComponent } from './components/screener/settings/settings.compo
   styleUrls: ['./windows-platform.component.scss']
 })
 export class WindowsPlatformComponent {
-  constructor(private modal: MatDialog) {
+  loading$: Observable<boolean> = this.store.select(getLoading);
+  constructor(private modal: MatDialog,private store: Store<iPlatformState>) {
     if(window.innerWidth < 450){
       this.w3 = 10;
       this.w1 = 90;

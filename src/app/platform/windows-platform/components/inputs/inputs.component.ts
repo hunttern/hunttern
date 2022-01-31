@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { setLoading } from 'src/app/platform/State/platform.action';
+import { iPlatformState } from 'src/app/platform/State/platform.state';
 import { SignalRService } from '../../../Services/signal-r.service';
 
 interface Ipatterns{
@@ -17,7 +20,7 @@ interface Ipatterns{
 })
 export class InputsComponent{
 
-  constructor(private signalr: SignalRService, private fb: FormBuilder) { }
+  constructor(private signalr: SignalRService, private fb: FormBuilder,private store: Store<iPlatformState>) { }
   patterns: Ipatterns = {harmonic: null, classic: null,candle: null,zigzag: {active: false,value: 10},prediction: false,error: 10};
   harmonic: boolean = true;
   classic: boolean = false;
@@ -71,6 +74,7 @@ export class InputsComponent{
     this.patterns.zigzag = {active: formValues.zigzagdraw,value: formValues.zigzag};
     this.patterns.error = formValues.error;
     this.patterns.prediction = formValues.prediction;
+    this.store.dispatch(setLoading({status: true}));
     this.signalr.OnClick(this.patterns);
   }
 }

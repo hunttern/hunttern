@@ -38,6 +38,10 @@ import { InputsComponent } from './components/inputs/inputs.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DialogComponent } from './components/tools/whatchlist/dialog/dialog.component';
 import { CandleComponent } from './components/inputs/candle/candle.component';
+import { StoreModule } from '@ngrx/store';
+import { PLATFORM_STATE_NAME } from '../State/platform.selector';
+import { PlatformReducer } from '../State/platform.reducer';
+import { LoadingModule } from 'src/app/Shared/loading/loading.module';
 
 const materials = [MatSlideToggleModule,MatButtonModule,MatFormFieldModule,MatRadioModule,MatExpansionModule,MatCheckboxModule,MatDialogModule];
 @NgModule({
@@ -52,7 +56,9 @@ const materials = [MatSlideToggleModule,MatButtonModule,MatFormFieldModule,MatRa
     ReactiveFormsModule,
     ChartModule,
     PlatformRoutingModule,
-    materials
+    materials,
+    LoadingModule,
+    StoreModule.forFeature(PLATFORM_STATE_NAME, PlatformReducer)
   ],
   exports: [WindowsPlatformComponent],
   providers: [ApiService,SignalRService,HarmonicService,ZigzagService,PredictionReversalService,ContinuationService,ReversalService,HarmoonicService]

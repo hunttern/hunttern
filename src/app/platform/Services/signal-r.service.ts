@@ -9,6 +9,9 @@ import { PositionService } from './Patterns/Services/Position/position.service';
 import { BehaviorSubject } from 'rxjs';
 
 import { environment } from 'src/environments/environment.prod';
+import { Store } from '@ngrx/store';
+import { iPlatformState } from '../State/platform.state';
+import { setLoading } from '../State/platform.action';
 
 interface Ipatterns{
   harmonic: any;
@@ -37,7 +40,7 @@ export class SignalRService {
 
   constructor(private _drawHarmonic: HarmonicService, private _drawZigzag: ZigzagService,
      private _drawReversal: ReversalService, private _prediction: HarmoonicService,
-     private _drawPosition: PositionService
+     private _drawPosition: PositionService, private store: Store<iPlatformState>
      ) {}
   _createSocket(interval: string) {
     const userId: string = patternClass.userId;
@@ -177,7 +180,7 @@ export class SignalRService {
       }else{
         this._prediction.removePatterns();
       }
-      // SignalRService.loading$.next(false);
+      this.store.dispatch(setLoading({status: false}));
     });
   }
   getToken(){

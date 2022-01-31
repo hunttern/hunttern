@@ -1,8 +1,9 @@
 <body>
 	<div [style.width]="w1+'%'" class="col1">
-		<div class="hidescroll" [style.height]="h1+'%'" class="chart">
+		<div class="hidescroll chart" [style.height]="h1+'%'">
 			<app-chart></app-chart>
-			  <span Row (relative)="setPerY1($event)"></span>
+			<app-loading class="loading" *ngIf="loading$ | async"></app-loading>
+			<span Row (relative)="setPerY1($event)"></span>
 		</div>
 		<header class="hidescroll">
 			<div *ngIf="screener" class="preview">
